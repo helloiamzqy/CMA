@@ -20,6 +20,7 @@
 	<mvc:resources location="/" mapping="/*.html"></mvc:resources>
 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/js/" mapping="/js/*.js"></mvc:resources>
+	<mvc:resources location="/common/" mapping="/js/*.js"></mvc:resources>
 	<mvc:resources location="/imgs/" mapping="/images/*.jpg"></mvc:resources>
 	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
