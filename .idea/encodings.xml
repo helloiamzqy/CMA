@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/merchant" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/util" charset="UTF-8" />
   </component>
 </project>

@@ -9,6 +9,7 @@
         <module name="admin" />
         <module name="customer" />
         <module name="merchant" />
+        <module name="util" />
       </profile>
     </annotationProcessing>
   </component>

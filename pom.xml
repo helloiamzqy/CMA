@@ -12,6 +12,7 @@
         <module>merchant</module>
         <module>customer</module>
         <module>admin</module>
+        <module>util</module>
     </modules>
 
     <properties>
