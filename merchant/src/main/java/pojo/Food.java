@@ -21,7 +21,7 @@ public class Food {
     @Column(nullable = false)
     private String picture;
 
-    @Column(columnDefinition = "default 0")
+    @Column(columnDefinition = "varchar2(255) default 0")
     private String status;
 
     @ManyToOne
