@@ -36,8 +36,6 @@ public class RegisterInfo {
     @Column(nullable = false)
     private String address;
 
-    @Column(columnDefinition = "varchar2(255) default 0")
-    private String status;
 
     private String comments;
 
@@ -111,14 +109,6 @@ public class RegisterInfo {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getComments() {
