@@ -22,6 +22,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
     @PostMapping
     public void addUser(@RequestParam("file")MultipartFile multiUploadFile, HttpServletRequest request){
         String birth = request.getParameter("birth");
