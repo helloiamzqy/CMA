@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Merchant</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/book.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <style>
+    </style>
+</head>
+<body>
+<div class="container" align="center">
+    <div>
+        <form action="/user" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="id" name="id">
+            姓名：<input type="text" id="bname" name="username">
+            头像：<input type="file" id="author" name="file">
+            性别：<select name="sex">
+            <option value ="0">male</option>
+            <option value ="1">female</option>
+        </select>
+            生日：<input type="date" id="publishDate" name="birth">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</div>
+<script>
+    $(function () {
+
+    })
+</script>
+</body>
+</html>
