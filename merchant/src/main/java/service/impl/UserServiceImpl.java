@@ -4,7 +4,7 @@ package service.impl;
 import org.springframework.stereotype.Component;
 import service.UserService;
 import com.google.gson.Gson;
-import jmsmananger.JmsSender;
+import mananger.JmsSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import pojo.User;
 
