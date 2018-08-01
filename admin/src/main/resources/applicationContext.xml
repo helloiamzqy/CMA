@@ -22,4 +22,5 @@
 
 	<import resource="databaseApplication.xml"></import>
 	<import resource="JMSApplication.xml"></import>
+
 </beans>
