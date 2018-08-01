@@ -1,6 +1,7 @@
 package contexttest;
 
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,5 +18,6 @@ public class ContextTest {
         context = new ClassPathXmlApplicationContext("applicationContext.xml");
 //        manager = context.getId("entityManagerFactory");
     }
-
+    @Test
+    public void testContext(){}
 }

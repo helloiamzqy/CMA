@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "comments")
-public class Comments {
+public class Comment {
     @Id
     @GenericGenerator(strategy="uuid",name="uuid")
     @GeneratedValue(generator="uuid")
@@ -23,6 +23,16 @@ public class Comments {
     @Column(nullable = false,name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
+
+    private int rank;
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
 
     public String getId() {
         return id;
