@@ -44,9 +44,9 @@
             </constructor-arg>
         </bean>
         <!--这个是主题目的地，一对多的 -->
-        <bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
-            <constructor-arg value="topic01" />
-        </bean>
+        <!--<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">-->
+            <!--<constructor-arg value="topic01" />-->
+        <!--</bean>-->
         <!--&lt;!&ndash; 消息监听容器 &ndash;&gt;-->
     <!--<bean id="jmsContainer"-->
     <!--class="org.springframework.jms.listener.DefaultMessageListenerContainer">-->
