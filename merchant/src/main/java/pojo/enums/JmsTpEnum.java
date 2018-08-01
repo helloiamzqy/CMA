@@ -3,6 +3,6 @@ package pojo.enums;
 /**
  * @author Dunn
  */
-public enum JmxTpEnum {
+public enum JmsTpEnum {
     ADVERSITMENT, COMPLAIN,APPLY
 }
