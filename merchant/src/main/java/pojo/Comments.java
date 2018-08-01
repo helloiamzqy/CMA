@@ -17,6 +17,7 @@ public class Comments {
     private  String  content;
 
     @OneToOne
+    @JoinColumn(name="o_id")
     private Order order;
 
     @Column(nullable = false,name = "create_time")

@@ -28,7 +28,7 @@ public class Order {
 
 
     private String status;
-    @Column(precision = 9,scale = 2)
+    @Column(precision = 9,scale = 2,name="total_price")
     private double totalPrice;
 
     @ManyToOne

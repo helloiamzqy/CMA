@@ -13,6 +13,7 @@ public class RegisterInfo {
     private String id;
 
     @OneToOne
+    @JoinColumn(name = "m_id")
     private Merchant merchant;
 
     @Column(name = "credit_code",nullable = false)
