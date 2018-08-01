@@ -1,4 +1,4 @@
-package jmsmanager;
+package listener;
 
 import org.springframework.stereotype.Component;
 

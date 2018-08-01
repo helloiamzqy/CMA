@@ -19,12 +19,24 @@ public class Advertisement {
     @Column(name = "merchant_id",nullable = false)
     private String merchantId;
 
+    @Column(name = "merchant_name",nullable = false)
+    private String merchantName;
+
     @Column(nullable = false)
     private String picture;
 
-    public Advertisement(String merchantId, String picture) {
+    @Column(nullable = false,columnDefinition = "String default 1")
+    private String status;
+
+    @Column(nullable = false)
+    private double price;
+
+    public Advertisement(String merchantId, String merchantName, String picture, String status, double price) {
         this.merchantId = merchantId;
+        this.merchantName = merchantName;
         this.picture = picture;
+        this.status = status;
+        this.price = price;
     }
 
     public Advertisement() {
@@ -46,11 +58,35 @@ public class Advertisement {
         this.merchantId = merchantId;
     }
 
+    public String getMerchantName() {
+        return merchantName;
+    }
+
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName;
+    }
+
     public String getPicture() {
         return picture;
     }
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
