@@ -1,44 +1,28 @@
-package pojo;
+package dto;
 
-import dto.RegisterInfoDto;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-import java.util.UUID;
-
-@Entity
-@Table(name =  "register_info")
-public class RegisterInfo {
-    @Id
-    @GenericGenerator(strategy="uuid",name="uuid")
-    @GeneratedValue(generator="uuid")
+/**
+ * @author Dunn
+ */
+public class RegisterInfoDto {
     private String id;
 
-    @OneToOne
-    @JoinColumn(name = "m_id")
-    private Merchant merchant;
+    private String merchantId;
 
-    @Column(name = "credit_code",nullable = false)
     private String creditCode;
 
-    @Column(name = "id_card",nullable = false)
     private String idCard;
 
-    @Column(name = "corporate_name",nullable = false)
     private String corporateName;
 
-    @Column(nullable = false)
     private String picture;
 
-    @Column(nullable = false)
     private String phone;
 
-    @Column(nullable = false)
     private String shopName;
 
-    @Column(nullable = false)
     private String address;
 
+    private String status;
 
     private String comments;
 
@@ -50,12 +34,12 @@ public class RegisterInfo {
         this.id = id;
     }
 
-    public Merchant getMerchant() {
-        return merchant;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setMerchant(Merchant merchant) {
-        this.merchant = merchant;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
     public String getCreditCode() {
@@ -114,6 +98,14 @@ public class RegisterInfo {
         this.address = address;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getComments() {
         return comments;
     }
@@ -122,19 +114,4 @@ public class RegisterInfo {
         this.comments = comments;
     }
 
-    public RegisterInfoDto toDto(){
-        RegisterInfoDto registerInfoDto = new RegisterInfoDto();
-        registerInfoDto.setAddress(this.address);
-        registerInfoDto.setComments(this.comments);
-        registerInfoDto.setCorporateName(this.corporateName);
-        registerInfoDto.setCreditCode(this.creditCode);
-        registerInfoDto.setMerchantId(this.merchant.getId());
-        registerInfoDto.setIdCard(this.idCard);
-        registerInfoDto.setPhone(this.phone);
-        registerInfoDto.setPicture(this.picture);
-        registerInfoDto.setShopName(this.shopName);
-//        registerInfoDto.setId(UUID.randomUUID().toString());
-//        registerInfoDto.setStatus("0");
-        return registerInfoDto;
-    }
 }
