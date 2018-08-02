@@ -8,7 +8,7 @@ import pojo.enums.JmsTpEnum;
  * @author dunn
  */
 public class JmxTp {
-    private Enum<JmsTpEnum> jmxTpEnum;
+    private JmsTpEnum jmxTpEnum;
 
     private Object object;
 
@@ -20,12 +20,11 @@ public class JmxTp {
         this.object = object;
     }
 
-    public Enum<JmsTpEnum> getJmxTpEnum() {
-        return jmxTpEnum;
-    }
-
-    public void setJmxTpEnum(Enum<JmsTpEnum> jmxTpEnum) {
+    public void setJmxTpEnum(JmsTpEnum jmxTpEnum) {
         this.jmxTpEnum = jmxTpEnum;
     }
 
+    public JmsTpEnum getJmxTpEnum() {
+        return jmxTpEnum;
+    }
 }

@@ -18,7 +18,7 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @Column(name = "finish_time",nullable = false)
+    @Column(name = "finish_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date finishTime;
 
