@@ -83,3 +83,59 @@ a{
     width: 80px;
     height: 45px;
 }
+
+.detail1{
+    text-align: center;
+    position: relative;
+    /*margin-right: 40px;*/
+    z-index: 1;
+    width: 100px;
+    border: 1px solid #ffd5b7;
+    margin-left: 1px;
+}
+.detail2{
+    text-align: center;
+    position: relative;
+    /*margin-right: 40px;*/
+    z-index: 1;
+    width: 180px;
+    border: 1px solid #ffd5b7;
+    margin-left: 1px;
+}
+.nu{
+    margin-top: 0px;
+}
+
+.detailInfo{
+    height: 50px;
+    width: 500px;
+    /*background-color: #ffd161;*/
+    text-align: center;
+    line-height: 50px;
+    color: #333;
+    /*font-weight: bold;*/
+    /* display: none; */
+    border: 0;
+    /* cursor: pointer; */
+    /*font-size: 16px;*/
+    border-radius: 0;
+    position: absolute;
+    right: 0px;
+    margin-top: 10px;
+}
+
+.merchantInfo{
+    /*background-color: #eae13c;*/
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    height: 120px;
+    margin-top: 0px;
+}
+
+.shopImg{
+    font-size: 16px;
+    position: absolute;
+    top: 13px;
+    left: 12px;
+}
