@@ -24,20 +24,20 @@ public class BasicInfoDaoImpl implements BasicInfoDao {
 
     @Override
     public BasicInfo updateBasicInfo(BasicInfo basicInfo) {
-        BasicInfo basicInfo1=manager.merge(basicInfo);
+        BasicInfo basicInfo1 = manager.merge(basicInfo);
         return basicInfo1;
     }
 
     @Override
     public List<BasicInfo> findAllBasicInfo() {
-        String spql="from pojo.BasicInfo";
-        List<BasicInfo> basicInfos=manager.createQuery(spql).getResultList();
+        String spql = "from pojo.BasicInfo";
+        List<BasicInfo> basicInfos = manager.createQuery(spql).getResultList();
         return basicInfos;
     }
 
     @Override
     public Pager findAllBasicInfo(int curPage, int pageSize) {
-        String jpql ="FROM pojo.BasicInfo";
+        String jpql = "FROM pojo.BasicInfo";
         Query query = manager.createQuery(jpql);
         List<BasicInfo> basicInfos = query.getResultList();
         int totalPage = basicInfos.size() / pageSize;
@@ -48,5 +48,15 @@ public class BasicInfoDaoImpl implements BasicInfoDao {
                 .getResultList();
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, basicInfos);
         return pager;
+    }
+
+    public BasicInfo findBasicInfoById(String id) {
+        String jpql = "FROM pojo.BasicInfo where merchant.id=:id";
+
+        BasicInfo basicInfo =(BasicInfo) manager.createQuery(jpql)
+                .setParameter("id", id)
+                .getSingleResult();
+
+        return basicInfo;
     }
 }

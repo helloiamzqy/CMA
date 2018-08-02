@@ -10,4 +10,5 @@ public interface BasicInfoDao {
     public BasicInfo updateBasicInfo(BasicInfo basicInfo);
     public List<BasicInfo> findAllBasicInfo();
     public Pager findAllBasicInfo(int curPage, int pageSize);
+    public BasicInfo findBasicInfoById(String id);
 }

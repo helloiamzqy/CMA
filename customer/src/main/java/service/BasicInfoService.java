@@ -9,5 +9,6 @@ public interface BasicInfoService {
     public BasicInfo addBasicInfo(BasicInfo basicInfo, String mId);
     public BasicInfo updateBasicInfo(BasicInfo basicInfo);
     public List<BasicInfo> findAllBasicInfo();
-    Pager findAllBasicInfo(int curPage, int pageSize);
+    public Pager findAllBasicInfo(int curPage, int pageSize);
+    public BasicInfo findBasicInfoById(String id);
 }

@@ -44,5 +44,10 @@ public class MerchantController {
     }
 
 
-
+    @ResponseBody
+    @RequestMapping(value = "/showMerchantDetail")
+    public BasicInfo findBasicInfo(String shop_id) {
+        System.out.println("shop_id :"+shop_id);
+        return basicInfoService.findBasicInfoById(shop_id);
+    }
 }

@@ -5,7 +5,6 @@ window.onload=function () {
     let method="POST";
     let headers=[{"key":"Content-Type","value":"application/json"}];
     function renderTable(merchants) {
-        alert(merchants)
         $("#merchants").empty();
         //拼接商家信息
         for(let i=0;i<merchants.length;i++){
@@ -65,7 +64,6 @@ window.onload=function () {
             url: url,
             dataType:"json",
             success: function(data){
-                alert(JSON.stringify(data))
                 renderTable(data.list);
                 renderNav(data);
             }
