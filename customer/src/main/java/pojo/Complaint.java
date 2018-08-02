@@ -10,28 +10,28 @@ import java.util.Date;
  * @author JohnGao
  * @date 8/1/2018 8:07 PM
  */
-@Entity
-@Table(name="complaint")
+//@Entity
+//@Table(name="complaint")
 public class Complaint {
-    @Id
-    @GenericGenerator(strategy="uuid",name="uuid")
-    @GeneratedValue(generator="uuid")
+//    @Id
+//    @GenericGenerator(strategy="uuid",name="uuid")
+//    @GeneratedValue(generator="uuid")
     private String id;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String reason;
 
-    @Column(name = "merchant_id",nullable = false)
+//    @Column(name = "merchant_id",nullable = false)
     private String merchantId;
 
-    @Column(name = "order_id",nullable = false)
+//    @Column(name = "order_id",nullable = false)
     private String orderId;
-
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "create_time",nullable = false)
-    private Date createTime;
 
     public Complaint() {
     }
+
+//    @JsonFormat(pattern = "yyyy-MM-dd")
+//    @Column(name = "create_time",nullable = false)
+    private Date createTime;
 
     public Complaint(String reason, String merchantId, String orderId, Date createTime) {
         this.reason = reason;
