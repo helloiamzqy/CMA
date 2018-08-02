@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+     <script src="../js/merchant.js"></script>
+    <style>
+        #ad{
+            width: 1000px;
+            margin: 0px auto;
+        }
+        #merchant{
+            margin: 0px auto;
+            width: 200px;
+            height: 240px;
+        }
+        .merchantImg{
+            text-align: center;
+        }
+        .merchantDetail{
+            /*4.22 14:00 修改*/
+            margin-top: 15px;
+            margin-left: 10px;
+        }
+        .segmentation{
+            margin: 0px auto;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            color: #ffa23b;
+        }
+        .paging_nav{
+            /*4.22 14:00 新增*/
+            margin-top: 100px;
+            margin-left: 30%;
+        }
+        .shopName{
+            /*4.22 14:00 新增*/
+
+            font-size: 15px;
+            font-weight: 600;
+            color: #0c0b0b;
+        }
+        .slogan{
+            /*4.22 14:00 新增*/
+            font-size: 13px;
+            color: #b4aeb3;
+        }
+    </style>
+
+</head>
+<body>
+<div class="carrie_body">
+    <br>
+    <div id="carrie_header">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a href="##">主页</a></li>
+            <li><a href="##">登录</a></li>
+            <li><a href="##">购物车</a></li>
+            <li><a href="##">订单</a></li>
+            <li><a href="##">我的</a></li>
+        </ul>
+    </div>
+    <br>
+    <br>
+
+    <div id="navContent">
+        <!-- start advertisement-->
+        <div id="ad">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators" id="olnum">
+
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox" id="adver">
+
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- end advertisement-->
+
+        <br>
+        <br>
+        <br>
+        <div class="segmentation">
+            ************商家列表************
+        </div>
+        <br>
+
+        <div id="merchants">
+            <div class="row">
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 4.22 14:00 carrie修改-->
+    <div class="paging_nav">
+        <nav aria-label="...">
+            <ul class="pagination" id="navul">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                <li class="active"><a href="#">1 </a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+</body>
+
+                // carrie 4.22 14:00 修改shopName和slogan的格式
+</html>

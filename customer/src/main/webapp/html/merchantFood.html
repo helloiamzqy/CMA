@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/carrie_style.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../js/util.js"></script>
+    <link rel="stylesheet" href="../css/merchantFood.css">
+    <script src="../js/cartService.js"></script>
+     <script src="../js/merchantFood.js"></script>
+    
+    <style>
+
+        #dish {
+            margin: 0px auto;
+            /*background-color: gold;*/
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .dishDetail {
+            margin-top: 15px;
+            margin-left: 0px;
+        }
+
+        .addBtn {
+            color: #b4aeb3;
+            left: 100px;
+        }
+
+        .cartImg {
+            font-size: 2em;
+            position: absolute;
+            top: 13px;
+            left: 12px;
+        }
+
+        .segmentation {
+            width: 610px;
+            height: 35px;
+            background-color: #ffd9d0;
+            font-size: 20px;
+            text-align: center;
+            margin-top: 20px;
+            /*margin-left: 7px;*/
+        }
+
+        .go-pay {
+            height: 50px;
+            width: 100px;
+            background-color: #ffd161;
+            text-align: center;
+            line-height: 50px;
+            color: #333;
+            font-weight: bold;
+            /*padding: 0 px;*/
+            /*display: none;*/
+            border: 0;
+            /*cursor: pointer;*/
+            font-size: 16px;
+            border-radius: 0;
+            position: absolute;
+            right: 0px;
+        }
+
+        .foodName{
+            /*4.22 14:00 新增*/
+            font-size: 15px;
+            font-weight: 600;
+            color: #0c0b0b;
+        }
+        .foodPri{
+            /*4.22 14:00 新增*/
+            font-size: 13px;
+            color: red;
+        }
+
+        #content{
+            width: 800px;
+            margin-left: 10px;
+        }
+
+        .paging_nav{
+            /*4.22 14:00 新增*/
+            margin-top: 50px;
+            margin-left: 30%;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="carrie_body">
+
+    <br>
+    <div id="carrie_header">
+        <ul class="nav nav-tabs nav-justified">
+            <li><a href="##">主页</a></li>
+            <li><a href="##">登录</a></li>
+            <li><a href="##">购物车</a></li>
+            <li><a href="##">订单</a></li>
+            <li><a href="##">我的</a></li>
+        </ul>
+    </div>
+    <br>
+    <br>
+
+    <div id="content">
+        <div class="merchantInfo" id="imgDiv">
+
+        </div>
+
+        <div class="segmentation">
+            菜品
+        </div>
+
+        <div id="dishes">
+            <div class="row" id="dishList">
+
+
+            </div>
+
+        </div>
+
+
+        <!-- 4.22 14:00 carrie修改-->
+        <div class="paging_nav">
+            <nav aria-label="...">
+                <ul class="pagination" id="navul">
+                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                    <li class="active"><a href="#">1 </a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="shopping-cart">
+        <div class="title">
+            <span class="f1">购物车</span>
+            <span class="fr dishes">
+                <i></i>
+                <a class="clear-cart" href="" onclick="clearCart()">清空菜品</a>
+            </span>
+        </div>
+        <div>
+            <div id="dishCart"></div>
+            <div class="footer">
+                <span class="cartImg glyphicon glyphicon-shopping-cart"></span>
+                <!--<span class="fr go-pay">立即下单</span>-->
+                <div class="go-pay"><a href="" id="order">立即下单</a></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+
+
+</html>
