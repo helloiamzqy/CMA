@@ -42,4 +42,13 @@ public class Merchant {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Merchant{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

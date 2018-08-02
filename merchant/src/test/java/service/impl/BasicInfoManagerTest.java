@@ -30,8 +30,9 @@ public class BasicInfoManagerTest {
         basicInfo.setCloseTime(new Date());
         basicInfo.setOpenTime(new Date());
         basicInfo.setPicture("fdafda");
-        BasicInfo basicInfo1= manager.addBasicInfo(basicInfo,"8a5e9d3c64f84c7f0164f84c845c0001");
-        Assert.assertTrue(basicInfo1.getMerchant().getId().equals("8a5e9d3c64f84c7f0164f84c845c0001"));
+        basicInfo.setShopName("dafadf");
+        BasicInfo basicInfo1= manager.addBasicInfo(basicInfo,"8a5e9d3c64f9f8210164f9f8281b0005");
+        Assert.assertTrue(basicInfo1.getMerchant().getId().equals("8a5e9d3c64f9f8210164f9f8281b0005"));
 
     }
 
@@ -41,8 +42,14 @@ public class BasicInfoManagerTest {
         basicInfo.setCloseTime(new Date());
         basicInfo.setOpenTime(new Date());
         basicInfo.setPicture("HELLO");
-        basicInfo.setId("8a5e9d3d64f90b6f0164f90b760f0000");
-        BasicInfo basicInfo1=manager.updateBasicInfo(basicInfo);
+        basicInfo.setShopName("HELLO");
+        basicInfo.setId("8a5e9d3d64fa06730164fa0678fe0000");
+        BasicInfo basicInfo1=manager.updateBasicInfo(basicInfo,"8a5e9d3c64f9eff80164f9effee40001");
         Assert.assertTrue(basicInfo1.getPicture().equals("HELLO"));
+    }
+    @Test
+    public void testFindBasicInfoByMerchant(){
+        BasicInfo basicInfo=manager.findBasicInfoByMerchant("8a5e9d3d64f9eed50164f9eedabf0001");
+        Assert.assertTrue(basicInfo.getMerchant().getId().equals("8a5e9d3d64f9eed50164f9eedabf0001"));
     }
 }
