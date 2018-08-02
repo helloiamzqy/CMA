@@ -16,6 +16,7 @@ public class Merchant {
     @Column(nullable = false)
     private String name;
 
+
     @Column(nullable = false)
     private String password;
 
