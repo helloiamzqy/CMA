@@ -7,14 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09ef6c6e-5ed8-4a85-9594-2043174f668b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/dao/MerchantInfoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/dao/impl/MerchantInfoDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/service/MerchantInfoManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/service/impl/MerchantInfoManagerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/test/java/MerchantInfoManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/main/java/controller/MerchantInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/resources/databaseApplication.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/resources/databaseApplication.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/target/classes/databaseApplication.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/target/classes/databaseApplication.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/dao/AdvertisementDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/dao/AdvertisementDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/dao/MerchantInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/dao/MerchantInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/dao/impl/AdvertisementDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/dao/impl/AdvertisementDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/dao/impl/MerchantInfoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/dao/impl/MerchantInfoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/listener/MyJmsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/listener/MyJmsListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/pojo/Advertisement.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/pojo/Advertisement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/pojo/MerchantInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/pojo/MerchantInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/service/AdvertisementManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/service/AdvertisementManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/service/MerchantInfoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/service/MerchantInfoManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/service/impl/AdvertisementManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/service/impl/AdvertisementManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/service/impl/MerchantInfoManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/service/impl/MerchantInfoManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/test/java/MerchantInfoManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/test/java/MerchantInfoManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/merchant/src/test/java/contextTest/ContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/merchant/src/test/java/contextTest/ContextTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/merchant/target/" />
@@ -88,57 +94,47 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.69449717">
+    <splitter split-orientation="horizontal" split-proportion="0.6350411">
       <split-first>
         <leaf>
-          <file leaf-file-name="MyJmsListener.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/main/java/listener/MyJmsListener.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MerchantInfoDao.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/admin/src/main/java/dao/MerchantInfoDao.java">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
           <file leaf-file-name="MerchantInfoDaoImpl.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/admin/src/main/java/dao/impl/MerchantInfoDaoImpl.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="576">
-                  <caret line="38" selection-start-line="38" selection-end-line="38" />
+                <state relative-caret-position="432">
+                  <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#655#656#0" expanded="true" />
+                    <element signature="e#705#706#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="MerchantInfoManager.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/admin/src/main/java/service/MerchantInfoManager.java">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="216">
+                  <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="12" selection-end-column="71" />
+                </state>
+              </provider>
             </entry>
           </file>
           <file leaf-file-name="MerchantInfoManagerImpl.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/admin/src/main/java/service/impl/MerchantInfoManagerImpl.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="27" column="61" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+                <state relative-caret-position="350">
+                  <caret line="43" column="18" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="43" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MerchantInfoManagerTest.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/admin/src/test/java/MerchantInfoManagerTest.java">
+          <file leaf-file-name="MerchantInfoController.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/admin/src/main/java/controller/MerchantInfoController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="20">
-                  <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+                <state relative-caret-position="480">
+                  <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#319#320#0" expanded="true" />
-                    <element signature="e#380#381#0" expanded="true" />
-                    <element signature="e#575#576#0" expanded="true" />
-                    <element signature="e#605#606#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -151,54 +147,10 @@
           <file leaf-file-name="MerchantInfo.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/MerchantInfo.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="916">
-                  <caret line="41" column="68" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="68" />
+                <state relative-caret-position="96">
+                  <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#1677#1678#0" expanded="true" />
-                    <element signature="e#1702#1703#0" expanded="true" />
-                    <element signature="e#1738#1739#0" expanded="true" />
-                    <element signature="e#1766#1767#0" expanded="true" />
-                    <element signature="e#1803#1804#0" expanded="true" />
-                    <element signature="e#1836#1837#0" expanded="true" />
-                    <element signature="e#1888#1889#0" expanded="true" />
-                    <element signature="e#1932#1933#0" expanded="true" />
-                    <element signature="e#1969#1970#0" expanded="true" />
-                    <element signature="e#2002#2003#0" expanded="true" />
-                    <element signature="e#2054#2055#0" expanded="true" />
-                    <element signature="e#2098#2099#0" expanded="true" />
-                    <element signature="e#2131#2132#0" expanded="true" />
-                    <element signature="e#2160#2161#0" expanded="true" />
-                    <element signature="e#2204#2205#0" expanded="true" />
-                    <element signature="e#2240#2241#0" expanded="true" />
-                    <element signature="e#2280#2281#0" expanded="true" />
-                    <element signature="e#2316#2317#0" expanded="true" />
-                    <element signature="e#2374#2375#0" expanded="true" />
-                    <element signature="e#2424#2425#0" expanded="true" />
-                    <element signature="e#2458#2459#0" expanded="true" />
-                    <element signature="e#2488#2489#0" expanded="true" />
-                    <element signature="e#2534#2535#0" expanded="true" />
-                    <element signature="e#2572#2573#0" expanded="true" />
-                    <element signature="e#2604#2605#0" expanded="true" />
-                    <element signature="e#2632#2633#0" expanded="true" />
-                    <element signature="e#2674#2675#0" expanded="true" />
-                    <element signature="e#2708#2709#0" expanded="true" />
-                    <element signature="e#2743#2744#0" expanded="true" />
-                    <element signature="e#2774#2775#0" expanded="true" />
-                    <element signature="e#2822#2823#0" expanded="true" />
-                    <element signature="e#2862#2863#0" expanded="true" />
-                    <element signature="e#2896#2897#0" expanded="true" />
-                    <element signature="e#2926#2927#0" expanded="true" />
-                    <element signature="e#2972#2973#0" expanded="true" />
-                    <element signature="e#3010#3011#0" expanded="true" />
-                    <element signature="e#3043#3044#0" expanded="true" />
-                    <element signature="e#3072#3073#0" expanded="true" />
-                    <element signature="e#3116#3117#0" expanded="true" />
-                    <element signature="e#3152#3153#0" expanded="true" />
-                    <element signature="e#3187#3188#0" expanded="true" />
-                    <element signature="e#3218#3219#0" expanded="true" />
-                    <element signature="e#3266#3267#0" expanded="true" />
-                    <element signature="e#3306#3307#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -253,9 +205,13 @@
         <option value="$PROJECT_DIR$/admin/src/main/java/utils/JsonParseByJackson.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/listener/MyJmsListener.java" />
         <option value="$PROJECT_DIR$/admin/src/main/resources/databaseApplication.xml" />
-        <option value="$PROJECT_DIR$/admin/src/main/java/service/impl/MerchantInfoManagerImpl.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/controller/AdvertisementController.java" />
         <option value="$PROJECT_DIR$/admin/src/test/java/MerchantInfoManagerTest.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/service/MerchantInfoManager.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/dao/MerchantInfoDao.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/dao/impl/MerchantInfoDaoImpl.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/service/impl/MerchantInfoManagerImpl.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/controller/MerchantInfoController.java" />
       </list>
     </option>
   </component>
@@ -353,16 +309,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMA" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1008,19 +955,46 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 11h 24m 28s.xml">
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 21m 43s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 21m 55s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 26m 07s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 26m 41s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 28m 35s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 29m 25s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 33m 42s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 34m 22s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 35m 36s.xml">
+      <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MerchantInfoManagerTest_testAddMerchantInfo - 2018.08.02 at 12h 44m 56s.xml">
       <configuration name="MerchantInfoManagerTest.testAddMerchantInfo" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26091000" />
+    <option name="totallyTimeSpent" value="32231000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
-      <window_info anchor="bottom" id="Event Log" sideWeight="0.19947916" side_tool="true" visible="true" weight="0.29104477" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.2890625" side_tool="true" visible="true" weight="0.29104477" />
       <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.49895832" weight="0.32943678" />
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -1030,51 +1004,51 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8234375" weight="0.39978677" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.3290993" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info id="Image Layers" />
       <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="right" id="Capture Analysis" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.80052084" visible="true" weight="0.29104477" />
-      <window_info anchor="bottom" id="Version Control" sideWeight="0.4984375" weight="0.20722635" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7109375" visible="true" weight="0.29104477" />
+      <window_info anchor="bottom" id="Version Control" sideWeight="0.49791667" weight="0.20682302" />
       <window_info anchor="bottom" id="Spring" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1765625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1765625" />
       <window_info id="Web" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Application Servers" order="10" weight="0.329718" />
-      <window_info id="Designer" order="5" />
-      <window_info anchor="right" id="Palette" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36984816" />
-      <window_info anchor="bottom" id="Spring" order="10" />
-      <window_info id="Image Layers" order="5" />
+      <window_info anchor="bottom" id="Application Servers" order="11" weight="0.329718" />
+      <window_info id="Designer" order="6" />
+      <window_info anchor="right" id="Palette" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4191686" />
+      <window_info anchor="bottom" id="Spring" order="11" />
+      <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.329718" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3290993" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.329718" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3290993" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49722221" visible="true" weight="0.18123667" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.19522777" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722221" visible="true" weight="0.18446602" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.20554273" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info id="Learn" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info id="Learn" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Web" order="5" sideWeight="0.50277776" side_tool="true" weight="0.28458738" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info id="Web" order="6" sideWeight="0.50277776" side_tool="true" weight="0.28458738" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -1091,31 +1065,12 @@
     <MESSAGE value="修改一些数据库字段默认值" />
     <option name="LAST_COMMIT_MESSAGE" value="修改一些数据库字段默认值" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="13" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/passedmerchants.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/css/bootstrap-theme.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/css/login.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/js/jquery.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/js/merchant.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/js/notpassedmerchants.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/js/passedmerchants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -1291,67 +1246,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/MerchantInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="916">
-          <caret line="41" column="68" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1677#1678#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
-            <element signature="e#1738#1739#0" expanded="true" />
-            <element signature="e#1766#1767#0" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1836#1837#0" expanded="true" />
-            <element signature="e#1888#1889#0" expanded="true" />
-            <element signature="e#1932#1933#0" expanded="true" />
-            <element signature="e#1969#1970#0" expanded="true" />
-            <element signature="e#2002#2003#0" expanded="true" />
-            <element signature="e#2054#2055#0" expanded="true" />
-            <element signature="e#2098#2099#0" expanded="true" />
-            <element signature="e#2131#2132#0" expanded="true" />
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2204#2205#0" expanded="true" />
-            <element signature="e#2240#2241#0" expanded="true" />
-            <element signature="e#2280#2281#0" expanded="true" />
-            <element signature="e#2316#2317#0" expanded="true" />
-            <element signature="e#2374#2375#0" expanded="true" />
-            <element signature="e#2424#2425#0" expanded="true" />
-            <element signature="e#2458#2459#0" expanded="true" />
-            <element signature="e#2488#2489#0" expanded="true" />
-            <element signature="e#2534#2535#0" expanded="true" />
-            <element signature="e#2572#2573#0" expanded="true" />
-            <element signature="e#2604#2605#0" expanded="true" />
-            <element signature="e#2632#2633#0" expanded="true" />
-            <element signature="e#2674#2675#0" expanded="true" />
-            <element signature="e#2708#2709#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
-            <element signature="e#2774#2775#0" expanded="true" />
-            <element signature="e#2822#2823#0" expanded="true" />
-            <element signature="e#2862#2863#0" expanded="true" />
-            <element signature="e#2896#2897#0" expanded="true" />
-            <element signature="e#2926#2927#0" expanded="true" />
-            <element signature="e#2972#2973#0" expanded="true" />
-            <element signature="e#3010#3011#0" expanded="true" />
-            <element signature="e#3043#3044#0" expanded="true" />
-            <element signature="e#3072#3073#0" expanded="true" />
-            <element signature="e#3116#3117#0" expanded="true" />
-            <element signature="e#3152#3153#0" expanded="true" />
-            <element signature="e#3187#3188#0" expanded="true" />
-            <element signature="e#3218#3219#0" expanded="true" />
-            <element signature="e#3266#3267#0" expanded="true" />
-            <element signature="e#3306#3307#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/Manager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="641">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1362,34 +1260,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/Advertisement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/JmxTp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/enums/OrderStatusEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/enums/JmsTpEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1429,23 +1303,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/listener/MyJmsListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="384">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/dao/MerchantInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/dao/impl/MerchantInfoDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/service/MerchantInfoManager.java">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1454,13 +1315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="44" column="58" lean-forward="true" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -1484,23 +1338,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/service/impl/MerchantInfoManagerImpl.java">
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/Advertisement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="27" column="61" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+        <state relative-caret-position="432">
+          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/enums/OrderStatusEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/enums/JmsTpEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Throwable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="209" selection-start-line="209" selection-end-line="209" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+          <folding>
+            <element signature="e#3173#3174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/ReflectiveOperationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+          <folding>
+            <element signature="e#2502#2503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/reflect/InvocationTargetException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="19" column="51" lean-forward="true" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/test/java/MerchantInfoManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="480">
+          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/dao/MerchantInfoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/pojo/MerchantInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/dao/impl/MerchantInfoDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding>
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/service/MerchantInfoManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="12" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/service/impl/MerchantInfoManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="43" column="18" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="43" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/controller/MerchantInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

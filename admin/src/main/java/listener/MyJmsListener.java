@@ -16,11 +16,10 @@ public class MyJmsListener implements MessageListener {
     public void onMessage(Message message){
         TextMessage tmsg = (TextMessage)message;
         try {
-//            tmsg.getText()
-            System.out.println("中文");
-            System.out.println("my listener receive:" +new String(tmsg.getText().getBytes("iso8859-1"),"UTF-8"));
+            System.out.println("my listener receive:"+ tmsg.getText());
+  //          System.out.println("my listener receive:" +new String(tmsg.getText().getBytes("iso8859-1"),"UTF-8"));
             JsonParse<Complaint> parse = new JsonParseByJackson<>();
-            Object object = parse.parseJsonToObject(Complaint.class,tmsg.getText());
+     //       Object object = parse.parseJsonToObject(Object.class,tmsg.getText());
         }catch (Exception e){
             e.printStackTrace();
         }
