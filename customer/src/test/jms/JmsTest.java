@@ -7,8 +7,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.Complaint;
-import pojo.JmxTp;
-import pojo.enums.JmsTpEnum;
 
 import javax.persistence.EntityManager;
 import java.util.Date;

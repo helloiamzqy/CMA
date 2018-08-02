@@ -1,20 +1,20 @@
 package controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pojo.Complaint;
+import service.ComplainService;
 
-import java.util.Date;
-
+@CrossOrigin(origins = "*",maxAge = 3600,allowedHeaders = "Content-Type",methods ={RequestMethod.POST,RequestMethod.GET,RequestMethod.DELETE,RequestMethod.PUT})
 @Controller
-@RequestMapping("complain")
+@RequestMapping("/complain")
 public class ComplainController {
-    @PostMapping
-    public void sendComplainToAdmin(@RequestBody Complaint complaint){
-        //Complaint complaint = new Complaint(content, merchantId, orderId, new Date());
-        System.out.println(complaint.toString());
-    }
+    @Autowired
+    private ComplainService complainService;
 
+    @PostMapping
+    public void sendComplainToAdmin(@RequestBody Complaint complaint) {
+        complainService.sendComplainToAdmin(complaint);
+    }
 }
