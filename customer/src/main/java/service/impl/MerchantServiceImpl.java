@@ -29,4 +29,9 @@ public class MerchantServiceImpl implements MerchantService {
     public Merchant updateMerchant(Merchant merchant) {
         return merchantDao.updateMerchant(merchant);
     }
+
+    @Override
+    public Merchant findMerchantById(String merchantId) {
+        return merchantDao.findMerchantById(merchantId);
+    }
 }

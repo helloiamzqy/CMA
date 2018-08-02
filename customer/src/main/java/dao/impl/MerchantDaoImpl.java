@@ -31,4 +31,13 @@ public class MerchantDaoImpl implements MerchantDao {
         return merchant1;
 
     }
+
+    @Override
+    public Merchant findMerchantById(String merchantId) {
+        String jpql="from pojo.Merchant where id =:merchantId";
+        Merchant merchant = (Merchant) manager.createQuery(jpql)
+                .setParameter("merchantId",merchantId)
+                .getSingleResult();
+        return merchant;
+    }
 }

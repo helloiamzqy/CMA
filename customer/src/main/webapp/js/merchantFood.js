@@ -23,7 +23,7 @@
     }
     window.onload = function () {
         $("#order").attr("href", "/customer/html/order.html?shop_id=" + shopId);
-        let url = "/customer/findDishes?shop_id=" + shopId;
+        let url = "/customer/food/findFoodByMerchant/" + shopId;
         let method = "POST";
         let headers = [{"key": "Content-Type", "value": "application/json"}];
         renderCart(foodsInCart);
@@ -62,8 +62,10 @@
                     pageSize: pageSize
                 },
                 success: function (data) {
-                    renderTable(data.dataList);
-                    renderNav(data);
+                    alert(data)
+                    renderTable(data);
+                    // renderTable(data.dataList);
+                    // renderNav(data);
                 }
             });
         }

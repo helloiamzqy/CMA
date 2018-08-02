@@ -1,6 +1,6 @@
-let currentPage = 1;
-let pageSize = 2;
 window.onload=function () {
+    let currentPage = 1;
+    let pageSize = 4;
     let url="/customer/merchant/findBasicInfoByPager/"+currentPage+"/"+pageSize;
     let method="POST";
     let headers=[{"key":"Content-Type","value":"application/json"}];
@@ -9,11 +9,12 @@ window.onload=function () {
         $("#merchants").empty();
         //拼接商家信息
         for(let i=0;i<merchants.length;i++){
-            let colDiv='<a href="/typhoon_consuemer/html/merchantFood.html?shop_id='+merchants[i].merchant.id+'">' +
+            let colDiv='<a href="/customer/html/merchantFood.html?shop_id='+merchants[i].merchant.id+'">' +
+            // let colDiv='<a href="/typhoon_consuemer/html/merchantFood.html/'+ merchants[i].merchant.id +'">' +
                 '<div class="col-md-3"><div id="merchant"><br><br><div class="merchantImg">' +
                 ' <img src="'+merchants[i].picture+'" alt="" width="180" height="100">' +
                 '</div><br><div class="merchantDetail">' +
-                ' &nbsp;&nbsp;<strong>'+merchants[i].name+'</strong><br> &nbsp;&nbsp;'+merchants[i].slogan+'<br>' +
+                ' &nbsp;&nbsp;<strong>'+merchants[i].shopName+'</strong><br> &nbsp;&nbsp;'+merchants[i].slogan+'<br>' +
                 '</div></div></div></a>'
             $("#merchants").append(colDiv);
         }
