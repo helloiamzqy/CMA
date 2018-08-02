@@ -29,7 +29,7 @@ public class JmsTest {
         JmxTp j1 = new JmxTp();
         j1.setJmxTpEnum(JmsTpEnum.COMPLAIN);
         Complaint complaint = new Complaint();
-        complaint.setId("123");
+//        complaint.setId("123");
         complaint.setCreateTime(new Date());
         complaint.setMerchantId("merchantId");
         complaint.setOrderId("orderId");
