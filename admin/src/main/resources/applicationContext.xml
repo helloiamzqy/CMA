@@ -17,9 +17,10 @@
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<mvc:annotation-driven/>
 	<context:annotation-config></context:annotation-config>
-	<context:component-scan base-package="service,dao,jmsmanager"></context:component-scan>
+	<context:component-scan base-package="service,dao,listener"></context:component-scan>
 
 
 	<import resource="databaseApplication.xml"></import>
 	<import resource="JMSApplication.xml"></import>
+
 </beans>
