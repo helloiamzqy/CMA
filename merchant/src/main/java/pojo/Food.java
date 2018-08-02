@@ -86,6 +86,14 @@ public class Food {
         this.comments = comments;
     }
 
+    public Food(String id,String foodName, double price, String picture, String comments) {
+        this.id = id;
+        this.foodName = foodName;
+        this.price = price;
+        this.picture = picture;
+        this.comments = comments;
+    }
 
-
+    public Food() {
+    }
 }

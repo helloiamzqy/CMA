@@ -61,4 +61,19 @@ public class CommentDaoImpl implements CommentDao {
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, comments);
         return pager;
     }
+
+    @Override
+    public Pager findCommentByMerchant(int curPage, int pageSize, Merchant merchant) {
+        String jpql = "FROM pojo.Comment c WHERE c.order.merchant =:merchant";
+        Query query = manager.createQuery(jpql).setParameter("merchant", merchant);
+        List<Comment> comments = query.getResultList();
+        int totalPage = comments.size() / pageSize;
+        int totalRow = comments.size();
+        query = manager.createQuery(jpql).setParameter("merchant", merchant);
+        comments = query.setFirstResult((curPage - 1) * pageSize)
+                .setMaxResults(pageSize)
+                .getResultList();
+        Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, comments);
+        return pager;
+    }
 }

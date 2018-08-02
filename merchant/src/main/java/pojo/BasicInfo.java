@@ -21,7 +21,7 @@ public class BasicInfo {
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date openTime;
-    @Column(nullable = false)
+    @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date closeTime;
 
@@ -55,6 +55,29 @@ public class BasicInfo {
         return id;
     }
 
+    public double getDeliFee() {
+        return deliFee;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public String getSlogan() {
+        return slogan;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
 
     public void setId(String id) {
         this.id = id;
@@ -92,43 +115,27 @@ public class BasicInfo {
         this.delivery = delivery;
     }
 
-    public double getDeliFee() {
-        return deliFee;
-    }
-
     public void setDeliFee(double deliFee) {
         this.deliFee = deliFee;
-    }
-
-    public String getPicture() {
-        return picture;
     }
 
     public void setPicture(String picture) {
         this.picture = picture;
     }
 
-    public String getSlogan() {
-        return slogan;
-    }
-
     public void setSlogan(String slogan) {
         this.slogan = slogan;
-    }
-
-    public String getStatus() {
-        return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
     }
 }

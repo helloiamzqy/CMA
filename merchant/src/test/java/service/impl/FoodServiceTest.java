@@ -35,11 +35,10 @@ public class FoodServiceTest {
         Merchant merchant = new Merchant();
         merchant.setName("kfc");
         merchant.setPassword("123");
-        merchantManager.addMerchant(merchant);
         food.setPicture("picture");
         food.setStatus("1");
-        food.setMerchant(merchant);
-        foodService.addFood(food);
+        merchantManager.addMerchant(merchant);
+        foodService.addFood(merchant.getId(),food);
         assert (food.getFoodName() != null);
     }
 
@@ -60,8 +59,7 @@ public class FoodServiceTest {
         merchantManager.addMerchant(merchant);
         food.setPicture("picture");
         food.setStatus("1");
-        food.setMerchant(merchant);
-        foodService.addFood(food);
+        foodService.addFood(merchant.getId(),food);
         foodService.deleteFood(food.getId());
     }
 
@@ -74,11 +72,18 @@ public class FoodServiceTest {
 
     @Test
     public void updateFood() {
-        addFood();
-        Pager foods = foodService.findFoodByName(1,10,"kfc");
-        Food food = (Food) foods.getList().get(0);
+        Food food = new Food();
+        food.setComments("hello");
+        food.setFoodName("kfc");
+        Merchant merchant = new Merchant();
+        merchant.setName("kfc");
+        merchant.setPassword("123");
+        food.setPicture("picture");
+        food.setStatus("1");
+        merchantManager.addMerchant(merchant);
+        foodService.addFood(merchant.getId(),food);
         food.setFoodName("mdl");
-        Food newFood = foodService.updateFood(food);
+        Food newFood = foodService.updateFood(merchant.getId(),food);
         assert (newFood.getFoodName().equals("mdl"));
     }
 
@@ -92,8 +97,7 @@ public class FoodServiceTest {
         food.setFoodName("asdsdd");
         food.setPicture("picture");
         food.setStatus("1");
-        food.setMerchant(merchant);
-        foodService.addFood(food);
+        foodService.addFood(merchant.getId(),food);
        Pager foods = foodService.findFoodByMerchant(1,10,merchant);
         assert (foods.getList().size() > 0);
     }

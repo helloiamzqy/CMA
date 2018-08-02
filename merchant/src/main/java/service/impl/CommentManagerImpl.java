@@ -1,6 +1,8 @@
 package service.impl;
 
 import dao.CommentDao;
+import org.omg.CORBA.ORB;
+import pojo.Merchant;
 import service.CommentManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +27,10 @@ public class CommentManagerImpl implements CommentManager {
     }
     @Transactional
     @Override
-    public Comment addComment(Comment comment) {
+    public Comment addComment(String oid,Comment comment) {
+        Order order = new Order();
+        order.setId(oid);
+        comment.setOrder(order);
         return  commentDao.addComment(comment);
     }
 
@@ -35,9 +40,18 @@ public class CommentManagerImpl implements CommentManager {
     }
 
     @Override
-    public Pager findCommentByOrder(int curPage, int pageSize,Order order) {
+    public Pager findCommentByOrder(int curPage, int pageSize,String oId) {
+        Order order = new Order();
+        order.setId(oId);
         Pager comments = commentDao.findCommentByOrder(curPage, pageSize,order);
         return comments;
     }
 
+    @Override
+    public Pager findCommentByMerchant(int curPage, int pageSize, String merchantId) {
+        Merchant merchant = new Merchant();
+        merchant.setId(merchantId);
+        Pager comments = commentDao.findCommentByMerchant(curPage, pageSize,merchant);
+        return comments;
+    }
 }
