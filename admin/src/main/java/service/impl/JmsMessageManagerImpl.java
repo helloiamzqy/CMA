@@ -8,6 +8,7 @@ import pojo.JmsMessage;
 import pojo.MerchantInfo;
 import pojo.enums.JmsEnum;
 import service.AdvertisementManager;
+import service.ComplaintManager;
 import service.JmsMessageManager;
 
 /**
@@ -19,13 +20,15 @@ public class JmsMessageManagerImpl implements JmsMessageManager {
 
     @Autowired
     private AdvertisementManager adManager;
+    @Autowired
+    private ComplaintManager complaintManager;
 
     @Override
     public Object getMessageEntity(JmsMessage jmsMessage) {
         if (jmsMessage.getJmxTpEnum().equals(JmsEnum.ADVERSITMENT)){
             return adManager.addAd((Advertisement) jmsMessage.getObject());
         }else if (jmsMessage.getJmxTpEnum().equals(JmsEnum.COMPLAIN)){
-
+            return complaintManager.addComplaint((Complaint) jmsMessage.getObject());
         }else if (jmsMessage.getJmxTpEnum().equals(JmsEnum.APPLY)){
 
         }

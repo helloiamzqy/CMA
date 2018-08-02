@@ -1,4 +1,4 @@
-
+package manager;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -80,7 +80,7 @@ public class AdvertisementManagerTest {
         advertisement.setStatus("1");
         Advertisement ad = manager.addAd(advertisement);
         Advertisement advertisement1 = manager.updateAd(ad.getId(),"2");
-        Assert.assertTrue(advertisement1.getStatus()=="2");
+        Assert.assertTrue(advertisement1.getStatus().equals("2"));
     }
 
     @Test
@@ -100,8 +100,8 @@ public class AdvertisementManagerTest {
         manager.addAd(advertisement);
         manager.addAd(advertisement2);
         Page<Advertisement> page = manager.getAdsByPage(1,2);
-        int m = page.getTotalCount();
-        Assert.assertTrue(m>=2);
+        int m = page.getTotalPage();
+        Assert.assertTrue(m>=1);
     }
 
     @Test
@@ -113,6 +113,7 @@ public class AdvertisementManagerTest {
         advertisement.setMerchantName("add");
         advertisement.setStatus("1");
         manager.addAd(advertisement);
-        Assert.assertTrue(manager.getAllAds().size()>=1);
+        int num = manager.getAllAds().size();
+        Assert.assertTrue(num>0);
     }
 }

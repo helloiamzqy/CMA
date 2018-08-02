@@ -1,13 +1,12 @@
 package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pojo.Advertisement;
 import pojo.Page;
 import service.AdvertisementManager;
+
+import java.util.List;
 
 /**
  * @author JohnGao
@@ -19,25 +18,25 @@ public class AdvertisementController {
     @Autowired
     private AdvertisementManager manager;
 
-    @RequestMapping(method = RequestMethod.PUT,value = "{id}/{state}")
-    public Advertisement updateAdvertisement(@PathVariable String id,@PathVariable String state){
+    @RequestMapping(method = RequestMethod.PUT)
+    public Advertisement updateAdvertisement(@RequestParam String id,@RequestParam String state){
         return manager.updateAd(id, state);
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "{currentPage}/{pageSize}")
-    public Page<Advertisement> getAdvertisement(@PathVariable int currentPage,@PathVariable int pageSize){
+    @RequestMapping(method = RequestMethod.GET)
+    public Page<Advertisement> getAdvertisementByPage(@RequestParam int currentPage, @RequestParam int pageSize){
         Page<Advertisement> page = manager.getAdsByPage(currentPage,pageSize);
         return page;
     }
 
     //这个不是添加广告，获得可发送广告的商家名称
-    @RequestMapping(method = RequestMethod.POST,value = "{validation}")
-    public String getSendAd(@PathVariable String validation){
-        if ("request".equals(validation)){
-            return manager.sendAds();
-        }
-        return "{}";
-    }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public String getSendAd(@RequestParam String validation){
+//        if ("request".equals(validation)){
+//            return manager.sendAds();
+//        }
+//        return "{}";
+//    }
 
     @RequestMapping(method = RequestMethod.DELETE,value = "{id}")
     public String deleteAd(@PathVariable String id){
