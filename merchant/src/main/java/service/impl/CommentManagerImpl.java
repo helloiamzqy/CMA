@@ -14,6 +14,7 @@ import pojo.Pager;
  */
 @Service
 public class CommentManagerImpl implements CommentManager {
+
     @Autowired
     private CommentDao commentDao;
     @Override

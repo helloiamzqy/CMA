@@ -12,7 +12,7 @@ import java.util.List;
 public interface AdvertisementDao {
     public List<Advertisement> getAllAd();
 
-    public int updateAd(Advertisement ad);
+    public Advertisement updateAd(Advertisement ad);
 
     public int addAd(Advertisement ad);
 

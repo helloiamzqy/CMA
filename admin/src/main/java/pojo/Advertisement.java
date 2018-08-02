@@ -25,7 +25,7 @@ public class Advertisement {
     @Column(nullable = false)
     private String picture;
 
-    @Column(nullable = false,columnDefinition = "String default 1")
+    @Column(nullable = false,columnDefinition = "varchar2 default 1")
     private String status;
 
     @Column(nullable = false)
