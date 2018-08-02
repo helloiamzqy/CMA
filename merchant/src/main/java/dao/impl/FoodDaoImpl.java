@@ -44,7 +44,8 @@ public class FoodDaoImpl implements FoodDao {
     @Override
     public void deleteFood(String id) {
         Food food = manager.getReference(Food.class,id);
-        manager.remove(food);
+        food.setStatus("0");
+        manager.merge(food);
     }
 
     @Override
