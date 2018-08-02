@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import pojo.Food;
 import pojo.Merchant;
 import pojo.Pager;
-import vo.FoodVo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
