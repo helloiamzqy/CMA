@@ -39,8 +39,8 @@ public class OrderController {
     public Order addOrder(@RequestBody Order order,@PathVariable(name = "mId") String mId,@PathVariable(name = "cId") String cId){
         return orderManager.addOrder(order,mId,cId);
     }
-    @PutMapping
-    public Order updateOrder(@RequestBody Order order){
-        return orderManager.updateOrder(order);
+    @PutMapping(value = "/{mId}/{cId}")
+    public Order updateOrder(@RequestBody Order order,@PathVariable(name = "mId") String mId,@PathVariable(name = "cId") String cId){
+        return orderManager.updateOrder(order,mId,cId);
     }
 }

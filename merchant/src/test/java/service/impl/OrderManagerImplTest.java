@@ -77,7 +77,7 @@ public class OrderManagerImplTest {
         order.setCreateTime(new Date());
         order.setTotalPrice(672);
         OrderManager orderManager=context.getBean(OrderManager.class);
-        Order order1 = orderManager.updateOrder(order);
+        Order order1 = orderManager.updateOrder(order,"","");
         Assert.assertTrue(order1.getStatus().equals("fad"));
 
     }

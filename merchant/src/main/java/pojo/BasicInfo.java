@@ -40,9 +40,13 @@ public class BasicInfo {
 
     private String comments;
 
+    @Column(nullable = false,name = "shop_name")
+    private String shopName;
+
     public String getId() {
         return id;
     }
+
 
     public void setId(String id) {
         this.id = id;
