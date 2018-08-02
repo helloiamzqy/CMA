@@ -82,19 +82,19 @@ public class OrderManagerImplTest {
 
     }
 
-    @Test
-    public  void testFindOrderByMerchant(){
-        OrderManager orderManager=context.getBean(OrderManager.class);
-        List<Order> orders=orderManager.findOrderByMerchant("8a5e9d3c64f84c7f0164f84c845c0001","1");
-        Assert.assertTrue(orders.size()==2);
-
-    }
-    @Test
-    public  void testFindOrderByCustomer(){
-        OrderManager orderManager=context.getBean(OrderManager.class);
-        List<Order> orders=orderManager.findOrderByCustomer("8a5e9d3c64f84c7f0164f84c841e0000","1");
-        Assert.assertTrue(orders.size()==1);
-    }
+//    @Test
+//    public  void testFindOrderByMerchant(){
+//        OrderManager orderManager=context.getBean(OrderManager.class);
+//        List<Order> orders=orderManager.findOrderByMerchant("8a5e9d3c64f84c7f0164f84c845c0001","1");
+//        Assert.assertTrue(orders.size()==2);
+//
+//    }
+//    @Test
+//    public  void testFindOrderByCustomer(){
+//        OrderManager orderManager=context.getBean(OrderManager.class);
+//        List<Order> orders=orderManager.findOrderByCustomer("8a5e9d3c64f84c7f0164f84c841e0000","1");
+//        Assert.assertTrue(orders.size()==1);
+//    }
     @Test
     public  void testFindAllOrderByMerchant(){
         OrderManager orderManager=context.getBean(OrderManager.class);
