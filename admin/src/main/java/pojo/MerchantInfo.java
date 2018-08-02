@@ -39,7 +39,7 @@ public class MerchantInfo {
     @Column(nullable = false)
     private String address;
 
-    @Column(nullable = false,columnDefinition = "String default 0")
+    @Column(nullable = false,columnDefinition = "varchar2 default 0")
     private String status;
 
     @Column(nullable = false)

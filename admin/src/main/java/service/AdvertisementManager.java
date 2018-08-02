@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface AdvertisementManager {
     public List<Advertisement> getAllAds() throws Exception;
-    public void updateAd(int id,int state);
+    public Advertisement updateAd(String id,String state);
     public boolean addAd(Advertisement ad);
     public String sendAds();
     public boolean deleteAdById(int id);
