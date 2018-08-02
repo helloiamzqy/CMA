@@ -1,4 +1,4 @@
-package pojo.enums;
+package pojo.penum;
 
 /**
  * @author Dunn
