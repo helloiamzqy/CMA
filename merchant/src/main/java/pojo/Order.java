@@ -26,7 +26,7 @@ public class Order {
     @JoinColumn(name="m_id")
     private Merchant merchant;
 
-    @Column(columnDefinition = "varchar2(2) default 1")
+    @Column(columnDefinition = "varchar2(10) default 1")
     private String status;
     @Column(precision = 9,scale = 2,name="total_price",nullable = false)
     private double totalPrice;

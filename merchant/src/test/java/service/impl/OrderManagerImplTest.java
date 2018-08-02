@@ -13,7 +13,6 @@ import service.MerchantManager;
 import service.OrderManager;
 
 import java.util.Date;
-import java.util.List;
 
 public class OrderManagerImplTest {
     private static ApplicationContext context;
@@ -40,12 +39,11 @@ public class OrderManagerImplTest {
         customerManager.addCustomer(customer);
         merchantManager.addMerchant(merchant);
         Order order=new Order();
+        order.setCreateTime(new Date());
         order.setCustomer(customer);
         order.setMerchant(merchant);
-        order.setStatus("5");
+        order.setStatus("1");
         order.setTotalPrice(12.23);
-        order.setCreateTime(new Date());
-        order.setFinishTime(new Date());
         OrderManager orderManager=context.getBean(OrderManager.class);
         Order order1 = orderManager.addOrder(order);
         Assert.assertTrue(order1!=null);
@@ -74,8 +72,8 @@ public class OrderManagerImplTest {
 //        order.setCustomer(customer);
 //        order.setMerchant(merchant);
 //        order.setStatus("fad");
-        order.setTotalPrice(672);
         order.setCreateTime(new Date());
+        order.setTotalPrice(672);
         OrderManager orderManager=context.getBean(OrderManager.class);
         Order order1 = orderManager.updateOrder(order);
         Assert.assertTrue(order1.getStatus().equals("fad"));
@@ -84,22 +82,6 @@ public class OrderManagerImplTest {
 
     @Test
     public  void testFindOrderByMerchant(){
-        OrderManager orderManager=context.getBean(OrderManager.class);
-        Merchant merchant=new Merchant();
-        merchant.setId("8a5e9d3d64f83cbf0164f83cc4cb0001");
-        List<Order> orders=orderManager.findOrderByMerchant(merchant,"5");
-        for(Order order:orders){
-            System.out.println(order.toString());
-        }
-    }
-    @Test
-    public void testFindOrderByCustomer(){
-        OrderManager orderManager=context.getBean(OrderManager.class);
-        Customer customer=new Customer();
-        customer.setId("8a5e9d3c64f849090164f8490ec50000");
-        List<Order> orders=orderManager.findOrderByCustomer(customer,"1");
-        for(Order order:orders){
-            System.out.println(order.toString());
-        }
+
     }
 }
