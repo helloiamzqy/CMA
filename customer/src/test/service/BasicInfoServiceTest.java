@@ -45,4 +45,10 @@ public class BasicInfoServiceTest {
             System.out.println(b.getId());
         }
     }
+    @Test
+    public void findMerchantByIdTest() {
+        BasicInfoService basicInfoService = context.getBean(BasicInfoService.class);
+       BasicInfo basicInfo =  basicInfoService.findBasicInfoById("8a5e9d3d64f9eed50164f9eedabf0001");
+        System.out.println(basicInfo.getShopName());
+    }
 }

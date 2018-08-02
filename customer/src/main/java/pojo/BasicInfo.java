@@ -40,6 +40,12 @@ public class BasicInfo {
 
     private String comments;
 
+
+
+
+
+
+
     @Column(nullable = false,name = "shop_name")
     private String shopName;
 

@@ -41,4 +41,9 @@ public class BasicInfoServiceImpl implements BasicInfoService {
     public Pager findAllBasicInfo(int curPage, int pageSize) {
         return basicInfoDao.findAllBasicInfo(curPage,pageSize);
     }
+
+    @Override
+    public BasicInfo findBasicInfoById(String id) {
+        return basicInfoDao.findBasicInfoById(id);
+    }
 }
