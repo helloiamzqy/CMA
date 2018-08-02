@@ -1,11 +1,13 @@
 package service.impl;
 
 import dao.BasicInfoDao;
+import org.apache.kahadb.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pojo.BasicInfo;
 import pojo.Merchant;
+import pojo.Pager;
 import service.BasicInfoService;
 
 import java.util.List;
@@ -33,5 +35,10 @@ public class BasicInfoServiceImpl implements BasicInfoService {
     @Override
     public List<BasicInfo> findAllBasicInfo() {
         return basicInfoDao.findAllBasicInfo();
+    }
+
+    @Override
+    public Pager findAllBasicInfo(int curPage, int pageSize) {
+        return basicInfoDao.findAllBasicInfo(curPage,pageSize);
     }
 }

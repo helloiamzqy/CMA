@@ -1,10 +1,15 @@
 package controller;
 
+import org.apache.kahadb.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pojo.BasicInfo;
 import pojo.Merchant;
+import pojo.Pager;
+import service.BasicInfoService;
 import service.MerchantService;
 
 import java.util.List;
@@ -18,14 +23,24 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/merchant")
 public class MerchantController {
+
+    @Autowired
+    BasicInfoService basicInfoService;
     @Autowired
     MerchantService merchantService;
-//    @Autowired
-//    BasicInfoService BasicInfoService;
+
     @ResponseBody
     @RequestMapping(value = "/findMerchant")
     public List<Merchant> loginCustomer() {
         return merchantService.findMerchant();
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/findBasicInfoByPager/{currentPage}/{pageSize}")
+    public Pager findBasicInfo(@PathVariable(name = "currentPage") int currentPage, @PathVariable(name = "pageSize") int pageSize) {
+        System.out.println(currentPage+"\t"+pageSize);
+        return basicInfoService.findAllBasicInfo(currentPage,pageSize);
     }
 
 }

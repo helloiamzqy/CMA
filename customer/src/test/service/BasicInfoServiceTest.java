@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.BasicInfo;
 import pojo.Merchant;
+import pojo.Pager;
 
 import java.util.List;
 
@@ -29,6 +30,17 @@ public class BasicInfoServiceTest {
     public void findMerchantTest() {
         BasicInfoService basicInfoService = context.getBean(BasicInfoService.class);
         List<BasicInfo> basicInfos = basicInfoService.findAllBasicInfo();
+        for(BasicInfo b:basicInfos){
+            System.out.println(b.getId());
+        }
+    }
+    @Test
+    public void findMerchantTestByPager() {
+        int curPage=1;
+        int pageSize=1;
+        BasicInfoService basicInfoService = context.getBean(BasicInfoService.class);
+        Pager pager = basicInfoService.findAllBasicInfo(curPage,pageSize);
+        List<BasicInfo> basicInfos = (List<BasicInfo>) pager.getList();
         for(BasicInfo b:basicInfos){
             System.out.println(b.getId());
         }
