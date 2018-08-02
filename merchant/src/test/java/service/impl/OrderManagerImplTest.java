@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.Customer;
 import pojo.Merchant;
 import pojo.Order;
+import pojo.Pager;
 import service.CustomerManager;
 import service.MerchantManager;
 import service.OrderManager;
@@ -97,13 +98,13 @@ public class OrderManagerImplTest {
     @Test
     public  void testFindAllOrderByMerchant(){
         OrderManager orderManager=context.getBean(OrderManager.class);
-        List<Order> orders=orderManager.findAllOrderByMerchant("8a5e9d3c64f84c7f0164f84c845c0001");
-        Assert.assertTrue(orders.size()==2);
+        Pager pager =orderManager.findAllOrderByMerchant("8a5e9d3c64f84c7f0164f84c845c0001",1,4);
+        Assert.assertTrue(pager.getList().size()==2);
     }
     @Test
     public  void testFindAllOrderByCustomer(){
         OrderManager orderManager=context.getBean(OrderManager.class);
-        List<Order> orders=orderManager.findAllOrderByCustomer("8a5e9d3c64f84c7f0164f84c841e0000");
-        Assert.assertTrue(orders.size()==1);
+        Pager pager=orderManager.findAllOrderByCustomer("8a5e9d3c64f84c7f0164f84c841e0000",1,4);
+        Assert.assertTrue(pager.getList().size()==1);
     }
 }

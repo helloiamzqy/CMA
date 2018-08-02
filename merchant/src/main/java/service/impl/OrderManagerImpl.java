@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pojo.Customer;
 import pojo.Merchant;
 import pojo.Order;
+import pojo.Pager;
 import service.OrderManager;
 
 import java.util.List;
@@ -35,32 +36,34 @@ public class OrderManagerImpl implements OrderManager {
 
     @Transactional
     @Override
-    public List<Order> findOrderByMerchant(String mId,String status) {
+    public Pager findOrderByMerchant(String mId,String status,int curPage,int pageSize) {
         Merchant merchant=new Merchant();
         merchant.setId(mId);
-        return orderDao.findOrderByMerchant(merchant,status);
+        return orderDao.findOrderByMerchant(merchant,status,curPage,pageSize);
     }
 
     @Transactional
     @Override
-    public List<Order> findOrderByCustomer(String cId, String status) {
+    public  Pager findOrderByCustomer(String cId, String status,int curPage,int pageSize) {
         Customer customer=new Customer();
         customer.setId(cId);
-        return orderDao.findOrderByCustomer(customer,status);
+        return orderDao.findOrderByCustomer(customer,status,curPage,pageSize);
     }
 
+    @Transactional
     @Override
-    public List<Order> findAllOrderByMerchant(String mId) {
+    public Pager findAllOrderByMerchant(String mId, int curPage, int pageSize) {
         Merchant merchant=new Merchant();
         merchant.setId(mId);
-        return orderDao.findAllOrderByMerchant(merchant);
+        return orderDao.findAllOrderByMerchant(curPage,pageSize,merchant);
     }
 
+    @Transactional
     @Override
-    public List<Order> findAllOrderByCustomer(String cId) {
+    public Pager findAllOrderByCustomer(String cId, int curPage, int pageSize) {
         Customer customer=new Customer();
         customer.setId(cId);
-        return orderDao.findAllOrderByCustomer(customer);
+        return orderDao.findAllOrderByCustomer(curPage,pageSize,customer);
     }
 
 

@@ -23,15 +23,15 @@ public class OrderController {
     public List<Order> findOrderByCustomer(@PathVariable(name = "cId") String cId,@PathVariable(name = "status") String status){
         return orderManager.findOrderByCustomer(cId,status);
     }
-    @GetMapping(value = "/customer/{cId}")
-    public List<Order> findAllOrderByCustomer(@PathVariable(name = "cId") String cId){
-        return orderManager.findAllOrderByCustomer(cId);
-    }
+//    @GetMapping(value = "/customer/{cId}")
+//    public List<Order> findAllOrderByCustomer(@PathVariable(name = "cId") String cId){
+//        return orderManager.findAllOrderByCustomer(cId);
+//    }
 
-    @GetMapping(value = "/merchant/{mId}")
-    public List<Order> findAllOrderByMerchant(@PathVariable(name = "mId") String mId){
-        return orderManager.findAllOrderByMerchant(mId);
-    }
+//    @GetMapping(value = "/merchant/{mId}")
+//    public List<Order> findAllOrderByMerchant(@PathVariable(name = "mId") String mId){
+//        return orderManager.findAllOrderByMerchant(mId);
+//    }
 
 
     @PostMapping(value = "/{mId}/{cId}")
@@ -39,7 +39,7 @@ public class OrderController {
         return orderManager.addOrder(order,mId,cId);
     }
     @PutMapping
-    public Order updateOrder(@RequestBody Order order){
+    public Order updateOrder(@RequestBody Order order,@PathVariable(name = "oId") String oId){
         return orderManager.updateOrder(order);
     }
 }
