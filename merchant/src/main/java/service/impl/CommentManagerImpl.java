@@ -27,7 +27,10 @@ public class CommentManagerImpl implements CommentManager {
     }
     @Transactional
     @Override
-    public Comment addComment(Comment comment) {
+    public Comment addComment(String oid,Comment comment) {
+        Order order = new Order();
+        order.setId(oid);
+        comment.setOrder(order);
         return  commentDao.addComment(comment);
     }
 
