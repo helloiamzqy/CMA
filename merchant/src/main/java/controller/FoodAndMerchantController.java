@@ -21,37 +21,31 @@ public class FoodAndMerchantController {
     @Autowired
     private MerchantManager merchantManager;
 
-    @RequestMapping(method = RequestMethod.GET,value = "/food")
+    @GetMapping(value = "/food")
     public Pager getAllFood(@RequestParam int curPage, @RequestParam int pageSize){
         return foodManger.findAllFood(curPage,pageSize);
 
     }
-    @RequestMapping(method = RequestMethod.POST,value = "/merchant/{mid}/food")
-    public Food addFood(@PathVariable String mid,Food food){
-        Merchant merchant = new Merchant();
-        merchant.setId(mid);
-        food.setMerchant(merchant);
-        foodManger.addFood(food);
+    @PostMapping(value = "/merchant/{mid}/food")
+    public Food addFood(@PathVariable String mid,@RequestBody Food food){
+        foodManger.addFood(mid,food);
         return food;
     }
-    @RequestMapping(method=RequestMethod.DELETE,value = "/merchant/food")
-    public void delete(String fid){
+    @DeleteMapping(value = "/merchant/food/{fid}")
+    public void delete(@PathVariable  String fid){
         foodManger.deleteFood(fid);
     }
-    @RequestMapping(method = RequestMethod.PUT,value = "/merchant/{mid}/food")
-    public Food updateFood(@PathVariable String mid,Food food){
-        Merchant merchant = new Merchant();
-        merchant.setId(mid);
-        food.setMerchant(merchant);
-        foodManger.updateFood(food);
+    @PutMapping(value = "/merchant/{mid}/food")
+    public Food updateFood(@PathVariable String mid,@RequestBody Food food){
+        foodManger.updateFood(mid,food);
         return food;
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/food/{foodName}")
+    @GetMapping(value = "/food/{foodName}")
     public Pager findFoodByFoodName(int curPage,int pageSize,@PathVariable String foodName){
         return foodManger.findFoodByName(curPage, pageSize, foodName);
     }
-    @RequestMapping(method = RequestMethod.GET,value = "/merchant/{mid}/food")
+    @GetMapping(value = "/merchant/{mid}/food")
     public Pager findFoodByMerchant(int curPage,int pageSize,@PathVariable String mid){
         Merchant merchant = new Merchant();
         merchant.setId(mid);

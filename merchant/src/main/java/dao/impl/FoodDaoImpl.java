@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import pojo.Food;
 import pojo.Merchant;
 import pojo.Pager;
+import vo.FoodVo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,11 +22,16 @@ public class FoodDaoImpl implements FoodDao {
     private EntityManager manager;
     @Override
     public Pager findAllFood(int curPage, int pageSize) {
-        String jpql ="FROM pojo.Food";
+        String jpql ="SELECT  new Food(id,foodName,price,picture,comments) FROM pojo.Food";
         Query query = manager.createQuery(jpql);
         List<Food> foods = query.getResultList();
-        int totalPage = foods.size() / pageSize;
+        int totalPage = 1;
         int totalRow = foods.size();
+        if (totalRow%pageSize==0){
+            totalPage=totalRow/pageSize;
+        }else {
+            totalPage=totalRow/pageSize+1;
+        }
         query = manager.createQuery(jpql);
         foods = query.setFirstResult((curPage - 1) * pageSize)
                 .setMaxResults(pageSize)
@@ -56,12 +62,18 @@ public class FoodDaoImpl implements FoodDao {
 
     @Override
     public Pager findFoodByMerchant(int curPage, int pageSize,Merchant merchant) {
-        String jpql ="FROM pojo.Food it WHERE it.merchant =:merchant";
+//        f.id as id,f.foodName as foodName,f.price as price,f.picture as picture,f.status as status,f.comments as comments
+        String jpql ="SELECT  new Food(id,foodName,price,picture,comments) FROM pojo.Food f WHERE f.merchant =:merchant and f.status = 1";
         Query query = manager.createQuery(jpql);
         query.setParameter("merchant",merchant);
         List<Food> foods = query.getResultList();
-        int totalPage = foods.size() / pageSize;
+        int totalPage = 1;
         int totalRow = foods.size();
+        if (totalRow%pageSize==0){
+            totalPage=totalRow/pageSize;
+        }else {
+            totalPage=totalRow/pageSize+1;
+        }
         query = manager.createQuery(jpql);
         query.setParameter("merchant",merchant);
         foods = query.setFirstResult((curPage - 1) * pageSize)
@@ -73,12 +85,17 @@ public class FoodDaoImpl implements FoodDao {
 
     @Override
     public Pager findFoodByName(int curPage, int pageSize,String foodName) {
-        String jpql = "FROM pojo.Food f WHERE f.foodName = :foodName ";
+        String jpql = "SELECT  new Food(id,foodName,price,picture,comments) FROM pojo.Food f WHERE f.foodName = :foodName ";
         Query query = manager.createQuery(jpql);
         query.setParameter("foodName",foodName);
         List<Food> foods = query.getResultList();
-        int totalPage = foods.size() / pageSize;
+        int totalPage = 1;
         int totalRow = foods.size();
+        if (totalRow%pageSize==0){
+            totalPage=totalRow/pageSize;
+        }else {
+            totalPage=totalRow/pageSize+1;
+        }
         query = manager.createQuery(jpql);
         query.setParameter("foodName",foodName);
         foods = query.setFirstResult((curPage - 1) * pageSize)
