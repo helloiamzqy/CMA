@@ -30,7 +30,7 @@ public class MerchantManagerImplTest {
     public void testUpdateMerchant(){
         MerchantManager merchantManager=context.getBean(MerchantManager.class);
         Merchant merchant=new Merchant();
-        merchant.setId("8a5e9d3d64f61d1c0164f61d22250000");
+        merchant.setId("8a5e9d3d64f82a610164f82a660e0000");
         merchant.setPassword("fjadjfklajdlf");
         merchant.setName("dafad");
         merchantManager.updateMerchant(merchant);
@@ -41,6 +41,6 @@ public class MerchantManagerImplTest {
     public void testFindMerchant(){
         MerchantManager     merchantManager=context.getBean(MerchantManager.class);
         List<Merchant> merchants=merchantManager.findMerchant();
-        Assert.assertTrue(merchants.size()==1);
+        Assert.assertTrue(merchants.size()==2);
     }
 }

@@ -14,8 +14,8 @@ public class CustomerDaoImpl implements CustomerDao {
     private EntityManager manager;
     @Override
     public List<Customer> findCustomer() {
-        String spql="from pojo.Customer";
-        List<Customer> customers=manager.createQuery(spql).getResultList();
+        String jpql="from pojo.Customer";
+        List<Customer> customers=manager.createQuery(jpql).getResultList();
         return customers;
     }
 

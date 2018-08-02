@@ -18,7 +18,7 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @Column(name = "finish_time",nullable = false)
+    @Column(name = "finish_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date finishTime;
 
@@ -90,5 +90,18 @@ public class Order {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", createTime=" + createTime +
+                ", finishTime=" + finishTime +
+                ", merchant=" + merchant +
+                ", status='" + status + '\'' +
+                ", totalPrice=" + totalPrice +
+                ", customer=" + customer +
+                '}';
     }
 }
