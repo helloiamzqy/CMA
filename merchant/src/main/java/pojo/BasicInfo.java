@@ -47,6 +47,29 @@ public class BasicInfo {
         return id;
     }
 
+    public double getDeliFee() {
+        return deliFee;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public String getSlogan() {
+        return slogan;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
 
     public void setId(String id) {
         this.id = id;
@@ -84,5 +107,27 @@ public class BasicInfo {
         this.delivery = delivery;
     }
 
+    public void setDeliFee(double deliFee) {
+        this.deliFee = deliFee;
+    }
 
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
 }
