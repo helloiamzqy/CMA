@@ -26,12 +26,12 @@ $(function () {
             }else{
             let opt =new Object();
             opt.type="POST";
-            opt.url="/customer/regist";
+            opt.url="/customer/customer/registCustomer";
             opt.success=function(result){
-                if(result!=0){
+                if(result!=""){
 //                    window.location.href="/customer/html/merchant.html";
-                    sessionStorage.setItem('user',$("#userName").val());
-                    let userId = $("#userName").val();
+                    sessionStorage.setItem('user',$("#name").val());
+                    let userId = $("#name").val();
                     let shopId = sessionStorage.getItem("shopId");   
                     let foodCarts=$1.queryCart(shopId);
                     $1.updateUserCart(userId,shopId,foodCarts);
@@ -41,13 +41,13 @@ $(function () {
                 }
             }
             opt.contentType="application/json";
-            opt.data=JSON.stringify({'username':$("#username").val(),'password':$("#password").val()});
+            opt.data=JSON.stringify({'name':$("#name").val(),'password':$("#password").val()});
             $.ajax(opt)
             }
            })
 
         $("#registForm").on("change",function () {
-            let name=$("#username").val();
+            let name=$("#name").val();
             let psw=$("#password").val();
             let message={name:name,psw:psw};
             validate(message);

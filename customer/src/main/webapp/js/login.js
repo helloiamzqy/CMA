@@ -3,9 +3,10 @@ $(function () {
         e.preventDefault();
         let opt =new Object();
         opt.type="POST";
-        opt.url="/customer/login";
+        opt.url="/customer/customer/checkLoginCustomer";
         opt.success=function(result){
-            if(result!=0){
+            if(result!=null&&result!=""){
+                alert(JSON.stringify(result))
             	//判断游客里面是否有购物车，有购物车则sessionStorage倒入localStorage
                 sessionStorage.setItem('user',$("#userName").val());
                 let userId = $("#userName").val();
@@ -18,7 +19,7 @@ $(function () {
             }
         }
         opt.contentType="application/json";
-        opt.data=JSON.stringify({'username':$("#userName").val(),'password':$("#password").val()});
+        opt.data=JSON.stringify({'name':$("#userName").val(),'password':$("#password").val()});
         $.ajax(opt)
     })
 })
