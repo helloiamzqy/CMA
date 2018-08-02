@@ -17,20 +17,11 @@ public class Advertisement {
 
     @Column(nullable = false)
     private String picture;
-    @Column(nullable = false)
-    private double price;
 
-    public double getPrice() {
-        return price;
-    }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     @Column(nullable = false,precision = 9,scale = 2)
     private double price;
-
     public double getPrice() {
         return price;
     }

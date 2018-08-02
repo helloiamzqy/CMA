@@ -11,4 +11,7 @@ public interface OrderDao {
     public Order updateOrder(Order order);
     public List<Order> findOrderByMerchant(Merchant merchant,String status);
     public List<Order> findOrderByCustomer(Customer customer,String status);
+    public List<Order> findAllOrderByCustomer(Customer customer);
+    public List<Order> findAllOrderByMerchant(Merchant merchant);
+
 }

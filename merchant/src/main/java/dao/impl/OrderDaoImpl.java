@@ -46,4 +46,22 @@ public class OrderDaoImpl implements OrderDao {
         List<Order> orders=query.getResultList();
         return orders;
     }
+
+    @Override
+    public List<Order> findAllOrderByCustomer(Customer customer) {
+        String jpql="from pojo.Order order where order.customer=:customer";
+        Query query = manager.createQuery(jpql);
+        query.setParameter("customer",customer);
+        List<Order> orders=query.getResultList();
+        return orders;
+    }
+
+    @Override
+    public List<Order> findAllOrderByMerchant(Merchant merchant) {
+        String jpql="from pojo.Order order where order.merchant=:merchant";
+        Query query = manager.createQuery(jpql);
+        query.setParameter("merchant",merchant);
+        List<Order> orders=query.getResultList();
+        return orders;
+    }
 }
