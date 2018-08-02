@@ -89,7 +89,7 @@ public class CommentServiceTest {
         order.setStatus("1");
         order.setTotalPrice(12.23);
         OrderManager orderManager=context.getBean(OrderManager.class);
-        return orderManager.addOrder(order);
+        return orderManager.addOrder(order,merchant.getId(),customer.getId());
     }
 }
 

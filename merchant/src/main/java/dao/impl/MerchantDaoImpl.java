@@ -20,8 +20,8 @@ public class MerchantDaoImpl implements MerchantDao {
 
     @Override
     public List<Merchant> findMerchant() {
-        String spql="from pojo.Merchant";
-        List<Merchant> merchants=manager.createQuery(spql).getResultList();
+        String jpql="from pojo.Merchant";
+        List<Merchant> merchants=manager.createQuery(jpql).getResultList();
         return merchants;
     }
 

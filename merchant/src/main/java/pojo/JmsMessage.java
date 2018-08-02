@@ -1,14 +1,13 @@
 package pojo;
 
 
-import com.google.gson.Gson;
-import pojo.enums.JmsTpEnum;
+import pojo.enums.JmsEnum;
 
 /**
  * @author dunn
  */
-public class JmxTp {
-    private JmsTpEnum jmxTpEnum;
+public class JmsMessage {
+    private JmsEnum jmxTpEnum;
 
     private Object object;
 
@@ -20,11 +19,11 @@ public class JmxTp {
         this.object = object;
     }
 
-    public void setJmxTpEnum(JmsTpEnum jmxTpEnum) {
+    public void setJmxTpEnum(JmsEnum jmxTpEnum) {
         this.jmxTpEnum = jmxTpEnum;
     }
 
-    public JmsTpEnum getJmxTpEnum() {
+    public JmsEnum getJmxTpEnum() {
         return jmxTpEnum;
     }
 }
