@@ -20,3 +20,8 @@ body{
     color: #0c0b0b;
 
 }
+.error{
+    color: red;
+    font-size: 12px;
+    margin-bottom: 20px;
+}

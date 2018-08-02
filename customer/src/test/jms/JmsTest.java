@@ -1,3 +1,4 @@
+package jms;
 
 import com.google.gson.Gson;
 import manager.JmsSender;

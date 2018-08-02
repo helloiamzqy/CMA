@@ -1,12 +1,12 @@
     let currentPage = 0;
     let pageSize = 8;
-    let param = GetRequest().shop_id;
+    let shopId = GetRequest().shop_id;
     let userId = sessionStorage.getItem('user');
     let foodsInCart = "";
     if(userId){
-        foodsInCart = $1.queryUserCart(userId, param);
+        foodsInCart = $1.queryUserCart(userId, shopId);
     }else{
-        foodsInCart = $1.queryCart(param);
+        foodsInCart = $1.queryCart(shopId);
     }
 
     function GetRequest() {
@@ -22,11 +22,12 @@
         return theRequest;
     }
     window.onload = function () {
-        $("#order").attr("href", "/typhoon_consuemer/html/order.html?shop_id=" + param);
-        let url = "/typhoon_consuemer/findDishes?shop_id=" + param;
+        $("#order").attr("href", "/customer/html/order.html?shop_id=" + shopId);
+        let url = "/customer/findDishes?shop_id=" + shopId;
         let method = "POST";
         let headers = [{"key": "Content-Type", "value": "application/json"}];
         renderCart(foodsInCart);
+        //刷新页面
         function renderTable(foods) {
             let maindiv = document.querySelector("#dishList");
             for (let i = 0; i < foods.length; i++) {
@@ -35,7 +36,7 @@
                 }
                 let conDiv = '<div class="col-md-3"><div id="dish"><br><br><a href=""><div class="dishImg">';
                 let img = ' <img src="' + foods[i].picture + '" alt="" width="180" height="100"></a>';
-                let foodinfo = '<div class="dishDetail">' + foods[i].foodName + '<br>￥' + foods[i].price;
+                let foodinfo = '<div class="dishDetail"><strong>' + foods[i].foodName + '</strong><br><span class="foodPri">￥' + foods[i].price+"</span>";
                 let spanButton = '<span class="addBtn glyphicon glyphicon-plus" id="' + foods[i].id + '"></span></div></div></div>'
                 $("#dishList").append(conDiv + img + foodinfo + spanButton);
                 if (i % 3 == 0) {
@@ -49,8 +50,8 @@
                 });
             }
         }
-
-
+        
+//获取商家信息
         function getData(method, url, data, headers) {
             $.ajax({
                 type: method,
@@ -68,41 +69,47 @@
         }
 
         getData(method, url, null, headers);
-
         $.ajax({
             type: "POST",
-            url: "/typhoon_consuemer/showRestaurantDetail",
-            data: {shop_id: param},
+            url: "/customer/showRestaurantDetail",
+            data: {shop_id: shopId},
             dataType: "json",
             success: function (data) {
-                let html = '   &nbsp;<img src="' + data.picture + '" alt="..." class="img-thumbnail" width="140" height="140"><span>店名：' + data.shopName + "<span>";
-                $("#imgDiv").append(html);
+            	console.log(data);
+            	let html = '<div class="shopImg"><img src="' + data.picture + '" alt="..." class="img-thumbnail" width="140" height="140"><span>' + data.shopName + "<span></div>";
+            	$("#imgDiv").append(html);
+            	$("#shopTime").text(data.openTime+'-'+data.closeTime);
+            	$("#deli_fee").text(data.deli_fee);
+            	$("#slogan").text(data.slogan);
             }
         });
 
     }
-
+    //清空购物车
     function clearCart(){
-        $1.clearUserCart(userId,param);
-        $1.clearCart(param);
+        $1.clearUserCart(userId,shopId);
+        $1.clearCart(shopId);
         renderCart(foodsInCart);
     }
+    //以下为拼接购物车信息
     function renderCart(dishs) {
         $("#dishCart").empty();
         if (dishs) {
             for (let i = 0; i < dishs.length; i++) {
+            	//遍历并将信息渲染到页面
                 let cartHtml = '<div class="title"><span class="f1 scope1">'+dishs[i].foodName+'</span>';
                 let numHtml = '<span class="f1  scope2"> <a class="f1 minus" href="#" id="cut'+i+'">-</a><div class="count">'+dishs[i].num+'</div>' +
                     '<a class="plus" href="#" id="add'+i+'">+</a></span>';
                 let total="<span class=\"fr pri scope2\">￥"+(dishs[i].price*dishs[i].num)+"</span></div>";
                 $("#dishCart").append(cartHtml+numHtml+total);
+                //绑定减少按钮
                 $("#cut"+i).on('click', function () {
                     //if user is null
                     foodTemp = dishs[i];
                     $cartservice.reduceCart(foodTemp);
                     renderCart(foodsInCart);
                 });
-
+                //绑定添加按钮	
                 $("#add"+i).on('click', function () {
                     //if user is null
                     foodTemp = dishs[i];
@@ -112,6 +119,11 @@
             }
         }
     }
+    //分页
+    $("#selectSize").change(function(){ 
+    	pageSize = $("#selectSize").val();
+    	getData(method,url,null,headers);
+    }) 
     function renderNav(page){
         $("#navul").empty();
         //上一页按钮
