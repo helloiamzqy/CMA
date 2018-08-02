@@ -11,9 +11,9 @@ import java.util.List;
  */
 public interface FoodManger {
     Pager findAllFood(int curPage, int pageSize);
-    Food addFood(Food food);
+    Food addFood(String mid,Food food);
     void deleteFood(String id);
-    Food updateFood(Food food);
+    Food updateFood(String mid,Food food);
     Pager findFoodByMerchant(int curPage, int pageSize,Merchant merchant);
     Pager findFoodByName(int curPage, int pageSize,String name);
 }

@@ -25,7 +25,10 @@ public class FoodMangerImpl implements FoodManger {
 
     @Override
     @Transactional
-    public Food addFood(Food food) {
+    public Food addFood(String mid,Food food) {
+        Merchant merchant = new Merchant();
+        merchant.setId(mid);
+        food.setMerchant(merchant);
         return  foodDao.addFood(food);
     }
 
@@ -37,7 +40,10 @@ public class FoodMangerImpl implements FoodManger {
 
     @Override
     @Transactional
-    public Food updateFood(Food food) {
+    public Food updateFood(String mid,Food food) {
+        Merchant merchant = new Merchant();
+        merchant.setId(mid);
+        food.setMerchant(merchant);
         return  foodDao.updateFood(food);
     }
 

@@ -54,7 +54,7 @@ public class CommentServiceTest {
         commentManager.deleteComment(comment.getId());
     }
     @Test
-    public void findCommentByOrder(){
+    public void testFindCommentByOrder(){
         Order order = createOrder();
         Comment comment = new Comment();
         comment.setContent("nihao");
@@ -62,10 +62,21 @@ public class CommentServiceTest {
         comment.setOrder(order);
         comment.setRank(1);
         commentManager.addComment(comment);
-        Pager pager = commentManager.findCommentByOrder(1,10,order);
+        Pager pager = commentManager.findCommentByOrder(1,10,order.getId());
         assert(pager.getList().size()>0);
     }
-
+    @Test
+    public void testFindCommentByMerchant(){
+        Order order = createOrder();
+        Comment comment = new Comment();
+        comment.setContent("nihao");
+        comment.setCreateTime(new Date());
+        comment.setRank(1);
+        comment.setOrder(order);
+        commentManager.addComment(comment);
+        Pager pager = commentManager.findCommentByMerchant(1,10,order.getMerchant().getId());
+        assert(pager.getList().size()>0);
+    }
     private Order createOrder() {
         CustomerManager customerManager=context.getBean(CustomerManager.class);
         MerchantManager merchantManager=context.getBean(MerchantManager.class);
@@ -91,5 +102,7 @@ public class CommentServiceTest {
         OrderManager orderManager=context.getBean(OrderManager.class);
         return orderManager.addOrder(order,merchant.getId(),customer.getId());
     }
+
+
 }
 

@@ -21,8 +21,8 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public Order updateOrder(Order order) {
-        Order order1=manager.merge(order);
-        return order1;
+        manager.merge(order);
+        return order;
     }
 
     @Override
