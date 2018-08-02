@@ -36,10 +36,53 @@ public class BasicInfo {
 
     private String slogan;
 
-    @Column(columnDefinition = "varchar2(255) default 0")
     private String status;
 
     private String comments;
+
+    @Column(nullable = false,name = "shop_name")
+    private String shopName;
+
+    public String getId() {
+        return id;
+    }
+
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Merchant getMerchant() {
+        return merchant;
+    }
+
+    public void setMerchant(Merchant merchant) {
+        this.merchant = merchant;
+    }
+
+    public Date getOpenTime() {
+        return openTime;
+    }
+
+    public void setOpenTime(Date openTime) {
+        this.openTime = openTime;
+    }
+
+    public Date getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(Date closeTime) {
+        this.closeTime = closeTime;
+    }
+    @Column(columnDefinition = "varchar2(255) default 3")
+    public String getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(String delivery) {
+        this.delivery = delivery;
+    }
 
 
 }

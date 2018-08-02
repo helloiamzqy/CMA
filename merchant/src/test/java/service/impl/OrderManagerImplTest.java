@@ -8,11 +8,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.Customer;
 import pojo.Merchant;
 import pojo.Order;
+import pojo.Pager;
 import service.CustomerManager;
 import service.MerchantManager;
 import service.OrderManager;
 
 import java.util.Date;
+import java.util.List;
 
 public class OrderManagerImplTest {
     private static ApplicationContext context;
@@ -45,7 +47,7 @@ public class OrderManagerImplTest {
         order.setStatus("1");
         order.setTotalPrice(12.23);
         OrderManager orderManager=context.getBean(OrderManager.class);
-        Order order1 = orderManager.addOrder(order);
+        Order order1 = orderManager.addOrder(order,merchant.getId(),customer.getId());
         Assert.assertTrue(order1!=null);
 
     }
@@ -75,13 +77,34 @@ public class OrderManagerImplTest {
         order.setCreateTime(new Date());
         order.setTotalPrice(672);
         OrderManager orderManager=context.getBean(OrderManager.class);
-        Order order1 = orderManager.updateOrder(order);
+        Order order1 = orderManager.updateOrder(order,"","");
         Assert.assertTrue(order1.getStatus().equals("fad"));
 
     }
 
+//    @Test
+//    public  void testFindOrderByMerchant(){
+//        OrderManager orderManager=context.getBean(OrderManager.class);
+//        List<Order> orders=orderManager.findOrderByMerchant("8a5e9d3c64f84c7f0164f84c845c0001","1");
+//        Assert.assertTrue(orders.size()==2);
+//
+//    }
+//    @Test
+//    public  void testFindOrderByCustomer(){
+//        OrderManager orderManager=context.getBean(OrderManager.class);
+//        List<Order> orders=orderManager.findOrderByCustomer("8a5e9d3c64f84c7f0164f84c841e0000","1");
+//        Assert.assertTrue(orders.size()==1);
+//    }
     @Test
-    public  void testFindOrderByMerchant(){
-
+    public  void testFindAllOrderByMerchant(){
+        OrderManager orderManager=context.getBean(OrderManager.class);
+        Pager pager =orderManager.findAllOrderByMerchant("8a5e9d3c64f84c7f0164f84c845c0001",1,4);
+        Assert.assertTrue(pager.getList().size()==2);
+    }
+    @Test
+    public  void testFindAllOrderByCustomer(){
+        OrderManager orderManager=context.getBean(OrderManager.class);
+        Pager pager=orderManager.findAllOrderByCustomer("8a5e9d3c64f84c7f0164f84c841e0000",1,4);
+        Assert.assertTrue(pager.getList().size()==1);
     }
 }
