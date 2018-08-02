@@ -48,13 +48,18 @@ public class FoodDaoImpl implements FoodDao {
 
     @Override
     public List<Food> findFoodByMerchant(Merchant merchant) {
-        return null;
+        String jpql ="FROM pojo.Food it WHERE it.merchant =:merchant";
+        Query query = manager.createQuery(jpql);
+        query.setParameter("merchant",merchant);
+        List<Food> foods = query.getResultList();
+        return foods;
     }
 
     @Override
-    public List<Food> findFoodByName(String food) {
+    public List<Food> findFoodByName(String foodName) {
         String jpql = "FROM pojo.Food f WHERE f.foodName = :foodName ";
         Query query = manager.createQuery(jpql);
+        query.setParameter("foodName",foodName);
         List<Food> foods = query.getResultList();
         return foods;
     }
