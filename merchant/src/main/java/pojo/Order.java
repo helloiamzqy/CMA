@@ -91,4 +91,17 @@ public class Order {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", createTime=" + createTime +
+                ", finishTime=" + finishTime +
+                ", merchant=" + merchant +
+                ", status='" + status + '\'' +
+                ", totalPrice=" + totalPrice +
+                ", customer=" + customer +
+                '}';
+    }
 }

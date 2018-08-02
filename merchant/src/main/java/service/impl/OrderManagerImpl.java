@@ -4,6 +4,7 @@ import dao.OrderDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pojo.Customer;
 import pojo.Merchant;
 import pojo.Order;
 import service.OrderManager;
@@ -28,7 +29,16 @@ public class OrderManagerImpl implements OrderManager {
 
     @Transactional
     @Override
-    public List<Order> findOrderByMerchant(Merchant merchant) {
-        return null;
+    public List<Order> findOrderByMerchant(Merchant merchant,String status) {
+        return orderDao.findOrderByMerchant(merchant,status);
     }
+
+    @Transactional
+    @Override
+    public List<Order> findOrderByCustomer(Customer customer, String status) {
+        return orderDao.findOrderByCustomer(customer,status);
+    }
+
+
+
 }

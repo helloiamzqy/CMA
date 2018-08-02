@@ -2,11 +2,13 @@ package dao.impl;
 
 import dao.OrderDao;
 import org.springframework.stereotype.Repository;
+import pojo.Customer;
 import pojo.Merchant;
 import pojo.Order;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -26,7 +28,22 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public List<Order> findOrderByMerchant(Merchant merchant) {
-        return null;
+    public List<Order> findOrderByMerchant(Merchant merchant,String status) {
+        String jpql="from pojo.Order order where order.merchant=:merchant and order.status=:status";
+        Query query = manager.createQuery(jpql);
+        query.setParameter("merchant",merchant);
+        query.setParameter("status",status);
+        List<Order> orders=query.getResultList();
+        return orders;
+    }
+
+    @Override
+    public List<Order> findOrderByCustomer(Customer customer, String status) {
+        String jpql="from pojo.Order order where order.customer=:customer and order.status=:status";
+        Query query = manager.createQuery(jpql);
+        query.setParameter("customer",customer);
+        query.setParameter("status",status);
+        List<Order> orders=query.getResultList();
+        return orders;
     }
 }
