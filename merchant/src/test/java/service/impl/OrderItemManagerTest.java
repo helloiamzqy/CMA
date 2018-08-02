@@ -39,7 +39,7 @@ public class OrderItemManagerTest {
         food.setFoodName("fdadas");
         food.setPrice(12321);
         food.setPicture("fdafds");
-        foodManger.addFood(food);
+//        foodManger.addFood(food);
         orderItem.setFoodNum(1);
         orderItem.setFood(food);
         orderItem.setTotalPrice(666);
