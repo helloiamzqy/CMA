@@ -12,7 +12,7 @@ import java.util.List;
 public interface AdvertisementManager {
     public List<Advertisement> getAllAds() throws Exception;
     public Advertisement updateAd(String id,String state);
-    public boolean addAd(Advertisement ad);
+    public Advertisement addAd(Advertisement ad);
     public String sendAds();
     public boolean deleteAdById(int id);
     public Page<Advertisement> getAdsByPage(int currentPage, int pageSize);

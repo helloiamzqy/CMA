@@ -30,9 +30,9 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
     }
 
     @Override
-    public int addAd(Advertisement ad) {
+    public Advertisement addAd(Advertisement ad) {
         em.persist(ad);
-        return 0;
+        return ad;
     }
 
     @Override

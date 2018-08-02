@@ -38,9 +38,9 @@ public class AdvertisementManagerImpl implements AdvertisementManager {
     }
 
     @Override
-    public boolean addAd(Advertisement ad) {
-        advertisementDao.addAd(ad);
-        return true;
+    public Advertisement addAd(Advertisement ad) {
+
+        return advertisementDao.addAd(ad);
     }
 
     @Override

@@ -9,7 +9,7 @@ import javax.persistence.*;
  * @date 8/1/2018 8:08 PM
  */
 @Entity
-@Table(name="MerchantInfo")
+@Table(name="merchant_info")
 public class MerchantInfo {
     @Id
     @GenericGenerator(strategy="uuid",name="uuid")
@@ -39,7 +39,7 @@ public class MerchantInfo {
     @Column(nullable = false)
     private String address;
 
-    @Column(nullable = false,columnDefinition = "varchar2 default 0")
+    @Column(nullable = false,columnDefinition = "varchar2(10) default 0")
     private String status;
 
     @Column(nullable = false)

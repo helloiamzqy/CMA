@@ -14,7 +14,7 @@ public interface AdvertisementDao {
 
     public Advertisement updateAd(Advertisement ad);
 
-    public int addAd(Advertisement ad);
+    public Advertisement addAd(Advertisement ad);
 
     public List<Advertisement> sendAds();
 
