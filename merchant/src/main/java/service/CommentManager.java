@@ -12,6 +12,6 @@ import java.util.List;
 public interface CommentManager {
     Pager findAllComment(int curPage, int pageSize);
     Comment addComment(Comment Comment);
-    void deleteFood(String id);
+    void deleteComment(String id);
     Pager findCommentByOrder(int curPage, int pageSize,Order order);
 }
