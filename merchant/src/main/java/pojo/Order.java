@@ -105,4 +105,17 @@ public class Order {
                 '}';
     }
 
+    public Order(Date createTime, Date finishTime, Merchant merchant, String status, double totalPrice, Customer customer) {
+        this.createTime = createTime;
+        this.finishTime = finishTime;
+        this.merchant = merchant;
+        this.status = status;
+        this.totalPrice = totalPrice;
+        this.customer = customer;
+        this.merchant.setPassword(null);
+        this.customer.setPassword(null);
+    }
+
+    public Order() {
+    }
 }

@@ -29,4 +29,9 @@ public class AdvertisementManagerImpl implements AdvertisementManager {
         merchant.setId(mId);
         return advertisementDao.findAdvertisementByMerchant(merchant);
     }
+
+    @Override
+    public List<Advertisement> findAdvertisementById(List<String> ids) {
+        return advertisementDao.findAdvertisementById(ids);
+    }
 }

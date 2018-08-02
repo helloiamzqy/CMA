@@ -26,16 +26,16 @@ public class FoodAndMerchantController {
         return foodManger.findAllFood(curPage,pageSize);
 
     }
-    @PostMapping(value = "/merchant/{mid}/food")
+    @PostMapping(value = "/{mid}/food")
     public Food addFood(@PathVariable String mid,@RequestBody Food food){
         foodManger.addFood(mid,food);
         return food;
     }
-    @DeleteMapping(value = "/merchant/food/{fid}")
+    @DeleteMapping(value = "/food/{fid}")
     public void delete(@PathVariable  String fid){
         foodManger.deleteFood(fid);
     }
-    @PutMapping(value = "/merchant/{mid}/food")
+    @PutMapping(value = "/{mid}/food")
     public Food updateFood(@PathVariable String mid,@RequestBody Food food){
         foodManger.updateFood(mid,food);
         return food;
@@ -45,7 +45,7 @@ public class FoodAndMerchantController {
     public Pager findFoodByFoodName(int curPage,int pageSize,@PathVariable String foodName){
         return foodManger.findFoodByName(curPage, pageSize, foodName);
     }
-    @GetMapping(value = "/merchant/{mid}/food")
+    @GetMapping(value = "/{mid}/food")
     public Pager findFoodByMerchant(int curPage,int pageSize,@PathVariable String mid){
         Merchant merchant = new Merchant();
         merchant.setId(mid);

@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="jason">
+  <database-model serializer="dbm" rdbms="ORACLE" format-version="4.9">
+    <root id="1">
+      <ServerVersion>11.2.0.2</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="JASON1">
+      <ObjectId>51</ObjectId>
+      <IntrospectionTimestamp>2018-08-02.06:30:56</IntrospectionTimestamp>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="PUBLIC">
+      <ObjectId>1</ObjectId>
+    </schema>
+    <schema id="4" parent="1" name="SYS">
+      <ObjectId>0</ObjectId>
+    </schema>
+    <schema id="5" parent="1" name="SYSTEM">
+      <ObjectId>5</ObjectId>
+    </schema>
+    <schema id="6" parent="1" name="OUTLN">
+      <ObjectId>9</ObjectId>
+    </schema>
+    <schema id="7" parent="1" name="DIP">
+      <ObjectId>14</ObjectId>
+    </schema>
+    <schema id="8" parent="1" name="ORACLE_OCM">
+      <ObjectId>21</ObjectId>
+    </schema>
+    <schema id="9" parent="1" name="DBSNMP">
+      <ObjectId>29</ObjectId>
+    </schema>
+    <schema id="10" parent="1" name="APPQOSSYS">
+      <ObjectId>30</ObjectId>
+    </schema>
+    <schema id="11" parent="1" name="CTXSYS">
+      <ObjectId>32</ObjectId>
+    </schema>
+    <schema id="12" parent="1" name="XDB">
+      <ObjectId>34</ObjectId>
+    </schema>
+    <schema id="13" parent="1" name="ANONYMOUS">
+      <ObjectId>35</ObjectId>
+    </schema>
+    <schema id="14" parent="1" name="MDSYS">
+      <ObjectId>42</ObjectId>
+    </schema>
+    <schema id="15" parent="1" name="HR">
+      <ObjectId>43</ObjectId>
+    </schema>
+    <schema id="16" parent="1" name="FLOWS_FILES">
+      <ObjectId>44</ObjectId>
+    </schema>
+    <schema id="17" parent="1" name="APEX_PUBLIC_USER">
+      <ObjectId>45</ObjectId>
+    </schema>
+    <schema id="18" parent="1" name="APEX_040000">
+      <ObjectId>47</ObjectId>
+    </schema>
+    <schema id="19" parent="1" name="JASON">
+      <ObjectId>48</ObjectId>
+    </schema>
+    <schema id="20" parent="1" name="TEST">
+      <ObjectId>49</ObjectId>
+    </schema>
+    <schema id="21" parent="1" name="JASONCHEN">
+      <ObjectId>50</ObjectId>
+    </schema>
+    <schema id="22" parent="1" name="XS$NULL">
+      <ObjectId>2147483638</ObjectId>
+    </schema>
+    <table id="23" parent="2" name="ADVERTISEMENTS">
+      <ObjectId>22019</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="24" parent="2" name="BASIC_INFO">
+      <ObjectId>22021</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="25" parent="2" name="COMMENTS">
+      <ObjectId>22023</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="26" parent="2" name="CUSTOMERS">
+      <ObjectId>22025</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="27" parent="2" name="FOODS">
+      <ObjectId>22027</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="28" parent="2" name="MERCHANTS">
+      <ObjectId>22029</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="29" parent="2" name="ORDERS">
+      <ObjectId>22033</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="30" parent="2" name="ORDER_ITEM">
+      <ObjectId>22031</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="31" parent="2" name="REGISTER_INFO">
+      <ObjectId>22035</ObjectId>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <column id="32" parent="23" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="23" name="PICTURE">
+      <Position>2</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="23" name="PRICE">
+      <Position>3</Position>
+      <DataType>FLOAT(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="23" name="M_ID">
+      <Position>4</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <index id="36" parent="23" name="SYS_C008503">
+      <ObjectId>22020</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="23" name="SYS_C008503">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008503</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="23" name="FKKV5ISCBB87I3AQOOK47OEOTNU">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>M_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>MERCHANTS</RefTableName>
+      <RefKeyName>SYS_C008526</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="39" parent="24" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="24" name="CLOSETIME">
+      <Position>2</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <column id="41" parent="24" name="COMMENTS">
+      <Position>3</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <column id="42" parent="24" name="DELIFEE">
+      <Position>4</Position>
+      <DataType>FLOAT(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="24" name="DELIVERY">
+      <Position>5</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <DefaultExpression>3</DefaultExpression>
+    </column>
+    <column id="44" parent="24" name="OPENTIME">
+      <Position>6</Position>
+      <DataType>DATE|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="24" name="PICTURE">
+      <Position>7</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="24" name="SLOGAN">
+      <Position>8</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <column id="47" parent="24" name="STATUS">
+      <Position>9</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="48" parent="24" name="M_ID">
+      <Position>10</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <index id="49" parent="24" name="SYS_C008508">
+      <ObjectId>22022</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="50" parent="24" name="SYS_C008508">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008508</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="51" parent="24" name="FKJM4ECLBPNA1LY9LOEN80SJ4TB">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>M_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>MERCHANTS</RefTableName>
+      <RefKeyName>SYS_C008526</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="52" parent="25" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="25" name="CONTENT">
+      <Position>2</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="25" name="CREATE_TIME">
+      <Position>3</Position>
+      <DataType>DATE|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="25" name="RANK">
+      <Position>4</Position>
+      <DataType>NUMBER(10 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="25" name="O_ID">
+      <Position>5</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <index id="57" parent="25" name="SYS_C008513">
+      <ObjectId>22024</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="58" parent="25" name="SYS_C008513">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008513</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="59" parent="25" name="FKKLAU7XELC8IPDV9N75HRMAYLS">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>O_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>ORDERS</RefTableName>
+      <RefKeyName>SYS_C008535</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="60" parent="26" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="26" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="26" name="PASSWORD">
+      <Position>3</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="63" parent="26" name="SYS_C008517">
+      <ObjectId>22026</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="64" parent="26" name="SYS_C008517">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008517</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="27" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="27" name="COMMENTS">
+      <Position>2</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <column id="67" parent="27" name="FOOD_NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="27" name="PICTURE">
+      <Position>4</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="27" name="PRICE">
+      <Position>5</Position>
+      <DataType>FLOAT(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="27" name="STATUS">
+      <Position>6</Position>
+      <DataType>VARCHAR2(1 byte)|0s</DataType>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="71" parent="27" name="M_ID">
+      <Position>7</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <index id="72" parent="27" name="SYS_C008522">
+      <ObjectId>22028</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="73" parent="27" name="SYS_C008522">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008522</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="74" parent="27" name="FKALURYS9HOM84ILA1TUBULTUSC">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>M_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>MERCHANTS</RefTableName>
+      <RefKeyName>SYS_C008526</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="75" parent="28" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="28" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="28" name="PASSWORD">
+      <Position>3</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="78" parent="28" name="SYS_C008526">
+      <ObjectId>22030</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="79" parent="28" name="SYS_C008526">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008526</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="80" parent="29" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="29" name="CREATE_TIME">
+      <Position>2</Position>
+      <DataType>DATE|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="29" name="FINISH_TIME">
+      <Position>3</Position>
+      <DataType>DATE|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="29" name="STATUS">
+      <Position>4</Position>
+      <DataType>VARCHAR2(2 byte)|0s</DataType>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="84" parent="29" name="TOTAL_PRICE">
+      <Position>5</Position>
+      <DataType>FLOAT(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="29" name="C_ID">
+      <Position>6</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <column id="86" parent="29" name="M_ID">
+      <Position>7</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <index id="87" parent="29" name="SYS_C008535">
+      <ObjectId>22034</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="88" parent="29" name="SYS_C008535">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008535</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="89" parent="29" name="FKK6SA3X7KY8NHGL8MWUMMXO2LA">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>C_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>CUSTOMERS</RefTableName>
+      <RefKeyName>SYS_C008517</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="90" parent="29" name="FKPF1P0UGBY0UN59HE8B9U94KDU">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>M_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>MERCHANTS</RefTableName>
+      <RefKeyName>SYS_C008526</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="91" parent="30" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="92" parent="30" name="FOOD_NUM">
+      <Position>2</Position>
+      <DataType>NUMBER(10 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="93" parent="30" name="TOTAL_PRICE">
+      <Position>3</Position>
+      <DataType>FLOAT(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="30" name="F_ID">
+      <Position>4</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <column id="95" parent="30" name="O_ID">
+      <Position>5</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <index id="96" parent="30" name="SYS_C008530">
+      <ObjectId>22032</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="97" parent="30" name="SYS_C008530">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008530</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="98" parent="30" name="FK85TWOC7EN9QJ76EULB398ERFI">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>F_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>FOODS</RefTableName>
+      <RefKeyName>SYS_C008522</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="99" parent="30" name="FKG2NJV6KDU1S6EEJC9BPW9PWFV">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>O_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>ORDERS</RefTableName>
+      <RefKeyName>SYS_C008535</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="100" parent="31" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="31" name="ADDRESS">
+      <Position>2</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="31" name="COMMENTS">
+      <Position>3</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <column id="103" parent="31" name="CORPORATE_NAME">
+      <Position>4</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="104" parent="31" name="CREDIT_CODE">
+      <Position>5</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="105" parent="31" name="ID_CARD">
+      <Position>6</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="106" parent="31" name="PHONE">
+      <Position>7</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="31" name="PICTURE">
+      <Position>8</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="108" parent="31" name="SHOPNAME">
+      <Position>9</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="109" parent="31" name="M_ID">
+      <Position>10</Position>
+      <DataType>VARCHAR2(255 byte)|0s</DataType>
+    </column>
+    <index id="110" parent="31" name="SYS_C008544">
+      <ObjectId>22036</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-08-02.06:29:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="111" parent="31" name="SYS_C008544">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C008544</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="112" parent="31" name="FK198DX4HWMBPEJNVS8A1Y7TBY8">
+      <ModifiedTimestamp>2018-08-02.06:29:52</ModifiedTimestamp>
+      <ColNames>M_ID</ColNames>
+      <RefSchemaName>JASON1</RefSchemaName>
+      <RefTableName>MERCHANTS</RefTableName>
+      <RefKeyName>SYS_C008526</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
