@@ -14,6 +14,6 @@ public interface AdvertisementManager {
     public Advertisement updateAd(String id,String state);
     public Advertisement addAd(Advertisement ad);
     public String sendAds();
-    public boolean deleteAdById(int id);
+    public void deleteAdById(String id);
     public Page<Advertisement> getAdsByPage(int currentPage, int pageSize);
 }

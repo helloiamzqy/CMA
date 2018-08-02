@@ -3,6 +3,7 @@ package service.impl;
 import dao.AdvertisementDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pojo.Advertisement;
 import pojo.Page;
 import service.AdvertisementManager;
@@ -24,24 +25,29 @@ public class AdvertisementManagerImpl implements AdvertisementManager {
 
     @Override
     public List<Advertisement> getAllAds() throws Exception {
-
-        return null;
+        return advertisementDao.getAllAd();
     }
 
+    @Transactional
     @Override
     public Advertisement updateAd(String id, String state) {
-        Advertisement advertisement = new Advertisement();
-        advertisement.setId(id);
-        advertisement.setId(id);
+        Advertisement advertisement = advertisementDao.findAdById(id);
         advertisement.setStatus(state);
       return advertisementDao.updateAd(advertisement);
     }
 
+    @Transactional
     @Override
     public Advertisement addAd(Advertisement ad) {
-
         return advertisementDao.addAd(ad);
     }
+
+    @Transactional
+    @Override
+    public void deleteAdById(String id) {
+        advertisementDao.deleteAdById(id);
+    }
+
 
     @Override
     public String sendAds() {
@@ -53,10 +59,6 @@ public class AdvertisementManagerImpl implements AdvertisementManager {
         return sb.toString();
     }
 
-    @Override
-    public boolean deleteAdById(int id) {
-        return false;
-    }
 
     @Override
     public Page<Advertisement> getAdsByPage(int currentPage, int pageSize) {

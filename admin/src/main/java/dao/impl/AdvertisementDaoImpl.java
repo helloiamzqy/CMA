@@ -37,7 +37,7 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
 
     @Override
     public List<Advertisement> sendAds() {
-        String jpql="select ad from pojo.Advertisement ad where ad.state=1 order by ad.price desc";
+        String jpql="select ad from pojo.Advertisement ad where ad.status=1 order by ad.price desc";
         return em.createQuery(jpql)
                 .setFirstResult(1)
                 .setMaxResults(3)
@@ -45,9 +45,15 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
     }
 
     @Override
+    public void deleteAdById(String i) {
+        Advertisement advertisement = em.getReference(Advertisement.class,i);
+        em.remove(advertisement);
+    }
+
+    @Override
     public int findAdsCount() {
         String jpql="select count(*) from pojo.Advertisement";
-        return (Integer) em.createQuery(jpql).getSingleResult();
+        return ((Number) em.createQuery(jpql).getSingleResult()).intValue();
     }
 
     @Override
@@ -58,5 +64,10 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
                 .setFirstResult(begin)
                 .setMaxResults(end)
                 .getResultList();
+    }
+
+    @Override
+    public Advertisement findAdById(String id) {
+        return em.find(Advertisement.class,id);
     }
 }

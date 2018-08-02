@@ -3,6 +3,7 @@
         let method="GET";
         let headers=[{"key":"Content-Type","value":"application/json"}];
 
+
         //渲染表格
         function renderTable(ads) {
             let table=document.querySelector("#ads");
