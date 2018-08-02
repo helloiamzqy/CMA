@@ -1,4 +1,4 @@
-package mananger;
+package service;
 
 import pojo.Comment;
 import pojo.Order;

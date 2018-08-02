@@ -1,4 +1,4 @@
-package mananger.impl;
+package service.impl;
 
 import dao.FoodDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pojo.Food;
 import pojo.Merchant;
-import mananger.FoodManger;
+import service.FoodManger;
 
 import java.util.List;
 

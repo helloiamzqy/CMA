@@ -1,11 +1,11 @@
-package servicetest;
+package service.impl;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.Food;
-import mananger.FoodManger;
+import service.FoodManger;
 import pojo.Merchant;
 
 import java.util.List;

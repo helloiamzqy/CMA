@@ -1,4 +1,4 @@
-package mananger;
+package service;
 
 import pojo.Food;
 import pojo.Merchant;

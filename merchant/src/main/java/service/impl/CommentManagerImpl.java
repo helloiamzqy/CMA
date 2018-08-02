@@ -1,15 +1,13 @@
-package mananger.impl;
+package service.impl;
 
 import dao.CommentDao;
-import mananger.CommentManager;
+import service.CommentManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pojo.Comment;
 import pojo.Order;
 import pojo.Pager;
-
-import java.util.List;
 
 /**
  * @author Dunn

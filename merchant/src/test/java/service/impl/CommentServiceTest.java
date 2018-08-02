@@ -1,7 +1,6 @@
-package servicetest;
+package service.impl;
 
-import mananger.CommentManager;
-import mananger.FoodManger;
+import service.CommentManager;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
