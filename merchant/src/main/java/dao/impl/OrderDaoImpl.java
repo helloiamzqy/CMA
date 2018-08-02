@@ -32,8 +32,13 @@ public class OrderDaoImpl implements OrderDao {
         query.setParameter("merchant",merchant);
         query.setParameter("status",status);
         List<Order> orders=query.getResultList();
-        int totalPage=orders.size()/pageSize;
+        int totalPage=0;
         int totalRow=orders.size();
+        if (totalRow%pageSize==0){
+            totalPage=totalRow/pageSize;
+        }else {
+            totalPage=totalRow/pageSize+1;
+        }
         orders=query.setFirstResult((curPage-1)*pageSize).setMaxResults(pageSize).getResultList();
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, orders);
         return pager;
@@ -46,8 +51,13 @@ public class OrderDaoImpl implements OrderDao {
         query.setParameter("customer",customer);
         query.setParameter("status",status);
         List<Order> orders=query.getResultList();
-        int totalPage=orders.size()/pageSize;
+        int totalPage=0;
         int totalRow=orders.size();
+        if (totalRow%pageSize==0){
+            totalPage=totalRow/pageSize;
+        }else {
+            totalPage=totalRow/pageSize+1;
+        }
         orders=query.setFirstResult((curPage-1)*pageSize).setMaxResults(pageSize).getResultList();
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, orders);
         return pager;
@@ -59,8 +69,13 @@ public class OrderDaoImpl implements OrderDao {
         Query query = manager.createQuery(jpql);
         query.setParameter("customer",customer);
         List<Order> orders=query.getResultList();
-        int totalPage=orders.size()/pageSize;
+        int totalPage=0;
         int totalRow=orders.size();
+        if (totalRow%pageSize==0){
+            totalPage=totalRow/pageSize;
+        }else {
+            totalPage=totalRow/pageSize+1;
+        }
         orders=query.setFirstResult((curPage-1)*pageSize).setMaxResults(pageSize).getResultList();
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, orders);
         return pager;
@@ -72,8 +87,13 @@ public class OrderDaoImpl implements OrderDao {
         Query query = manager.createQuery(jpql);
         query.setParameter("merchant",merchant);
         List<Order> orders=query.getResultList();
-        int totalPage=orders.size()/pageSize;
+        int totalPage=0;
         int totalRow=orders.size();
+        if (totalRow%pageSize==0){
+            totalPage=totalRow/pageSize;
+        }else {
+            totalPage=totalRow/pageSize+1;
+        }
         orders=query.setFirstResult((curPage-1)*pageSize).setMaxResults(pageSize).getResultList();
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, orders);
         return pager;
