@@ -1,8 +1,8 @@
-package pojo.penum;
+package pojo.enums;
 
 /**
  * @author Dunn
  */
-public enum JmxTpEnum {
+public enum JmsEnum {
     ADVERSITMENT, COMPLAIN,APPLY
 }

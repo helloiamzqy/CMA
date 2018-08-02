@@ -14,6 +14,7 @@ import pojo.Pager;
  */
 @Service
 public class CommentManagerImpl implements CommentManager {
+
     @Autowired
     private CommentDao commentDao;
     @Override
@@ -29,7 +30,7 @@ public class CommentManagerImpl implements CommentManager {
     }
 
     @Override
-    public void deleteFood(String id) {
+    public void deleteComment(String id) {
         commentDao.deleteFood(id);
     }
 

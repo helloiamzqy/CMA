@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pojo.Food;
 import pojo.Merchant;
+import pojo.Pager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,12 +20,18 @@ public class FoodDaoImpl implements FoodDao {
     @PersistenceContext(name="em")
     private EntityManager manager;
     @Override
-    public List<Food> findAllFood() {
+    public Pager findAllFood(int curPage, int pageSize) {
         String jpql ="FROM pojo.Food";
-        List<Food> foods = manager
-                .createQuery(jpql)
+        Query query = manager.createQuery(jpql);
+        List<Food> foods = query.getResultList();
+        int totalPage = foods.size() / pageSize;
+        int totalRow = foods.size();
+        query = manager.createQuery(jpql);
+        foods = query.setFirstResult((curPage - 1) * pageSize)
+                .setMaxResults(pageSize)
                 .getResultList();
-        return foods;
+        Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, foods);
+        return pager;
 
     }
 
@@ -37,7 +44,8 @@ public class FoodDaoImpl implements FoodDao {
     @Override
     public void deleteFood(String id) {
         Food food = manager.getReference(Food.class,id);
-        manager.remove(food);
+        food.setStatus("0");
+        manager.merge(food);
     }
 
     @Override
@@ -47,20 +55,36 @@ public class FoodDaoImpl implements FoodDao {
     }
 
     @Override
-    public List<Food> findFoodByMerchant(Merchant merchant) {
+    public Pager findFoodByMerchant(int curPage, int pageSize,Merchant merchant) {
         String jpql ="FROM pojo.Food it WHERE it.merchant =:merchant";
         Query query = manager.createQuery(jpql);
         query.setParameter("merchant",merchant);
         List<Food> foods = query.getResultList();
-        return foods;
+        int totalPage = foods.size() / pageSize;
+        int totalRow = foods.size();
+        query = manager.createQuery(jpql);
+        query.setParameter("merchant",merchant);
+        foods = query.setFirstResult((curPage - 1) * pageSize)
+                .setMaxResults(pageSize)
+                .getResultList();
+        Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, foods);
+        return pager;
     }
 
     @Override
-    public List<Food> findFoodByName(String foodName) {
+    public Pager findFoodByName(int curPage, int pageSize,String foodName) {
         String jpql = "FROM pojo.Food f WHERE f.foodName = :foodName ";
         Query query = manager.createQuery(jpql);
         query.setParameter("foodName",foodName);
         List<Food> foods = query.getResultList();
-        return foods;
+        int totalPage = foods.size() / pageSize;
+        int totalRow = foods.size();
+        query = manager.createQuery(jpql);
+        query.setParameter("foodName",foodName);
+        foods = query.setFirstResult((curPage - 1) * pageSize)
+                .setMaxResults(pageSize)
+                .getResultList();
+        Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, foods);
+        return pager;
     }
 }

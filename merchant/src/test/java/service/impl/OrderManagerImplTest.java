@@ -12,6 +12,8 @@ import service.CustomerManager;
 import service.MerchantManager;
 import service.OrderManager;
 
+import java.util.Date;
+
 public class OrderManagerImplTest {
     private static ApplicationContext context;
     @BeforeClass
@@ -37,6 +39,7 @@ public class OrderManagerImplTest {
         customerManager.addCustomer(customer);
         merchantManager.addMerchant(merchant);
         Order order=new Order();
+        order.setCreateTime(new Date());
         order.setCustomer(customer);
         order.setMerchant(merchant);
         order.setStatus("1");
@@ -69,6 +72,7 @@ public class OrderManagerImplTest {
 //        order.setCustomer(customer);
 //        order.setMerchant(merchant);
 //        order.setStatus("fad");
+        order.setCreateTime(new Date());
         order.setTotalPrice(672);
         OrderManager orderManager=context.getBean(OrderManager.class);
         Order order1 = orderManager.updateOrder(order);

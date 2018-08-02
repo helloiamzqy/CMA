@@ -11,7 +11,7 @@ public class Customer {
     @GenericGenerator(strategy="uuid",name="uuid")
     @GeneratedValue(generator="uuid")
     private String id;
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String name;
 
     @Column(nullable = false)
