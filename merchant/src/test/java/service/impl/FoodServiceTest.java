@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.Food;
+import pojo.Pager;
 import service.FoodManger;
 import pojo.Merchant;
 import service.MerchantManager;
@@ -44,8 +45,8 @@ public class FoodServiceTest {
 
     @Test
     public void findAllFood() {
-        List<Food> foods = foodService.findAllFood();
-        assert (foods.size() > 0);
+       Pager pager = foodService.findAllFood(1,10);
+        assert (pager.getList().size() > 0);
     }
 
     @Test
@@ -67,15 +68,15 @@ public class FoodServiceTest {
     @Test
     public void findFoodByName() {
         addFood();
-        List<Food> foods = foodService.findFoodByName("kfc");
-        assert (foods.size() > 0);
+        Pager foods = foodService.findFoodByName(1,10,"kfc");
+        assert (foods.getList().size() > 0);
     }
 
     @Test
     public void updateFood() {
         addFood();
-        List<Food> foods = foodService.findFoodByName("kfc");
-        Food food = foods.get(0);
+        Pager foods = foodService.findFoodByName(1,10,"kfc");
+        Food food = (Food) foods.getList().get(0);
         food.setFoodName("mdl");
         Food newFood = foodService.updateFood(food);
         assert (newFood.getFoodName().equals("mdl"));
@@ -93,7 +94,7 @@ public class FoodServiceTest {
         food.setStatus("1");
         food.setMerchant(merchant);
         foodService.addFood(food);
-        List<Food> foods = foodService.findFoodByMerchant(merchant);
-        assert (foods.size() > 0);
+       Pager foods = foodService.findFoodByMerchant(1,10,merchant);
+        assert (foods.getList().size() > 0);
     }
 }
