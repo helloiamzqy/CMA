@@ -45,12 +45,6 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
     }
 
     @Override
-    public int deleteAdById(int i) {
-
-        return 0;
-    }
-
-    @Override
     public int findAdsCount() {
         String jpql="select count(*) from pojo.Advertisement";
         return (Integer) em.createQuery(jpql).getSingleResult();

@@ -19,12 +19,12 @@ public class AdvertisementController {
     @Autowired
     private AdvertisementManager manager;
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT,value = "{id},{state}")
     public Advertisement updateAdvertisement(@PathVariable String id,@PathVariable String state){
         return manager.updateAd(id, state);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET,value = "{currentPage},{pageSize}")
     public Page<Advertisement> getAdvertisement(@PathVariable int currentPage,@PathVariable int pageSize){
         Page<Advertisement> page = manager.getAdsByPage(currentPage,pageSize);
         return page;

@@ -18,8 +18,6 @@ public interface AdvertisementDao {
 
     public List<Advertisement> sendAds();
 
-    public int deleteAdById(int i);
-
     public int findAdsCount();
 
     public List<Advertisement> getAdByPage(int begin, int end);
