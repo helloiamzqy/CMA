@@ -1,13 +1,13 @@
 package pojo;
 
 
-import pojo.enums.JmxTpEnum;
+import pojo.enums.JmsTpEnum;
 
 /**
  * @author dunn
  */
 public class JmxTp {
-    private Enum<JmxTpEnum> jmxTpEnum;
+    private Enum<JmsTpEnum> jmxTpEnum;
 
     private Object object;
 
@@ -19,11 +19,11 @@ public class JmxTp {
         this.object = object;
     }
 
-    public Enum<JmxTpEnum> getJmxTpEnum() {
+    public Enum<JmsTpEnum> getJmxTpEnum() {
         return jmxTpEnum;
     }
 
-    public void setJmxTpEnum(Enum<JmxTpEnum> jmxTpEnum) {
+    public void setJmxTpEnum(Enum<JmsTpEnum> jmxTpEnum) {
         this.jmxTpEnum = jmxTpEnum;
     }
 

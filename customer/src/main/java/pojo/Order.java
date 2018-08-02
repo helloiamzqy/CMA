@@ -13,21 +13,21 @@ public class Order {
     @GeneratedValue(generator="uuid")
     private String id;
 
-    @Column(name = "create_time")
+    @Column(name = "create_time",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @Column(name = "finish_time")
+    @Column(name = "finish_time",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date endTime;
+    private Date finishTime;
 
     @ManyToOne
     @JoinColumn(name="m_id")
     private Merchant merchant;
 
-
+    @Column(columnDefinition = "varchar2(2) default 1")
     private String status;
-    @Column(precision = 9,scale = 2)
+    @Column(precision = 9,scale = 2,name="total_price",nullable = false)
     private double totalPrice;
 
     @ManyToOne
@@ -50,12 +50,13 @@ public class Order {
         this.createTime = createTime;
     }
 
-    public Date getEndTime() {
-        return endTime;
+
+    public Date getFinishTime() {
+        return finishTime;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setFinishTime(Date finishTime) {
+        this.finishTime = finishTime;
     }
 
     public Merchant getMerchant() {
