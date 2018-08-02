@@ -32,7 +32,7 @@ public class AdvertisementManagerTest {
     @Test
     public void testAddAd(){
         Advertisement advertisement = new Advertisement();
-        advertisement.setMerchantId("sdfs123sdf");
+        advertisement.setMerchantId("2222");
         advertisement.setPicture("www.ttt.com");
         advertisement.setPrice(12.36);
         advertisement.setMerchantName("kfc");

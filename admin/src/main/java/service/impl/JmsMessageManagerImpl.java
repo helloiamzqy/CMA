@@ -10,6 +10,10 @@ import pojo.enums.JmsEnum;
 import service.AdvertisementManager;
 import service.ComplaintManager;
 import service.JmsMessageManager;
+import service.MerchantInfoManager;
+import utils.JsonParseByJackson;
+
+import java.util.Map;
 
 /**
  * @author JohnGao
@@ -22,15 +26,19 @@ public class JmsMessageManagerImpl implements JmsMessageManager {
     private AdvertisementManager adManager;
     @Autowired
     private ComplaintManager complaintManager;
+    @Autowired
+    private MerchantInfoManager merchantInfoManager;
 
     @Override
     public Object getMessageEntity(JmsMessage jmsMessage) {
-        if (jmsMessage.getJmxTpEnum().equals(JmsEnum.ADVERSITMENT)){
+        JsonParseByJackson<String> parse = new JsonParseByJackson<>();
+        String json = parse.parseMapToJson((Map<String,String>)jmsMessage.getObject());
+        if (jmsMessage.getJmsEnum().equals(JmsEnum.ADVERSITMENT)){
             return adManager.addAd((Advertisement) jmsMessage.getObject());
-        }else if (jmsMessage.getJmxTpEnum().equals(JmsEnum.COMPLAIN)){
+        }else if (jmsMessage.getJmsEnum().equals(JmsEnum.COMPLAIN)){
             return complaintManager.addComplaint((Complaint) jmsMessage.getObject());
-        }else if (jmsMessage.getJmxTpEnum().equals(JmsEnum.APPLY)){
-
+        }else if (jmsMessage.getJmsEnum().equals(JmsEnum.APPLY)){
+         //   return merchantInfoManager.addMerchantInfo((MerchantInfo)parse.parseJsonToObject(Class<MerchantInfo>,json));
         }
         return null;
     }

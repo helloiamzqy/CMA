@@ -7,7 +7,7 @@ import pojo.enums.JmsEnum;
  * @author dunn
  */
 public class JmsMessage {
-    private JmsEnum jmxTpEnum;
+    private JmsEnum jmsEnum;
 
     private Object object;
 
@@ -19,18 +19,18 @@ public class JmsMessage {
         this.object = object;
     }
 
-    public void setJmxTpEnum(JmsEnum jmxTpEnum) {
-        this.jmxTpEnum = jmxTpEnum;
+    public JmsEnum getJmsEnum() {
+        return jmsEnum;
     }
 
-    public JmsEnum getJmxTpEnum() {
-        return jmxTpEnum;
+    public void setJmsEnum(JmsEnum jmsEnum) {
+        this.jmsEnum = jmsEnum;
     }
 
     @Override
     public String toString() {
         return "JmsMessage{" +
-                "jmxTpEnum=" + jmxTpEnum +
+                "jmsEnum=" + jmsEnum +
                 ", object=" + object +
                 '}';
     }
