@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pojo.Food;
 import pojo.Merchant;
+import pojo.Pager;
 import service.FoodManger;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class FoodMangerImpl implements FoodManger {
     @Autowired
     private FoodDao foodDao;
     @Override
-    public List<Food> findAllFood() {
-       return foodDao.findAllFood();
+    public Pager findAllFood(int curPage, int pageSize) {
+       return foodDao.findAllFood(curPage,pageSize);
     }
 
     @Override
@@ -41,12 +42,12 @@ public class FoodMangerImpl implements FoodManger {
     }
 
     @Override
-    public List<Food> findFoodByMerchant(Merchant merchant) {
-        return foodDao.findFoodByMerchant(merchant);
+    public Pager findFoodByMerchant(int curPage, int pageSize,Merchant merchant) {
+        return foodDao.findFoodByMerchant(curPage,pageSize,merchant);
     }
 
     @Override
-    public List<Food> findFoodByName(String name) {
-        return foodDao.findFoodByName(name);
+    public Pager findFoodByName(int curPage, int pageSize,String name) {
+        return foodDao.findFoodByName(curPage,pageSize,name);
     }
 }
