@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import pojo.*;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Repository
 public class CommentDaoImpl implements CommentDao {
-    @Autowired
+    @PersistenceContext(name = "em")
     private EntityManager manager;
 
     @Override
