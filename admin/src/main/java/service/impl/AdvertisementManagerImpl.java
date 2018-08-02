@@ -24,22 +24,33 @@ public class AdvertisementManagerImpl implements AdvertisementManager {
 
     @Override
     public List<Advertisement> getAllAds() throws Exception {
+
         return null;
     }
 
     @Override
-    public void updateAd(int id, int state) {
-
+    public Advertisement updateAd(String id, String state) {
+        Advertisement advertisement = new Advertisement();
+        advertisement.setId(id);
+        advertisement.setId(id);
+        advertisement.setStatus(state);
+      return advertisementDao.updateAd(advertisement);
     }
 
     @Override
     public boolean addAd(Advertisement ad) {
-        return false;
+        advertisementDao.addAd(ad);
+        return true;
     }
 
     @Override
     public String sendAds() {
-        return null;
+        List<Advertisement> ads = advertisementDao.sendAds();
+        StringBuffer sb=new StringBuffer();
+        for (Advertisement ad : ads) {
+            sb.append(ad.getMerchantId()+"-");
+        }
+        return sb.toString();
     }
 
     @Override
@@ -49,6 +60,21 @@ public class AdvertisementManagerImpl implements AdvertisementManager {
 
     @Override
     public Page<Advertisement> getAdsByPage(int currentPage, int pageSize) {
-        return null;
+        Page<Advertisement> page=new Page<Advertisement>();
+        page.setCurrentPage(currentPage);
+        page.setPageSize(pageSize);
+        int totalCount=advertisementDao.findAdsCount();
+        page.setTotalCount(totalCount);
+        int totalPage=0;
+        if (totalCount%pageSize==0){
+            totalPage=totalCount/pageSize;
+        }else {
+            totalPage=totalCount/pageSize+1;
+        }
+        page.setTotalPage(totalPage);
+        int begin= (currentPage-1)*pageSize;
+        List<Advertisement> list=advertisementDao.getAdByPage(begin,begin+pageSize);
+        page.setDataList(list);
+        return page;
     }
 }

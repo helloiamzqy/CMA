@@ -24,9 +24,9 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
     }
 
     @Override
-    public int updateAd(Advertisement ad) {
+    public Advertisement updateAd(Advertisement ad) {
         Advertisement advertisement = em.merge(ad);
-        return 0;
+        return advertisement;
     }
 
     @Override
@@ -46,12 +46,14 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
 
     @Override
     public int deleteAdById(int i) {
+
         return 0;
     }
 
     @Override
     public int findAdsCount() {
-        return 0;
+        String jpql="select count(*) from pojo.Advertisement";
+        return (Integer) em.createQuery(jpql).getSingleResult();
     }
 
     @Override
