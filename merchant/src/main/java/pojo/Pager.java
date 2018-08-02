@@ -10,7 +10,6 @@ public class Pager {
     private int pageTotal;//总页码
     private int rowsTotal;//总条数
     private int rows;//每页显示条数
-    private String hql;//分页语句
     private List<?> list;//返回的数据集合
 
     public int getPage() {
@@ -45,19 +44,19 @@ public class Pager {
         this.rows = rows;
     }
 
-    public String getHql() {
-        return hql;
-    }
-
-    public void setHql(String hql) {
-        this.hql = hql;
-    }
-
     public List<?> getList() {
         return list;
     }
 
     public void setList(List<?> list) {
+        this.list = list;
+    }
+
+    public Pager(int page,  int rows, int pageTotal, int rowsTotal,List<?> list) {
+        this.page = page;
+        this.pageTotal = pageTotal;
+        this.rowsTotal = rowsTotal;
+        this.rows = rows;
         this.list = list;
     }
 }
