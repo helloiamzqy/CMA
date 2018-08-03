@@ -7,7 +7,7 @@ import pojo.Complaint;
 import service.ComplainService;
 
 @CrossOrigin(origins = "*",maxAge = 3600,allowedHeaders = "Content-Type",methods ={RequestMethod.POST,RequestMethod.GET,RequestMethod.DELETE,RequestMethod.PUT})
-@Controller
+@RestController
 @RequestMapping("/complain")
 public class ComplainController {
     @Autowired
@@ -15,6 +15,7 @@ public class ComplainController {
 
     @PostMapping
     public void sendComplainToAdmin(@RequestBody Complaint complaint) {
-        complainService.sendComplainToAdmin(complaint);
+        System.out.println(complaint.toString());
+        //complainService.sendComplainToAdmin(complaint);
     }
 }

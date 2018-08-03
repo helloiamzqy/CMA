@@ -22,6 +22,4 @@ public class ComplainServiceImpl implements ComplainService {
             String result=new Gson().toJson(jmsMessage);
             jmsSender.send(result);
         }
-
-    }
 }
