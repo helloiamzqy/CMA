@@ -31,9 +31,8 @@ public class CommentServiceTest {
         Comment comment = new Comment();
         comment.setContent("nihao");
         comment.setCreateTime(new Date());
-        comment.setOrder(order);
         comment.setRank(1);
-        commentManager.addComment(comment);
+        commentManager.addComment(order.getId(),comment);
         assert (comment.getId()!=null);
     }
     @Test
@@ -48,9 +47,8 @@ public class CommentServiceTest {
         Comment comment = new Comment();
         comment.setContent("nihao");
         comment.setCreateTime(new Date());
-        comment.setOrder(order);
         comment.setRank(1);
-        commentManager.addComment(comment);
+        commentManager.addComment(order.getId(),comment);
         commentManager.deleteComment(comment.getId());
     }
     @Test
@@ -59,9 +57,8 @@ public class CommentServiceTest {
         Comment comment = new Comment();
         comment.setContent("nihao");
         comment.setCreateTime(new Date());
-        comment.setOrder(order);
         comment.setRank(1);
-        commentManager.addComment(comment);
+        commentManager.addComment(order.getId(),comment);
         Pager pager = commentManager.findCommentByOrder(1,10,order.getId());
         assert(pager.getList().size()>0);
     }
@@ -72,8 +69,7 @@ public class CommentServiceTest {
         comment.setContent("nihao");
         comment.setCreateTime(new Date());
         comment.setRank(1);
-        comment.setOrder(order);
-        commentManager.addComment(comment);
+        commentManager.addComment(order.getId(),comment);
         Pager pager = commentManager.findCommentByMerchant(1,10,order.getMerchant().getId());
         assert(pager.getList().size()>0);
     }

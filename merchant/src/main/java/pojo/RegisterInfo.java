@@ -1,8 +1,10 @@
 package pojo;
 
+import dto.RegisterInfoDto;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name =  "register_info")
@@ -118,5 +120,21 @@ public class RegisterInfo {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public RegisterInfoDto toDto(){
+        RegisterInfoDto registerInfoDto = new RegisterInfoDto();
+        registerInfoDto.setAddress(this.address);
+        registerInfoDto.setComments(this.comments);
+        registerInfoDto.setCorporateName(this.corporateName);
+        registerInfoDto.setCreditCode(this.creditCode);
+        registerInfoDto.setMerchantId(this.merchant.getId());
+        registerInfoDto.setIdCard(this.idCard);
+        registerInfoDto.setPhone(this.phone);
+        registerInfoDto.setPicture(this.picture);
+        registerInfoDto.setShopName(this.shopName);
+//        registerInfoDto.setId(UUID.randomUUID().toString());
+//        registerInfoDto.setStatus("0");
+        return registerInfoDto;
     }
 }

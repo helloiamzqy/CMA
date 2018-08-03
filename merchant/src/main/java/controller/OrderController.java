@@ -1,15 +1,15 @@
 package controller;
 
-import oracle.jdbc.proxy.annotation.Post;
-import org.aspectj.weaver.ast.Or;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pojo.Customer;
+
 import pojo.Order;
 import pojo.Pager;
 import service.OrderManager;
 
-import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/orders")

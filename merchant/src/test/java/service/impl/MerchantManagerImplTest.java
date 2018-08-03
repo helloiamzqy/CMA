@@ -2,6 +2,7 @@ package service.impl;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -13,9 +14,14 @@ import java.util.List;
 
 public class MerchantManagerImplTest {
     private static ApplicationContext context;
+    private MerchantManager merchantManager;
     @BeforeClass
     public static void init() {
         context=new ClassPathXmlApplicationContext("applicationContext.xml");
+    }
+    @Before
+    public void initManager(){
+        merchantManager=context.getBean(MerchantManager.class);
     }
     @Test
     public void testAddMerchant(){
@@ -39,8 +45,14 @@ public class MerchantManagerImplTest {
     }
     @Test
     public void testFindMerchant(){
-        MerchantManager     merchantManager=context.getBean(MerchantManager.class);
+        merchantManager=context.getBean(MerchantManager.class);
         List<Merchant> merchants=merchantManager.findMerchant();
         Assert.assertTrue(merchants.size()==2);
+    }
+    @Test
+    public void testFindMerchantByName(){
+        Merchant merchant=merchantManager.findMerchantByName("1234");
+        System.out.println(merchant.getId());
+        Assert.assertTrue(merchant.getId().equals("8a5e9d3d64f9eed50164f9eedabf0001"));
     }
 }

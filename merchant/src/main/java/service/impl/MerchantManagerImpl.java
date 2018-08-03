@@ -29,4 +29,10 @@ public class MerchantManagerImpl implements MerchantManager {
     public Merchant updateMerchant(Merchant merchant) {
         return merchantDao.updateMerchant(merchant);
     }
+
+    @Transactional
+    @Override
+    public Merchant findMerchantByName(String name) {
+        return merchantDao.findMerchantByName(name);
+    }
 }

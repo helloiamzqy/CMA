@@ -64,7 +64,9 @@ public class RegistInfoManagerTest {
         registerInfo.setIdCard("asddddddddd");
         registerInfo.setMerchant(merchant);
         registInfoManger.addRegisterInfo(registerInfo);
-        RegisterInfo  registerInfos = registInfoManger.getRegisterInfo(merchant);
+        Merchant merchant1 = new Merchant();
+        merchant1.setId(merchant.getId());
+        RegisterInfo  registerInfos = registInfoManger.getRegisterInfo(merchant1);
         assert(registerInfo!=null);
     }
 

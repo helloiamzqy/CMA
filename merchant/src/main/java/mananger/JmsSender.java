@@ -31,55 +31,5 @@ public class JmsSender {
             }
         });
     }
-//    //TODO
-//    @PostConstruct
-//    public void send(){
-//        template.send(queue, new MessageCreator() {
-//            @Override
-//            public Message createMessage(Session session) throws JMSException {
-//                TextMessage tx = session.createTextMessage();
-//                JmsMessage jmxTp = new JmsMessage();
-//                RegisterInfo registerInfo = new RegisterInfo();
-//                registerInfo.setAddress("南方软件园");
-//                registerInfo.setComments("评论");
-//                registerInfo.setCorporateName("dunn");
-//                registerInfo.setCreditCode("441522");
-//                registerInfo.setId("asadasdasd");
-//                registerInfo.setPhone("123123123");
-//                registerInfo.setPicture("asdddddd");
-//                registerInfo.setShopName("kfc");
-//                registerInfo.setIdCard("asddddddddd");
-//                Merchant merchant = new Merchant();
-//                merchant.setId("merchantId");
-//                registerInfo.setMerchant(merchant);
-//                Gson gson = new Gson();
-//                jmxTp.setObject(registerInfo);
-//                jmxTp.setJmxTpEnum(JmsEnum.APPLY);
-//                tx.setText(gson.toJson(registerInfo));
-//                return tx;
-//            }
-//        });
-//    }
-    public static void main(String[] args){
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        JmsSender jmsSender = context.getBean(JmsSender.class);
-        JmsMessage jmxTp = new JmsMessage();
-        RegisterInfo registerInfo = new RegisterInfo();
-        registerInfo.setAddress("南方软件园");
-        registerInfo.setComments("评论");
-        registerInfo.setCorporateName("dunn");
-        registerInfo.setCreditCode("441522");
-        registerInfo.setId("asadasdasd");
-        registerInfo.setPhone("123123123");
-        registerInfo.setPicture("asdddddd");
-        registerInfo.setShopName("kfc");
-        registerInfo.setIdCard("asddddddddd");
-        Merchant merchant = new Merchant();
-        merchant.setId("merchantId");
-        registerInfo.setMerchant(merchant);
-        Gson gson = new Gson();
-        jmxTp.setObject(registerInfo);
-        jmxTp.setJmxTpEnum(JmsEnum.APPLY);
-        jmsSender.send(gson.toJson(registerInfo));
-    }
+
 }

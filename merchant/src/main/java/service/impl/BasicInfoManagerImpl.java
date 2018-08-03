@@ -24,8 +24,20 @@ public class BasicInfoManagerImpl implements BasicInfoManager {
 
     @Transactional
     @Override
-    public BasicInfo updateBasicInfo(BasicInfo basicInfo) {
+    public BasicInfo updateBasicInfo(BasicInfo basicInfo,String mId) {
+        Merchant merchant=new Merchant();
+        merchant.setId(mId);
+        basicInfo.setMerchant(merchant);
         return basicInfoDao.updateBasicInfo(basicInfo);
+
+    }
+
+    @Transactional
+    @Override
+    public BasicInfo findBasicInfoByMerchant(String mId) {
+        Merchant merchant=new Merchant();
+        merchant.setId(mId);
+        return basicInfoDao.findBasicInfoByMerchant(merchant);
     }
 
 

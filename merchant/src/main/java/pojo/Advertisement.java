@@ -1,5 +1,6 @@
 package pojo;
 
+import dto.AdvertisementDto;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -52,5 +53,14 @@ public class Advertisement {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public AdvertisementDto toDto(){
+        AdvertisementDto adDto = new AdvertisementDto();
+        adDto.setMerchantId(this.merchant.getId());
+        adDto.setMerchantName(this.merchant.getName());
+        adDto.setPicture(this.picture);
+        adDto.setPrice(this.price);
+        return  adDto;
     }
 }
