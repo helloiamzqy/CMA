@@ -6,14 +6,14 @@ import pojo.MerchantInfo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
 public class MerchantInfoDaoImpl implements MerchantInfoDao {
 
-    @PersistenceContext
+    @PersistenceContext(name = "em")
     private EntityManager manager;
-
 
     @Override
     public MerchantInfo addMerchantInfo(MerchantInfo merchantInfo) {
@@ -26,6 +26,24 @@ public class MerchantInfoDaoImpl implements MerchantInfoDao {
         return manager.merge(merchantInfo);
     }
 
+    @Override
+    public List<MerchantInfo> findMechantInfosByStatus(String status) {
+        String jpql = "from pojo.MerchantInfo where status =?1";
+        Query query = manager.createQuery(jpql);
+        query.setParameter(1,status);
+        List<MerchantInfo> merchantInfos = query.getResultList();
+        return merchantInfos;
+    }
+
+    @Override
+    public MerchantInfo findMechantInfoByMerchantId(String merchantId) {
+        String jpql = "from pojo.MerchantInfo where merchant_id =?1";
+        Query query = manager.createQuery(jpql);
+        query.setParameter(1,merchantId);
+        MerchantInfo merchantInfo = (MerchantInfo) query.getSingleResult();
+        return merchantInfo;
+    }
+
 
     @Override
     public List<MerchantInfo> findAllMerchantInfos() {
@@ -35,4 +53,5 @@ public class MerchantInfoDaoImpl implements MerchantInfoDao {
                 .getResultList();
         return merchantInfos;
     }
+
 }

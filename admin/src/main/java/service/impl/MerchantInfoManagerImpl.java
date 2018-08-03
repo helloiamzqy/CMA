@@ -18,7 +18,6 @@ public class MerchantInfoManagerImpl implements MerchantInfoManager {
     @Override
     @Transactional
     public List<MerchantInfo> findAllMerchantInfo() {
-
         return merchantInfoDao.findAllMerchantInfos();
     }
 
@@ -32,5 +31,17 @@ public class MerchantInfoManagerImpl implements MerchantInfoManager {
     @Transactional
     public MerchantInfo updateMerchantInfo(MerchantInfo merchantInfo) {
         return merchantInfoDao.updateMerchantInfo(merchantInfo);
+    }
+
+    @Override
+    @Transactional
+    public List<MerchantInfo> findMechantInfosByStatus(String status) {
+        return merchantInfoDao.findMechantInfosByStatus(status);
+    }
+
+    @Override
+    @Transactional
+    public MerchantInfo findMechantInfoByMerchantId(String merchantId) {
+        return merchantInfoDao.findMechantInfoByMerchantId(merchantId);
     }
 }
