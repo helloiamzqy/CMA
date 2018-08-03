@@ -24,7 +24,13 @@ public class MerchantInfoManagerImpl implements MerchantInfoManager {
     @Override
     @Transactional
     public MerchantInfo addMerchantInfo(MerchantInfo merchantInfo) {
-        return merchantInfoDao.addMerchantInfo(merchantInfo);
+        merchantInfo.setStatus("0"); //将状态设置为待审核
+        MerchantInfo merchantInfo1 = merchantInfoDao.findMechantInfoByMerchantId(merchantInfo.getMerchantId());
+        if(merchantInfo1==null){//该商家为未申请状态
+            return merchantInfoDao.addMerchantInfo(merchantInfo);
+        }else{ //商家为驳回状态
+            return merchantInfoDao.updateMerchantInfo(merchantInfo);
+        }
     }
 
     @Override
