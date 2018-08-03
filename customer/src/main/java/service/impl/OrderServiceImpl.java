@@ -16,7 +16,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
     @Transactional
     @Override
-    public Order addOrder(Order order,String mId,String cId) {
+    public Order addOrder(Order order, String mId, String cId) {
         Merchant merchant=new Merchant();
         merchant.setId(mId);
         order.setMerchant(merchant);
