@@ -52,16 +52,17 @@ function OrderComponent($view,url,customerId) {
     }
     function complainModal(order) {
         $("#complain").on("click",function () {
-              let complainUrl=url+"complain/";
-              let data=new Object();
-              data.reason=$("#reason").val();
-              data.merchantId=order.merchant.id;
-              data.orderId=order.id;
-              alert(JSON.stringify(data));
-              myAjax(complainUrl,"POST",data,(complain)=>{
-                  $('#complainModal').modal('hide');
-                  alert("投诉成功");
-              })
+            let complainUrl=url+"complain/";
+            let data=new Object();
+            data.reason=$("#reason").val();
+            data.merchantId=order.merchant.id;
+            data.orderId=order.id;
+            alert(JSON.stringify(data));
+            // myAjax(complainUrl,"POST",data,(complain)=>{
+            //     $('#complainModal').modal('hide');
+            //     alert("投诉成功");
+            // })
+            $('#complainModal').modal('hide');
         })
     }
 
@@ -85,10 +86,10 @@ function OrderComponent($view,url,customerId) {
                 .append($("<td>").text(order.totalPrice))
                 .append($("<td>").text(order.status))
                 .append($("<td>").append($("<button>").text("查看详情").on("click",()=>{orderDetail(order)})))
-                .append($("<td>").append($("<button data-toggle='modal' data-target='#cancelModal'>").text("取消订单")))
+                .append($("<td>").append($("<button data-toggle='modal' data-target='#cancelModal'>").text("取消订单").on("click",()=>{cancelModal(order)})))
                 .append($("<td>").append($("<button data-toggle='modal' data-target='#successModal'>").text("确认送达")))
                 .append($("<td>").append($("<button data-toggle='modal' data-target='#commentModal'>").text("评论订单")))
-                .append($("<td>").append($("<button data-toggle='modal' data-target='#complainModal'>").text("投诉订单")))
+                .append($("<td>").append($("<button data-toggle='modal' data-target='#complainModal'>").text("投诉订单").on("click",()=>{complainModal(order)})))
                 .appendTo($tbody);
         })
     }
