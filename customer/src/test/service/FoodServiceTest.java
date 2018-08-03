@@ -25,7 +25,6 @@ public class FoodServiceTest {
         context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
     }
-
     @Test
     public void findFoodTest() {
         FoodSerivce foodSerivce = context.getBean(FoodSerivce.class);

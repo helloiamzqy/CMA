@@ -1,6 +1,7 @@
 package pojo;
 
 import org.hibernate.annotations.GenericGenerator;
+import pojo.enums.OrderStatusEnum;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +18,7 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @Column(name = "finish_time",nullable = false)
+    @Column(name = "finish_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date finishTime;
 
@@ -26,7 +27,7 @@ public class Order {
     private Merchant merchant;
 
     @Column(columnDefinition = "varchar2(2) default 1")
-    private String status;
+    private OrderStatusEnum status;
     @Column(precision = 9,scale = 2,name="total_price",nullable = false)
     private double totalPrice;
 
@@ -67,11 +68,12 @@ public class Order {
         this.merchant = merchant;
     }
 
-    public String getStatus() {
+
+    public OrderStatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrderStatusEnum status) {
         this.status = status;
     }
 

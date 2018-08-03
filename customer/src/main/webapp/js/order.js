@@ -16,8 +16,8 @@ function GetRequest() {
 }
 window.onload=function () {
     $("#submitOrder").on('click',()=>{
-        alert("123")
         let foods=$1.queryUserCart(userId,shopId);
+        alert(JSON.stringify(foods))
 
         submitOrder(foods);
     })
@@ -27,15 +27,17 @@ window.onload=function () {
         return;
     }
 
-    function submitOrder(foods) {
-        alert(foods)
+    function submitOrder(orderItems) {
+        alert(orderItems)
 
         $.ajax({
             type: "POST",
-            url: "/order/addOrder",
-            data: {shop_id: shopId},
+            url: "/customer/orders/addOrder/"+shopId+"/"+userId,
+            data: JSON.stringify(orderItems),
+            contentType:"application/json",
             dataType: "json",
             success: function (data) {
+                alert("123")
                 $("#shopName").text(data.shopName);
             }
         });

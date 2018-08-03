@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.*;
 import pojo.Order;
 import pojo.OrderItem;
 import pojo.Pager;
+import pojo.enums.OrderStatusEnum;
 import service.OrderItemService;
 import service.OrderService;
 
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "Content-Type", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.PUT})
@@ -38,15 +40,20 @@ public class OrderController {
     }
 
 
-    @PostMapping(value = "/{mId}/{cId}")
-    public Order addOrder(@RequestBody Order order, @RequestBody List<OrderItem> orderItems, @PathVariable(name = "mId") String mId, @PathVariable(name = "cId") String cId) {
-        Order o = orderService.addOrder(order, mId, cId);
-        for (OrderItem orderItem:orderItems){
-            orderItem.setOrder(o);
-//            orderItemService.addOrderItem();
-        }
-
-        return o;
+    @PostMapping(value = "addOrder/{mId}/{cId}")
+    public Order addOrder(@RequestBody List<OrderItem> orderItems, @PathVariable(name = "mId") String mId, @PathVariable(name = "cId") String cId) {
+        System.out.println(orderItems.toString());
+//        Order order = new Order();
+//        order.setCreateTime(new Date());
+//        order.setStatus(OrderStatusEnum.WATING);
+//        Order o = orderService.addOrder(order, mId, cId);
+//        for (OrderItem orderItem:orderItems){
+//            orderItem.setOrder(o);
+//            orderItemService.addOrderItem(orderItem);
+//        }
+//
+//        return o;
+        return null;
     }
 
     @PutMapping

@@ -22,6 +22,18 @@ public class OrderItem {
     @Column(precision = 9,scale = 2,nullable = false,name = "total_price")
     private double totalPrice;
 
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "id='" + id + '\'' +
+                ", food=" + food +
+                ", foodNum=" + foodNum +
+                ", order=" + order +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
+
     public String getId() {
         return id;
     }
