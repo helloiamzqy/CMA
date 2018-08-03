@@ -7,13 +7,17 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.Advertisement;
+import pojo.Merchant;
 import service.AdvertisementManager;
+import service.MerchantManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdvertisementManagerTest {
     private static ApplicationContext context;
     private AdvertisementManager manager;
+    private MerchantManager merchantManager;
     @BeforeClass
     public static void init() {
         context=new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -22,6 +26,7 @@ public class AdvertisementManagerTest {
     @Before
     public void initManager(){
         manager=context.getBean(AdvertisementManager.class);
+        merchantManager = context.getBean(MerchantManager.class);
     }
     @Test
     public void addAdvertisement(){
@@ -41,4 +46,22 @@ public class AdvertisementManagerTest {
         }
         Assert.assertTrue(advertisements.size()==2);
     }
+
+    @Test
+    public void testFindAdvertisementByIds(){
+        List<String> ads = new ArrayList<>();
+        for(int i=0;i<3;i++) {
+            Advertisement advertisement=new Advertisement();
+            advertisement.setPicture("dfaf");
+            advertisement.setPrice(12312);
+            Merchant merchant = new Merchant();
+            merchant.setName("a");
+            merchant.setPassword("b");
+            merchantManager.addMerchant(merchant);
+            Advertisement advertisement1 = manager.addAdvertisement(advertisement, merchant.getId());
+            ads.add(merchant.getId());
+        }
+        manager.findAdvertisementById(ads);
+    }
+
 }

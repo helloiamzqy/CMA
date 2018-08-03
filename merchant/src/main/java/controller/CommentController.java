@@ -15,7 +15,7 @@ public class CommentController {
     @Autowired
     private CommentManager commentManager;
 
-    @GetMapping(value = "/merchant/{mid}/comment")
+    @GetMapping(value = "{mid}/comment")
     public Pager getMerchantComment(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String mid){
         return  commentManager.findCommentByMerchant(curPage,pageSize,mid);
     }
@@ -23,7 +23,7 @@ public class CommentController {
     public Pager getCommentByOrderId(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String cuId){
         return  commentManager.findCommentByOrder(curPage,pageSize,cuId);
     }
-    @PostMapping(value = "/merchant/{oid}/comment")
+    @PostMapping(value = "{oid}/comment")
     public Comment addComment(@PathVariable String oid,@RequestBody Comment comment){
        return  commentManager.addComment(oid,comment);
     }
