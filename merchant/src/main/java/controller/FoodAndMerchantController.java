@@ -32,7 +32,7 @@ public class FoodAndMerchantController {
         foodManger.addFood(mid,food);
         return food;
     }
-    @DeleteMapping(value = "/food/{fid}")
+    @DeleteMapping(value = "/{mid}/food/{fid}")
     public void delete(@PathVariable  String fid){
         foodManger.deleteFood(fid);
     }
