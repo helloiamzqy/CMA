@@ -18,11 +18,11 @@ public class OrderController {
     }
     @GetMapping(value = "/customer/{cId}/{status}")
     public Pager findOrderByCustomer(@PathVariable(name = "cId") String cId,@PathVariable(name = "status") String status,@RequestParam int curPage, @RequestParam int pageSize){
-        return orderService.findOrderByCustomer(cId,status,curPage,pageSize);
-    }
-    @GetMapping(value = "/customer/{cId}")
-    public Pager findAllOrderByCustomer(@PathVariable(name = "cId") String cId,@RequestParam int curPage, @RequestParam int pageSize){
-        return orderService.findAllOrderByCustomer(cId,curPage,pageSize);
+        if(status!=null||status.equals("all")){
+            return orderService.findAllOrderByCustomer(cId,curPage,pageSize);
+        }else {
+            return orderService.findOrderByCustomer(cId, status, curPage, pageSize);
+        }
     }
 
     @GetMapping(value = "/merchant/{mId}")
