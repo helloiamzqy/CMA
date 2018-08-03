@@ -36,13 +36,18 @@ public class MerchantController {
     }
 
 
+//    @ResponseBody
+//    @RequestMapping(value = "/findBasicInfoByPager/{currentPage}/{pageSize}")
+//    public Pager findBasicInfo(@PathVariable(name = "currentPage") int currentPage, @PathVariable(name = "pageSize") int pageSize) {
+//        System.out.println(currentPage+"\t"+pageSize);
+//        return basicInfoService.findAllBasicInfo(currentPage,pageSize);
+//    }
     @ResponseBody
-    @RequestMapping(value = "/findBasicInfoByPager/{currentPage}/{pageSize}")
-    public Pager findBasicInfo(@PathVariable(name = "currentPage") int currentPage, @PathVariable(name = "pageSize") int pageSize) {
+    @RequestMapping(value = "/findBasicInfoByPager")
+    public Pager findBasicInfoByPager2(int currentPage, int pageSize) {
         System.out.println(currentPage+"\t"+pageSize);
         return basicInfoService.findAllBasicInfo(currentPage,pageSize);
     }
-
 
     @ResponseBody
     @RequestMapping(value = "/showMerchantDetail")

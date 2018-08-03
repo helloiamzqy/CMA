@@ -62,7 +62,6 @@
                     pageSize: pageSize
                 },
                 success: function (data) {
-                    alert(data)
                     renderTable(data);
                     // renderTable(data.dataList);
                     // renderNav(data);
