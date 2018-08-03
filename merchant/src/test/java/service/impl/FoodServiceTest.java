@@ -101,4 +101,10 @@ public class FoodServiceTest {
        Pager foods = foodService.findFoodByMerchant(1,10,merchant);
         assert (foods.getList().size() > 0);
     }
+    @Test
+    public void addFoodTen(){
+        for(int i = 0 ;i < 10; i++){
+            addFood();
+        }
+    }
 }
