@@ -135,6 +135,13 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>5.0.7.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
