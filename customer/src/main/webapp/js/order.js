@@ -1,6 +1,6 @@
 let userId=sessionStorage.getItem("user");
+let customerId=sessionStorage.getItem("customerId");
 let shopId = GetRequest().shop_id;
-
 function GetRequest() {
     var url = location.search; 
     //获取url中"?"符后的字串
@@ -15,6 +15,7 @@ function GetRequest() {
     return theRequest;
 }
 window.onload=function () {
+    alert(customerId)
     $("#submitOrder").on('click',()=>{
         let foods=$1.queryUserCart(userId,shopId);
         alert(JSON.stringify(foods))
@@ -31,7 +32,7 @@ window.onload=function () {
 
         $.ajax({
             type: "POST",
-            url: "/customer/orders/addOrder/"+shopId+"/"+userId,
+            url: "/customer/orders/addOrder/"+shopId+"/"+customerId,
             data: JSON.stringify(orderItems),
             contentType:"application/json",
             dataType: "json",

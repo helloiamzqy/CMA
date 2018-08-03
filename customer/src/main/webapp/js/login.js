@@ -9,8 +9,10 @@ $(function () {
                 alert(JSON.stringify(result))
             	//判断游客里面是否有购物车，有购物车则sessionStorage倒入localStorage
                 sessionStorage.setItem('user',$("#userName").val());
-                let userId = $("#userName").val();
-                let shopId = sessionStorage.getItem("shopId");   
+                let customerId = result.id;
+                sessionStorage.setItem("customerId" ,customerId)
+                let userId = $("#userName").val()
+                let shopId = sessionStorage.getItem("shopId");
                 let foodCarts=$1.queryCart(shopId);
                 $1.updateUserCart(userId,shopId,foodCarts);
                 window.location.href="/customer/html/merchant.html";

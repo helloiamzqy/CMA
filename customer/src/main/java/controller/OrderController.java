@@ -8,6 +8,7 @@ import service.FoodSerivce;
 import service.OrderItemService;
 import service.OrderService;
 
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "Content-Type", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.PUT})
@@ -43,7 +44,7 @@ public class OrderController {
     @PostMapping(value = "addOrder/{mId}/{cId}")
     public Order addOrder(@RequestBody List<CartItem> cartItems, @PathVariable(name = "mId") String mId, @PathVariable(name = "cId") String cId) {
         System.out.println(cartItems.toString());
-
+        System.out.println("mid :"+mId + "cid :" +cId);
         Order order = new Order();
         order.setCreateTime(new Date());
         Order o = orderService.addOrder(order, mId, cId);

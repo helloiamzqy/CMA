@@ -1,6 +1,10 @@
 package service.impl;
 
+import dao.OrderItemDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import pojo.OrderItem;
 import service.OrderItemService;
 
 /**
@@ -12,5 +16,11 @@ import service.OrderItemService;
 
 @Service
 public class OrderItemServiceImpl implements OrderItemService {
-
+    @Autowired
+    OrderItemDao orderItemDao;
+    @Transactional
+    @Override
+    public void addOrderItem(OrderItem orderItem) {
+        orderItemDao.addOrderItem(orderItem);
+    }
 }
