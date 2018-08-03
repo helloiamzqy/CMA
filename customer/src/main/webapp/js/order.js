@@ -29,7 +29,6 @@ window.onload=function () {
     }
     function submitOrder(orderItems) {
         alert(orderItems)
-
         $.ajax({
             type: "POST",
             url: "/customer/orders/addOrder/"+shopId+"/"+customerId,
