@@ -1,0 +1,10 @@
+service\impl\CommentServiceTest.class
+service\impl\AdvertisementManagerTest.class
+service\impl\jsonTest.class
+service\impl\FoodServiceTest.class
+service\impl\CustomerManagerImplTest.class
+service\impl\OrderManagerImplTest.class
+service\impl\MerchantManagerImplTest.class
+service\impl\OrderItemManagerTest.class
+service\impl\BasicInfoManagerTest.class
+service\impl\RegistInfoManagerTest.class

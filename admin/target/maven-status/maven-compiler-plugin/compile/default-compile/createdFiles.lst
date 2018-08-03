@@ -1,0 +1,11 @@
+pojo\Page.class
+pojo\Complaint.class
+pojo\MerchantInfo.class
+service\impl\AdvertisementManagerImpl.class
+controller\AdvertisementController.class
+pojo\Manager.class
+pojo\Advertisement.class
+dao\AdvertisementDao.class
+listener\MyJmsListener.class
+service\AdvertisementManager.class
+dao\impl\AdvertisementDaoImpl.class

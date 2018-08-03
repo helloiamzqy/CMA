@@ -22,21 +22,21 @@ public class JmsTest {
 
     }
 
-    @Test
-    public void testJms() {
-        JmsSender jmsSender = context.getBean(JmsSender.class);
-        JmxTp j1 = new JmxTp();
-        j1.setJmxTpEnum(JmsTpEnum.COMPLAIN);
-        Complaint complaint = new Complaint();
-//        complaint.setId("123");
-        complaint.setCreateTime(new Date());
-        complaint.setMerchantId("merchantId");
-        complaint.setOrderId("orderId");
-        complaint.setReason("难吃有毒！");
-        j1.setObject(complaint);
-        Gson gson = new Gson();
-        String object = gson.toJson(j1);
-        System.out.println(object);
-        jmsSender.send(object);
-    }
+//    @Test
+//    public void testJms() {
+//        JmsSender jmsSender = context.getBean(JmsSender.class);
+//        JmxTp j1 = new JmxTp();
+//        j1.setJmxTpEnum(JmsTpEnum.COMPLAIN);
+//        Complaint complaint = new Complaint();
+////        complaint.setId("123");
+//        complaint.setCreateTime(new Date());
+//        complaint.setMerchantId("merchantId");
+//        complaint.setOrderId("orderId");
+//        complaint.setReason("难吃有毒！");
+//        j1.setObject(complaint);
+//        Gson gson = new Gson();
+//        String object = gson.toJson(j1);
+//        System.out.println(object);
+//        jmsSender.send(object);
+//    }
 }

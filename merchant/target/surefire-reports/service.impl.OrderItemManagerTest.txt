@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: service.impl.OrderItemManagerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.297 s <<< FAILURE! - in service.impl.OrderItemManagerTest
+service.impl.OrderItemManagerTest  Time elapsed: 0.297 s  <<< ERROR!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [databaseApplication.xml]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: em] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to obtain JDBC Connection
+	at service.impl.OrderItemManagerTest.init(OrderItemManagerTest.java:26)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: em] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to obtain JDBC Connection
+	at service.impl.OrderItemManagerTest.init(OrderItemManagerTest.java:26)
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to obtain JDBC Connection
+	at service.impl.OrderItemManagerTest.init(OrderItemManagerTest.java:26)
+Caused by: org.apache.commons.dbcp.SQLNestedException: Cannot load JDBC driver class 'oracle.jdbc.driver.OracleDriver'
+	at service.impl.OrderItemManagerTest.init(OrderItemManagerTest.java:26)
+Caused by: java.lang.ClassNotFoundException: oracle.jdbc.driver.OracleDriver
+	at service.impl.OrderItemManagerTest.init(OrderItemManagerTest.java:26)
+

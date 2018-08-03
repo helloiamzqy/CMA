@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: service.impl.AdvertisementManagerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.78 s <<< FAILURE! - in service.impl.AdvertisementManagerTest
+service.impl.AdvertisementManagerTest  Time elapsed: 1.78 s  <<< ERROR!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [databaseApplication.xml]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: em] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to obtain JDBC Connection
+	at service.impl.AdvertisementManagerTest.init(AdvertisementManagerTest.java:23)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: em] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to obtain JDBC Connection
+	at service.impl.AdvertisementManagerTest.init(AdvertisementManagerTest.java:23)
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to obtain JDBC Connection
+	at service.impl.AdvertisementManagerTest.init(AdvertisementManagerTest.java:23)
+Caused by: org.apache.commons.dbcp.SQLNestedException: Cannot load JDBC driver class 'oracle.jdbc.driver.OracleDriver'
+	at service.impl.AdvertisementManagerTest.init(AdvertisementManagerTest.java:23)
+Caused by: java.lang.ClassNotFoundException: oracle.jdbc.driver.OracleDriver
+	at service.impl.AdvertisementManagerTest.init(AdvertisementManagerTest.java:23)
+
