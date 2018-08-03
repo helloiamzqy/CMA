@@ -44,6 +44,7 @@ public class OrderManagerImplTest {
         order.setCreateTime(new Date());
         order.setCustomer(customer);
         order.setMerchant(merchant);
+        order.setFinishTime(new Date());
         order.setStatus("1");
         order.setTotalPrice(12.23);
         OrderManager orderManager=context.getBean(OrderManager.class);

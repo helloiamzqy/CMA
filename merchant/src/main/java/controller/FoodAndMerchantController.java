@@ -15,6 +15,7 @@ import java.sql.SQLOutput;
  * @author Dunn
  */
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class FoodAndMerchantController {
     @Autowired
     private FoodManger foodManger;
