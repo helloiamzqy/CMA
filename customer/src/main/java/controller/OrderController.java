@@ -8,7 +8,6 @@ import service.FoodSerivce;
 import service.OrderItemService;
 import service.OrderService;
 
-import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "Content-Type", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.PUT})
@@ -67,5 +66,11 @@ public class OrderController {
     @PutMapping
     public Order updateOrder(@RequestBody Order order) {
         return orderService.updateOrder(order);
+    }
+
+    @DeleteMapping
+    public void cancelOrder(@RequestBody Order order) {
+        order.setStatus(OrderStatusEnum.CANCLE);
+        orderService.updateOrder(order);
     }
 }

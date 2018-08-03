@@ -36,7 +36,6 @@ public class CommentController {
     @PostMapping(value = "/{oid}")
     public Comment addComment(@PathVariable String oid,@RequestBody Comment comment){
         comment.setCreateTime(new Date());
-//        return commentService.addComment(oid,comment);
-        return comment;
+        return commentService.addComment(oid,comment);
     }
 }
