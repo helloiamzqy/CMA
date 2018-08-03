@@ -33,11 +33,10 @@ public class CommentController {
     public Pager getCommentByOrderId(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String oid){
         return  commentService.findCommentByOrder(curPage,pageSize,oid);
     }
-    @PostMapping(value = "/{oid}/comment")
+    @PostMapping(value = "/{oid}")
     public Comment addComment(@PathVariable String oid,@RequestBody Comment comment){
-//        comment.s
         comment.setCreateTime(new Date());
-//        return commentService.addComment(comment);
+//        return commentService.addComment(oid,comment);
         return comment;
     }
 }
