@@ -6,12 +6,13 @@ import pojo.Order;
 import pojo.Pager;
 import service.OrderService;
 
-@CrossOrigin(origins = "*",maxAge = 3600,allowedHeaders = "Content-Type",methods ={RequestMethod.POST,RequestMethod.GET,RequestMethod.DELETE,RequestMethod.PUT})
+@CrossOrigin(origins ="*",maxAge = 3600)
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("orders")
 public class OrderController {
     @Autowired
     private OrderService orderService;
+
     @GetMapping(value = "/merchant/{mId}/{status}")
     public Pager findOrderByMerchant(@PathVariable(name = "mId") String mId, @PathVariable(name = "status") String status,@RequestParam int curPage, @RequestParam int pageSize){
         return orderService.findOrderByMerchant(mId,status,curPage,pageSize);

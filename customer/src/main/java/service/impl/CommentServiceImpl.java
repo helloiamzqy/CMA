@@ -8,7 +8,6 @@ import pojo.Comment;
 import pojo.Merchant;
 import pojo.Order;
 import pojo.Pager;
-import service.CommentManager;
 import service.CommentService;
 
 /**

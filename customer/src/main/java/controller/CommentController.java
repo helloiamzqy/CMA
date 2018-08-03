@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pojo.Comment;
 import pojo.Pager;
-import service.CommentManager;
 import service.CommentService;
 
 import java.util.Date;
@@ -13,12 +12,18 @@ import java.util.Date;
  * @author Harper
  */
 
-@CrossOrigin(origins = "*",maxAge = 3600,allowedHeaders = "Content-Type",methods ={RequestMethod.POST,RequestMethod.GET,RequestMethod.DELETE,RequestMethod.PUT})
+@CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
 @RequestMapping("/comment")
 public class CommentController {
     @Autowired
     private CommentService commentService;
+
+
+    @GetMapping(value = "/test")
+    public void test(){
+        System.out.println(122233);
+    }
 
     @GetMapping(value = "/{mid}/comment")
     public Pager getMerchantComment(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String mid){
@@ -30,8 +35,9 @@ public class CommentController {
     }
     @PostMapping(value = "/{oid}/comment")
     public Comment addComment(@PathVariable String oid,@RequestBody Comment comment){
-        comment.set
+//        comment.s
         comment.setCreateTime(new Date());
-        return commentService.addComment(comment);
+//        return commentService.addComment(comment);
+        return comment;
     }
 }
