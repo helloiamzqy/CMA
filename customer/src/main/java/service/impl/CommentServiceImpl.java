@@ -19,13 +19,17 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentDao commentDao;
     @Override
+
     public Pager findAllComment(int curPage, int pageSize) {
         Pager comments = commentDao.findAllComment(curPage,pageSize);
         return comments;
     }
     @Transactional
     @Override
-    public Comment addComment(Comment comment) {
+    public Comment addComment(String oid,Comment comment) {
+        Order order = new Order();
+        order.setId(oid);
+        comment.setOrder(order);
         return  commentDao.addComment(comment);
     }
 
