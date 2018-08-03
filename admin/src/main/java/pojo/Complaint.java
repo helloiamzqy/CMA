@@ -30,6 +30,12 @@ public class Complaint {
     @Column(name = "create_time",nullable = false)
     private Date createTime;
 
+    @Column(updatable = false)
+    private String className = "Complaint";
+
+    @Column
+    private String isRead = "false";
+
     public Complaint() {
     }
 

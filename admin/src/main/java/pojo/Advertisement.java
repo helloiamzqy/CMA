@@ -31,6 +31,12 @@ public class Advertisement {
     @Column(nullable = false)
     private double price;
 
+    @Column(updatable = false)
+    private String className = "Advertisement";
+
+    @Column
+    private String isRead = "false";
+
     public Advertisement(String merchantId, String merchantName, String picture, String status, double price) {
         this.merchantId = merchantId;
         this.merchantName = merchantName;

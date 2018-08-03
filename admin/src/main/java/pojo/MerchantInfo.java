@@ -45,6 +45,12 @@ public class MerchantInfo {
     @Column(nullable = false)
     private String comments;
 
+    @Column(updatable = false)
+    private String className = "MerchantInfo";
+
+    @Column
+    private String isRead = "false";
+
     public MerchantInfo(String merchantId, String creditCode, String idCard, String corporateName, String picture, String phone, String shopName, String address, String status, String comments) {
         this.merchantId = merchantId;
         this.creditCode = creditCode;
