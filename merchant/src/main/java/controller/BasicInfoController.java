@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pojo.BasicInfo;
 import service.BasicInfoManager;
-
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class BasicInfoController {
     @Autowired
     private BasicInfoManager basicInfoManager;
