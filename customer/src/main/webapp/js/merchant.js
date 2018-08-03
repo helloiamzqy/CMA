@@ -1,7 +1,7 @@
+let currentPage = 1;
+let pageSize = 4;
 window.onload=function () {
-    let currentPage = 1;
-    let pageSize = 4;
-    let url="/customer/merchant/findBasicInfoByPager/"+currentPage+"/"+pageSize;
+    let url="/customer/merchant/findBasicInfoByPager/";
     let method="POST";
     let headers=[{"key":"Content-Type","value":"application/json"}];
     function renderTable(merchants) {
@@ -63,6 +63,10 @@ window.onload=function () {
             type: method,
             url: url,
             dataType:"json",
+            data: {
+                currentPage: currentPage,
+                pageSize: pageSize
+            },
             success: function(data){
                 renderTable(data.list);
                 renderNav(data);
