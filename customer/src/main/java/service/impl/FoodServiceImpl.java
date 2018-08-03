@@ -67,5 +67,8 @@ public class FoodServiceImpl implements FoodSerivce {
         return foodDao.findFoodByMerchantId(merchantId);
     }
 
-
+    @Override
+    public Food findFoodByFoodId(String id) {
+        return foodDao.findFoodByFoodId(id);
+    }
 }

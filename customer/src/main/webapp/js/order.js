@@ -26,7 +26,6 @@ window.onload=function () {
         window.location.href = "/customer/html/login.html";
         return;
     }
-
     function submitOrder(orderItems) {
         alert(orderItems)
 

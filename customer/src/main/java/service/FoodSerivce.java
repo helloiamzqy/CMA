@@ -21,4 +21,5 @@ public interface FoodSerivce {
     List<Food> findFoodByMerchant( Merchant merchant);
     Pager findFoodByName(int curPage, int pageSize, String name);
     List<Food> findFoodByMerchantId(String merchantId);
+    Food findFoodByFoodId(String id);
 }

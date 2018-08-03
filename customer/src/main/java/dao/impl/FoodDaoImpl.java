@@ -118,4 +118,11 @@ public class FoodDaoImpl implements FoodDao {
         System.out.println(foods.size());
         return foods;
     }
+
+    @Override
+    public Food findFoodByFoodId(String id) {
+        String jpql ="FROM pojo.Food f WHERE f.id =:id";
+        return (Food) manager.createQuery(jpql).setParameter("id",id).getSingleResult();
+
+    }
 }

@@ -2,10 +2,9 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pojo.Order;
-import pojo.OrderItem;
-import pojo.Pager;
+import pojo.*;
 import pojo.enums.OrderStatusEnum;
+import service.FoodSerivce;
 import service.OrderItemService;
 import service.OrderService;
 
@@ -20,6 +19,8 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private OrderItemService orderItemService;
+    @Autowired
+    private FoodSerivce foodSerivce;
     @GetMapping(value = "/merchant/{mId}/{status}")
     public Pager findOrderByMerchant(@PathVariable(name = "mId") String mId, @PathVariable(name = "status") String status, @RequestParam int curPage, @RequestParam int pageSize) {
         return orderService.findOrderByMerchant(mId, status, curPage, pageSize);
@@ -41,16 +42,23 @@ public class OrderController {
 
 
     @PostMapping(value = "addOrder/{mId}/{cId}")
-    public Order addOrder(@RequestBody List<OrderItem> orderItems, @PathVariable(name = "mId") String mId, @PathVariable(name = "cId") String cId) {
-        System.out.println(orderItems.toString());
-//        Order order = new Order();
-//        order.setCreateTime(new Date());
-//        order.setStatus(OrderStatusEnum.WATING);
-//        Order o = orderService.addOrder(order, mId, cId);
-//        for (OrderItem orderItem:orderItems){
-//            orderItem.setOrder(o);
-//            orderItemService.addOrderItem(orderItem);
-//        }
+    public Order addOrder(@RequestBody List<CartItem> cartItems, @PathVariable(name = "mId") String mId, @PathVariable(name = "cId") String cId) {
+        System.out.println(cartItems.toString());
+
+        Order order = new Order();
+        order.setCreateTime(new Date());
+        Order o = orderService.addOrder(order, mId, cId);
+
+        for(CartItem cartItem :cartItems){
+            OrderItem orderItem = new OrderItem();
+            Food food = foodSerivce.findFoodByFoodId(cartItem.getId());
+            orderItem.setFood(food);
+            orderItem.setFoodNum(cartItem.getNum());//脏
+            orderItem.setTotalPrice(food.getPrice()*cartItem.getNum());
+            orderItem.setOrder(o);
+            orderItemService.addOrderItem(orderItem);
+        }
+
 //
 //        return o;
         return null;

@@ -1,5 +1,7 @@
 package service;
 
+import pojo.OrderItem;
+
 /**
  * @author:HUGO
  * @description:
@@ -7,4 +9,5 @@ package service;
  * @modified By:
  */
 public interface OrderItemService {
+    public void addOrderItem(OrderItem orderItem);
 }
