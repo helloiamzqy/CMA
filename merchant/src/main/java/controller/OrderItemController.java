@@ -12,7 +12,7 @@ import java.util.List;
 public class OrderItemController {
     @Autowired
     private OrderItemManager orderItemManager;
-    @GetMapping(value = "{oId}")
+    @GetMapping(value = "/{oId}")
     public List<OrderItem> findAllItemsByOrder(@PathVariable(name = "oId") String oId){
         return orderItemManager.findOrderItemByOrder(oId);
     }

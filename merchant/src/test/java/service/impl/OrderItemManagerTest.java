@@ -40,11 +40,11 @@ public class OrderItemManagerTest {
         food.setPrice(12321);
         food.setPicture("fdafds");
 //        foodManger.addFood(food);
-        orderItem.setFoodNum(1);
+        orderItem.setFoodNum(3);
         orderItem.setFood(food);
         orderItem.setTotalPrice(666);
-//        OrderItem orderItem1= orderItemManager.addOrderItem(orderItem,"8a5e9d3d64f9eed50164f9eedabf0002");
-//        Assert.assertTrue(orderItem1!=null);
+        OrderItem orderItem1= orderItemManager.addOrderItem(orderItem,"8a5e9d3d64feef560164feef5baf0002","8a5e9d3c64fefc1b0164fefc22600009");
+        Assert.assertTrue(orderItem1!=null);
 
 
     }
