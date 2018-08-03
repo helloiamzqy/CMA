@@ -7,6 +7,7 @@ import service.OrderItemManager;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("orderItems")
 public class OrderItemController {
