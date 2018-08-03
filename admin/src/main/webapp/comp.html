@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="css/bootstrap-theme.css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/ads.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/complaint.js"></script>
     <style>
         #pageSize{
             width: 40px;
         }
     </style>
+
 </head>
 <body>
 <ul class="nav nav-tabs">
@@ -25,6 +27,7 @@
     <h1 class="text-center">查看投诉</h1>
     <div class="panel panel-default">
         <table id="ads"  class="table table-hover table-striped">
+            <thead>
             <tr id="head">
                 <td>订单号</td>
                 <td>店铺名称</td>
@@ -32,7 +35,11 @@
                 <td>时间</td>
                 <td colspan="2" class="text-center">操作</td>
             </tr>
+            </thead>
+            <tbody>
+            </tbody>
         </table>
+
     </div>
     共<span id="totalPage"></span>页/<span id="totalCount"></span>条数据
     每页显示<input type="number" id="pageSize" value=10>条

@@ -56,6 +56,19 @@ public class AdvertisementManagerTest {
         Assert.assertTrue(num == num2);
     }
 
+//    @Test
+//    public void testSendAds(){
+//        Advertisement advertisement = new Advertisement();
+//        advertisement.setMerchantId("sdfs123sdf");
+//        advertisement.setPicture("www.ttt.com");
+//        advertisement.setPrice(12.36);
+//        advertisement.setMerchantName("sendAd");
+//        advertisement.setStatus("1");
+//        manager.addAd(advertisement);
+//        String ads = manager.sendAds();
+//        System.out.println(ads);
+//        Assert.assertTrue(ads!=null);
+//    }
     @Test
     public void testSendAds(){
         Advertisement advertisement = new Advertisement();
@@ -65,8 +78,7 @@ public class AdvertisementManagerTest {
         advertisement.setMerchantName("sendAd");
         advertisement.setStatus("1");
         manager.addAd(advertisement);
-        String ads = manager.sendAds();
-        System.out.println(ads);
+        List<Advertisement> ads = manager.sendAds();
         Assert.assertTrue(ads!=null);
     }
 

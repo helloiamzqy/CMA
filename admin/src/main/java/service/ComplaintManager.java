@@ -14,4 +14,5 @@ public interface ComplaintManager {
     public Complaint addComplaint(Complaint complaint);
     public void deleteComplaint(String id);
     public Page<Complaint> getComplaintByPage(int currentPage,int pageSize);
+    public List<Complaint> getComplaintById(String id);
 }

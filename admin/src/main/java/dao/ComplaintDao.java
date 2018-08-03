@@ -14,5 +14,5 @@ public interface ComplaintDao {
     public List<Complaint> getAllComplaints();
     public List<Complaint> getComplaintsByPage(int begin,int end);
     public int getComplaintCount();
-    public Complaint getComplaintById(String id);
+    public List<Complaint> getComplaintById(String id);
 }

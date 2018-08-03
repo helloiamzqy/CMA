@@ -29,15 +29,6 @@ public class AdvertisementController {
         return page;
     }
 
-    //这个不是添加广告，获得可发送广告的商家名称
-//    @RequestMapping(method = RequestMethod.GET)
-//    public String getSendAd(@RequestParam String validation){
-//        if ("request".equals(validation)){
-//            return manager.sendAds();
-//        }
-//        return "{}";
-//    }
-
     @RequestMapping(method = RequestMethod.DELETE,value = "{id}")
     public String deleteAd(@PathVariable String id){
         manager.deleteAdById(id);

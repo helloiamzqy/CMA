@@ -35,8 +35,12 @@ public class ComplaintDaoImpl implements ComplaintDao {
     }
 
     @Override
-    public Complaint getComplaintById(String id) {
-        return em.find(Complaint.class,id);
+    public List<Complaint> getComplaintById(String id) {
+        String jpql = "from pojo.Complaint comp where comp.merchantId = :id";
+        return em
+                .createQuery(jpql)
+                .setParameter("id",id)
+                .getResultList();
     }
 
     @Override

@@ -54,4 +54,9 @@ public class ComplaintManagerImpl implements ComplaintManager {
         page.setDataList(list);
         return page;
     }
+
+    @Override
+    public List<Complaint> getComplaintById(String id) {
+        return complaintDao.getComplaintById(id);
+    }
 }

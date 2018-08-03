@@ -1,5 +1,6 @@
 package service.impl;
 
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pojo.Advertisement;
@@ -31,16 +32,18 @@ public class JmsMessageManagerImpl implements JmsMessageManager {
 
     @Override
     public Object getMessageEntity(JmsMessage jmsMessage) {
-        JsonParseByJackson<String> parse = new JsonParseByJackson<>();
-        String json = parse.parseMapToJson((Map<String,String>)jmsMessage.getObject());
+        Gson gson = new Gson();
+
         if (jmsMessage.getJmsEnum().equals(JmsEnum.ADVERSITMENT)){
-            return adManager.addAd((Advertisement) jmsMessage.getObject());
+            return adManager.addAd( gson.fromJson(gson.toJson(jmsMessage.getObject()),Advertisement.class));
         }else if (jmsMessage.getJmsEnum().equals(JmsEnum.COMPLAIN)){
-            return complaintManager.addComplaint((Complaint) jmsMessage.getObject());
+            return complaintManager.addComplaint(gson.fromJson(gson.toJson(jmsMessage.getObject()),Complaint.class));
         }else if (jmsMessage.getJmsEnum().equals(JmsEnum.APPLY)){
-         //   return merchantInfoManager.addMerchantInfo((MerchantInfo)parse.parseJsonToObject(Class<MerchantInfo>,json));
+            return merchantInfoManager.addMerchantInfo(gson.fromJson(gson.toJson(jmsMessage.getObject()),MerchantInfo.class));
         }
         return null;
     }
 
+//    @Override
+//    public void messageToDB(String )
 }

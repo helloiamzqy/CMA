@@ -13,6 +13,7 @@ import service.impl.AdvertisementManagerImpl;
 import service.impl.ComplaintManagerImpl;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author JohnGao
@@ -53,7 +54,7 @@ public class ComplaintManagerTest {
         Assert.assertTrue(num>0);
     }
     @Test
-    public void testDeleteAdById() throws Exception{
+    public void testDeleteComplaintById() throws Exception{
         int num = manager.getAllComplaints().size();
         Complaint comp = new Complaint();
         comp.setMerchantId("sdfs123sdf");
@@ -67,7 +68,7 @@ public class ComplaintManagerTest {
     }
 
     @Test
-    public void testGetAdByPage(){
+    public void testGetComplaintByPage(){
         Complaint comp = new Complaint();
         comp.setMerchantId("sdfs123sdf");
         comp.setOrderId("10001ad225");
@@ -83,5 +84,17 @@ public class ComplaintManagerTest {
         Page<Complaint> page = manager.getComplaintByPage(1,2);
         int m = page.getTotalPage();
         Assert.assertTrue(m>=1);
+    }
+
+    @Test
+    public void testGetComplaintById() throws Exception{
+        Complaint comp = new Complaint();
+        comp.setMerchantId("tttestttt");
+        comp.setOrderId("10001ad225");
+        comp.setCreateTime(new Date());
+        comp.setReason("getById");
+        Complaint complaint = manager.addComplaint(comp);
+        List<Complaint> cps = manager.getComplaintById(complaint.getMerchantId());
+        Assert.assertTrue(cps.size()>0&&cps.get(cps.size()-1).getId().equals(complaint.getId()));
     }
 }

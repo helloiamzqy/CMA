@@ -49,16 +49,22 @@ public class AdvertisementManagerImpl implements AdvertisementManager {
     }
 
 
-    @Override
-    public String sendAds() {
-        List<Advertisement> ads = advertisementDao.sendAds();
-        StringBuffer sb=new StringBuffer();
-        for (Advertisement ad : ads) {
-            sb.append(ad.getMerchantId()+"-");
-        }
-        return sb.toString();
-    }
+//    @Override
+//    public String sendAds() {
+//        List<Advertisement> ads = advertisementDao.sendAds();
+//        StringBuffer sb=new StringBuffer();
+//        for (Advertisement ad : ads) {
+//            sb.append(ad.getMerchantId()+"-");
+//        }
+//        System.out.println(sb.toString());
+//        return sb.toString();
+//    }
 
+
+    @Override
+    public List<Advertisement> sendAds() {
+        return advertisementDao.sendAds();
+    }
 
     @Override
     public Page<Advertisement> getAdsByPage(int currentPage, int pageSize) {

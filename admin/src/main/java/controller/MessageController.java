@@ -1,12 +1,15 @@
 package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pojo.Advertisement;
+import pojo.Complaint;
 import pojo.MerchantInfo;
+import service.AdvertisementManager;
+import service.ComplaintManager;
 import service.MerchantInfoManager;
+
+import java.util.List;
 
 /**
  * @author JohnGao,Carrie
@@ -18,6 +21,10 @@ public class MessageController {
 
     @Autowired
     private MerchantInfoManager merchantInfoManager;
+    @Autowired
+    private AdvertisementManager advertiseManager;
+    @Autowired
+    private ComplaintManager complaintManager;
 
     @GetMapping(value = "merchantStatus/{id}")
     public String getMerchantStatus(@PathVariable String id){
@@ -25,5 +32,23 @@ public class MessageController {
         String status=merchantInfo.getStatus();
         String result="{\"status\":\""+status+"\"}";
         return result;
+    }
+
+//    @RequestMapping(value = "advertisement",method = RequestMethod.GET)
+//    public String getSendAd(@RequestParam String validation){
+//        if ("request".equals(validation)){
+//            return manager.sendAds();
+//        }
+//        return "{}";
+//    }
+
+    @RequestMapping(value = "advertisement",method = RequestMethod.GET)
+    public List<Advertisement> getSendAd(){
+        return advertiseManager.sendAds();
+    }
+
+    @RequestMapping(value ="complaint/{id}",method = RequestMethod.GET)
+    public List<Complaint> getComplaint(@PathVariable String id){
+        return complaintManager.getComplaintById(id);
     }
 }
