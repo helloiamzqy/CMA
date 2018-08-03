@@ -71,7 +71,9 @@ public class OrderController {
 
     @DeleteMapping
     public void cancelOrder(@RequestBody Order order) {
-        order.setStatus(OrderStatusEnum.CANCLE);
-        orderService.updateOrder(order);
+//        if(order.getStatus().equals("1")) {
+            order.setStatus(OrderStatusEnum.CANCLE);
+            orderService.updateOrder(order);
+//        }
     }
 }
