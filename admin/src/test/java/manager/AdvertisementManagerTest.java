@@ -33,7 +33,7 @@ public class AdvertisementManagerTest {
     public void testAddAd(){
         Advertisement advertisement = new Advertisement();
         advertisement.setMerchantId("2222");
-        advertisement.setPicture("www.ttt.com");
+        advertisement.setPicture("http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg");
         advertisement.setPrice(12.36);
         advertisement.setMerchantName("kfc");
         advertisement.setStatus("1");
@@ -46,7 +46,7 @@ public class AdvertisementManagerTest {
         int num = manager.getAllAds().size();
         Advertisement advertisement = new Advertisement();
         advertisement.setMerchantId("sdfs123sdf");
-        advertisement.setPicture("www.ttt.com");
+        advertisement.setPicture("http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg");
         advertisement.setPrice(12.36);
         advertisement.setMerchantName("delete");
         advertisement.setStatus("1");
@@ -73,7 +73,7 @@ public class AdvertisementManagerTest {
     public void testSendAds(){
         Advertisement advertisement = new Advertisement();
         advertisement.setMerchantId("sdfs123sdf");
-        advertisement.setPicture("www.ttt.com");
+        advertisement.setPicture("http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg");
         advertisement.setPrice(12.36);
         advertisement.setMerchantName("sendAd");
         advertisement.setStatus("1");
@@ -86,7 +86,7 @@ public class AdvertisementManagerTest {
     public void testUpdateAd(){
         Advertisement advertisement = new Advertisement();
         advertisement.setMerchantId("sdfs123sdf");
-        advertisement.setPicture("www.ttt.com");
+        advertisement.setPicture("http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg");
         advertisement.setPrice(12.36);
         advertisement.setMerchantName("updateAd");
         advertisement.setStatus("1");
@@ -99,13 +99,13 @@ public class AdvertisementManagerTest {
     public void testGetAdByPage(){
         Advertisement advertisement = new Advertisement();
         advertisement.setMerchantId("sdfs123sdf");
-        advertisement.setPicture("www.ttt.com");
+        advertisement.setPicture("http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg");
         advertisement.setPrice(12.36);
         advertisement.setMerchantName("page");
         advertisement.setStatus("1");
         Advertisement advertisement2 = new Advertisement();
         advertisement2.setMerchantId("sdfs123sdf");
-        advertisement2.setPicture("www.ttt.com");
+        advertisement2.setPicture("http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg");
         advertisement2.setPrice(12.36);
         advertisement2.setMerchantName("page2");
         advertisement2.setStatus("1");
@@ -120,7 +120,7 @@ public class AdvertisementManagerTest {
     public void testGetAllAd() throws Exception{
         Advertisement advertisement = new Advertisement();
         advertisement.setMerchantId("sdfs123sdf");
-        advertisement.setPicture("www.ttt.com");
+        advertisement.setPicture("http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg");
         advertisement.setPrice(12.36);
         advertisement.setMerchantName("add");
         advertisement.setStatus("1");

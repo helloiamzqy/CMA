@@ -30,6 +30,12 @@ public class Complaint {
     @Column(name = "create_time",nullable = false)
     private Date createTime;
 
+    @Column(updatable = false)
+    private String className = "Complaint";
+
+    @Column
+    private String isRead = "false";
+
     public Complaint() {
     }
 
@@ -78,5 +84,16 @@ public class Complaint {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Complaint{" +
+                "id='" + id + '\'' +
+                ", reason='" + reason + '\'' +
+                ", merchantId='" + merchantId + '\'' +
+                ", orderId='" + orderId + '\'' +
+                ", createTime=" + createTime +
+                '}';
     }
 }

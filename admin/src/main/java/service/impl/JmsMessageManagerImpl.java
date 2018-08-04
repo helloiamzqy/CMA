@@ -44,6 +44,4 @@ public class JmsMessageManagerImpl implements JmsMessageManager {
         return null;
     }
 
-//    @Override
-//    public void messageToDB(String )
 }

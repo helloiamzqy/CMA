@@ -23,6 +23,15 @@ function AdvertisementComponent($view,url) {
             makePage(cmop);
             renderTable();
         });
+
+        let ws = new WebSocket("ws://10.222.29.192:9090/admin/sync");
+        ws.onopen = function () {
+            ws.send("I am Client");
+        };
+
+        ws.onmessage = function (evt) {
+            alert("okok");
+        }
     }
 
     function renderTable() {
