@@ -25,4 +25,6 @@ public interface AdvertisementDao {
     public List<Advertisement> getAdByPage(int begin, int end);
 
     public Advertisement findAdById(String id);
+
+    public Advertisement updateAdvertisement(Advertisement advertisement);
 }

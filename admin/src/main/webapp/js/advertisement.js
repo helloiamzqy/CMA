@@ -51,8 +51,7 @@ function AdvertisementComponent($view, url) {
     function changeStatus(advertisement,status){
         $("#MerchantModal").modal("hide");//隐藏模态框
         cur = advertisement;
-        let url = "http://localhost:9090/admin/advertisement?id="
-            +advertisement.id + "&state=" + status;
+        advertisement.status = status;
         myAjax(url,"PUT",advertisement,(cb)=>{
             let index = model.indexOf(cur);
             model.splice(index,1,cb);

@@ -27,4 +27,9 @@ public class ComplaintController {
         manager.deleteComplaint(id);
         return "{}";
     }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public Complaint updateComplaint(@RequestBody Complaint complaint){
+        return manager.updateComplaint(complaint);
+    }
 }

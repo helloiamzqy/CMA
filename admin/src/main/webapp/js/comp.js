@@ -89,6 +89,7 @@ function ComplaintComponent($view,url) {
             if (model[i].isRead=="false"){
                 $("<button>").text("新").addClass("btn btn-danger").on("click",function () {
                     this.textContent = "已读";
+                complaiant.unre= "yidu";
 
                 }).appendTo(td4);
             }else{

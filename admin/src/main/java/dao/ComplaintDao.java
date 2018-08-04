@@ -15,4 +15,5 @@ public interface ComplaintDao {
     public List<Complaint> getComplaintsByPage(int begin,int end);
     public int getComplaintCount();
     public List<Complaint> getComplaintById(String id);
+    public Complaint updateComplaint(Complaint complaint);
 }

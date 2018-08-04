@@ -70,4 +70,10 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
     public Advertisement findAdById(String id) {
         return em.find(Advertisement.class,id);
     }
+
+    @Override
+    public Advertisement updateAdvertisement(Advertisement advertisement) {
+        Advertisement advertisement1 = em.merge(advertisement);
+        return advertisement1;
+    }
 }

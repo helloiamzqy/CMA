@@ -19,8 +19,8 @@ public class AdvertisementController {
     private AdvertisementManager manager;
 
     @RequestMapping(method = RequestMethod.PUT)
-    public Advertisement updateAdvertisement(@RequestParam String id,@RequestParam String state){
-        return manager.updateAd(id, state);
+    public Advertisement updateAdvertisement(@RequestBody Advertisement advertisement){
+        return manager.updateAdvertisement(advertisement);
     }
 
     @RequestMapping(method = RequestMethod.GET)
