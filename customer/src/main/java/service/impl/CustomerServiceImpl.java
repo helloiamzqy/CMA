@@ -38,9 +38,14 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer addCustomer(Customer customer) {
         return customerDao.addCustomer(customer);
     }
-
+    @Transactional
     @Override
     public Customer checkLoginCustomer(Customer customer) {
         return customerDao.checkLoginCustomer(customer);
+    }
+    @Transactional
+    @Override
+    public Customer findCustomerById(String id) {
+        return customerDao.findCustomerById(id);
     }
 }

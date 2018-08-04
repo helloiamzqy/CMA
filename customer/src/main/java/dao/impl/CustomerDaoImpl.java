@@ -44,6 +44,12 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
+    public Customer findCustomerById(String id) {
+        String spql="from pojo.Customer where id=:id";
+        return (Customer) manager.createQuery(spql).setParameter("id",id).getSingleResult();
+    }
+
+    @Override
     public Customer addCustomer(Customer customer) {
         try{
             manager.persist(customer);

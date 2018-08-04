@@ -2,25 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../css/login.css">
+    <title>Order Page</title>
     <script src="../common/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap-theme.css">
     <script src="../common/bootstrap/dist/js/bootstrap.js"></script>
-     <script src="../js/regist.js"></script>
-     <script src="../js/cartUtil.js"></script>
-    <style>
-        .login {
-            width: 380px;
-            height: 370px;
-            margin: -25px 130px;
-            border: 2px solid gold;
-            border-radius:25px;
-            background-color: white;
-        }
-
-    </style>
-
+    <script src="../js/CustomerInfo.js"></script>
+    <script src="../js/head.js"></script>
+    <script src="../js/util.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -80,56 +69,23 @@
         </div>
     </div>
 </nav>
-<div class="carrie_body">
-    <br>
-    <div id="carrie_header">
-        <ul class="nav nav-tabs nav-justified">
-            <li><a href="merchant.html">主页</a></li>
-            <li><a href="order.html">订单</a></li>
-            <li><a href="login.html">登录</a></li>
-        </ul>
-    </div>
-    <br>
-    <br>
-    <div id="content">
 
-        <br>
-        <br>
-        <div class="login">
-            <div class="form_style">
+<div class="row" style="height: 2000px">
+    <div class="col-xs-6 col-md-2" style="background: red"></div>
+    <div id = "view" class="col-xs-6 col-md-6" style="width: 1000px">
+        <div id="customerInfo">
+            <h1>个人信息</h1>
+            <table id="customerInfoTable">
+                <tbody>
 
-                <form id="registForm">
-                    <div class="form-group">
-                        <label for="name">用户名</label>
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" id="name" placeholder="name" aria-describedby="basic-addon1">
-                        </div>                    </div>
-                        
-                    <div class="form-group">
-                        <label for="password">密码</label>
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" id="password" placeholder="Password" aria-describedby="basic-addon1">
-                        </div>                      </div>
-                    <div class="form-group">
-                        <label for="password1">确认密码</label>
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" id="password1" placeholder="Password" aria-describedby="basic-addon1">
-                        </div>                      </div>
-                        <span id="error" class="error"></span>
-                        <br>
-                    <button type="submit" class="btn btn-default">注册</button>
-                     
-                </form>
-            </div>
-
+                </tbody>
+            </table>
         </div>
-
+        <div id="reveiceInfo">
+            <h1>收货信息</h1>
+        </div>
     </div>
-
+    <div class="col-xs-6 col-md-2" style="background: red"></div>
 </div>
 </body>
-
 </html>

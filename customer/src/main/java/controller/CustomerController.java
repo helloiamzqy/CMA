@@ -3,6 +3,7 @@ package controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,5 +36,10 @@ public class CustomerController {
         System.out.println(customer.getName()+"/" + customer.getPassword());
         return customerService.addCustomer(customer);
     }
-
+    @ResponseBody
+    @RequestMapping(value = "/customerInfo/{id}")
+    public Customer customerInfo(@PathVariable String id) {
+        System.out.println("customerInfo id:" + id);
+        return customerService.findCustomerById(id);
+    }
 }

@@ -10,4 +10,5 @@ public interface CustomerDao {
     public List<Customer> findCustomer();
     public Customer updateCustomer(Customer customer);
     public Customer addCustomer(Customer customer);
+    public Customer findCustomerById(String id);
 }
