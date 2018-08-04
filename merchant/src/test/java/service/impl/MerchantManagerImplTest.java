@@ -7,9 +7,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pojo.Comment;
+import pojo.Customer;
 import pojo.Merchant;
+import pojo.Order;
+import service.CommentManager;
+import service.CustomerManager;
 import service.MerchantManager;
+import service.OrderManager;
 
+import java.util.Date;
 import java.util.List;
 
 public class MerchantManagerImplTest {

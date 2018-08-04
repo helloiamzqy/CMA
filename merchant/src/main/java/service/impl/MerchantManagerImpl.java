@@ -1,9 +1,11 @@
 package service.impl;
 
+import dao.CommentDao;
 import dao.MerchantDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pojo.Comment;
 import pojo.Merchant;
 import service.MerchantManager;
 
@@ -13,6 +15,9 @@ import java.util.List;
 public class MerchantManagerImpl implements MerchantManager {
     @Autowired
     private MerchantDao merchantDao;
+    @Autowired
+    private CommentDao commentDao;
+
     @Transactional
     @Override
     public Merchant addMerchant(Merchant merchant) {
@@ -35,4 +40,5 @@ public class MerchantManagerImpl implements MerchantManager {
     public Merchant findMerchantByName(String name) {
         return merchantDao.findMerchantByName(name);
     }
+
 }

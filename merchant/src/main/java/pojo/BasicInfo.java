@@ -43,7 +43,16 @@ public class BasicInfo {
     @Column(nullable = false,name = "shop_name")
     private String shopName;
 
+    @Transient
+    private double remark;
 
+    public double getRemark() {
+        return remark;
+    }
+
+    public void setRemark(double remark) {
+        this.remark = remark;
+    }
 
     public String getId() {
         return id;
