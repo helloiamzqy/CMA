@@ -21,7 +21,6 @@ public class BasicInfoManagerImpl implements BasicInfoManager {
     public BasicInfo addBasicInfo(BasicInfo basicInfo,String mId) {
         Merchant merchant=new Merchant();
         merchant.setId(mId);
-        basicInfo.setMerchant(merchant);
         return basicInfoDao.addBasicInfo(basicInfo);
     }
 
@@ -40,7 +39,11 @@ public class BasicInfoManagerImpl implements BasicInfoManager {
     public BasicInfo findBasicInfoByMerchant(String mId) {
         Merchant merchant=new Merchant();
         merchant.setId(mId);
-        return basicInfoDao.findBasicInfoByMerchant(merchant);
+        BasicInfo basicInfo = new BasicInfo();
+        basicInfo = basicInfoDao.findBasicInfoByMerchant(merchant);
+        basicInfo.setRemark(commentDao.findRemarkByMerchant(merchant));
+        System.out.println(basicInfo.getRemark());
+        return  basicInfo;
     }
 
 

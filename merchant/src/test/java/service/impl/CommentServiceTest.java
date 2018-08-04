@@ -92,6 +92,8 @@ public class CommentServiceTest {
         order.setCustomer(customer);
         order.setMerchant(merchant);
         order.setCreateTime(new Date());
+        order.setAddress("asdasd");
+        order.setPhone("123");
         order.setStatus("1");
         order.setTotalPrice(12.23);
         OrderManager orderManager=context.getBean(OrderManager.class);

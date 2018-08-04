@@ -15,8 +15,6 @@ import java.util.List;
 public class MerchantManagerImpl implements MerchantManager {
     @Autowired
     private MerchantDao merchantDao;
-    @Autowired
-    private CommentDao commentDao;
 
     @Transactional
     @Override

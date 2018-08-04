@@ -44,13 +44,13 @@ public class BasicInfo {
     private String shopName;
 
     @Transient
-    private double remark;
+    private String remark;
 
-    public double getRemark() {
+    public String getRemark() {
         return remark;
     }
 
-    public void setRemark(double remark) {
+    public void setRemark(String remark) {
         this.remark = remark;
     }
 

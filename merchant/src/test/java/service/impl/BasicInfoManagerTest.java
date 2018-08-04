@@ -88,4 +88,11 @@ public class BasicInfoManagerTest {
             testAddBasicInfo();
         }
     }
+    @Test
+    public void testById(){
+        Merchant merchant = new Merchant();
+        merchant.setId("8a5e9d3d65037c800165037c86140001");
+        BasicInfo basicInfo = manager.findBasicInfoByMerchant(merchant.getId());
+        System.out.println(basicInfo.getId());
+    }
 }
