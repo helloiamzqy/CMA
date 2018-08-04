@@ -11,7 +11,7 @@ import service.CommentManager;
  * @author Dunn
  */
 @RestController
-@CrossOrigin(origins = "*" )
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class CommentController {
     @Autowired
     private CommentManager commentManager;
