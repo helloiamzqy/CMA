@@ -62,6 +62,7 @@
     background-color: transparent;
     margin-left: 20px;
 }
+
 /*模态框*/
 .modal-body{
     overflow: hidden;
@@ -83,6 +84,7 @@
 .detail{
     margin-top: 10px;
 }
+
 /*表格*/
 #app{
     width: 80%;

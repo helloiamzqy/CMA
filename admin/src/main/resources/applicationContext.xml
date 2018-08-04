@@ -16,8 +16,18 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<mvc:annotation-driven/>
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/advertisement/*"/>
+			<mvc:mapping path="/complaint/*"/>
+			<mvc:mapping path="/merchantInfo/*"/>
+			<bean class="interceptor.LoginInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 	<context:annotation-config></context:annotation-config>
-	<context:component-scan base-package="service,dao,listener,containers"></context:component-scan>
+	<context:component-scan base-package="service,dao,listener,containers,"></context:component-scan>
 
 
 	<import resource="databaseApplication.xml"></import>
