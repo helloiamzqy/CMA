@@ -78,7 +78,7 @@ window.onload=function () {
     //以下为请求广告
     $.ajax({
         type: "GET",
-        url: "/typhoon_consuemer/getAdvertisement",
+        url: "/customer/ad/findAd",
         dataType: "json",
         success: function(data){
             for(let i=0;i<data.length;i++){
