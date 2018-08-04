@@ -1,5 +1,6 @@
 package pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dto.AdvertisementDto;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -12,6 +13,7 @@ public class Advertisement {
     @GenericGenerator(strategy="uuid",name="uuid")
     @GeneratedValue(generator="uuid")
     private String id;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "m_id")
     private Merchant merchant;

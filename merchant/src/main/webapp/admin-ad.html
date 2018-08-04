@@ -14,9 +14,17 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.form.js"></script>
 </head>
+<style>
+  img{
+    width: 100px;
+    height: 100px;
+  }
+</style>
 <body>
-
+<div id="adApp">
 <header class="am-topbar admin-header">
   <div class="am-topbar-brand">
     <strong>Amaze</strong> <small>后台管理模板HTML</small>
@@ -86,134 +94,75 @@
   <div class="am-tabs am-margin" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
       <li class="am-active"><a href="#tab1">基本信息</a></li>
-      <li><a href="#tab2">以往广告申请查看</a></li>
     </ul>
+    <div class="am-tab-panel">
+      <table class="am-table" >
+        <thead>
+        <tr>
+          <th>广告图片</th>
+          <th>价格</th>
+          <th>状态</th>
+        </tr>
+        </thead>
+        <tbody id="adtable">
+        <tr>
+          <td>Amaze UI</td>
+          <td>http://amazeui.org</td>
+          <td>通过</td>
+        </tr>
 
+        </tbody>
+      </table>
+      <hr />
+    </div>
     <div class="am-tabs-bd">
-      <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+      <div class="am-tab-panel am-fade am-in am-active">
 
-      <form id="applyAd">
+        <form action="" method="post" id="adImg">
         <div class="am-g am-margin-top">
           <div class="am-u-sm-2 am-text-right">广告图片：</div>
           <div class="am-u-sm-10">
             <label class="am-btn  am-btn-xs">
-              <input class="am-form-field am-input-sm" type="file">
+              <input class="am-form-field am-input-sm" name="file" type="file" id="pic">
             </label>
           </div>
         </div>
-      </div>
-
+        </form>
+        <form id="applyAd">
+        <input type="hidden" id="pictureSrc" name="picture">
         <div class="am-g am-margin-top">
           <div class="am-u-sm-2 am-text-right">竞价：</div>
           <div class="am-u-sm-10">
-              <label class="am-btn  am-btn-xs">
-                 <input class="am-form-field am-input-sm" type="number">
-              </label>
-            </div>
+            <label class="am-btn  am-btn-xs">
+              <input class="am-form-field am-input-sm" type="number" step="500" name="price" id="price">
+            </label>
+            <input type="submit"  class="am-btn am-btn-default am-round" value="申请" >
           </div>
-      <div class="am-g am-margin-top">
-        <div class="am-u-sm-2 am-text-right">
-          发布时间
         </div>
-        <div class="am-u-sm-10">
-          <form action="" class="am-form am-form-inline">
-            <div class="am-form-group am-form-icon">
-              <i class="am-icon-calendar"></i>
-              <input type="date" class="am-form-field am-input-sm" placeholder="时间">
-            </div>
-          </form>
-        </div>
-      </div>
-      <button type="button" style="float: right" class="am-btn am-btn-default am-round">申请广告</button>
+
       </form>
-        </div>
-
-
-    </div>
-
-      <div class="am-tab-panel am-fade" id="tab2">
-        <form class="am-form">
-          <div class="am-g am-margin-top">
-            <div class="am-u-sm-2 am-text-right">
-              文章标题
-            </div>
-            <div class="am-u-sm-4">
-              <input type="text" class="am-input-sm">
-            </div>
-            <div class="am-u-sm-6">*必填，不可重复</div>
-          </div>
-
-          <div class="am-g am-margin-top">
-            <div class="am-u-sm-2 am-text-right">
-              文章作者
-            </div>
-            <div class="am-u-sm-4 col-end">
-              <input type="text" class="am-input-sm">
-            </div>
-          </div>
-
-          <div class="am-g am-margin-top">
-            <div class="am-u-sm-2 am-text-right">
-              信息来源
-            </div>
-            <div class="am-u-sm-4">
-              <input type="text" class="am-input-sm">
-            </div>
-            <div class="am-u-sm-6">选填</div>
-          </div>
-
-          <div class="am-g am-margin-top">
-            <div class="am-u-sm-2 am-text-right">
-              内容摘要
-            </div>
-            <div class="am-u-sm-4">
-              <input type="text" class="am-input-sm">
-            </div>
-            <div class="am-u-sm-6">不填写则自动截取内容前255字符</div>
-          </div>
-
-          <div class="am-g am-margin-top-sm">
-            <div class="am-u-sm-2 am-text-right">
-              内容描述
-            </div>
-            <div class="am-u-sm-10">
-              <textarea rows="10" placeholder="请使用富文本编辑插件"></textarea>
-            </div>
-          </div>
-
-        </form>
       </div>
-
     </div>
+     </div>
   </div>
 
-  <div class="am-margin">
-    <button type="button" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
-    <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
-  </div>
+
 </div>
 <!-- content end -->
 
-</div>
 
 
 <footer>
   <hr>
   <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license. <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
 </footer>
-
-<!--[if lt IE 9]>
-<script src="assets/js/jquery1.11.1.min.js"></script>
-<script src="assets/js/modernizr.js"></script>
-<script src="assets/js/polyfill/rem.min.js"></script>
-<script src="assets/js/polyfill/respond.min.js"></script>
-<script src="assets/js/amazeui.legacy.js"></script>
-<![endif]-->
+</div>
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
+<script src="node_modules/util.js"></script>
+<script src="node_modules/adManager.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>

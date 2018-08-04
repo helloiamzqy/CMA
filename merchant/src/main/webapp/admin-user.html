@@ -1,187 +1,189 @@
 <!doctype html>
 <html class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze UI Admin user Examples</title>
-  <meta name="description" content="这是一个 user 页面">
-  <meta name="keywords" content="user">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
-  <link rel="stylesheet" href="assets/css/admin.css">
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery.form.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin user Examples</title>
+    <meta name="description" content="这是一个 user 页面">
+    <meta name="keywords" content="user">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="node_modules/util.js"></script>
+    <script src="node_modules/merchantInfoManger.js"></script>
+
 
 </head>
 <body>
 <div id="app">
-<!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
-  以获得更好的体验！</p>
-<![endif]-->
+    <!--[if lte IE 9]>
+    <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+        以获得更好的体验！</p>
+    <![endif]-->
 
-<header class="am-topbar admin-header">
-  <div class="am-topbar-brand">
-    <strong>Amaze</strong> <small>后台管理模板HTML</small>
-  </div>
-
-  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
-  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-
-    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 新订单 <span class="am-badge am-badge-warning">5</span></a></li>
-      <li class="am-dropdown" data-am-dropdown>
-        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-          <span class="am-icon-users"></span> 商家姓名 <span class="am-icon-caret-down"></span>
-        </a>
-        <ul class="am-dropdown-content">
-          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-        </ul>
-      </li>
-      <li><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-    </ul>
-  </div>
-</header>
-
-<div class="am-cf admin-main">
-  <!-- sidebar start -->
-  <div class="admin-sidebar">
-    <ul class="am-list admin-sidebar-list">
-      <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
-      <li class="admin-parent">
-        <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 商家管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-        <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-          <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 商家资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-          <li><a href="showFood.html"><span class="am-icon-th"></span> 菜品管理<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
-        </ul>
-      </li>
-      <li><a href="admin-table.html"><span class="am-icon-table"></span> 订单查询</a></li>
-      <li><a href="admin-ad.html"><span class="am-icon-pencil-square-o"></span> 广告申请</a></li>
-      <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
-    </ul>
-
-    <div class="am-panel am-panel-default admin-sidebar-panel">
-      <div class="am-panel-bd">
-        <p><span class="am-icon-bookmark"></span> 公告</p>
-        <p>时光静好，与君语；细水流年，与君同。—— Amaze</p>
-      </div>
-    </div>
-
-    <div class="am-panel am-panel-default admin-sidebar-panel">
-      <div class="am-panel-bd">
-        <p><span class="am-icon-tag"></span> wiki</p>
-        <p>Welcome to the Amaze wiki!</p>
-      </div>
-    </div>
-  </div>
-  <!-- sidebar end -->
-
-  <!-- content start -->
-  <div class="admin-content">
-    <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">个人资料</strong> / <small>Personal information</small></div>
-    </div>
-
-    <hr/>
-
-    <div class="am-g">
-
-      <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
-        <div class="am-panel am-panel-default">
-          <div class="am-panel-bd">
-            <div class="am-g">
-              <div class="am-u-md-4">
-                <img id="imgp" class="am-img-circle am-img-thumbnail" src="http://amui.qiniudn.com/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" alt=""/>
-              </div>
-              <div class="am-u-md-8">
-                <p>你可以使用<a href="#">gravatar.com</a>提供的头像或者使用本地上传头像。 </p>
-                <form class="am-form" id="imgForm">
-                  <div class="am-form-group">
-                    <input type="file" name="file" id="user-pic">
-                    <p class="am-form-help">请选择要上传的文件...</p>
-                    <button type="button" class="am-btn am-btn-primary am-btn-xs" id="imgBtn">保存</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+    <header class="am-topbar admin-header">
+        <div class="am-topbar-brand">
+            <strong>Amaze</strong> <small>后台管理模板HTML</small>
         </div>
 
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
-      </div>
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
-      <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
-        <form class="am-form am-form-horizontal" id="merchantInfo">
-          <div class="am-form-group">
-            <label for="shopName" class="am-u-sm-3 am-form-label">店名 / Name</label>
-            <div class="am-u-sm-9">
-              <input type="text" id="shopName" name="shopName" placeholder="店名 / Name">
-            </div>
-          </div>
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+                <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 新订单 <span class="am-badge am-badge-warning">5</span></a></li>
+                <li class="am-dropdown" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <span class="am-icon-users"></span> 商家姓名 <span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+            </ul>
+        </div>
+    </header>
 
-          <div class="am-form-group">
-            <label for="slogan" class="am-u-sm-3 am-form-label">简介 / Intro</label>
-            <div class="am-u-sm-9">
-              <textarea class="" rows="2" id="slogan" name="slogan" placeholder="输入简介"></textarea>
-            </div>
-          </div>
+    <div class="am-cf admin-main">
+        <!-- sidebar start -->
+        <div class="admin-sidebar">
+            <ul class="am-list admin-sidebar-list">
+                <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
+                <li class="admin-parent">
+                    <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 商家管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                    <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+                        <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 商家资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+                        <li><a href="showFood.html"><span class="am-icon-th"></span> 菜品管理<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="admin-table.html"><span class="am-icon-table"></span> 订单查询</a></li>
+                <li><a href="admin-ad.html"><span class="am-icon-pencil-square-o"></span> 广告申请</a></li>
+                <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+            </ul>
 
-          <div class="am-form-group">
-            <label for="delivery" class="am-u-sm-3 am-form-label">配送距离 / km</label>
-            <div class="am-u-sm-9">
-              <input type="number" step="1" class="" name="delivery" id="delivery" placeholder="配送距离 / km">
+            <div class="am-panel am-panel-default admin-sidebar-panel">
+                <div class="am-panel-bd">
+                    <p><span class="am-icon-bookmark"></span> 公告</p>
+                    <p>时光静好，与君语；细水流年，与君同。—— Amaze</p>
+                </div>
             </div>
-          </div>
-          <input type="hidden" step="1" class="" id="pictureSrc" name="picture" placeholder="配送距离 / km">
-          <div class="am-form-group">
-            <label for="deliFee" class="am-u-sm-3 am-form-label">配送费用 / km</label>
-            <div class="am-u-sm-9">
-              <input type="number" class="" step="0.5" id="deliFee" name="deliFee" placeholder="配送费用 / km">
-            </div>
-          </div>
-          <input type="hidden" id="hid" name="id">
-          <div class="am-form-group">
-            <label for="opentime" class="am-u-sm-3 am-form-label">开店时间 / opentime</label>
-            <div class="am-u-sm-9">
-              <input type="date" id="opentime" name="openTime" placeholder="开店时间 / opentime">
-            </div>
-          </div>
 
-          <div class="am-form-group">
-            <label for="closetime" class="am-u-sm-3 am-form-label">关店时间 / closetime</label>
-            <div class="am-u-sm-9">
-              <input type="date" id="closetime" name="closeTime" placeholder="关店时间 / closetime">
+            <div class="am-panel am-panel-default admin-sidebar-panel">
+                <div class="am-panel-bd">
+                    <p><span class="am-icon-tag"></span> wiki</p>
+                    <p>Welcome to the Amaze wiki!</p>
+                </div>
             </div>
-          </div>
+        </div>
+        <!-- sidebar end -->
+
+        <!-- content start -->
+        <div class="admin-content">
+            <div class="am-cf am-padding">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">个人资料</strong> / <small>Personal information</small></div>
+            </div>
+
+            <hr/>
+
+            <div class="am-g">
+
+                <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-bd">
+                            <div class="am-g">
+                                <div class="am-u-md-4">
+                                    <img id="imgp" class="am-img-circle am-img-thumbnail" src="" alt=""/>
+                                </div>
+                                <div class="am-u-md-8">
+                                    <p>你可以使用<a href="#">gravatar.com</a>提供的头像或者使用本地上传头像。 </p>
+                                    <form class="am-form" id="imgForm">
+                                        <div class="am-form-group">
+                                            <input type="file" name="file" id="user-pic">
+                                            <p class="am-form-help">请选择要上传的文件...</p>
+                                            <button type="button" class="am-btn am-btn-primary am-btn-xs" id="imgBtn">保存</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-          <div class="am-form-group">
-            <div class="am-u-sm-9 am-u-sm-push-3">
-              <input type="submit" class="am-btn am-btn-primary" value="确认更改"/>
+                </div>
+
+                <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+                    <form class="am-form am-form-horizontal" id="merchantInfo">
+                        <div class="am-form-group">
+                            <label for="shopName" class="am-u-sm-3 am-form-label">店名 / Name</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" id="shopName" name="shopName" placeholder="店名 / Name">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="slogan" class="am-u-sm-3 am-form-label">简介 / Intro</label>
+                            <div class="am-u-sm-9">
+                                <textarea class="" rows="2" id="slogan" name="slogan" placeholder="输入简介"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="delivery" class="am-u-sm-3 am-form-label">配送距离 / km</label>
+                            <div class="am-u-sm-9">
+                                <input type="number" step="1" class="" name="delivery" id="delivery" placeholder="配送距离 / km">
+                            </div>
+                        </div>
+                        <input type="hidden" step="1" class="" id="pictureSrc" name="picture" placeholder="配送距离 / km">
+                        <div class="am-form-group">
+                            <label for="deliFee" class="am-u-sm-3 am-form-label">配送费用 / km</label>
+                            <div class="am-u-sm-9">
+                                <input type="number" class="" step="0.5" id="deliFee" name="deliFee" placeholder="配送费用 / km">
+                            </div>
+                        </div>
+                        <input type="hidden" id="hid" name="id">
+                        <div class="am-form-group">
+                            <label for="opentime" class="am-u-sm-3 am-form-label">开店时间 / opentime</label>
+                            <div class="am-u-sm-9">
+                                <input type="date" id="opentime" name="openTime" placeholder="开店时间 / opentime">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="closetime" class="am-u-sm-3 am-form-label">关店时间 / closetime</label>
+                            <div class="am-u-sm-9">
+                                <input type="date" id="closetime" name="closeTime" placeholder="关店时间 / closetime">
+                            </div>
+                        </div>
+
+
+                        <div class="am-form-group">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                <input type="submit" class="am-btn am-btn-primary" value="确认更改"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
-        </form>
-      </div>
+        </div>
+        <!-- content end -->
+
     </div>
-  </div>
-  <!-- content end -->
 
+    <footer>
+        <hr>
+        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license. <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+    </footer>
 </div>
 
-<footer>
-  <hr>
-  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license. <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-</footer>
-</div>
-<script src="node_modules/merchantInfoManger.js"></script>
-<script src="node_modules/util.js"></script>
 <!--[if lt IE 9]>
 <script src="assets/js/modernizr.js"></script>
 <script src="assets/js/polyfill/rem.min.js"></script>

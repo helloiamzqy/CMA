@@ -9,6 +9,7 @@ import service.AdvertisementManager;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class AdvertisementController {
 
     @Autowired
