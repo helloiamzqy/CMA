@@ -14,12 +14,13 @@ import service.RegistInfoManger;
  * @author Dunn
  */
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class RegistInfoController {
     @Autowired
     private RegistInfoManger registInfoManger;
 
 
-    @PostMapping(value = "registinfo/{mid}")
+    @PostMapping(value = "{mid}/registinfo")
     public RegisterInfo addRegisterInfo(@PathVariable String mid, @RequestBody RegisterInfo registerInfo){
         Merchant merchant = new Merchant();
         merchant.setId(mid);
@@ -27,7 +28,7 @@ public class RegistInfoController {
         return registInfoManger.addRegisterInfo(registerInfo);
     }
 
-    @GetMapping(value = "registinfo/{mid}")
+    @GetMapping(value = "{mid}/registinfo")
     public RegisterInfo getRegisterInfo(@PathVariable String mid){
         Merchant merchant = new Merchant();
         merchant.setId(mid);

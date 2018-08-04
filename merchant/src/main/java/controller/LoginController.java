@@ -16,6 +16,7 @@ public class LoginController {
 
     @GetMapping("/send")
     public String send(){
-        return serverInteraction.interact(Config.ask_url,"asdasddsa");
+        System.out.println(serverInteraction.interact(Config.ask_url+"879"," "));
+        return "1";
     }
 }

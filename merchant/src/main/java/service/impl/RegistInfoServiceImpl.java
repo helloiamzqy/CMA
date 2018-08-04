@@ -35,7 +35,9 @@ public class RegistInfoServiceImpl implements RegistInfoManger {
     public RegisterInfo addRegisterInfo(RegisterInfo registerInfo) {
         RegisterInfoDto registerInfoDto = registerInfo.toDto();
         JmsMessage jmsMessage = new JmsMessage(JmsEnum.APPLY,registerInfoDto);
-        jmsSender.send(gson.toJson(jmsMessage));
+        jmsSender.send(
+                gson.toJson(jmsMessage)
+        );
         registerInfoDao.addRegisterInfo(registerInfo);
         return registerInfo;
     }
