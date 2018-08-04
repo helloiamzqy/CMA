@@ -23,8 +23,6 @@ public class ServerInteraction {
 			//Response
 			Response response = target.request().get();
 			result = response.readEntity(String.class);
-			System.out.println("result:" + result);
-
 			response.close();
 //            client.close();
 		} catch (Exception e) {

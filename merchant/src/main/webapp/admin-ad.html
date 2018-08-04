@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze后台管理系统模板HTML表单页面 - 源码之家</title>
+  <title>商家后台</title>
   <meta name="description" content="这是一个form页面">
   <meta name="keywords" content="form">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -27,7 +27,7 @@
 <div id="adApp">
 <header class="am-topbar admin-header">
   <div class="am-topbar-brand">
-    <strong>Amaze</strong> <small>后台管理模板HTML</small>
+    <strong>Let</strong> <small>商家后台</small>
   </div>
 
   <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
@@ -64,6 +64,7 @@
       </li>
       <li><a href="admin-table.html"><span class="am-icon-table"></span> 订单查询</a></li>
       <li><a href="admin-ad.html"><span class="am-icon-pencil-square-o"></span> 广告申请</a></li>
+      <li><a href="admin-complain.html"><span class="am-icon-table"></span> 投诉查看</a></li>
       <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
     </ul>
 
@@ -87,24 +88,21 @@
 <!-- content start -->
 <div class="admin-content">
 
-  <div class="am-cf am-padding">
-    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表单</strong> / <small>form</small></div>
-  </div>
 
   <div class="am-tabs am-margin" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
-      <li class="am-active"><a href="#tab1">基本信息</a></li>
+      <li class="am-active"><a href="#tab1">投入信息</a></li>
     </ul>
     <div class="am-tab-panel">
       <table class="am-table" >
         <thead>
         <tr>
-          <th>广告图片</th>
-          <th>价格</th>
-          <th>状态</th>
+          <th>订单号</th>
+          <th>投诉时间</th>
+          <th>投诉原因</th>
         </tr>
         </thead>
-        <tbody id="adtable">
+        <tbody id="cptable">
         <tr>
           <td>Amaze UI</td>
           <td>http://amazeui.org</td>
@@ -115,34 +113,7 @@
       </table>
       <hr />
     </div>
-    <div class="am-tabs-bd">
-      <div class="am-tab-panel am-fade am-in am-active">
 
-        <form action="" method="post" id="adImg">
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-2 am-text-right">广告图片：</div>
-          <div class="am-u-sm-10">
-            <label class="am-btn  am-btn-xs">
-              <input class="am-form-field am-input-sm" name="file" type="file" id="pic">
-            </label>
-          </div>
-        </div>
-        </form>
-        <form id="applyAd">
-        <input type="hidden" id="pictureSrc" name="picture">
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-2 am-text-right">竞价：</div>
-          <div class="am-u-sm-10">
-            <label class="am-btn  am-btn-xs">
-              <input class="am-form-field am-input-sm" type="number" step="500" name="price" id="price">
-            </label>
-            <input type="submit"  class="am-btn am-btn-default am-round" value="申请" >
-          </div>
-        </div>
-
-      </form>
-      </div>
-    </div>
      </div>
   </div>
 
@@ -162,7 +133,6 @@
 <script src="assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
 <script src="node_modules/util.js"></script>
-<script src="node_modules/adManager.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>

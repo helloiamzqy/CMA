@@ -79,7 +79,6 @@ public class CommentDaoImpl implements CommentDao {
 
 
     @Override
-    //TODO 需要测试
     public String findRemarkByMerchant(Merchant merchant) {
         String jpql = "SELECT AVG(c.rank) FROM pojo.Comment c WHERE c.order.merchant =:merchant";
         Query query = manager.createQuery(jpql).setParameter("merchant", merchant);
