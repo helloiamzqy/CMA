@@ -2,53 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>登录</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/utils.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-            <form class="form-horizontal"  id="loginForm">
-                <span class="heading">后台管理员登录</span>
+
+    <div class="login">
+
+
+
+        <div class="form_style">
+
+            <div class="t">
+                A端管理员登录
+            </div>
+            <form id="loginForm">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="userName" placeholder="Username">
+                    <label for="userName">用户名</label>
+                    <div class="input-group fontsize">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input type="text" name="name" id="userName" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                    </div>
                 </div>
-                <div class="form-group help">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                <div class="form-group div_dis fontsize">
+                    <label for="password">密码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input type="password" name="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                    </div>
                 </div>
-                <div class="form-group">
-                <input type="submit" class="btn btn-success" value="登录">
-                    <span id="error"></span>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> remember me
+                    </label>
                 </div>
+                <input type="submit" class="btn btn-default but_dis warning" value="登录">
+                <br>
+                <span id="error" class="errors"></span>
             </form>
         </div>
     </div>
+
 </div>
 <script>
     $(function () {
-    	
-        $("#loginForm").on("submit",function (e) {
-        	e.preventDefault();
-            let opt =new Object();
-            opt.type="POST";
-            opt.url="admin";
-            opt.success=function(result){
-            	if(result!="null"){
-            		 window.location.href="merchant.html";
-                 }else{
-                     $("#error").text("用户名或密码错误！");
-                 }
-            }
-            opt.contentType="application/json";
-            opt.data=JSON.stringify({'userName':$("#userName").val(),'password':$("#password").val()});
-            $.ajax(opt)
+
+        let url  = "manager/find";
+        $("#loginForm").on("submit",(e)=> {
+            e.preventDefault();
+            let obj = $(e.target).serializeObject();
+            myAjax(url,"POST",obj,(rs)=>{
+                if(rs=="yes"){
+                    window.location.href="merchant.html";
+                }else{
+                    $("#error").text("用户名或密码错误！");
+                }
+            })
         })
     })
 </script>
