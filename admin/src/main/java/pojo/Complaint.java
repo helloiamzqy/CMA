@@ -26,7 +26,10 @@ public class Complaint {
     @Column(name = "order_id",nullable = false)
     private String orderId;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "merchant_name",nullable = false)
+    private String merchantName;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "create_time",nullable = false)
     private Date createTime;
 
@@ -39,11 +42,14 @@ public class Complaint {
     public Complaint() {
     }
 
-    public Complaint(String reason, String merchantId, String orderId, Date createTime) {
+    public Complaint(String reason, String merchantId, String orderId, String merchantName, Date createTime, String className, String isRead) {
         this.reason = reason;
         this.merchantId = merchantId;
         this.orderId = orderId;
+        this.merchantName = merchantName;
         this.createTime = createTime;
+        this.className = className;
+        this.isRead = isRead;
     }
 
     public String getId() {
@@ -78,12 +84,36 @@ public class Complaint {
         this.orderId = orderId;
     }
 
+    public String getMerchantName() {
+        return merchantName;
+    }
+
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getIsRead() {
+        return isRead;
+    }
+
+    public void setIsRead(String isRead) {
+        this.isRead = isRead;
     }
 
     @Override
@@ -93,7 +123,10 @@ public class Complaint {
                 ", reason='" + reason + '\'' +
                 ", merchantId='" + merchantId + '\'' +
                 ", orderId='" + orderId + '\'' +
+                ", shopName='" + merchantName + '\'' +
                 ", createTime=" + createTime +
+                ", className='" + className + '\'' +
+                ", isRead='" + isRead + '\'' +
                 '}';
     }
 }

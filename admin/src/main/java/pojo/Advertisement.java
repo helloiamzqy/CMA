@@ -26,7 +26,7 @@ public class Advertisement {
     private String picture;
 
     @Column(nullable = false,columnDefinition = "varchar2(10) default 1")
-    private String status;
+    private String status = "0";
 
     @Column(nullable = false)
     private double price;
@@ -37,12 +37,14 @@ public class Advertisement {
     @Column
     private String isRead = "false";
 
-    public Advertisement(String merchantId, String merchantName, String picture, String status, double price) {
+    public Advertisement(String merchantId, String merchantName, String picture, String status, double price, String className, String isRead) {
         this.merchantId = merchantId;
         this.merchantName = merchantName;
         this.picture = picture;
         this.status = status;
         this.price = price;
+        this.className = className;
+        this.isRead = isRead;
     }
 
     public Advertisement() {
@@ -94,5 +96,21 @@ public class Advertisement {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getIsRead() {
+        return isRead;
+    }
+
+    public void setIsRead(String isRead) {
+        this.isRead = isRead;
     }
 }

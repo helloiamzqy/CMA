@@ -51,7 +51,7 @@ public class ComplaintDaoImpl implements ComplaintDao {
 
     @Override
     public List<Complaint> getComplaintsByPage(int begin, int end) {
-        String jpql = "from pojo.Complaint";
+        String jpql = "from pojo.Complaint comp order by comp.createTime desc";
         return em.createQuery(jpql)
                 .setFirstResult(begin)
                 .setMaxResults(end)

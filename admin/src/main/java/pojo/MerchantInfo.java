@@ -154,4 +154,20 @@ public class MerchantInfo {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getIsRead() {
+        return isRead;
+    }
+
+    public void setIsRead(String isRead) {
+        this.isRead = isRead;
+    }
 }
