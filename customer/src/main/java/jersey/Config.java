@@ -1,5 +1,5 @@
 //package jersey;
-//
+
 //public class Config {
 //	public static final String CUSTOMER_URL = "http://localhost:3000";
 //	public static final String MANAGER_URL = "http://10.0.222.128:9090";
