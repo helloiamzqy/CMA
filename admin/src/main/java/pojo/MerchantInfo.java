@@ -42,10 +42,9 @@ public class MerchantInfo {
     @Column(nullable = false,columnDefinition = "varchar2(10) default 0")
     private String status;
 
-    @Column(nullable = false)
     private String comments;
 
-    @Column(updatable = false)
+    @Transient
     private String className = "MerchantInfo";
 
     @Column

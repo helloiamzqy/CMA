@@ -4,6 +4,9 @@ function ComplaintComponent($view,url) {
     let method="GET";
     let flag = "Complaint";
     let wsUrl = "ws://10.222.29.192:9090/admin/sync";
+    let countUrl = "http://localhost:9090/admin/message/unReadCount/";
+    let adNewCount = 0;
+    let merNewCount = 0;
     init();
 
     function init() {
@@ -22,9 +25,16 @@ function ComplaintComponent($view,url) {
         let path = url + "?currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
         myAjax(path,"GET",null,(cmop)=>{
             model = cmop.dataList;
+            myAjax(countUrl,"GET",null,(unReadCount)=>{
+                adNewCount = unReadCount.advertisementNewCount;
+                merNewCount = unReadCount.merchantInfoNewCount;
+                renderBar();
+            });
             makePage(cmop);
             renderTable();
         });
+
+
 
         let ws = new WebSocket(wsUrl);
 
@@ -35,10 +45,17 @@ function ComplaintComponent($view,url) {
         ws.onmessage = function (evt) {
             console.log(evt);
             let data = JSON.parse(evt.data);
-            let buf = model.reverse();
-            buf.splice(buf.length-1,1,data);
-            model = buf.reverse();
-            renderTable();
+            if (data.className=="Complaint"){
+                let buf = model.reverse();
+                buf.splice(buf.length-1,1,data);
+                model = buf.reverse();
+                renderTable();
+            }else if (data.className=="Advertisement") {
+                $("#advertisementItem")
+            }else{
+
+            }
+
         }
         
     }
@@ -65,15 +82,34 @@ function ComplaintComponent($view,url) {
             $("<button>").text("删除").addClass("btn btn-danger").on("click",function () {
                 delComp(model[i]);
             }).appendTo(td3);
-            // if(model[i].status==0){
-            //     $("<td>").text("下架").appendTo(tr);
-            //     td1.appendTo(tr);
-            // }else{
-            //     $("<td>").text("上架").appendTo(tr);
-            //     td2.appendTo(tr);
-            // }
             td3.appendTo(tr);
+
+            let td4=$("<td>");
+
+            if (model[i].isRead=="false"){
+                $("<button>").text("新").addClass("btn btn-danger").on("click",function () {
+                    this.textContent = "已读";
+
+                }).appendTo(td4);
+            }else{
+                $("<button>").text("已读").addClass("btn btn-danger").appendTo(td4);
+            }
+            td4.appendTo(tr);
             tr.attr("id",model[i].id).addClass("datas").appendTo($tbody);
+        }
+    }
+
+    function renderBar() {
+        if (merNewCount > 0){
+            $("#merchantInfoItem").text("待审核("+merNewCount+")");
+        } else{
+            $("#merchantInfoItem").text("待审核");
+        }
+
+        if (adNewCount > 0){
+            $("#advertisementItem").text("广告审核("+adNewCount+")");
+        } else {
+            $("#advertisementItem").text("广告审核");
         }
     }
 
@@ -139,6 +175,7 @@ function ComplaintComponent($view,url) {
             });
         })
     }
+
 
 }
 

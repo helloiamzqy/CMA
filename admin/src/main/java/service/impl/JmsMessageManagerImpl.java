@@ -49,11 +49,11 @@ public class JmsMessageManagerImpl implements JmsMessageManager {
         Gson gson = new Gson();
 
         if (jmsMessage.getJmsEnum().equals(JmsEnum.ADVERSITMENT)){
-            return adManager.addAd( gson.fromJson(gson.toJson(jmsMessage.getObject()),Advertisement.class)).getClassName();
+            return gson.fromJson(gson.toJson(jmsMessage.getObject()),Advertisement.class).getClassName();
         }else if (jmsMessage.getJmsEnum().equals(JmsEnum.COMPLAIN)){
-            return complaintManager.addComplaint(gson.fromJson(gson.toJson(jmsMessage.getObject()),Complaint.class)).getClassName();
+            return gson.fromJson(gson.toJson(jmsMessage.getObject()),Complaint.class).getClassName();
         }else if (jmsMessage.getJmsEnum().equals(JmsEnum.APPLY)){
-            return merchantInfoManager.addMerchantInfo(gson.fromJson(gson.toJson(jmsMessage.getObject()),MerchantInfo.class)).getClassName();
+            return gson.fromJson(gson.toJson(jmsMessage.getObject()),MerchantInfo.class).getClassName();
         }
         return null;
     }

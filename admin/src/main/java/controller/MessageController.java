@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.*;
 import pojo.Advertisement;
 import pojo.Complaint;
 import pojo.MerchantInfo;
+import pojo.UnReadCount;
 import service.AdvertisementManager;
+import service.AssitService;
 import service.ComplaintManager;
 import service.MerchantInfoManager;
 
@@ -25,6 +27,8 @@ public class MessageController {
     private AdvertisementManager advertiseManager;
     @Autowired
     private ComplaintManager complaintManager;
+    @Autowired
+    private AssitService assitService;
 
     @GetMapping(value = "merchantStatus/{id}")
     public String getMerchantStatus(@PathVariable String id){
@@ -50,5 +54,9 @@ public class MessageController {
     @RequestMapping(value ="complaint/{id}",method = RequestMethod.GET)
     public List<Complaint> getComplaint(@PathVariable String id){
         return complaintManager.getComplaintById(id);
+    }
+    @RequestMapping(value = "unReadCount",method = RequestMethod.GET)
+    public UnReadCount getUnReadCount() throws Exception{
+        return assitService.getUnReadCount();
     }
 }

@@ -31,7 +31,7 @@ public class Advertisement {
     @Column(nullable = false)
     private double price;
 
-    @Column(updatable = false)
+    @Transient
     private String className = "Advertisement";
 
     @Column

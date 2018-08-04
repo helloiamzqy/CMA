@@ -18,11 +18,11 @@
 </head>
 <body>
 <ul class="nav nav-tabs">
-    <li role="presentation" ><a href="m2.html">待审核</a></li>
+    <li role="presentation" ><a href="m2.html" id="merchantInfoItem">待审核</a></li>
     <li role="presentation"><a href="passedmerchants.html">白名单</a></li>
     <li role="presentation" ><a href="notpassedmerchants.html">黑名单</a></li>
-    <li role="presentation" ><a href="ads.html">广告审核</a></li>
-    <li role="presentation" class="active"  ><a href="#">查看投诉</a></li>
+    <li role="presentation" ><a href="ads.html" id="advertisementItem">广告审核</a></li>
+    <li role="presentation" class="active"  ><a href="#" id="complaintItem">查看投诉</a></li>
 </ul>
 <div class="container" align="center" id="app">
     <h1 class="text-center">查看投诉</h1>
@@ -36,6 +36,7 @@
                 <td>原因</td>
                 <td>时间</td>
                 <td colspan="2" class="text-center">操作</td>
+                <td>是否已读</td>
             </tr>
             </thead>
             <tbody>

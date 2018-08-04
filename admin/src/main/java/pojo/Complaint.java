@@ -33,7 +33,7 @@ public class Complaint {
     @Column(name = "create_time",nullable = false)
     private Date createTime;
 
-    @Column(updatable = false)
+    @Transient
     private String className = "Complaint";
 
     @Column
@@ -42,14 +42,12 @@ public class Complaint {
     public Complaint() {
     }
 
-    public Complaint(String reason, String merchantId, String orderId, String merchantName, Date createTime, String className, String isRead) {
+    public Complaint(String reason, String merchantId, String orderId, String merchantName, Date createTime) {
         this.reason = reason;
         this.merchantId = merchantId;
         this.orderId = orderId;
         this.merchantName = merchantName;
         this.createTime = createTime;
-        this.className = className;
-        this.isRead = isRead;
     }
 
     public String getId() {

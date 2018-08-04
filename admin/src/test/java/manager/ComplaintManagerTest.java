@@ -35,6 +35,7 @@ public class ComplaintManagerTest {
     public void testAddComplaint(){
         Complaint comp = new Complaint();
         comp.setMerchantId("sdfs123sdf");
+        comp.setMerchantName("ttt");
         comp.setOrderId("10001ad225");
         comp.setCreateTime(new Date());
         comp.setReason("很难啊吃");
@@ -90,6 +91,7 @@ public class ComplaintManagerTest {
     public void testGetComplaintById() throws Exception{
         Complaint comp = new Complaint();
         comp.setMerchantId("tttestttt");
+        comp.setMerchantName("oooo");
         comp.setOrderId("10001ad225");
         comp.setCreateTime(new Date());
         comp.setReason("getById");
