@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Merchant Main</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        .brand {
+            font-family: georgia, serif;
+        }
+
+        .brand .first {
+            color: #ccc;
+            font-style: unset;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<div class="navbar">
+		<div class="navbar-inner">
+			<ul class="nav pull-right">
+				<li id="fat-menu" class="dropdown"><a href="#" role="button"
+					class="dropdown-toggle" data-toggle="dropdown"> <i
+						class="icon-user"></i>操作
+				</a>
+					<ul class="dropdown-menu">
+						<li><a tabindex="-1" href="login.html">退出</a></li>
+					</ul></li>
+			</ul>
+			<a class="brand" href="index.html"><span class="first">商家管理</span></a>
+		</div>
+	</div>
+
+
+<div class="sidebar-nav">
+    <a href="#shop-menu" class="nav-header" data-toggle="collapse"></i>店铺操作</a>
+    <ul id="shop-menu" class="nav nav-list collapse in">
+        <li><a href="showShopStatus.html">店铺状态</a></li>
+        <li><a href="showRegisterInfo.html">查看注册信息</a></li>
+        <li><a href="applyAd.html">申请店铺广告</a></li>
+    </ul>
+    <a href="#food-menu" class="nav-header" data-toggle="collapse"></i>菜品操作</a>
+    <ul id="food-menu" class="nav nav-list collapse in">
+        <li><a href="showMyFoods.html">查看我的菜品</a></li>
+        <li><a href="addFood.html">添加菜品</a></li>
+    </ul>
+    <a href="#user-menu" class="nav-header" data-toggle="collapse"></i>个人操作</a>
+    <ul id="user-menu" class="nav nav-list collapse in">
+        <li><a href="updateInfo.html">修改个人信息</a></li>
+        <li><a href="updatePw.html">修改密码</a></li>
+    </ul>
+</div>
+<div class="content">
+
+    <div class="header">
+
+        <h1 class="page-title">我的菜品</h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <div class="btn-toolbar">
+                <button class="btn btn-primary"
+                        onclick="javascript:window.location.href='addFood.html' ">添加一个菜品</button>
+                <div class="btn-group"></div>
+            </div>
+            <div class="well">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th style="width: 260px;">菜品名</th>
+                        <th>图片</th>
+                        <th style="width: 260px;">价格</th>
+                        <th style="width: 260px;">介绍</th>
+                        <th style="width: 260px;"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="tb">
+                    </tbody>
+
+                </table>
+
+                共<span id="totalPage"></span>页/<span id="totalCount"></span>条数据
+                每页显示<input type="number" id="pageSize" value=3>条
+                <nav aria-label="Page navigation" id="page"></nav>
+                <input type="hidden" id="currentPage" value=1>
+            </div>
+
+            <div class="modal small hide fade" id="myModal" tabindex="-1"
+                 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Delete Confirmation</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="error-text">
+                        <i class="icon-warning-sign modal-icon"></i>你想删除这个菜吗？
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+            <footer>
+                <hr>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

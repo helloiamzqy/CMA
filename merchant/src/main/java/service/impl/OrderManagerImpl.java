@@ -30,13 +30,8 @@ public class OrderManagerImpl implements OrderManager {
 
     @Transactional
     @Override
-    public Order updateOrder(Order order,String mId,String cId) {
-        Merchant merchant=new Merchant();
-        merchant.setId(mId);
-        Customer customer=new Customer();
-        customer.setId(cId);
-        order.setCustomer(customer);
-        order.setMerchant(merchant);
+    public Order updateOrder(Order order) {
+
         return orderDao.updateOrder(order);
     }
 

@@ -13,6 +13,7 @@ import service.CustomerManager;
 import service.MerchantManager;
 import service.OrderManager;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -37,6 +38,8 @@ public class OrderManagerImplTest {
 
         customer.setName("213");
         customer.setPassword("erqwr3");
+        customer.setAddress("fdafad");
+        customer.setPhone("123213123123");
 //        customer.setId("8a5e9d3d64f57fad0164f57fb26b0001");
         customerManager.addCustomer(customer);
         merchantManager.addMerchant(merchant);
@@ -44,7 +47,6 @@ public class OrderManagerImplTest {
         order.setCreateTime(new Date());
         order.setCustomer(customer);
         order.setMerchant(merchant);
-        order.setFinishTime(new Date());
         order.setStatus("1");
         order.setTotalPrice(12.23);
         OrderManager orderManager=context.getBean(OrderManager.class);
@@ -78,7 +80,7 @@ public class OrderManagerImplTest {
         order.setCreateTime(new Date());
         order.setTotalPrice(672);
         OrderManager orderManager=context.getBean(OrderManager.class);
-        Order order1 = orderManager.updateOrder(order,"","");
+        Order order1 = orderManager.updateOrder(order);
         Assert.assertTrue(order1.getStatus().equals("fad"));
 
     }

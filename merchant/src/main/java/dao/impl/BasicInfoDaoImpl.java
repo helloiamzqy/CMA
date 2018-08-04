@@ -22,8 +22,8 @@ public class BasicInfoDaoImpl implements BasicInfoDao {
 
     @Override
     public BasicInfo updateBasicInfo(BasicInfo basicInfo) {
-        BasicInfo basicInfo1=manager.merge(basicInfo);
-        return basicInfo1;
+        manager.merge(basicInfo);
+        return basicInfo;
     }
 
     @Override

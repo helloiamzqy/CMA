@@ -31,6 +31,7 @@ public class OrderController {
 
     @GetMapping(value = "/merchant/{mId}")
     public Pager findAllOrderByMerchant(@PathVariable(name = "mId") String mId,@RequestParam int curPage, @RequestParam int pageSize){
+
         return orderManager.findAllOrderByMerchant(mId,curPage,pageSize);
     }
 
@@ -39,8 +40,8 @@ public class OrderController {
     public Order addOrder(@RequestBody Order order,@PathVariable(name = "mId") String mId,@PathVariable(name = "cId") String cId){
         return orderManager.addOrder(order,mId,cId);
     }
-    @PutMapping(value = "/{mId}/{cId}")
-    public Order updateOrder(@RequestBody Order order,@PathVariable(name = "mId") String mId,@PathVariable(name = "cId") String cId){
-        return orderManager.updateOrder(order,mId,cId);
+    @PutMapping
+    public Order updateOrder(@RequestBody Order order){
+        return orderManager.updateOrder(order);
     }
 }
