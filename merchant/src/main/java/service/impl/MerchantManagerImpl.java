@@ -37,8 +37,15 @@ public class MerchantManagerImpl implements MerchantManager {
 
     @Transactional
     @Override
-    public Merchant findMerchantByName(String name) {
-        return merchantDao.findMerchantByName(name);
+    public Merchant merchantLogin(Merchant merchant) {
+        String message="";
+        Merchant merchant1=merchantLogin(merchant);
+        if(merchant1==null){
+            message="用户名不存在！";
+        }else if(!merchant1.getPassword().equals(merchant.getPassword())){
+            message="密码错误！";
+        }
+        return merchant;
     }
 
 }

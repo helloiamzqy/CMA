@@ -7,6 +7,7 @@ import service.MerchantManager;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("merchant")
 public class MerchantController {
@@ -16,11 +17,11 @@ public class MerchantController {
     public List<Merchant> findMerchant(){
         return merchantManager.findMerchant();
     }
-    @GetMapping(value = "{name}")
-    public Merchant findMerchantByName(@PathVariable(name = "name")String name){
-        return merchantManager.findMerchantByName(name);
-    }
-    @PostMapping
+//    @GetMapping
+//    public Merchant merchantLogin(@RequestBody Merchant merchant){
+//        return merchantManager.merchantLogin(merchant);
+//    }
+    @PostMapping(value = "regist")
     public Merchant addMerchant(@RequestBody Merchant merchant){
         return merchantManager.addMerchant(merchant);
     }

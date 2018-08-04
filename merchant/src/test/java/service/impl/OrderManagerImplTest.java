@@ -38,8 +38,6 @@ public class OrderManagerImplTest {
 
         customer.setName("213");
         customer.setPassword("erqwr3");
-        customer.setAddress("fdafad");
-        customer.setPhone("123213123123");
 //        customer.setId("8a5e9d3d64f57fad0164f57fb26b0001");
         customerManager.addCustomer(customer);
         merchantManager.addMerchant(merchant);
@@ -49,6 +47,8 @@ public class OrderManagerImplTest {
         order.setMerchant(merchant);
         order.setStatus("1");
         order.setTotalPrice(12.23);
+        order.setPhone("12321312");
+        order.setAddress("哈哈哈哈啊哈时");
         OrderManager orderManager=context.getBean(OrderManager.class);
         Order order1 = orderManager.addOrder(order,merchant.getId(),customer.getId());
         Assert.assertTrue(order1!=null);
