@@ -11,7 +11,7 @@ import service.OrderService;
 import java.util.Date;
 import java.util.List;
 
-@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "Content-Type", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.PUT})
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
@@ -58,22 +58,17 @@ public class OrderController {
             orderItem.setOrder(o);
             orderItemService.addOrderItem(orderItem);
         }
-
-//
-//        return o;
         return order;
     }
 
     @PutMapping
-    public Order updateOrder(@RequestBody Order order) {
-        return orderService.updateOrder(order);
-    }
-
-    @DeleteMapping
-    public void cancelOrder(@RequestBody Order order) {
-//        if(order.getStatus().equals("1")) {
+    public Order updateOrderStatus(@RequestBody Order order) {
+        if(order.getStatus().equals(OrderStatusEnum.RECEIVE)) {
             order.setStatus(OrderStatusEnum.CANCLE);
-            orderService.updateOrder(order);
-//        }
+        }else if(!order.getStatus().equals(OrderStatusEnum.COMPLETE)){
+            order.setStatus(OrderStatusEnum.COMPLETE);
+        }
+        order.setFinishTime(new Date());
+        return orderService.updateOrder(order);
     }
 }
