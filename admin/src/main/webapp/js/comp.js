@@ -51,9 +51,11 @@ function ComplaintComponent($view,url) {
                 model = buf.reverse();
                 renderTable();
             }else if (data.className=="Advertisement") {
-                $("#advertisementItem")
+                adNewCount++;
+                renderBar();
             }else{
-
+                merNewCount++;
+                renderBar();
             }
 
         }
@@ -89,8 +91,6 @@ function ComplaintComponent($view,url) {
             if (model[i].isRead=="false"){
                 $("<button>").text("新").addClass("btn btn-danger").on("click",function () {
                     this.textContent = "已读";
-                complaiant.unre= "yidu";
-
                 }).appendTo(td4);
             }else{
                 $("<button>").text("已读").addClass("btn btn-danger").appendTo(td4);
