@@ -7,95 +7,113 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        html, body {
-            width: 100%;
-            height: 100%;
-        }
+    <!--<style type="text/css">-->
+        <!--html, body {-->
+            <!--width: 100%;-->
+            <!--height: 100%;-->
+        <!--}-->
 
-        /*非常重要的样式让背景图片100%适应整个屏幕*/
-        .bg {
-            display: table;
-            width: 100%;
-            height: 100%;
-            padding: 100px 0;
-            text-align: center;
-            color: #fff;
-            /*background: url(1.jpg) no-repeat bottom center;*/
-            background-color: #000;
-            background-size: cover;
-        }
+        <!--/*非常重要的样式让背景图片100%适应整个屏幕*/-->
+        <!--.bg {-->
+            <!--display: table;-->
+            <!--width: 100%;-->
+            <!--height: 100%;-->
+            <!--padding: 100px 0;-->
+            <!--text-align: center;-->
+            <!--color: #fff;-->
+            <!--background: url(1.jpg) no-repeat bottom center;-->
+            <!--background-color: #000;-->
+            <!--background-size: cover;-->
+        <!--}-->
 
-        .my-navbar {
-            padding: 20px 0;
-            transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-        }
+        <!--.my-navbar {-->
+            <!--padding: 20px 0;-->
+            <!--transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;-->
+        <!--}-->
 
-        .my-navbar a {
-            background: transparent !important;
-            color: #fff !important
-        }
+        <!--.my-navbar a {-->
+            <!--background: transparent !important;-->
+            <!--color: #fff !important-->
+        <!--}-->
 
-        .my-navbar a:hover {
-            color: #45bcf9 !important;
-            background: transparent;
-            outline: 0
-        }
+        <!--.my-navbar a:hover {-->
+            <!--color: #45bcf9 !important;-->
+            <!--background: transparent;-->
+            <!--outline: 0-->
+        <!--}-->
 
-        .my-navbar a {
-            transition: color 0.5s ease-in-out;
-        }
+        <!--.my-navbar a {-->
+            <!--transition: color 0.5s ease-in-out;-->
+        <!--}-->
 
-        /*-webkit-transition ;-moz-transition*/
-        .top-nav {
-            padding: 0;
-            background: #000;
-        }
+        <!--/*-webkit-transition ;-moz-transition*/-->
+        <!--.top-nav {-->
+            <!--padding: 0;-->
+            <!--background: #000;-->
+        <!--}-->
 
-        button.navbar-toggle {
-            background-color: #fbfbfb;
-        }
+        <!--button.navbar-toggle {-->
+            <!--background-color: #fbfbfb;-->
+        <!--}-->
 
-        /*整个背景都是transparent透明的，会看不到，所以再次覆盖一下*/
-        button.navbar-toggle > span.icon-bar {
-            background-color: #dedede
-        }
-    </style>
+        <!--/*整个背景都是transparent透明的，会看不到，所以再次覆盖一下*/-->
+        <!--button.navbar-toggle > span.icon-bar {-->
+            <!--background-color: #dedede-->
+        <!--}-->
+    <!--</style>-->
+
 </head>
 <body>
-<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#example-navbar-collapse">
-                <span class="sr-only">切换导航</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">菜鸟教程</a>
+            <a class="navbar-brand" href="#">TyphoonTeam 用户端</a>
         </div>
-        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">iOS</a></li>
-                <li><a href="#">SVN</a></li>
-                <li>
-                    <a href="#">Asp.Net</a>
-                </li>
+                <li class=""><a href="/customer/html/merchant.html">首页</a></li>
+
+                <li class="active"><a href="/customer/html/order_page.html">我的订单<span class="sr-only">(current)</span></a></li>
+                <!--<li><a href="#"></a></li>-->
+                <!--<li class="dropdown">-->
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的订单<span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">3</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
             </ul>
-        </div>
-    </div>
+            <!--<form class="navbar-form navbar-left">-->
+            <!--<div class="form-group">-->
+            <!--<input type="text" class="form-control" placeholder="Search">-->
+            <!--</div>-->
+            <!--<button type="submit" class="btn btn-default">Submit</button>-->
+            <!--</form>-->
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li><a href="#">Link</a></li>-->
+                <li><a href="#">我的收货信息</a></li>
+                <li><a href="#">个人信息</a></li>
+                <li><a href="#">退出</a></li>
+                <!--<li class="dropdown">-->
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户中心 <span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">修改个人信息</a></li>-->
+                <!--&lt;!&ndash;<li><a href="#">管理收货信息</a></li>&ndash;&gt;-->
+                <!--<li role="separator" class="divider"></li>-->
+                <!--<li><a href="#">退出</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
-<div class="bg"></div>
-<br/><br/><br/><br/><br/><br/><br/>
-<p><a href="www.xiandanke.com">闲蛋客</a></p>
-<script>
-    $(window).scroll(function () {
-        if ($(".navbar").offset().top > 50) {
-            $(".navbar-fixed-top").addClass("top-nav");
-        } else {
-            $(".navbar-fixed-top").removeClass("top-nav");
-        }
-    })</script>
 </body>
 </html>
