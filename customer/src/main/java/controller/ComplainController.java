@@ -16,8 +16,11 @@ public class ComplainController {
 
     @PostMapping
     public Complaint sendComplainToAdmin(@RequestBody Complaint complaint) {
-        complaint.setCreateTime(new Date());
-        complainService.sendComplainToAdmin(complaint);
-        return complaint;
+        if(complaint.getId()==null) {
+            complaint.setCreateTime(new Date());
+            complainService.sendComplainToAdmin(complaint);
+            return complaint;
+        }
+        return null;
     }
 }

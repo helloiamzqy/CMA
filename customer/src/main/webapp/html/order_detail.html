@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Detail</title>
+    <script src="../common/jquery/dist/jquery.js"></script>
+    <script src="../common/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap-theme.css">
+</head>
+<body>
+
+<center>
+<div id="itemPage" style="width: 1000px">
+    <h1>订 单 详 情</h1>
+    <div>
+        <h2>
+        订单编号<span id="orderId"></span>
+        订单状态<span id="orderStatus"></span>
+        下单用户<span id="customerName"></span>
+        下单电话<span id="customerPhone"></span>
+        送单地址<span id="customerAddr"></span>
+        商家名称<span id="merchantName"></span>
+        </h2>
+    </div>
+    <table id="itemList" class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <td>菜品名称</td>
+            <td>菜品图片</td>
+            <td>菜品单价</td>
+            <td>菜品数量</td>
+            <td>菜品总价</td>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table><hr>
+    <button id="back">返回订单页</button>
+</div>
+</center>
+<script src="../js/util.js"></script>
+<script src="../js/order_detail.js"></script>
+</body>
+</html>

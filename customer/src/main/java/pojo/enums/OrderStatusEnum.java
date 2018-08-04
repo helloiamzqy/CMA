@@ -10,4 +10,5 @@ public class OrderStatusEnum {
     public static final String COMPLETE ="3";
     public static final String REFUSE = "4";
     public static final String CANCLE ="5";
+    public static final String COMMENT ="6";
 }
