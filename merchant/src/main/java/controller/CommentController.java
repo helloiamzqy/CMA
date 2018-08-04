@@ -27,4 +27,10 @@ public class CommentController {
     public Comment addComment(@PathVariable String oid,@RequestBody Comment comment){
        return  commentManager.addComment(oid,comment);
     }
+
+    //需要测试
+    @PostMapping(value = "{mid}/order/{oid}")
+    public Pager addComment(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String oid,@PathVariable String mid){
+        return commentManager.findCommentByOrder(curPage,pageSize,oid);
+    }
 }

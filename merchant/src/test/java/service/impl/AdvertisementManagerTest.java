@@ -30,20 +30,29 @@ public class AdvertisementManagerTest {
     }
     @Test
     public void addAdvertisement(){
+        Merchant merchant = new Merchant();
+        merchant.setName("asdsd");
+        merchant.setPassword("1231232");
+        merchantManager.addMerchant(merchant);
         Advertisement advertisement=new Advertisement();
         advertisement.setPicture("dfaf");
         advertisement.setPrice(12312);
-        Advertisement advertisement1= manager.addAdvertisement(advertisement,"8a5e9d3d64fa611e0164fa615d6e0000");
-        Assert.assertTrue(advertisement1.getMerchant().getId().equals("8a5e9d3d64fa611e0164fa615d6e0000"));
+        Advertisement advertisement1= manager.addAdvertisement(advertisement,merchant.getId());
+        Assert.assertTrue(advertisement1.getMerchant().getId().equals(merchant.getId()));
 
     }
 
     @Test
     public void findAdvertisementByMerchant(){
-        List<Advertisement> advertisements=manager.findAdvertisementByMerchant("8a5e9d3d64f9eed50164f9eedabf0001");
-        for (Advertisement advertisement:advertisements){
-            System.out.println(advertisement.getId());
-        }
+        Merchant merchant = new Merchant();
+        merchant.setName("asdsd");
+        merchant.setPassword("1231232");
+        merchantManager.addMerchant(merchant);
+        Advertisement advertisement=new Advertisement();
+        advertisement.setPicture("dfaf");
+        advertisement.setPrice(12312);
+        Advertisement advertisement1= manager.addAdvertisement(advertisement,merchant.getId());
+        List<Advertisement> advertisements=manager.findAdvertisementByMerchant(merchant.getId());
         Assert.assertTrue(advertisements.size()==2);
     }
 

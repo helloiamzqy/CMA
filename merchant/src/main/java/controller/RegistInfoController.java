@@ -2,6 +2,7 @@ package controller;
 
 import com.google.gson.Gson;
 import dto.RegisterInfoDto;
+import mananger.JmsSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pojo.Merchant;
@@ -16,6 +17,7 @@ import service.RegistInfoManger;
 public class RegistInfoController {
     @Autowired
     private RegistInfoManger registInfoManger;
+
 
     @PostMapping(value = "registinfo/{mid}")
     public RegisterInfo addRegisterInfo(@PathVariable String mid, @RequestBody RegisterInfo registerInfo){

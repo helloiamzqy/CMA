@@ -13,5 +13,5 @@ public interface CommentDao {
     void deleteFood(String id);
     Pager findCommentByOrder(int curPage, int pageSize,Order order);
     Pager findCommentByMerchant(int curPage, int pageSize,Merchant merchant);
-    List<Comment> findCommentByMerchant(Merchant merchant);
+    String findCommentByMerchant(Merchant merchant);
 }

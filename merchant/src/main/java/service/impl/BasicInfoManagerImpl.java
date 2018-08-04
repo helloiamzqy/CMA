@@ -1,6 +1,7 @@
 package service.impl;
 
 import dao.BasicInfoDao;
+import dao.CommentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +13,8 @@ import service.BasicInfoManager;
 public class BasicInfoManagerImpl implements BasicInfoManager {
     @Autowired
     private BasicInfoDao basicInfoDao;
+    @Autowired
+    private CommentDao commentDao;
 
     @Transactional
     @Override

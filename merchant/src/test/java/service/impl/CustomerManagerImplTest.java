@@ -28,7 +28,9 @@ public class CustomerManagerImplTest {
     public void testUpdateCustomer(){
         CustomerManager customerManager=context.getBean(CustomerManager.class);
         Customer customer=new Customer();
-        customer.setId("8a5e9d3d64f810250164f8102a200002");
+        customer.setName("af");
+        customer.setPassword("23");
+        customerManager.addCustomer(customer);
         customer.setPassword("2131231321");
         customer.setName("nihao");
         customerManager.updateCustomer(customer);

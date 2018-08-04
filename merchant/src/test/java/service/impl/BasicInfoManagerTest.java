@@ -8,13 +8,16 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.BasicInfo;
+import pojo.Merchant;
 import service.BasicInfoManager;
+import service.MerchantManager;
 
 import java.util.Date;
 
 public class BasicInfoManagerTest {
     private static ApplicationContext context;
     private static BasicInfoManager manager;
+    private static MerchantManager emanager;
     @BeforeClass
     public static void init() {
         context=new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -22,35 +25,62 @@ public class BasicInfoManagerTest {
 
     @Before
     public  void initManager(){
+        emanager = context.getBean(MerchantManager.class);
         manager=context.getBean(BasicInfoManager.class);
+
     }
     @Test
     public void testAddBasicInfo(){
+        Merchant merchant = new Merchant();
+        merchant.setPassword("12332");
+        merchant.setName("aaaaa");
+        emanager.addMerchant(merchant);
+
         BasicInfo basicInfo=new BasicInfo();
         basicInfo.setCloseTime(new Date());
         basicInfo.setOpenTime(new Date());
         basicInfo.setPicture("fdafda");
         basicInfo.setShopName("dafadf");
-        BasicInfo basicInfo1= manager.addBasicInfo(basicInfo,"8a5e9d3c64fefc1b0164fefc22410004");
-        Assert.assertTrue(basicInfo1.getMerchant().getId().equals("8a5e9d3c64fefc1b0164fefc22410004"));
+        BasicInfo basicInfo1= manager.addBasicInfo(basicInfo,merchant.getId());
+        Assert.assertTrue(basicInfo1.getMerchant().getId().equals(merchant.getId()));
 
     }
 
     @Test
     public void testUpdateBasicInfo(){
+        Merchant merchant = new Merchant();
+        merchant.setPassword("12332");
+        merchant.setName("aaaaa");
+        emanager.addMerchant(merchant);
         BasicInfo basicInfo=new BasicInfo();
+        basicInfo.setCloseTime(new Date());
+        basicInfo.setOpenTime(new Date());
+        basicInfo.setPicture("fdafda");
+        basicInfo.setShopName("dafadf");
+        manager.addBasicInfo(basicInfo,merchant.getId());
         basicInfo.setCloseTime(new Date());
         basicInfo.setOpenTime(new Date());
         basicInfo.setPicture("HELLO");
         basicInfo.setShopName("HELLO");
-        basicInfo.setId("8a5e9d3c64ff15ae0164ff15b5eb0000");
-        BasicInfo basicInfo1=manager.updateBasicInfo(basicInfo,"8a5e9d3c64ff15ae0164ff15b5eb0000");
+        BasicInfo basicInfo1=manager.updateBasicInfo(basicInfo,merchant.getId());
         Assert.assertTrue(basicInfo1.getPicture().equals("HELLO"));
     }
     @Test
     public void testFindBasicInfoByMerchant(){
-        BasicInfo basicInfo=manager.findBasicInfoByMerchant("8a5e9d3d64f9eed50164f9eedabf0001");
-        Assert.assertTrue(basicInfo.getMerchant().getId().equals("8a5e9d3d64f9eed50164f9eedabf0001"));
+        Merchant merchant = new Merchant();
+        merchant.setPassword("12332");
+        merchant.setName("aaaaa");
+        emanager.addMerchant(merchant);
+
+        BasicInfo basicInfo=new BasicInfo();
+        basicInfo.setCloseTime(new Date());
+        basicInfo.setOpenTime(new Date());
+        basicInfo.setPicture("fdafda");
+        basicInfo.setShopName("dafadf");
+        BasicInfo basicInfo1= manager.addBasicInfo(basicInfo,merchant.getId());
+
+        BasicInfo basicInfo2=manager.findBasicInfoByMerchant(merchant.getId());
+        Assert.assertTrue(basicInfo2.getMerchant().getId().equals(merchant.getId()));
     }
     @Test
      public void addBasicTen(){

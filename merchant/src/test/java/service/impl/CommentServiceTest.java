@@ -24,7 +24,6 @@ public class CommentServiceTest {
         context = new ClassPathXmlApplicationContext("applicationContext.xml");
         commentManager = context.getBean(CommentManager.class);
     }
-    //TODO
     @Test
     public void testAddComment(){
         Order order = createOrder();
