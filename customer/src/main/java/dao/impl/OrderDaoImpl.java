@@ -101,4 +101,23 @@ public class OrderDaoImpl implements OrderDao {
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, orders);
         return pager;
     }
+
+    @Override
+    public Pager findOrderByStatus(Customer customer, List<String> status, int curPage, int pageSize) {
+        String jpql="from pojo.Order order where order.customer=:customer and order.status in(:statuss) ";
+        Query query = manager.createQuery(jpql);
+        query.setParameter("customer",customer);
+        query.setParameter("statuss",status);
+        List<Order> orders=query.getResultList();
+        int totalPage=0;
+        int totalRow=orders.size();
+        if (totalRow%pageSize==0){
+            totalPage=totalRow/pageSize;
+        }else {
+            totalPage=totalRow/pageSize+1;
+        }
+        orders=query.setFirstResult((curPage-1)*pageSize).setMaxResults(pageSize).getResultList();
+        Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, orders);
+        return pager;
+    }
 }

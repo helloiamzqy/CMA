@@ -12,6 +12,9 @@ public class Pager {
     private int rows;//每页显示条数
     private List<?> list;//返回的数据集合
 
+    public Pager() {
+    }
+
     public int getPage() {
         return page;
     }

@@ -8,7 +8,12 @@ import pojo.Customer;
 import pojo.Merchant;
 import pojo.Order;
 import pojo.Pager;
+import pojo.enums.OrderStatusEnum;
 import service.OrderService;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -64,5 +69,26 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.findAllOrderByCustomer(curPage,pageSize,customer);
     }
 
+    @Transactional
+    @Override
+    public Pager findOrderByStatus(String cId, int curPage, int pageSize, String status) {
+        //all,finished,unreceive,doing
+        List<String> statuss=new ArrayList<>();
+        Customer customer=new Customer();
+        customer.setId(cId);
+        if (status != null || status.equals("all")) {
+            return orderDao.findAllOrderByCustomer(curPage,pageSize,customer);
+        } else if(status != null || status.equals("finished")){
+            statuss.add(OrderStatusEnum.CANCLE);
+            statuss.add(OrderStatusEnum.COMPLETE);
+            statuss.add(OrderStatusEnum.REFUSE);
+        }else if(status != null || status.equals("unreceive")){
+            statuss.add(OrderStatusEnum.WATING);
+        }else if(status != null || status.equals("doing")){
+            statuss.add(OrderStatusEnum.DISPATCHING);
+            statuss.add(OrderStatusEnum.RECEIVE);
+        }
+        return orderDao.findOrderByStatus(customer,statuss,curPage,pageSize);
+    }
 
 }

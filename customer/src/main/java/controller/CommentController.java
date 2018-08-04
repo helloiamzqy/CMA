@@ -3,6 +3,7 @@ package controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pojo.Comment;
+import pojo.Order;
 import pojo.Pager;
 import service.CommentService;
 
@@ -28,7 +29,11 @@ public class CommentController {
     }
     @PostMapping(value = "/{oid}")
     public Comment addComment(@PathVariable String oid,@RequestBody Comment comment){
-        comment.setCreateTime(new Date());
-        return commentService.addComment(oid,comment);
+        Pager comments = commentService.findCommentByOrder(1, 10, oid);
+        if(comments.getList().size()==0){
+            comment.setCreateTime(new Date());
+            return commentService.addComment(oid,comment);
+        }
+        return null;
     }
 }

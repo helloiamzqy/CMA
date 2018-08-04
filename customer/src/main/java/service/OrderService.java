@@ -10,4 +10,5 @@ public interface OrderService {
     public Pager findOrderByCustomer(String cId, String status, int curPage, int pageSize);
     public Pager findAllOrderByMerchant(String mId, int curPage, int pageSize);
     public Pager findAllOrderByCustomer(String cId, int curPage, int pageSize);
+    public Pager findOrderByStatus(String cId,int curPage,int pageSize,String status);
 }

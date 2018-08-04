@@ -1,7 +1,9 @@
-function OrderComponent($view,url,customerId) {
+function OrderComponent($view,url,operation,customerId) {
     let order_model=new Object();
-    let operation="/all";
     let order_temp=new Object();
+    let curPage="1";
+    let pageSize="20";
+    let order_url="?curPage="+curPage+"&pageSize="+pageSize;
     init();
 
     function init() {
@@ -37,6 +39,7 @@ function OrderComponent($view,url,customerId) {
                     order_model.splice(index,1);
                     order_model.push(order_temp);
                     alert("确认成功");
+                    renderOrder();
                 }else{alert("确认失败");}
             })
         })
@@ -47,7 +50,7 @@ function OrderComponent($view,url,customerId) {
             data.rank=$("#rank").val();
             myAjax(commentUrl,"POST",data,(comment)=>{
                 $('#commentModal').modal('hide');
-                if(comment.id){alert("评论成功");}else {alert("评论失败");}
+                if(comment){alert("评论成功");}else {alert("评论失败");}
                 $("#content").val("");
                 $("#rank").val("5");
             })
@@ -77,7 +80,7 @@ function OrderComponent($view,url,customerId) {
 
     }
     function getOrder() {
-        let api=url+"orders/customer/"+customerId+operation+"?curPage=1&pageSize=100";
+        let api=url+"orders/customer/"+customerId+operation+order_url;
         myAjax(api,"GET",null,(orders)=>{
             order_model=orders.list;
             renderOrder();
@@ -88,18 +91,25 @@ function OrderComponent($view,url,customerId) {
         $tbody.empty();
         order_model.forEach((order)=>{
             format(order);
-            $("<tr>")
+            let $tr=$("<tr>");
+            $tr//all,finished,unreceive,doing
                 .append($("<td>").text(order.id))
                 .append($("<td>").text(order.merchant.name))
                 .append($("<td>").text(order.formatCreateTime))
                 .append($("<td>").text(order.totalPrice))
                 .append($("<td>").text(order.formatStatus))
                 .append($("<td>").append($("<button>").text("查看详情").on("click",()=>{orderDetail(order)})))
-                .append($("<td>").append($("<button>").text("取消订单").on("click",()=>{showModal(order,$("#cancelModal"))})))
-                .append($("<td>").append($("<button>").text("确认完成").on("click",()=>{showModal(order,$("#successModal"))})))
-                .append($("<td>").append($("<button>").text("评论订单").on("click",()=>{showModal(order,$("#commentModal"))})))
-                .append($("<td>").append($("<button>").text("投诉订单").on("click",()=>{showModal(order,$("#complainModal"))})))
-                .appendTo($tbody);
+            if(operation=="/finished"){
+                $tr.append($("<td>").append($("<button>").text("评论订单").on("click",()=>{showModal(order,$("#commentModal"))})))
+                   .append($("<td>").append($("<button>").text("投诉订单").on("click",()=>{showModal(order,$("#complainModal"))})))
+            }
+            if(operation=="/unreceive"){
+                $tr.append($("<td>").append($("<button>").text("取消订单").on("click",()=>{showModal(order,$("#cancelModal"))})))
+            }
+            if(operation=="/doing"){
+                $tr.append($("<td>").append($("<button>").text("确认完成").on("click",()=>{showModal(order,$("#successModal"))})))
+            }
+            $tr.appendTo($tbody);
         })
     }
 }
@@ -137,5 +147,10 @@ function getzf(num){
 ///////////////////////// start ///////////////////////////////
 $(function () {
     let url="http://10.222.29.190:8090/customer/";
-    OrderComponent($("#orderPage"),url,"8a5e9d3d65037c800165037c85d50000");
+    let customerId="8a5e9d3d65037c800165037c85d50000";
+    let operation=sessionStorage.getItem("operation");
+    if(!operation){
+        operation="/finished";//all,finished,unreceive,doing
+    }
+    OrderComponent($("#orderPage"),url,operation,customerId);
 })

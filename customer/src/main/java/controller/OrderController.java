@@ -27,12 +27,8 @@ public class OrderController {
     }
 
     @GetMapping(value = "/customer/{cId}/{status}")
-    public Pager findOrderByCustomer(@PathVariable(name = "cId") String cId, @PathVariable(name = "status") String status, @RequestParam int curPage, @RequestParam int pageSize) {
-        if (status != null || status.equals("all")) {
-            return orderService.findAllOrderByCustomer(cId, curPage, pageSize);
-        } else {
-            return orderService.findOrderByCustomer(cId, status, curPage, pageSize);
-        }
+    public Pager findOrderByCustomer(@PathVariable(name ="cId") String cId, @PathVariable(name = "status") String status, @RequestParam int curPage, @RequestParam int pageSize) {
+        return orderService.findOrderByStatus(cId,curPage,pageSize,status);
     }
 
     @GetMapping(value = "/merchant/{mId}")
