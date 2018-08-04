@@ -12,5 +12,6 @@ import pojo.MerchantInfo;
  */
 
 public interface JmsMessageManager {
-    public Object getMessageEntity(JmsMessage jmsMessage);
+    public String getKey(JmsMessage jmsMessage);
+    public String getMessageEntity(JmsMessage jmsMessage);
 }

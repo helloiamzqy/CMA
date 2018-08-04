@@ -31,17 +31,30 @@ public class JmsMessageManagerImpl implements JmsMessageManager {
     private MerchantInfoManager merchantInfoManager;
 
     @Override
-    public Object getMessageEntity(JmsMessage jmsMessage) {
+    public String getMessageEntity(JmsMessage jmsMessage) {
         Gson gson = new Gson();
 
         if (jmsMessage.getJmsEnum().equals(JmsEnum.ADVERSITMENT)){
-            return adManager.addAd( gson.fromJson(gson.toJson(jmsMessage.getObject()),Advertisement.class));
+            return gson.toJson(adManager.addAd( gson.fromJson(gson.toJson(jmsMessage.getObject()),Advertisement.class)));
         }else if (jmsMessage.getJmsEnum().equals(JmsEnum.COMPLAIN)){
-            return complaintManager.addComplaint(gson.fromJson(gson.toJson(jmsMessage.getObject()),Complaint.class));
+            return gson.toJson(complaintManager.addComplaint(gson.fromJson(gson.toJson(jmsMessage.getObject()),Complaint.class)));
         }else if (jmsMessage.getJmsEnum().equals(JmsEnum.APPLY)){
-            return merchantInfoManager.addMerchantInfo(gson.fromJson(gson.toJson(jmsMessage.getObject()),MerchantInfo.class));
+            return gson.toJson(merchantInfoManager.addMerchantInfo(gson.fromJson(gson.toJson(jmsMessage.getObject()),MerchantInfo.class)));
         }
         return null;
     }
 
+    @Override
+    public String getKey(JmsMessage jmsMessage) {
+        Gson gson = new Gson();
+
+        if (jmsMessage.getJmsEnum().equals(JmsEnum.ADVERSITMENT)){
+            return adManager.addAd( gson.fromJson(gson.toJson(jmsMessage.getObject()),Advertisement.class)).getClassName();
+        }else if (jmsMessage.getJmsEnum().equals(JmsEnum.COMPLAIN)){
+            return complaintManager.addComplaint(gson.fromJson(gson.toJson(jmsMessage.getObject()),Complaint.class)).getClassName();
+        }else if (jmsMessage.getJmsEnum().equals(JmsEnum.APPLY)){
+            return merchantInfoManager.addMerchantInfo(gson.fromJson(gson.toJson(jmsMessage.getObject()),MerchantInfo.class)).getClassName();
+        }
+        return null;
+    }
 }
