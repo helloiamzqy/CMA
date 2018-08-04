@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.gson.Gson;
 import jersey.ServerInteraction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,11 +27,14 @@ public class AdController {
     @Autowired
     ServerInteraction serverInteraction;
     //@CrossOrigin(origins = (Config.CUSTOMER_URL), maxAge = 1000000)
+    @ResponseBody
     @RequestMapping(value="/findAd",method=RequestMethod.GET)
-    public List<Advertisement> findAd() {
+    public String findAd() {
         System.out.println("findAd");
-        serverInteraction.interact("",null);
-        return null;
+        String result = serverInteraction.interact("http://10.222.29.192:9090/admin/message/advertisement/",null);
+//        Gson gson = new Gson();
+//        gson.fromJson(result,Advertisement.class);
+        return result;
     }
 
 }

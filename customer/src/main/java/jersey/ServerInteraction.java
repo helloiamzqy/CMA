@@ -25,7 +25,7 @@ public class ServerInteraction {
             System.out.println("result:" + result);
 
             response.close();
-            client.close();
+//            client.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
