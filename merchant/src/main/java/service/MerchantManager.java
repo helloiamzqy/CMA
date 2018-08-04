@@ -8,5 +8,5 @@ public interface MerchantManager {
     public Merchant addMerchant(Merchant merchant);
     public List<Merchant> findMerchant();
     public Merchant updateMerchant(Merchant merchant);
-    public Merchant findMerchantByName(String name);
+    public Merchant merchantLogin(Merchant merchant);
 }

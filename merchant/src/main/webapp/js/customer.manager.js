@@ -1,7 +1,7 @@
 function CustomerComponent($view,host,mId,status) {
     let model=null;
     let cur=null;
-    let getUrl="/orders/merchant/8a5e9d3d64feef560164feef5b9f0001/";
+    let getUrl="/8a5e9d3d65037c800165037c86140001/orders/";
     let page="?curPage=1&pageSize=10";
     init();
     function init() {
@@ -81,9 +81,8 @@ function CustomerComponent($view,host,mId,status) {
             contentType: "application/json; charset=utf-8",
             dataType:"json",
             success:function (data) {
-                alert(data);
                 model=data;
-                renderOrderItem();
+                renderOrderItem(data);
             }
         })
     }
@@ -101,6 +100,11 @@ function CustomerComponent($view,host,mId,status) {
             }
         })
 
+    }
+    function selectCustomer(orders) {
+        cur=customer;
+        let cnameInput=$view.find("#updateForm input[name=cname]");
+        cnameInput.val(customer.cname);
     }
     function timeStamp2String(time){
         if (time!=null){

@@ -8,11 +8,10 @@ import service.OrderManager;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/orders")
 public class OrderController {
     @Autowired
     private OrderManager orderManager;
-    @GetMapping(value = "/merchant/{mId}/{status}")
+    @GetMapping(value = "/{mId}/orders/{status}")
     public Pager findOrderByMerchant(@PathVariable(name = "mId") String mId, @PathVariable(name = "status") String status,@RequestParam int curPage, @RequestParam int pageSize){
         return orderManager.findOrderByMerchant(mId,status,curPage,pageSize);
     }
@@ -25,18 +24,18 @@ public class OrderController {
         return orderManager.findAllOrderByCustomer(cId,curPage,pageSize);
     }
 
-    @GetMapping(value = "/merchant/{mId}")
+    @GetMapping(value = "/{mId}/orders")
     public Pager findAllOrderByMerchant(@PathVariable(name = "mId") String mId,@RequestParam int curPage, @RequestParam int pageSize){
 
         return orderManager.findAllOrderByMerchant(mId,curPage,pageSize);
     }
 
 
-    @PostMapping(value = "/{mId}/{cId}")
+    @PostMapping(value = "/{mId}/{cId}/orders")
     public Order addOrder(@RequestBody Order order,@PathVariable(name = "mId") String mId,@PathVariable(name = "cId") String cId){
         return orderManager.addOrder(order,mId,cId);
     }
-    @PutMapping
+    @PutMapping(value = "orders")
     public Order updateOrder(@RequestBody Order order){
         return orderManager.updateOrder(order);
     }
