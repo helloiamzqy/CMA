@@ -1,7 +1,6 @@
 function itemComponent($view,url) {
     let items=null;
     let order=JSON.parse(sessionStorage.getItem("order"));
-    alert(JSON.stringify(order));
     init();
 //////////////////////////////////////////
     function init() {
@@ -16,7 +15,6 @@ function itemComponent($view,url) {
     function getItems() {
         let orderId=order.id;
         let api=url+"orderItems/"+orderId;
-        alert(api);
         myAjax(api,"GET",null,(data)=>{
             items=data;
             renderDetail();
@@ -26,7 +24,6 @@ function itemComponent($view,url) {
         let $tbody=$view.find("#itemList tbody");
         $tbody.empty();
         items.forEach((item)=>{
-            alert(JSON.stringify(item));
             $("<tr>")
                 .append($("<td>").text(item.food.foodName))
                 .append($("<td>").text(item.food.picture))
@@ -37,15 +34,25 @@ function itemComponent($view,url) {
         })
     }
     function renderOrder() {
+        format(order);
         $("#orderId").text(order.id);
-        $("#orderStatus").text(order.status);
+        $("#orderStatus").text(order.formatStatus);
+        $("#createTime").text(order.formatCreateTime);
+        $("#finishTime").text(order.formatFinishTime);
+        $("#totalPrice").text(order.totalPrice);
         $("#customerName").text(order.customer.name);
-        // $("#customerPhone").text(order.phone);
-        // $("#customerAddr").text(order.address);
+        $("#customerPhone").text(order.phone);
+        $("#customerAddr").text(order.address);
         $("#merchantName").text(order.merchant.name);
     }
-}
 
+    function format(order) {
+        order.formatStatus=codeToStatus(order);
+        order.formatCreateTime=getDateTime(order.createTime);
+        order.formatFinishTime=getDateTime(order.finishTime);
+    }
+
+}
 $(function () {
     let url="http://10.222.29.190:8090/customer/";
     itemComponent($("#itemPage"),url);

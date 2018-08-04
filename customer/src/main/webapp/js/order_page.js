@@ -163,14 +163,8 @@ function initNav() {
 ///////////////////////// format //////////////////////////////
 function format(order) {
     if(!order.formatStatus){
-             if(order.status==0)order.formatStatus="未接单";
-        else if(order.status==1)order.formatStatus="已接单";
-        else if(order.status==2)order.formatStatus="配送中";
-        else if(order.status==3)order.formatStatus="已完成";
-        else if(order.status==4)order.formatStatus="被拒接";
-        else if(order.status==5)order.formatStatus="已取消";
-        else if(order.status==6)order.formatStatus="已评价";
-        order.formatCreateTime=getMyDate(order.createTime);
+        order.formatStatus=codeToStatus(order);
+        order.formatCreateTime=getDateTime(order.createTime);
     }
 }
 

@@ -29,10 +29,40 @@ public class Order {
     private String status;
     @Column(precision = 9,scale = 2,name="total_price",nullable = false)
     private double totalPrice;
-
+    @Column(nullable = false)
+    private String phone;
+    @Column(nullable = false)
+    private String address;
     @ManyToOne
     @JoinColumn(name = "c_id")
     private Customer customer;
+
+    public Order(Date createTime, Date finishTime, Merchant merchant, String status, double totalPrice, String phone, String address, Customer customer) {
+        this.createTime = createTime;
+        this.finishTime = finishTime;
+        this.merchant = merchant;
+        this.status = status;
+        this.totalPrice = totalPrice;
+        this.phone = phone;
+        this.address = address;
+        this.customer = customer;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getId() {
         return id;
@@ -100,6 +130,8 @@ public class Order {
                 ", merchant=" + merchant +
                 ", status='" + status + '\'' +
                 ", totalPrice=" + totalPrice +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
                 ", customer=" + customer +
                 '}';
     }
