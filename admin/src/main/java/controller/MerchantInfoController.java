@@ -20,11 +20,6 @@ public class MerchantInfoController {
         return manager.updateMerchantInfo(merchantInfo);
     }
 
-    //接受来自M端对申请状态的请求
-    @GetMapping(value="/message/merchantStatus/{merchantId}")
-    public String findMechantInfoByMerchantId(@PathVariable String merchantId){
-        return manager.findMechantInfoByMerchantId(merchantId).getStatus();
-    }
 
     //按状态查询商家列表
     @GetMapping(value="/status/{status}")

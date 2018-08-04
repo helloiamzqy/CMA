@@ -1,4 +1,4 @@
-function MerchantComponent($view, url) {
+function MerchantComponent($view, url, type) {
     let model = null;
     let cur;
 
@@ -16,44 +16,64 @@ function MerchantComponent($view, url) {
         $tbody.empty();
         model.forEach((merchant)=>{
             $("<tr>")
+                .addClass("trCursor")
                 .append($("<td>").text(merchant.creditCode))
                 .append($("<td>").text(merchant.idCard))
                 .append($("<td>").text(merchant.corporateName))
-                .append($("<td>")
-                    .append($("<img>")
-                        .attr("src",merchant.picture)
-                        .attr("width","45px")
-                        .attr("height","40px")))
-                .append($("<td>").text(merchant.phone))
+                // .append($("<td>")
+                //     .append($("<img>")
+                //         .attr("src",merchant.picture)
+                //         .attr("width","45px")
+                //         .attr("height","40px")))
+                // .append($("<td>").text(merchant.phone))
                 .append($("<td>").text(merchant.shopName))
-                .append($("<td>").text(merchant.address))
-                .append($("<td>").text(merchant.comments))
+                // .append($("<td>").text(merchant.address))
+                // .append($("<td>").text(merchant.comments))
                 .append($("<td>")
-                    .append($("<button>")
-                        .text("同意")
-                        .addClass("btn btn-success agree")
-                        .on("click",(e)=>changeStatus(merchant,1)))
-                    .append($("<button>")
-                        .text("驳回")
-                        .addClass("btn btn-primary reject")
-                        .on("click",(e)=>changeStatus(merchant,3)))
-                    .append($("<button>")
-                        .text("不同意")
-                        .addClass("btn btn-danger disgree")
-                        .on("click",(e)=>changeStatus(merchant,2))))
+                    .append(addBtn(type,merchant)))
+                .on("dblclick",(e)=>{
+                    rendermodal(merchant,type);
+                })
                 .appendTo($tbody)
         })
+    }
 
-        function addBtn(type) {
-
+    function addBtn(type,merchant) {
+        let btn;
+        if(type==0){ //查看未审核信息的请求
+            btn = $("<div>")
+                .append($("<button>")
+                    .text("同意")
+                    .addClass("btn btn-success opt")
+                    .on("click",(e)=>changeStatus(merchant,1)))
+                .append($("<button>")
+                    .text("驳回")
+                    .addClass("btn btn-warning opt")
+                    .on("click",(e)=>changeStatus(merchant,3)))
+                .append($("<button>")
+                    .text("不同意")
+                    .addClass("btn btn-danger opt")
+                    .on("click",(e)=>changeStatus(merchant,2)))
+        }else if(type==1){ //查看白名单的请求
+            btn = $("<div>")
+                .append($("<button>")
+                    .text("拉黑")
+                    .addClass("btn btn-danger opt")
+                    .on("click",(e)=>changeStatus(merchant,2)))
+        }else{//查看黑名单的请求
+            btn = $("<div>")
+                .append($("<button>")
+                    .text("拉白")
+                    .addClass("btn btn-success opt")
+                    .on("click",(e)=>changeStatus(merchant,1)))
         }
+        return btn;
     }
 
     function changeStatus(merchant,status){
+        $("#MerchantModal").modal("hide");//隐藏模态框
         cur = merchant;
         merchant.status = status;
-        // console.log(JSON.stringify(merchant))
-        // let data = JSON.stringify(merchant);
         let url = "http://localhost:9090/admin/merchantInfo/updateStatus"
         let merchant1 = myAjax(url,"PUT",merchant,(e)=>{
             let index = model.indexOf(cur);
@@ -61,149 +81,32 @@ function MerchantComponent($view, url) {
             render();
         })
     }
+
+    function rendermodal(merchant,type){
+        $("#msg").empty();
+        $("#img").empty();
+        $("#optBtn").empty();
+        $("#msg")
+            .append($("<div>").text("工商号:" + merchant.creditCode).addClass("detail"))
+            .append($("<div>").text("身份证号:" + merchant.idCard).addClass("detail"))
+            .append($("<div>").text("法人名： " + merchant.corporateName).addClass("detail"))
+            .append($("<div>").text("联系方式：" + merchant.phone).addClass("detail"))
+            .append($("<div>").text("店铺名： " + merchant.shopName).addClass("detail"))
+            .append($("<div>").text("店铺地址：" + merchant.address).addClass("detail"))
+            .append($("<div>").text("备注信息：" + merchant.comments).addClass("detail"));
+            // .append(addBtn(type,merchant))
+        $("#img")
+            .append($("<img>")
+                .attr("src",merchant.picture)
+                .attr("width","160px")
+                .attr("height","120px"));
+        $("#optBtn")
+            .append(addBtn(type,merchant));
+        $("#MerchantModal").modal("show");
+    }
 }
 
-$(function () {
-    let url = "http://localhost:9090/admin/merchantInfo/status/0";
-    MerchantComponent($("#app"),url);
-})
-
-
-
-
-
-
-
-
-
-
-
 // $(function () {
-//         let url="init";
-//         let method="GET";
-//         let headers=[{"key":"Content-Type","value":"application/json"}];
-//
-//         //渲染表格
-//         function renderTable(merchants) {
-//             let table=document.querySelector("#merchantList");
-//             for(let i=0;i<merchants.length;i++){
-//                 let tr=$("<tr>");
-//                 $("<td>").text(merchants[i].creditCode).appendTo(tr);
-//                 $("<td>").text(merchants[i].idCard).appendTo(tr);
-//                 $("<td>").text(merchants[i].corporateName).appendTo(tr);
-//                 let imgtd=$("<td>");
-//                 imgtd.appendTo(tr);
-//                 $("<img>").attr("src",merchants[i].picture).attr("alt","picture").attr("width","45px").attr("height","40px").appendTo(imgtd);
-//                 $("<td>").text(merchants[i].phone).appendTo(tr);
-//                 $("<td>").text(merchants[i].shopName).appendTo(tr);
-//                 $("<td>").text(merchants[i].address).appendTo(tr);
-//                 $("<td>").text(merchants[i].comments).appendTo(tr);
-//                 let td1=$("<td>").appendTo(tr);
-//                 let td2=$("<td>").appendTo(tr);
-//                 let td3=$("<td>").appendTo(tr);
-//                 $("<button>").text("同意").addClass("btn btn-success agree").on("click",function () {
-//                     changeStatus(merchants[i].shopId,1);
-//                 }).appendTo(td1);
-//                 $("<button>").text("拉黑").addClass("btn btn-danger disgree").on("click",function () {
-//                 	changeStatus(merchants[i].shopId,3);
-//                 }).appendTo(td2);
-//                 $("<button>").text("驳回").addClass("btn btn-primary reject").on("click",function () {
-//                 	changeStatus(merchants[i].shopId,2);
-//                 }).appendTo(td3);
-//                 td1.appendTo(tr);
-//                 td2.appendTo(tr);
-//                 td3.appendTo(tr);
-//                 tr.attr("id",merchants[i].shopId).addClass("datas").appendTo(table);
-//             }
-//         }
-//
-//         //获取数据
-//         function getData(method,url,data,headers){
-//             $.ajax({
-//                 type: method,
-//                 url: url,
-//                 data:"currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val(),
-//                 dataType:"json",
-//                 success: function(data){
-//                 	makePage(data);
-//                     renderTable(data.dataList);
-//                 }
-//             });
-//         }
-//
-//
-//         getData(method,url,null,headers);
-//
-//         //改变状态
-//         function  changeStatus(id,status) {
-//             $.ajax({
-//                 type:'GET',
-//                 url:'changemstatus',
-//                 data:'id='+id+"&status="+status,
-//                 success(data){
-//                 	if(data!=null&&data!=""){
-//                 		alert(data);
-//                 	}
-//                 	$(".datas").remove();
-//                 	getData(method,url,null,headers);
-//                 }
-//             })
-//         }
-//         //function reject(id) {
-//     	//$("#myModal").modal();
-//     	//$("#submit").on("click",function(){
-//     	//	$.ajax({
-//         //        type:'GET',
-//        //         url:'mreject',
-//          //       data:'id='+id+"&status=2"+"&reason="+$("#reason").val(),
-//        //         success(){
-//        //         	$(".datas").remove();
-//          //       	getData(method,url,null,headers);
-//         //        }
-//        //     })
-//     //	})
-//    // }
-//
-//         //渲染页数
-//     	function makePage(data){
-// 	       	 let totalPage=data.totalPage;
-// 	    	 let totalCount=data.totalCount;
-// 	    	 $(".pagination").remove();
-// 	    	 let page=$("#page");
-// 			let ul=$("<ul>").addClass("pagination");
-// 			ul.appendTo(page);
-// 			let li1=$("<li>").addClass("lis").appendTo(ul);
-// 	        let a1=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li1);
-// 	        $("<span>").attr("aria-hidden","true").text("首页").appendTo(a1);
-// 	    	 for(let i=0;i<totalPage;i++){
-// 	    		 let li=$("<li>").addClass("lis");
-// 	    		 $("<a>").attr("href","#").text(i+1).appendTo(li);
-// 	    		 li.appendTo(ul);
-// 	    	 }
-// 	    	 let li2=$("<li>").addClass("lis").appendTo(ul);
-// 	         let a2=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li2);
-// 	         $("<span>").attr("aria-hidden","true").text("尾页").appendTo(a2)
-// 	    	 $("#totalPage").text(data.totalPage);
-// 	    	 $("#totalCount").text(data.totalCount);
-// 	    	 $(".lis").on("click",function(){
-// 	    		 if($(this).text()=="首页"){
-// 	    				 $("#currentPage").val(1);
-// 	    			 }else if($(this).text()=="尾页"){
-// 	    				 $("#currentPage").val(totalPage);
-// 	    			 }else{
-// 	    				 $("#currentPage").val($(this).text());
-// 	    			 }
-// 	    		 $(".datas").remove();
-// 	    		 getData(method,url,data,headers);
-// 	    	 })
-// 	    	 //改变每页显示的数据数
-//         $("#pageSize").on("blur",function () {
-//         		$(".datas").remove();
-//         		getData(method,url,null,headers);
-//         })
-//       	}
-//
-//
-//
-//
-//     })
+// let url = "http://localhost:9090/admin/merchantInfo/status/0";
+// MerchantComponent($("#app"),url,0);
+// })
