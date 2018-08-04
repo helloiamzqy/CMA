@@ -14,16 +14,16 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.form.js"></script>
+  <script src="node_modules/util.js"></script>
+  <script src="node_modules/indexmanager.js"></script>
 </head>
 <body>
-<!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
-  以获得更好的体验！</p>
-<![endif]-->
-
+<div id="indexApp">
 <header class="am-topbar admin-header">
   <div class="am-topbar-brand">
-    <strong>Amaze</strong> <small>后台管理模板HTML</small>
+    <strong>Merchant</strong> <small>商家后台管理</small>
   </div>
 
   <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
@@ -41,7 +41,6 @@
           <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
         </ul>
       </li>
-      <li><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
     </ul>
   </div>
 </header>
@@ -66,15 +65,15 @@
 
     <div class="am-panel am-panel-default admin-sidebar-panel">
       <div class="am-panel-bd">
-        <p><span class="am-icon-bookmark"></span> 公告</p>
-        <p>时光静好，与君语；细水流年，与君同。—— Amaze</p>
+        <p></p>
+        <p></p>
       </div>
     </div>
 
     <div class="am-panel am-panel-default admin-sidebar-panel">
       <div class="am-panel-bd">
-        <p><span class="am-icon-tag"></span> wiki</p>
-        <p>Welcome to the Amaze wiki!</p>
+        <p></p>
+        <p></p>
       </div>
     </div>
   </div>
@@ -220,20 +219,7 @@
   </div>
   <!-- content end -->
 
-</div>
 
-<footer>
-  <hr>
-  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license. <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-</footer>
-
-<!--[if lt IE 9]>
-<script src="assets/js/jquery1.11.1.min.js"></script>
-<script src="assets/js/modernizr.js"></script>
-<script src="assets/js/polyfill/rem.min.js"></script>
-<script src="assets/js/polyfill/respond.min.js"></script>
-<script src="assets/js/amazeui.legacy.js"></script>
-<![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="assets/js/jquery.min.js"></script>

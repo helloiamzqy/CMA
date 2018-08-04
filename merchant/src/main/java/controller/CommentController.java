@@ -11,6 +11,7 @@ import service.CommentManager;
  * @author Dunn
  */
 @RestController
+@CrossOrigin(origins = "*" )
 public class CommentController {
     @Autowired
     private CommentManager commentManager;
@@ -30,7 +31,7 @@ public class CommentController {
 
     //需要测试
     @PostMapping(value = "{mid}/order/{oid}")
-    public Pager addComment(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String oid,@PathVariable String mid){
+    public Pager getComment(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String oid,@PathVariable String mid){
         return commentManager.findCommentByOrder(curPage,pageSize,oid);
     }
 }
