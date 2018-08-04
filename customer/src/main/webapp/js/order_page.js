@@ -15,7 +15,7 @@ function OrderComponent($view,url,customerId) {
     }
 
     function orderDetail(){
-        alert(1);
+        alert(123);
 
     }
     function cancelModal(order) {
