@@ -70,9 +70,9 @@
     </div>
 </nav>
 
-<div class="row" style="height: 2000px">
+<div class="row">
     <div class="col-xs-6 col-md-2" style="background: red"></div>
-    <div id = "view" class="col-xs-6 col-md-6" style="width: 1000px">
+    <div id="view" class="col-xs-6 col-md-6" style="width: 1000px">
         <div id="customerInfo">
             <h1>个人信息</h1>
             <table id="customerInfoTable">
@@ -81,11 +81,60 @@
                 </tbody>
             </table>
         </div>
-        <div id="reveiceInfo">
+        <div id="receiveInfo">
             <h1>收货信息</h1>
+            <input type="button" id="addReceiveInfoBtn" value="添加新的收货信息">
+            <table id="receiveInfoTable" class="table table-hover">
+                <thead>
+                <tr>
+                    <td>id</td>
+                    <td>地址</td>
+                    <td>电话</td>
+                </tr>
+
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
     <div class="col-xs-6 col-md-2" style="background: red"></div>
+</div>
+
+<div class="modal fade" id="addReceiveInfoModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="successModalLabel">订单确认</h4>
+            </div>
+            <div class="modal-body">
+                <h4>请输入新的收货信息：</h4>
+                <label>电话：</label><input id="addReceiveInfoPhone"><br>
+                <label>地址：</label><input id="addReceiveInfoAddress"><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">返回</button>
+                <button type="button" class="btn btn-default" id="addReceiveInfo">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="updateReceiveInfoModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="successModalLabel">订单确认</h4>
+            </div>
+            <div class="modal-body">
+                <h4>请输入新的收货信息：</h4>
+                <label>电话：</label><input id="updateReceiveInfoPhone"><br>
+                <label>地址：</label><input id="updateReceiveInfoAddress"><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">返回</button>
+                <button type="button" class="btn btn-default" id="updateReceiveInfo">提交</button>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

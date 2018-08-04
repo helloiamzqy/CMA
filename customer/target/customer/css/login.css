@@ -1,7 +1,10 @@
 body{
     background-image: url("../image/bg8.jpg");
+    z-index: -1;
+
 }
 .carrie_body{
+    z-index: -1;
     width: 800px;
     position: fixed;
     right: 10px;
