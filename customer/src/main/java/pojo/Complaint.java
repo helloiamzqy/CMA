@@ -7,37 +7,35 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * @author JohnGao
- * @date 8/1/2018 8:07 PM
+ * @author harper
+ * @date 8/42018 8:07 PM
  */
-//@Entity
-//@Table(name="complaint")
 public class Complaint {
-//    @Id
-//    @GenericGenerator(strategy="uuid",name="uuid")
-//    @GeneratedValue(generator="uuid")
     private String id;
-//    @Column(nullable = false)
     private String reason;
-
-//    @Column(name = "merchant_id",nullable = false)
     private String merchantId;
-
-//    @Column(name = "order_id",nullable = false)
+    private String merchantName;
     private String orderId;
+    private Date createTime;
 
     public Complaint() {
     }
 
-//    @JsonFormat(pattern = "yyyy-MM-dd")
-//    @Column(name = "create_time",nullable = false)
-    private Date createTime;
-
-    public Complaint(String reason, String merchantId, String orderId, Date createTime) {
+    public Complaint(String id, String reason, String merchantId, String merchantName, String orderId, Date createTime) {
+        this.id = id;
         this.reason = reason;
         this.merchantId = merchantId;
+        this.merchantName = merchantName;
         this.orderId = orderId;
         this.createTime = createTime;
+    }
+
+    public String getMerchantName() {
+        return merchantName;
+    }
+
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName;
     }
 
     public String getId() {
@@ -86,6 +84,7 @@ public class Complaint {
                 "id='" + id + '\'' +
                 ", reason='" + reason + '\'' +
                 ", merchantId='" + merchantId + '\'' +
+                ", merchantName='" + merchantName + '\'' +
                 ", orderId='" + orderId + '\'' +
                 ", createTime=" + createTime +
                 '}';
