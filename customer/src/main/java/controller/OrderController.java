@@ -63,12 +63,18 @@ public class OrderController {
 
     @PutMapping
     public Order updateOrderStatus(@RequestBody Order order) {
-        if(order.getStatus().equals(OrderStatusEnum.RECEIVE)) {
+        if(order.getStatus().equals(OrderStatusEnum.WATING)) {
+            //如果是未接单状态，则可以取消订单
             order.setStatus(OrderStatusEnum.CANCLE);
-        }else if(!order.getStatus().equals(OrderStatusEnum.COMPLETE)){
-            order.setStatus(OrderStatusEnum.COMPLETE);
+            order.setFinishTime(new Date());
+            return orderService.updateOrder(order);
         }
-        order.setFinishTime(new Date());
-        return orderService.updateOrder(order);
+        if(!order.getStatus().equals(OrderStatusEnum.WATING)&&!order.getStatus().equals(OrderStatusEnum.CANCLE)&&!OrderStatusEnum.COMPLETE.equals(order.getStatus())){
+            //未接单并且未取消订单，则可以完成订单
+            order.setStatus(OrderStatusEnum.COMPLETE);
+            order.setFinishTime(new Date());
+            return orderService.updateOrder(order);
+        }
+        return null;
     }
 }
