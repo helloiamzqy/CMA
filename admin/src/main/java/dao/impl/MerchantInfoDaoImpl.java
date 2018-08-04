@@ -40,8 +40,15 @@ public class MerchantInfoDaoImpl implements MerchantInfoDao {
         String jpql = "from pojo.MerchantInfo where merchant_id =?1";
         Query query = manager.createQuery(jpql);
         query.setParameter(1,merchantId);
-        MerchantInfo merchantInfo = (MerchantInfo) query.getSingleResult();
-        return merchantInfo;
+        MerchantInfo merchantInfo = null;
+        try{
+            merchantInfo = (MerchantInfo) query.getSingleResult();
+        }catch(javax.persistence.NoResultException e){
+
+        }finally{
+            return merchantInfo;
+        }
+
     }
 
 
