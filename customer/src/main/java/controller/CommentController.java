@@ -18,13 +18,6 @@ import java.util.Date;
 public class CommentController {
     @Autowired
     private CommentService commentService;
-
-
-    @GetMapping(value = "/test")
-    public void test(){
-        System.out.println(122233);
-    }
-
     @GetMapping(value = "/{mid}/comment")
     public Pager getMerchantComment(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String mid){
         return  commentService.findCommentByMerchant(curPage,pageSize,mid);
