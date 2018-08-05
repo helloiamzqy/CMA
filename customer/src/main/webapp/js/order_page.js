@@ -43,26 +43,27 @@ function OrderComponent($view,url,operation,customerId) {
     }
     function initCommentModal() {
         $("#comment").on("click",function () {
-            if(order_temp.status!="6"){
+            //if(order_temp.status!="6"){
                 let commentUrl=url+"comment/"+order_temp.id;
                 let data=new Object();
                 data.content=$("#content").val();
                 data.rank=$("#rank").val();
-                alert(data.rank);
                 myAjax(commentUrl,"POST",data,(comment)=>{
                     $('#commentModal').modal('hide');
                     if(comment){
                         alert("评论成功");
-                        order_temp.status="6";
-                        renderOrder();
+                        //order_temp.status="6";
+                        order_temp.formatStatus="已评价";
                     }else {alert("您已经评论过啦！");}
                     $("#content").val("");
                     $("#rank").val("5");
+                    renderOrder();
                 })
-            }else{
-                alert("您已经评论过啦！");
-                $('#commentModal').modal('hide');
-            }
+            // }else{
+            //     alert("您已经评论过啦！");
+            //     $('#commentModal').modal('hide');
+            //     renderOrder();
+            // }
         })
     }
     function initComplainModal() {
@@ -174,15 +175,16 @@ function format(order) {
 
 ///////////////////////// start ///////////////////////////////
 $(function () {
-    let url="/customer/";
     let customerId=sessionStorage.getItem("customerId");
-    alert(customerId);
-    if(customerId==null){
-        customerId="8a5e9d3d6507ea7b016507ea81930000";
+    if(customerId!=null&&customerId.length==12){
+        let url="/customer/";
+        let operation=sessionStorage.getItem("operation");
+        if(operation==null){
+            operation="/all";//all,finished,unreceive,doing
+        }
+        OrderComponent($("#orderPage"),url,operation,customerId);
+    }else{
+        alert("请登录后再尝试！")
+        window.location.href="/customer/html/merchant.html";
     }
-    let operation=sessionStorage.getItem("operation");
-    if(operation==null){
-        operation="/all";//all,finished,unreceive,doing
-    }
-    OrderComponent($("#orderPage"),url,operation,customerId);
 })

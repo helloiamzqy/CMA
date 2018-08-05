@@ -78,4 +78,17 @@ public class CommentDaoImpl implements CommentDao {
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, comments);
         return pager;
     }
+
+    @Override
+    public String findRankByMerchant(Merchant merchant) {
+        String jpql = "SELECT AVG(c.rank) FROM pojo.Comment c WHERE c.order.merchant =:merchant";
+        Query query = manager.createQuery(jpql).setParameter("merchant", merchant);
+        List<Double> remarks= query.getResultList();
+        String avgRemark = "0";
+        if(remarks.get(0)!=null){
+            avgRemark = remarks.get(0)+"";
+        }
+
+        return avgRemark;
+    }
 }

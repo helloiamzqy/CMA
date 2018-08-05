@@ -11,4 +11,5 @@ public interface BasicInfoService {
     public List<BasicInfo> findAllBasicInfo();
     public Pager findAllBasicInfo(int curPage, int pageSize);
     public BasicInfo findBasicInfoById(String id);
+    public BasicInfo findBasicInfoWithRankById(String id);
 }

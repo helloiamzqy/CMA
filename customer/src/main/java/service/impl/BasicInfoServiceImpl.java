@@ -1,7 +1,7 @@
 package service.impl;
 
 import dao.BasicInfoDao;
-import org.apache.kahadb.page.Page;
+import dao.CommentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +16,8 @@ import java.util.List;
 public class BasicInfoServiceImpl implements BasicInfoService {
     @Autowired
     private BasicInfoDao basicInfoDao;
+    @Autowired
+    private CommentDao commentDao;
 
     @Transactional
     @Override
@@ -45,5 +47,15 @@ public class BasicInfoServiceImpl implements BasicInfoService {
     @Override
     public BasicInfo findBasicInfoById(String id) {
         return basicInfoDao.findBasicInfoById(id);
+    }
+
+    @Override
+    public BasicInfo findBasicInfoWithRankById(String mId) {
+        Merchant merchant=new Merchant();
+        merchant.setId(mId);
+        BasicInfo basicInfo =new BasicInfo();
+        basicInfo = basicInfoDao.findBasicInfoById(mId);
+        basicInfo.setRank(commentDao.findRankByMerchant(merchant));
+        return  basicInfo;
     }
 }
