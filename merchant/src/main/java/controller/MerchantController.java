@@ -30,7 +30,7 @@ public class MerchantController {
 //        return merchantManager.merchantLogin(merchant);
 //    }
     @PostMapping(value = "regist")
-    public Merchant addMerchant(@RequestBody Merchant merchant){
+    public MerchantDto addMerchant(@RequestBody Merchant merchant){
         return merchantManager.addMerchant(merchant);
     }
     @PutMapping
@@ -40,7 +40,6 @@ public class MerchantController {
     @PostMapping(value = "login")
     public MerchantDto merchantLogin(@RequestBody Merchant merchant, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception {
         MerchantDto merchantDto=merchantManager.merchantLogin(merchant);
-
         if(merchantDto.getPswError()==null&&merchantDto.getNameError()==null&&merchantDto.getMerchant()!=null){
                String status =  interaction.interact(Config.ask_url+merchantDto.getMerchant().getId(),"");
                merchantDto.setStatus(status);

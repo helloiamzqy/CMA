@@ -15,10 +15,10 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-//        if(session.getAttribute("merchant")==null) {
-////            response.sendRedirect("/springdemo02/login.jsp");
-////            return false;
-//        }
+        if(session.getAttribute("merchant")==null) {
+            response.sendRedirect("/admin-table.html");
+            return false;
+        }
         return true;
     }
 }

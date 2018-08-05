@@ -46,11 +46,16 @@ function RegistComponent($view,host) {
                         password:$("#RegPassword").val()
                     }),
                     success:function (data) {
-                        alert("注册成功！")
-                        $("#register_form").css("display", "none");
-                        $("#login_form").css("display", "block");
-                        sessionStorage.setItem("mId",data.id);
-                        window.location.href="admin-registinfo.html";
+                        if(data.nameError==null){
+                            alert("注册成功！")
+                            $("#register_form").css("display", "none");
+                            $("#login_form").css("display", "block");
+                            sessionStorage.setItem("mId",data.merchant.id);
+                            window.location.href="admin-registinfo.html";
+                        }else {
+                            $("#regist_name_error").text(data.nameError);
+                        }
+
                     }
                 })
             }else {
@@ -62,6 +67,7 @@ function RegistComponent($view,host) {
             $.ajax({
                 type:"POST",
                 url:host+"/merchant/login",
+                crossDomain: true,
                 contentType:"application/json; charset=utf-8",
                 dataType:"json",
                 data:JSON.stringify({

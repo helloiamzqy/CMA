@@ -3,13 +3,17 @@ function CustomerComponent($view,host,mId,status) {
     let cur=null;
     let mid = sessionStorage.getItem("mId");
     let getUrl="/"+mid+"/orders/";
-    let page="?curPage=1&pageSize=10";
+    // let page="?curPage=1&pageSize=10";
     init();
     function init() {
+        let curPage=$("#currentPage").val();
+        let pageSize=$("#pageSize").val();
+        let page="?curPage="+curPage+"&pageSize="+pageSize;
         $view.find("#down").on("change",function () {
             status=$("#down").val();
             myAjax(host+getUrl+status+page,"GET",null,(orders)=>{
                 model=orders.list;
+                makePage(orders);
             render();
         });
         })
@@ -23,8 +27,14 @@ function CustomerComponent($view,host,mId,status) {
     });
         myAjax(host+getUrl+status+page,"GET",null,(orders)=>{
         model=orders.list;
+            makePage(orders);
         render();
     });
+        //改变每页显示的数目
+        $("#pageSize").on("blur",function () {
+            $(".datas").remove();
+            init();
+        })
     }
     function render() {
         let $tbody=$view.find("#orderList tbody");
@@ -33,7 +43,7 @@ function CustomerComponent($view,host,mId,status) {
             let createTime=timeStamp2String(order.createTime);
         let finishTime=timeStamp2String(order.finishTime);
         let status=judgeStatus(order.status);
-        let tr=$("<tr>").attr("id",order.id)
+        let tr=$("<tr>").attr("id",order.id).addClass("datas")
             .append($("<td>").text(order.id))
             .append($("<td>").text(order.customer.name))
             .append($("<td>").text(order.phone))
@@ -124,14 +134,10 @@ function CustomerComponent($view,host,mId,status) {
             data:JSON.stringify(order),
             success:function (data) {
                 $("#"+data.id).remove();
+                init();
             }
         })
 
-    }
-    function selectCustomer(orders) {
-        cur=customer;
-        let cnameInput=$view.find("#updateForm input[name=cname]");
-        cnameInput.val(customer.cname);
     }
     function timeStamp2String(time){
         if (time!=null){
@@ -169,6 +175,40 @@ function CustomerComponent($view,host,mId,status) {
             .appendTo($tbody);
     })
 
+    }
+    function makePage(data){
+
+        let totalPage=data.pageTotal;
+        let totalCount=data.rowsTotal;
+        $(".lis").remove();
+        // let page=$("#page");
+        let ul=$("#uu");
+        // let ul=$("<ul>").addClass("pagination");
+        // ul.appendTo(page);
+        let li1=$("<li>").addClass("lis").appendTo(ul);
+        let a1=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li1);
+        $("<span>").attr("aria-hidden","true").text("首页").appendTo(a1);
+        for(let i=0;i<data.pageTotal;i++){
+            let li=$("<li>").addClass("lis");
+            $("<a>").attr("href","#").text(i+1).appendTo(li);
+            li.appendTo(ul);
+        }
+        let li2=$("<li>").addClass("lis").appendTo(ul);
+        let a2=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li2);
+        $("<span>").attr("aria-hidden","true").text("尾页").appendTo(a2)
+        $("#totalPage").text(data.pageTotal);
+        $("#totalCount").text(data.rowsTotal);
+        $(".lis").on("click",function(){
+            if($(this).text()=="首页"){
+                $("#currentPage").val(1);
+            }else if($(this).text()=="尾页"){
+                $("#currentPage").val(totalPage);
+            }else{
+                $("#currentPage").val($(this).text());
+            }
+            $(".datas").remove();
+            init();
+        })
     }
 }
 

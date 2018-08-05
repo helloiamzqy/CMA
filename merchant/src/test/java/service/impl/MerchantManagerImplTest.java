@@ -37,7 +37,7 @@ public class MerchantManagerImplTest {
 
         merchant.setName("123");
         merchant.setPassword("12eqr12");
-        Merchant merchant1=merchantManager.addMerchant(merchant);
+//        Merchant merchant1=merchantManager.addMerchant(merchant);
     }
     @Test
     public void testUpdateMerchant(){

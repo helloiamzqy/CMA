@@ -1,6 +1,7 @@
 $(function () {
     let init = -1;
     sessionStorage.setItem("init",-1);
+    polling();
     setInterval('polling()',3000);
 })
 
@@ -16,10 +17,10 @@ function polling() {
             if(init==-1){
                 sessionStorage.setItem("init",data);
             }else{
-                // alert("data："+data);
-                // alert("init:"+init);
                 if (init<data){
-                    alert("你有"+(data-init)+"条新订单")
+                    alert("你有"+(data-init)+"条新订单");
+                     init = data;
+                    sessionStorage.setItem("init",init);
                 }
                 $("#newOrder").text(data);
             }

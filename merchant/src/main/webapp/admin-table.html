@@ -18,6 +18,7 @@
   <script src="js/customer.manager.js"></script>
   <script src="js/customer.util.js"></script>
   <script src="js/polling.js"></script>
+  <script src="js/validation.js"></script>
 
 </head>
 <body>
@@ -143,6 +144,16 @@
       </div>
     </div>
   </div>
+
+
+
+  <input type="hidden" id="currentPage" value=1>
+  <ul class="am-pagination am-pagination-right" id="uu">
+    <div>
+    共<span id="totalPage"></span>页/<span id="totalCount"></span>条数据
+    每页显示<input type="number" id="pageSize" value=10>条
+    </div>
+  </ul>
 </div>
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="assets/js/amazeui.min.js"></script>

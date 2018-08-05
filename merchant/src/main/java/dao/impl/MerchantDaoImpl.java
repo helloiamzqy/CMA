@@ -15,8 +15,16 @@ public class MerchantDaoImpl implements MerchantDao {
     private EntityManager manager;
     @Override
     public Merchant addMerchant(Merchant merchant) {
-        manager.persist(merchant);
-        return merchant;
+        String jpql="from pojo.Merchant where name=:name";
+        Query query=manager.createQuery(jpql);
+        query.setParameter("name",merchant.getName());
+        List<Merchant> merchants=query.getResultList();
+        if (merchants.size()!=0){
+            return null;
+        }else {
+            manager.persist(merchant);
+            return merchant;
+        }
     }
 
     @Override

@@ -19,6 +19,7 @@
     <script src="node_modules/util.js"></script>
     <script src="node_modules/merchantInfoManager.js"></script>
     <script src="js/polling.js"></script>
+    <script src="js/validation.js"></script>
 
 
 </head>
@@ -93,11 +94,11 @@
                                     <img id="imgp" class="am-img-circle am-img-thumbnail" src="" alt=""/>
                                 </div>
                                 <div class="am-u-md-8">
-                                    <p>你可以使用<a href="#">gravatar.com</a>提供的头像或者使用本地上传头像。 </p>
+                                    <p><a href="#"></a>选择您的店家图片</p>
                                     <form class="am-form" id="imgForm">
                                         <div class="am-form-group">
                                             <input type="file" name="file" id="user-pic">
-                                            <p class="am-form-help">请选择要上传的文件...</p>
+                                            <p class="am-form-help">请选择要上传的商家图片...</p>
                                             <button type="button" class="am-btn am-btn-primary am-btn-xs" id="imgBtn">保存</button>
                                         </div>
                                     </form>
@@ -133,25 +134,25 @@
                         </div>
                         <input type="hidden" step="1" class="" id="pictureSrc" name="picture" placeholder="配送距离 / km">
                         <div class="am-form-group">
-                            <label for="deliFee" class="am-u-sm-3 am-form-label">配送费用 / km</label>
+                            <label for="deliFee" class="am-u-sm-3 am-form-label">配送费用 / 元</label>
                             <div class="am-u-sm-9">
                                 <input type="number" class="" step="0.5" id="deliFee" name="deliFee" placeholder="配送费用 / km">
                             </div>
                         </div>
                         <input type="hidden" id="hid" name="id">
-                        <div class="am-form-group">
-                            <label for="opentime" class="am-u-sm-3 am-form-label">开店时间 / opentime</label>
-                            <div class="am-u-sm-9">
-                                <input type="text" id="opentime" name="openTime" placeholder="开店时间 / opentime">
-                            </div>
-                        </div>
+                        <!--<div class="am-form-group">-->
+                            <!--<label for="opentime" class="am-u-sm-3 am-form-label">开店时间 / opentime</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--<input type="date" id="opentime" name="openTime" placeholder="开店时间 / opentime">-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                        <div class="am-form-group">
-                            <label for="closetime" class="am-u-sm-3 am-form-label">关店时间 / closetime</label>
-                            <div class="am-u-sm-9">
-                                <input type="text" id="closetime" name="closeTime" placeholder="关店时间 / closetime">
-                            </div>
-                        </div>
+                        <!--<div class="am-form-group">-->
+                            <!--<label for="closetime" class="am-u-sm-3 am-form-label">关店时间 / closetime</label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--<input type="date" id="closetime" name="closeTime" placeholder="关店时间 / closetime">-->
+                            <!--</div>-->
+                        <!--</div>-->
 
 
                         <div class="am-form-group">
@@ -164,12 +165,23 @@
             </div>
         </div>
         <!-- content end -->
+        <div class="am-panel am-panel-default admin-sidebar-panel">
+            <div class="am-panel-bd">
+                <p><span class="am-icon-tag"></span> 管理员公告</p>
+                <p>公告栏</p>
+            </div>
+        </div>
 
+        <div class="am-panel am-panel-default admin-sidebar-panel">
+            <div class="am-panel-bd">
+                <p><span class="am-icon-tag"></span> 请保持信誉良好</p>
+                <p>顾客就是上帝</p>
+            </div>
+        </div>
     </div>
 
     <footer>
         <hr>
-        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license. <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
     </footer>
 </div>
 

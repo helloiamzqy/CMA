@@ -18,10 +18,10 @@ public class BasicInfo {
     @JoinColumn(name="m_id")
     private Merchant merchant;
 
-    @Column(nullable = false)
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date openTime;
-    @Column
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date closeTime;
 

@@ -19,8 +19,14 @@ public class MerchantManagerImpl implements MerchantManager {
 
     @Transactional
     @Override
-    public Merchant addMerchant(Merchant merchant) {
-        return merchantDao.addMerchant(merchant);
+    public MerchantDto addMerchant(Merchant merchant) {
+        Merchant merchant1= merchantDao.addMerchant(merchant);
+        MerchantDto merchantDto=new MerchantDto();
+        if(merchant1==null){
+            merchantDto.setNameError("用户名已经存在！！！");
+        }
+        merchantDto.setMerchant(merchant);
+        return merchantDto;
     }
 
     @Transactional

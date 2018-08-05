@@ -6,7 +6,7 @@ import pojo.Merchant;
 import java.util.List;
 
 public interface MerchantManager {
-    public Merchant addMerchant(Merchant merchant);
+    public MerchantDto addMerchant(Merchant merchant);
     public List<Merchant> findMerchant();
     public Merchant updateMerchant(Merchant merchant);
     public MerchantDto merchantLogin(Merchant merchant);
