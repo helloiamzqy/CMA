@@ -1,0 +1,25 @@
+#orderPage{
+    width: 1000px;
+    min-height: 880px;
+    margin: 10px auto;
+    background-color: #fff7d5;
+    text-align:center
+}
+#itemPage{
+     width: 1000px;
+     min-height: 880px;
+     margin: 10px auto;
+     background-color: #fff7d5;
+     text-align:center
+ }
+.textSize{
+    width: 568px;
+    height: 100px;
+    font-size: 16px;
+}
+.confirm{
+    text-align: center;
+}
+.modalText{
+    font-size: 20px;
+}

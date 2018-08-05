@@ -48,6 +48,7 @@ function OrderComponent($view,url,operation,customerId) {
                 let data=new Object();
                 data.content=$("#content").val();
                 data.rank=$("#rank").val();
+                alert(data.rank);
                 myAjax(commentUrl,"POST",data,(comment)=>{
                     $('#commentModal').modal('hide');
                     if(comment){
@@ -107,7 +108,9 @@ function OrderComponent($view,url,operation,customerId) {
     }
     function getOrder() {
         let api=url+"orders/customer/"+customerId+operation+order_url;
+        alert(api)
         myAjax(api,"GET",null,(orders)=>{
+            alert(JSON.stringify(orders))
             order_model=orders.list;
             renderOrder();
         })
@@ -162,30 +165,10 @@ function initNav() {
 }
 ///////////////////////// format //////////////////////////////
 function format(order) {
-    if(!order.formatStatus){
+    if(order.formatStatus==null){
         order.formatStatus=codeToStatus(order);
         order.formatCreateTime=getDateTime(order.createTime);
     }
-}
-
-function getMyDate(str){
-    var oDate = new Date(str),
-    oYear = oDate.getFullYear(),
-    oMonth = oDate.getMonth()+1,
-    oDay = oDate.getDate(),
-    oHour = oDate.getHours(),
-    oMin = oDate.getMinutes(),
-    oSen = oDate.getSeconds(),
-    oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay) +' '+ getzf(oHour) +':'+
-        getzf(oMin) +':'+getzf(oSen);//最后拼接时间
-    return oTime;
-};
-//补0操作
-function getzf(num){
-    if(parseInt(num) < 10){
-        num = '0'+num;
-    }
-    return num;
 }
 
 ///////////////////////// start ///////////////////////////////
@@ -193,7 +176,7 @@ $(function () {
     let url="http://10.222.29.190:8090/customer/";
     let customerId=sessionStorage.getItem("customerId");
     if(customerId==null){
-        customerId="8a5e9d3d65037c800165037c85d50000";
+        customerId="8a5e9d3d6507ea7b016507ea81930000";
     }
     let operation=sessionStorage.getItem("operation");
     if(operation==null){

@@ -8,10 +8,35 @@ function itemComponent($view,url) {
             window.open("./order_page.html");
             window.close();
         })
+        initNav()
         renderOrder();
         getItems();
     }
 
+
+////////////////////////// nav ////////////////////////////////
+    function initNav() {
+        alert("initNav");
+        //all,finished,unreceive,doing
+        $("#allOrder").on("click",function () {
+            alert(1111);
+            sessionStorage.setItem("operation","/all");
+            window.location.href="/customer/html/order_page.html";
+        })
+        $("#finishedOrder").on("click",function () {
+            sessionStorage.setItem("operation","/finished");
+            window.location.href="/customer/html/order_page.html";
+        })
+        $("#unreceiveOrder").on("click",function () {
+            sessionStorage.setItem("operation","/unreceive");
+            window.location.href="/customer/html/order_page.html";
+        })
+        $("#doing").on("click",function () {
+            sessionStorage.setItem("operation","/doing");
+            window.location.href="/customer/html/order_page.html";
+        })
+    }
+///////////////////////////////////////////////////////////
     function getItems() {
         let orderId=order.id;
         let api=url+"orderItems/"+orderId;

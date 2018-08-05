@@ -3,19 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Order Page</title>
-    <style type="text/css">
-        #orderPage{
-            width: 1000px;
-            min-height: 880px;
-            margin: 10px auto;
-            background-color: #fff7d5;
-            text-align:center
-        }
-    </style>
     <script src="../common/jquery/dist/jquery.js"></script>
     <script src="../common/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../css/order_page.css">
 </head>
 <body background="../image/backpicture.jpg">
 <nav class="navbar navbar-default">
@@ -78,7 +70,7 @@
 ////////////////////////////////////////////////
 <div id="orderPage">
 
-    <h1>订 单 主 页</h1>
+    <h1 id="totalText">订 单 主 页</h1>
     <table id="orderList" class="table table-striped table-hover">
         <thead>
         <tr>
@@ -102,7 +94,7 @@
                 <h4 class="modal-title" id="cancelModalLabel">订单取消</h4>
             </div>
             <div class="modal-body">
-                <h4>您确定要取消该订单？</h4>
+                <h3 class="confirm">您确定要取消该订单吗？</h3>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
@@ -119,7 +111,7 @@
                 <h4 class="modal-title" id="successModalLabel">订单确认</h4>
             </div>
             <div class="modal-body">
-                <h4>您确认收到该订单了吗？</h4>
+                <h3 class="confirm">您确认收到该订单了吗？</h3>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
@@ -136,10 +128,16 @@
                 <h4 class="modal-title" id="commentModalLabel">订单评论</h4>
             </div>
             <div class="modal-body">
-                <h4>请选择:</h4><br>
-                <textarea id="rank"></textarea>
-                <h4>请输入评论内容:</h4><br>
-                <textarea id="content"></textarea>
+                <span class="modalText">请选择好评度：</span>
+                <select id="rank" class="modalText">
+                    <option value="1">*</option>
+                    <option value="2">**</option>
+                    <option value="3">***</option>
+                    <option value="4">****</option>
+                    <option value="5">*****</option>
+                </select>
+                <div class="modalText">请输入评论内容:</div><br>
+                <textarea id="content" class="textSize"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -156,8 +154,8 @@
                 <h4 class="modal-title" id="complainModalLabel">订单投诉</h4>
             </div>
             <div class="modal-body">
-                <h4>请输入投诉原因:</h4><br>
-                <textarea id="reason"></textarea>
+                <div class="modalText">请输入投诉原因:</div><br>
+                <textarea id="reason" class="textSize"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default"  data-dismiss="modal">取消</button>
