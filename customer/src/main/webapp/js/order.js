@@ -20,7 +20,6 @@ window.onload = function () {
     $("#submitOrder").on('click', () => {
         let foods = $1.queryUserCart(userId, shopId);
         submitOrder(foods);
-        window.location.href='/customer/html/order_page.html';
     })
     $("#deleteOrder").on('click', () => {
         $1.clearUserCart(userId, shopId);
@@ -41,14 +40,14 @@ window.onload = function () {
         alert(JSON.stringify(orderItems))
         $.ajax({
             type: "POST",
-            url: "/customer/orders/addOrder/" + shopId + "/" + customerId,
+            url: "/customer/orders/addOrder/" + shopId + "/" + customerId+"/"+$("#receiveInfoSelect").val(),
             data: JSON.stringify(orderItems),
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
-                alert("123")
                 $1.clearUserCart(userId, shopId);
-
+                $1.clearCart(shopId);
+                window.location.href='/customer/html/order_page.html';
                 $("#shopName").text(data.shopName);
             }
         });

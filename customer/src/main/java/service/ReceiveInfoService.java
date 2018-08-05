@@ -10,4 +10,6 @@ public interface ReceiveInfoService {
     public List<ReceiveInfo> findReceiveInfo(Customer customer);
     public ReceiveInfo updateReceiveInfo(ReceiveInfo receiveInfo);
     public ReceiveInfo deleteReceiveInfo(String id);
+
+    public ReceiveInfo findReceiveInfoById(String id);
 }

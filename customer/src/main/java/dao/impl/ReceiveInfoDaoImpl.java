@@ -17,6 +17,12 @@ public class ReceiveInfoDaoImpl implements ReceiveInfoDao {
     private EntityManager manager;
 
     @Override
+    public ReceiveInfo findReceiveInfoById(String id) {
+        String jpql = "from ReceiveInfo where id=:id";
+        return (ReceiveInfo) manager.createQuery(jpql).setParameter("id", id).getSingleResult();
+    }
+
+    @Override
     public ReceiveInfo addReceiveInfo(ReceiveInfo receiveInfo, Customer customer) {
         receiveInfo.setCustomer(customer);
         manager.persist(receiveInfo);
@@ -31,7 +37,7 @@ public class ReceiveInfoDaoImpl implements ReceiveInfoDao {
     @Override
     public List<ReceiveInfo> findReceiveInfo(Customer customer) {
         String jpql = "from ReceiveInfo where customer=:customer";
-        return (List<ReceiveInfo>) manager.createQuery(jpql).setParameter("customer",customer).getResultList();
+        return (List<ReceiveInfo>) manager.createQuery(jpql).setParameter("customer", customer).getResultList();
     }
 
     @Override

@@ -7,6 +7,7 @@ import pojo.enums.OrderStatusEnum;
 import service.FoodSerivce;
 import service.OrderItemService;
 import service.OrderService;
+import service.ReceiveInfoService;
 
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,8 @@ public class OrderController {
     private OrderItemService orderItemService;
     @Autowired
     private FoodSerivce foodSerivce;
+    @Autowired
+    private ReceiveInfoService receiveInfoService;
     @GetMapping(value = "/merchant/{mId}/{status}")
     public Pager findOrderByMerchant(@PathVariable(name = "mId") String mId, @PathVariable(name = "status") String status, @RequestParam int curPage, @RequestParam int pageSize) {
         return orderService.findOrderByMerchant(mId, status, curPage, pageSize);
@@ -37,23 +40,30 @@ public class OrderController {
     }
 
 
-    @PostMapping(value = "addOrder/{mId}/{cId}")
-    public Order addOrder(@RequestBody List<CartItem> cartItems, @PathVariable(name = "mId") String mId, @PathVariable(name = "cId") String cId) {
-        System.out.println(cartItems.toString());
-        System.out.println("mid :"+mId + "cid :" +cId);
+    @PostMapping(value = "addOrder/{mId}/{cId}/{receiveInfoId}")
+    public Order addOrder(@RequestBody List<CartItem> cartItems, @PathVariable(name = "mId") String mId, @PathVariable(name = "cId") String cId, @PathVariable(name = "receiveInfoId")String receiveInfoId) {
+        ReceiveInfo receiveInfo = receiveInfoService.findReceiveInfoById(receiveInfoId);
         Order order = new Order();
         order.setCreateTime(new Date());
+        order.setAddress(receiveInfo.getAddress());
+        order.setPhone(receiveInfo.getPhone());
+        order.setStatus("0");
+        order.setTotalPrice(0);
+        double totalPrice = 0;
         Order o = orderService.addOrder(order, mId, cId);
 
         for(CartItem cartItem :cartItems){
             OrderItem orderItem = new OrderItem();
             Food food = foodSerivce.findFoodByFoodId(cartItem.getId());
             orderItem.setFood(food);
-            orderItem.setFoodNum(cartItem.getNum());//脏
+            orderItem.setFoodNum(cartItem.getNum());
+            totalPrice+=food.getPrice()*cartItem.getNum();
             orderItem.setTotalPrice(food.getPrice()*cartItem.getNum());
             orderItem.setOrder(o);
             orderItemService.addOrderItem(orderItem);
         }
+        o.setTotalPrice(totalPrice);
+        orderService.updateOrder(o);
         return order;
     }
 

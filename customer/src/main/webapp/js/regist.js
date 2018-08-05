@@ -31,6 +31,8 @@ $(function () {
                 if(result!=""){
 //                    window.location.href="/customer/html/merchant.html";
                     sessionStorage.setItem('user',$("#name").val());
+                    let customerId = result.id;
+                    sessionStorage.setItem("customerId" ,customerId)
                     let userId = $("#name").val();
                     let shopId = sessionStorage.getItem("shopId");   
                     let foodCarts=$1.queryCart(shopId);

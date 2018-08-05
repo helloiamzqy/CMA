@@ -39,4 +39,9 @@ public class ReceiveInfoServiceImpl implements ReceiveInfoService {
     public ReceiveInfo deleteReceiveInfo(String id) {
         return receiveInfoDao.deleteReceiveInfo(id);
     }
+    @Transactional
+    @Override
+    public ReceiveInfo findReceiveInfoById(String id) {
+        return receiveInfoDao.findReceiveInfoById(id);
+    }
 }

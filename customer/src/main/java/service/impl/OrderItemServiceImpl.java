@@ -18,9 +18,11 @@ import service.OrderItemService;
 public class OrderItemServiceImpl implements OrderItemService {
     @Autowired
     OrderItemDao orderItemDao;
+
     @Transactional
     @Override
     public void addOrderItem(OrderItem orderItem) {
+        System.out.println(orderItem.toString());
         orderItemDao.addOrderItem(orderItem);
     }
 }
