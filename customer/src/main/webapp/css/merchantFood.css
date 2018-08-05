@@ -89,7 +89,7 @@ a{
     position: relative;
     /*margin-right: 40px;*/
     z-index: 1;
-    width: 180px;
+    width: 150px;
     border: 1px solid #ffd5b7;
     margin-left: 1px;
 }
@@ -98,7 +98,7 @@ a{
     position: relative;
     /*margin-right: 40px;*/
     z-index: 1;
-    width: 80px;
+    width: 50px;
     border: 1px solid #ffd5b7;
     margin-left: 1px;
 }
@@ -107,7 +107,7 @@ a{
     position: relative;
     /*margin-right: 40px;*/
     z-index: 1;
-    width: 200px;
+    width: 170px;
     border: 1px solid #ffd5b7;
     margin-left: 1px;
 }

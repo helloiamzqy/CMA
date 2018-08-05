@@ -53,7 +53,8 @@ public class MerchantController {
     @RequestMapping(value = "/showMerchantDetail")
     public BasicInfo findBasicInfo(String shop_id) {
         System.out.println("shop_id :"+shop_id);
-        return basicInfoService.findBasicInfoById(shop_id);
+//        return basicInfoService.findBasicInfoById(shop_id);
+        return basicInfoService.findBasicInfoWithRankById(shop_id);
     }
 
     @ResponseBody
