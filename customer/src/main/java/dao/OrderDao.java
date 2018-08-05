@@ -16,4 +16,5 @@ public interface OrderDao {
     public Pager findAllOrderByMerchant(int curPage, int pageSize, Merchant merchant);
     public Pager findOrderByStatus(Customer customer, List<String> status, int curPage, int pageSize);
     public void autoSuccessOrder(String time);
+    public Order findOrderById(String id);
 }

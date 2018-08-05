@@ -128,4 +128,13 @@ public class OrderDaoImpl implements OrderDao {
 //        query.setParameter("time",time);
 //        query.executeUpdate();
     }
+
+    @Override
+    public Order findOrderById(String id) {
+        String jpql="from pojo.Order order where order.id=:id";
+        Query query = manager.createQuery(jpql);
+        query.setParameter("id",id);
+        Order order= (Order) query.getResultList().get(0);
+        return order;
+    }
 }

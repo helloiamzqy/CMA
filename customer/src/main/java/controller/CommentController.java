@@ -21,8 +21,8 @@ import java.util.Date;
 public class CommentController {
     @Autowired
     private CommentService commentService;
-    @Autowired
-    private OrderService orderService;
+//    @Autowired
+//    private OrderService orderService;
     @GetMapping(value = "/{mid}/comment")
     public Pager getMerchantComment(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String mid){
         return  commentService.findCommentByMerchant(curPage,pageSize,mid);
@@ -37,11 +37,15 @@ public class CommentController {
         if(comments.getList().size()==0){
             comment.setCreateTime(new Date());
             comment=commentService.addComment(oid,comment);
-            if(comment.getId()!=null){
-                Order order = comment.getOrder();
-                order.setStatus(OrderStatusEnum.COMMENT);
-                orderService.updateOrder(order);
-            }
+//            if(comment.getId()!=null){
+//                Order order = orderService.findOrderById(comment.getOrder().getId());
+//                order.setStatus(OrderStatusEnum.COMMENT);
+//                try {
+//                    orderService.updateOrder(order);
+//                }catch (Exception e){
+//                    return comment;
+//                }
+//            }
             return comment;
         }
         return null;

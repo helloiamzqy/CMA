@@ -98,5 +98,10 @@ public class OrderServiceImpl implements OrderService {
         orderDao.autoSuccessOrder(time);
     }
 
+    @Override
+    public Order findOrderById(String id) {
+        return orderDao.findOrderById(id);
+    }
+
 
 }

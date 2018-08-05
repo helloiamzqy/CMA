@@ -14,4 +14,5 @@ public interface OrderService {
     public Pager findAllOrderByCustomer(String cId, int curPage, int pageSize);
     public Pager findOrderByStatus(String cId,int curPage,int pageSize,String status);
     public void autoSuccessOrder(String time);
+    public Order findOrderById(String id);
 }

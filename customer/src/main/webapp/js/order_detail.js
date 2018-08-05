@@ -78,6 +78,12 @@ function itemComponent($view,url) {
 
 }
 $(function () {
-    let url="/customer/";
-    itemComponent($("#itemPage"),url);
+    let customerId=sessionStorage.getItem("customerId");
+    if(customerId!=null&&customerId.length==12){
+        let url="/customer/";
+        itemComponent($("#itemPage"),url);
+    }else{
+        alert("请登录后再尝试！")
+        window.location.href="/customer/html/merchant.html";
+    }
 })
