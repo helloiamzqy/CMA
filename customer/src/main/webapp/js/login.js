@@ -6,7 +6,7 @@ $(function () {
         opt.url="/customer/customer/checkLoginCustomer";
         opt.success=function(result){
             if(result!=null&&result!=""){
-                alert(JSON.stringify(result))
+                // alert(JSON.stringify(result))
             	//判断游客里面是否有购物车，有购物车则sessionStorage倒入localStorage
                 sessionStorage.setItem('user',$("#userName").val());
                 let customerId = result.id;

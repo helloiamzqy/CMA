@@ -92,10 +92,10 @@ window.onload=function () {
             for(let i=0;i<data.length;i++){
                 //拼接轮播图
                 if(i == 0) {
-                    $("#adver").append("<div class='item active'>" +'<a href="/customer/html/merchantFood.html?shop_id='+data[i].id+'">'+
+                    $("#adver").append("<div class='item active'>" +'<a href="/customer/html/merchantFood.html?shop_id='+data[i].merchantId+'">'+
                         "<img src='" + data[i].picture + "' alt=''>" + "</a></div>");
                 } else {
-                    $("#adver").append("<div class='item'>" +'<a href="/customer/html/merchantFood.html?shop_id='+data[i].id+'">'+
+                    $("#adver").append("<div class='item'>" +'<a href="/customer/html/merchantFood.html?shop_id='+data[i].merchantId+'">'+
                         "<img src='" + data[i].picture + "' alt=''>" + "</a></div>");
                 }
             }
