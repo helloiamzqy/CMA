@@ -1,7 +1,8 @@
 function CustomerComponent($view,host,mId,status) {
     let model=null;
     let cur=null;
-    let getUrl="/8a5e9d3c6507f15e016507f166760000/orders/";
+    let mid = sessionStorage.getItem("mId");
+    let getUrl="/"+mid+"/orders/";
     let page="?curPage=1&pageSize=10";
     init();
     function init() {
@@ -53,6 +54,9 @@ function CustomerComponent($view,host,mId,status) {
         })))
         .append($("<td>").append(($("<button>").addClass("am-round")).text("拒绝").on("click",(e)=>{
                 e.preventDefault();
+                let init = sessionStorage.getItem("init");
+                init--;
+                sessionStorage.setItem("init",init);
             changeOrder(order,4)
         })))
         }else if(order.status=="1"){

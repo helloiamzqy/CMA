@@ -1,6 +1,8 @@
 package controller;
 
 import dto.MerchantDto;
+import jersey.Config;
+import jersey.ServerInteraction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pojo.Merchant;
@@ -17,6 +19,8 @@ import java.util.List;
 public class MerchantController {
     @Autowired
     private MerchantManager merchantManager;
+    @Autowired
+    private ServerInteraction interaction;
     @GetMapping
     public List<Merchant> findMerchant(){
         return merchantManager.findMerchant();
@@ -36,12 +40,12 @@ public class MerchantController {
     @PostMapping(value = "login")
     public MerchantDto merchantLogin(@RequestBody Merchant merchant, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception {
         MerchantDto merchantDto=merchantManager.merchantLogin(merchant);
-        //ToDo
-//        if(merchantDto.getMerchant()!=null){
-//            session.setAttribute("merchant",merchantDto.getMerchant());
-//            request.getRequestDispatcher("/admin-table.html").forward(request,response);
-////           response.sendRedirect("/merchant/admin-table.html");
-//        }
+
+        if(merchantDto.getPswError()==null&&merchantDto.getNameError()==null&&merchantDto.getMerchant()!=null){
+               String status =  interaction.interact(Config.ask_url+merchantDto.getMerchant().getId(),"");
+               merchantDto.setStatus(status);
+        }
+
         return merchantDto;
     }
 

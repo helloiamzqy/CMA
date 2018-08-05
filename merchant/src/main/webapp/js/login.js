@@ -49,6 +49,8 @@ function RegistComponent($view,host) {
                         alert("注册成功！")
                         $("#register_form").css("display", "none");
                         $("#login_form").css("display", "block");
+                        sessionStorage.setItem("mId",data.id);
+                        window.location.href="admin-registinfo.html";
                     }
                 })
             }else {
@@ -69,7 +71,19 @@ function RegistComponent($view,host) {
                 success:function (data) {
                     if (data.nameError==null&&data.pswError==null){
                         sessionStorage.setItem("mId",data.merchant.id);
-
+                         if(data.status==1){
+                             window.location.href = "admin-index.html";
+                         }
+                         else if(data.status == 2){
+                              window.location.href="admin-reject.html";
+                         }
+                         else if(data.status == 3){
+                             sessionStorage.setItem("status","3");
+                             window.location.href="admin-registinfo.html";
+                         }
+                         else if(data.status == 0){
+                             window.location.href="admin-waiting.html";
+                         }
                     }
                     $("#login_name_error").text(data.nameError);
                     $("#pswError").text(data.pswError);

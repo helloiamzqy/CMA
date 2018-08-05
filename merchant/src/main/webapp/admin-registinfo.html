@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Amaze后台管理系统模板HTML首页 - 源码之家</title>
-    <meta name="description" content="这是一个 index 页面">
+    <title>Merchant 商家后台管理</title>
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
@@ -30,7 +29,7 @@
 
 <header class="am-topbar admin-header">
     <div class="am-topbar-brand">
-        <strong>Amaze</strong> <small>后台管理模板HTML</small>
+        <strong>Merchant</strong> <small>商家后台</small>
     </div>
 
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
@@ -57,12 +56,12 @@
 
             <div class="am-form-group">
                 <label for="address">地址：</label>
-                <input type="text" id="address" name="address" placeholder="输入邮箱" required/>
+                <input type="text" id="address" name="address" placeholder="输入地址" required/>
             </div>
 
             <div class="am-form-group">
                 <label for="phone">电话：</label>
-                <input type="text" id="phone" name="phone" placeholder="输入网址" required/>
+                <input type="text" id="phone" name="phone" placeholder="输入电话" required/>
             </div>
 
             <div class="am-form-group">
@@ -81,9 +80,8 @@
             </div>
             <img id="picSrc" src="">
 
-            <div class="am-form-group" style="display: none;">
-                <label for="comments">回馈原因：</label>
-                <textarea id="comments" name="comments" minlength="10" maxlength="100"></textarea>
+            <div class="am-alert am-alert-secondary" data-am-alert id="block" style="display: none">
+                <p id="comments"></p>
             </div>
             <button class="am-btn am-btn-secondary" type="submit">提交</button>
         </fieldset>

@@ -1,18 +1,28 @@
 $(function () {
+    let init = -1;
+    sessionStorage.setItem("init",-1);
     setInterval('polling()',3000);
 })
 
 function polling() {
+    let mid = sessionStorage.getItem("mId");
     $.ajax({
         type:'GET',
-        url:'http://localhost:8081/8a5e9d3c6507f15e016507f166760000/newOrders',
+        url:'http://localhost:8081/'+mid+'/newOrders',
         contentType: "application/json; charset=utf-8",
         dataType:"json",
         success:function (data) {
-            if ($("#newOrder").text()!=data){
-                alert("你有"+(data-$("#newOrder").text())+"条新订单")
+            let init = sessionStorage.getItem("init");
+            if(init==-1){
+                sessionStorage.setItem("init",data);
+            }else{
+                // alert("data："+data);
+                // alert("init:"+init);
+                if (init<data){
+                    alert("你有"+(data-init)+"条新订单")
+                }
+                $("#newOrder").text(data);
             }
-            $("#newOrder").text(data);
         }
     })
 }

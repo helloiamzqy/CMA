@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze后台管理系统模板HTML表单页面 - 源码之家</title>
+  <title>Merchant 商家管理后台</title>
   <meta name="description" content="这是一个form页面">
   <meta name="keywords" content="form">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="assets/css/admin.css">
   <script src="js/jquery.js"></script>
   <script src="js/jquery.form.js"></script>
+  <script src="js/polling.js"></script>
 </head>
 <style>
   img{
@@ -27,7 +28,7 @@
 <div id="adApp">
 <header class="am-topbar admin-header">
   <div class="am-topbar-brand">
-    <strong>Amaze</strong> <small>后台管理模板HTML</small>
+    <strong>Merchant</strong> <small>商家后台管理</small>
   </div>
 
   <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
@@ -35,7 +36,7 @@
   <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
     <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 新订单 <span class="am-badge am-badge-warning">5</span></a></li>
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 新订单 <span class="am-badge am-badge-warning" id="newOrder"></span></a></li>
       <li class="am-dropdown" data-am-dropdown>
         <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
           <span class="am-icon-users"></span> 商家姓名 <span class="am-icon-caret-down"></span>
@@ -59,27 +60,15 @@
         <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 商家管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
         <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
           <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 商家资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-          <li><a href="admin-gallery.html"><span class="am-icon-th"></span> 菜品管理<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
+          <li><a href="admin-food.html"><span class="am-icon-th"></span> 菜品管理<span class="am-badge am-badge-secondary am-margin-right am-fr"></span></a></li>
         </ul>
       </li>
       <li><a href="admin-table.html"><span class="am-icon-table"></span> 订单查询</a></li>
       <li><a href="admin-ad.html"><span class="am-icon-pencil-square-o"></span> 广告申请</a></li>
+      <li><a href="admin-complain.html"><span class="am-icon-table"></span> 投诉查看</a></li>
       <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
     </ul>
 
-    <div class="am-panel am-panel-default admin-sidebar-panel">
-      <div class="am-panel-bd">
-        <p><span class="am-icon-bookmark"></span> 公告</p>
-        <p>时光静好，与君语；细水流年，与君同。—— Amaze</p>
-      </div>
-    </div>
-
-    <div class="am-panel am-panel-default admin-sidebar-panel">
-      <div class="am-panel-bd">
-        <p><span class="am-icon-tag"></span> wiki</p>
-        <p>Welcome to the Amaze wiki!</p>
-      </div>
-    </div>
   </div>
   <!-- sidebar end -->
 
@@ -154,7 +143,6 @@
 
 <footer>
   <hr>
-  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license. <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
 </footer>
 </div>
 
