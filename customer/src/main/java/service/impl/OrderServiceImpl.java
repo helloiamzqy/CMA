@@ -92,4 +92,11 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.findOrderByStatus(customer,statuss,curPage,pageSize);
     }
 
+    @Transactional
+    @Override
+    public void autoSuccessOrder(String time) {
+        orderDao.autoSuccessOrder(time);
+    }
+
+
 }
