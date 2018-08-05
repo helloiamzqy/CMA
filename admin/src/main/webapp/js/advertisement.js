@@ -30,7 +30,8 @@ function AdvertisementComponent($view, url) {
                 merNewCount = unReadCount.merchantInfoNewCount;
                 renderBar();
             });
-            //makePage(advertisements);
+            model = model.reverse()
+            makePage(model);
             renderTable();
         });
 
@@ -45,16 +46,17 @@ function AdvertisementComponent($view, url) {
             let data = JSON.parse(evt.data);
             if (data.className=="Advertisement"){
                 if(model.length>=$("#pageSize").val()){
+                    model = model.reverse();
                     model.push(data);
+                    model = model.reverse();
                     // model.sort(function (a,b) {
                     //     return b.createTime - a.createTime;
                     // });
                     renderTable();
                 }else{
+                    model = model.reverse();
                     model.push(data);
-                    model.sort(function (a,b) {
-                        return b.createTime - a.createTime;
-                    });
+                    model = model.reverse();
                 }
                 renderTable();
             }else if (data.className=="Complaint") {

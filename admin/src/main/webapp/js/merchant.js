@@ -38,7 +38,8 @@ function MerchantComponent($view, url, type, tag) {
 
                 renderBar();
             });
-            makePage(mer);
+            model = model.reverse()
+            makePage(model);
             renderTable();
         });
 
@@ -54,13 +55,17 @@ function MerchantComponent($view, url, type, tag) {
             if (type == "0"){
                 if (data.className=="MerchantInfo"){
                     if(model.length>=$("#pageSize").val()){
+                        model = model.reverse();
                         model.push(data);
+                        model = model.reverse();
                         // model.sort(function (a,b) {
                         //     return b.createTime - a.createTime;
                         // });
                         renderTable();
                     }else{
+                        model = model.reverse();
                         model.push(data);
+                        model = model.reverse();
                         // model.sort(function (a,b) {
                         //     return b.createTime - a.createTime;
                         // });
