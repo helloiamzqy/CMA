@@ -120,4 +120,12 @@ public class OrderDaoImpl implements OrderDao {
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, orders);
         return pager;
     }
+
+    @Override
+    public void autoSuccessOrder(String time) {
+//        String jpql="update pojo.Order order set order.status='3' order.finishTime=SYSDATE() where ((SYSDATE()-order.createTime)>:time) and (order.status='1' or order.status='2')";
+//        Query query = manager.createQuery(jpql);
+//        query.setParameter("time",time);
+//        query.executeUpdate();
+    }
 }
