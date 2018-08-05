@@ -2,7 +2,7 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +26,7 @@ public class CustomerController {
     @ResponseBody
     @RequestMapping(value = "/checkLoginCustomer")
     public Customer loginCustomer(@RequestBody Customer customer) {
+        customer.setPassword(DigestUtils.md5DigestAsHex(customer.getPassword().getBytes()));
         System.out.println(customer.getName()+"/" + customer.getPassword());
         return customerService.checkLoginCustomer(customer);
     }
@@ -33,7 +34,7 @@ public class CustomerController {
     @ResponseBody
     @RequestMapping(value = "/registCustomer")
     public Customer registCustomer(@RequestBody Customer customer) {
-        System.out.println(customer.getName()+"/" + customer.getPassword());
+        customer.setPassword(DigestUtils.md5DigestAsHex(customer.getPassword().getBytes()));
       return customerService.addCustomer(customer);
     }
     @ResponseBody
