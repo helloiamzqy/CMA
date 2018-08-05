@@ -89,7 +89,16 @@ a{
     position: relative;
     /*margin-right: 40px;*/
     z-index: 1;
-    width: 100px;
+    width: 180px;
+    border: 1px solid #ffd5b7;
+    margin-left: 1px;
+}
+.detail3{
+    text-align: center;
+    position: relative;
+    /*margin-right: 40px;*/
+    z-index: 1;
+    width: 80px;
     border: 1px solid #ffd5b7;
     margin-left: 1px;
 }
@@ -98,7 +107,7 @@ a{
     position: relative;
     /*margin-right: 40px;*/
     z-index: 1;
-    width: 180px;
+    width: 200px;
     border: 1px solid #ffd5b7;
     margin-left: 1px;
 }

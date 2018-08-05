@@ -77,7 +77,7 @@
             dataType: "json",
             success: function (data) {
             	console.log(data);
-            	let html = '<div class="shopImg"><img src="' + data.picture + '" alt="..." class="img-thumbnail" width="140" height="140"><span>' + data.shopName + "<span></div>";
+            	let html = '<div class="shopImg"><img src="' + data.picture + '" alt="..." class="img-thumbnail" width="280" height="240"><span>' + data.shopName + "<span></div>";
             	$("#imgDiv").append(html);
             	$("#shopTime").text(getBusinessTime(data.openTime)+'-'+getBusinessTime(data.closeTime));
             	$("#deli_fee").text(data.deliFee);

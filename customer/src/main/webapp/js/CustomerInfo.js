@@ -40,10 +40,10 @@ function OrderComponent($view, url, customerId) {
         let $div = $view.find("#customerInfo tbody");
         $div.empty();
 
-        $("<tr>")
-            .append($("<td>").text("你的id："))
-            .append($("<td>").text(data.id))
-            .appendTo($div);
+        // $("<tr>")
+        //     .append($("<td>").text("你的id："))
+        //     .append($("<td>").text(data.id))
+        //     .appendTo($div);
         $("<tr>")
             .append($("<td>").text("用户名："))
             .append($("<td>").text(data.name))
@@ -60,7 +60,7 @@ function OrderComponent($view, url, customerId) {
     function updateReceiveInfo() {
         // alert(JSON.stringify(receiveInfo))
         // alert(receiveInfo.id)
-        alert(updateId)
+        // alert(updateId)
         let jsonData ={'id':updateId,'phone':$("#updateReceiveInfoPhone").val(),'address':$("#updateReceiveInfoAddress").val()}
         let api = url + "/receiveInfo/"+customerId;
         myAjax(api, "PUT", jsonData, (data) => {
@@ -92,12 +92,12 @@ function OrderComponent($view, url, customerId) {
                 .append($("<td>").text(receiveInfo.address))
                 .append($("<td>").text(receiveInfo.phone))
                 .append($("<td>")
-                    .append($("<button>")
+                    .append($("<button class='btn btn-danger' type='button'>")
                         .text("删除")
                         .on("click",(e)=>deleteReceiveInfo(receiveInfo))
                     ))
                 .append($("<td>")
-                    .append($("<button>")
+                    .append($("<button class='btn btn-warning' type='button'>")
                         .text("修改")
                         .on("click",(e)=>{
                             $('#updateReceiveInfoAddress').val(receiveInfo.address);

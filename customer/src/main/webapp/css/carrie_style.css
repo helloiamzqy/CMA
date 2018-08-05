@@ -1,12 +1,13 @@
 body{
-    background-image: url("../image/bg6.jpg");
+    background-image: url("../image/backpic2.jpg");
 }
 .carrie_body{
     width: 1000px;
     /*height: 2000px;*/
     min-height: 880px;
     margin: 10px auto;
-    background-color: #fff7d5;
+    /*background-color: #fff7d5;*/
+    background:#f574651a;
 }
 #carrie_header{
     width: 500px;
