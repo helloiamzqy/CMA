@@ -142,6 +142,7 @@ function ComplaintComponent($view, url) {
         myAjax(url,"PUT",null,(e)=>{
             let index = model.indexOf(cur);
             model.splice(index,1);
+            $("#ComplaintModal").modal("hide");
             renderTable();
         })
     }

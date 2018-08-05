@@ -115,8 +115,9 @@ function MerchantComponent($view, url, type, tag) {
                 .append($("<td>")
                     .append(addBtn(type,merchant)))
                 .on("dblclick",(e)=>{
-                    updateIsRead(merchant);
+                    // updateIsRead(merchant);
                     rendermodal(merchant,type);
+
                 })
                 .appendTo($tbody)
             if(tag==1){//待审核页面
@@ -176,7 +177,7 @@ function MerchantComponent($view, url, type, tag) {
             let index = model.indexOf(cur);
             model.splice(index,1,cb);
             renderTable();
-        })
+        });
     }
 
     function addBtn(type,merchant) {
@@ -213,7 +214,7 @@ function MerchantComponent($view, url, type, tag) {
 
     function changeStatus(merchant,status){
         $("#MerchantModal").modal("hide");//隐藏模态框
-        cur = merchant;
+        // cur = merchant;
         merchant.status = status;
         merchant.isRead = "true";
         let url = "http://localhost:9090/admin/merchantInfo/update"
