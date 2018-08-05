@@ -57,4 +57,10 @@ public class ComplaintDaoImpl implements ComplaintDao {
                 .setMaxResults(end)
                 .getResultList();
     }
+
+    @Override
+    public Complaint updateComplaint(Complaint complaint) {
+        Complaint comp = em.merge(complaint);
+        return comp;
+    }
 }

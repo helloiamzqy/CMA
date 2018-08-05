@@ -46,14 +46,18 @@ function ComplaintComponent($view,url) {
             console.log(evt);
             let data = JSON.parse(evt.data);
             if (data.className=="Complaint"){
-                let buf = model.reverse();
-                buf.splice(buf.length-1,1,data);
-                model = buf.reverse();
+                let bt = model.splice(model.length-1,1,data);
+                model = bt;
+                model.sort(function (a,b) {
+                    return b - a;
+                });
                 renderTable();
             }else if (data.className=="Advertisement") {
-                $("#advertisementItem")
+                adNewCount++;
+                renderBar();
             }else{
-
+                merNewCount++;
+                renderBar();
             }
 
         }
@@ -89,7 +93,6 @@ function ComplaintComponent($view,url) {
             if (model[i].isRead=="false"){
                 $("<button>").text("新").addClass("btn btn-danger").on("click",function () {
                     this.textContent = "已读";
-
                 }).appendTo(td4);
             }else{
                 $("<button>").text("已读").addClass("btn btn-danger").appendTo(td4);

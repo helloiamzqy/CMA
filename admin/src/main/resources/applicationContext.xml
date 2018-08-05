@@ -27,7 +27,7 @@
 	</mvc:interceptors>
 
 	<context:annotation-config></context:annotation-config>
-	<context:component-scan base-package="service,dao,listener,containers,"></context:component-scan>
+	<context:component-scan base-package="service,dao,listener,containers"></context:component-scan>
 
 
 	<import resource="databaseApplication.xml"></import>

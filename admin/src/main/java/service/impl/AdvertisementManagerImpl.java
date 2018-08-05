@@ -85,4 +85,10 @@ public class AdvertisementManagerImpl implements AdvertisementManager {
         page.setDataList(list);
         return page;
     }
+
+    @Transactional
+    @Override
+    public Advertisement updateAdvertisement(Advertisement advertisement) {
+        return advertisementDao.updateAdvertisement(advertisement);
+    }
 }

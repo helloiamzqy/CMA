@@ -25,7 +25,7 @@ public class WebSocketManagerImpl implements WebSocketManager {
     @Override
     public void sendMessage(String key,String data) throws Exception{
         System.out.println("在发送信息前，container的大小为：" + container.getSize() + "  session为：" + container.getSession(key));
-        WebSocketSession session = container.getSession(key);
+        WebSocketSession session = container.getAllSessions().get(0);
         session.sendMessage(new TextMessage(data));
     }
 }

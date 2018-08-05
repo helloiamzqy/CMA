@@ -59,4 +59,9 @@ public class ComplaintManagerImpl implements ComplaintManager {
     public List<Complaint> getComplaintById(String id) {
         return complaintDao.getComplaintById(id);
     }
+
+    @Override
+    public Complaint updateComplaint(Complaint complaint) {
+        return complaintDao.updateComplaint(complaint);
+    }
 }
