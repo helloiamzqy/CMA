@@ -123,7 +123,7 @@ function OrderComponent($view,url,operation,customerId) {
                 .append($("<td>").text(order.id))
                 .append($("<td>").text(order.merchant.name))
                 .append($("<td>").text(order.formatCreateTime))
-                .append($("<td>").text(order.totalPrice))
+                .append($("<td>").text(order.totalPrice+" 元"))
                 .append($("<td>").text(order.formatStatus))
                 .append($("<td>").append($("<button>").text("查看详情").on("click",()=>{orderDetail(order)})))
             if(operation=="/finished"){

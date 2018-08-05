@@ -69,8 +69,8 @@
     </div>
 </nav>
 <div id="orderPage">
-    <div id="textTop"></div>
-    <h2 id="totalText">订单列表</h2>
+    <div class="textTop"></div>
+    <h2 class="totalText">订单列表</h2>
     <div class="panel panel-default">
     <table id="orderList" class="table table-striped table-hover">
         <thead>
@@ -131,7 +131,7 @@
             </div>
             <div class="modal-body">
                 <span class="modalText">请选择好评度：</span>
-                <select id="rank" class="modalText">
+                <select id="rank" class="form-control">
                     <option value="1">*</option>
                     <option value="2">**</option>
                     <option value="3">***</option>
@@ -139,7 +139,7 @@
                     <option value="5">*****</option>
                 </select>
                 <div class="modalText">请输入评论内容:</div><br>
-                <textarea id="content" class="textSize"></textarea>
+                <textarea id="content" class="form-control" rows="3"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -157,7 +157,7 @@
             </div>
             <div class="modal-body">
                 <div class="modalText">请输入投诉原因:</div><br>
-                <textarea id="reason" class="textSize"></textarea>
+                <textarea id="reason" class="form-control" rows="3"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default"  data-dismiss="modal">取消</button>
