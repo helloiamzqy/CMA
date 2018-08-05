@@ -51,9 +51,9 @@ function itemComponent($view,url) {
             $("<tr>")
                 .append($("<td>").text(item.food.foodName))
                 .append($("<td>").append($("<img>").attr("src",item.food.picture).attr("width","180px").attr("height","100px")))
-                .append($("<td>").text(item.food.price))
-                .append($("<td>").text(item.foodNum))
-                .append($("<td>").text(item.totalPrice))
+                .append($("<td>").text(item.food.price+" 元"))
+                .append($("<td>").text(item.foodNum+" 份"))
+                .append($("<td>").text(item.totalPrice+" 元"))
                 .appendTo($tbody);
         })
     }
@@ -62,8 +62,9 @@ function itemComponent($view,url) {
         $("#orderId").text(order.id);
         $("#orderStatus").text(order.formatStatus);
         $("#createTime").text(order.formatCreateTime);
+        if(order.formatFinishTime=="1970-01-01 08:00:00"){order.formatFinishTime="订单还未完成"}
         $("#finishTime").text(order.formatFinishTime);
-        $("#totalPrice").text(order.totalPrice);
+        $("#totalPrice").text(order.totalPrice+" 元");
         $("#customerName").text(order.customer.name);
         $("#customerPhone").text(order.phone);
         $("#customerAddr").text(order.address);

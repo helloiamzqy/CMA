@@ -75,10 +75,8 @@ function OrderComponent($view,url,operation,customerId) {
                 data.merchantName=order_temp.merchant.name;
                 data.merchantId=order_temp.merchant.id;
                 data.orderId=order_temp.id;
-                alert(order_temp.formatStatus)
                 myAjax(complainUrl,"POST",data,(complain)=>{
                     $('#complainModal').modal('hide');
-                    alert(JSON.stringify(complain))
                     if(complain){
                         order_temp.formatStatus="已投诉";
                         alert("投诉成功");
@@ -110,9 +108,7 @@ function OrderComponent($view,url,operation,customerId) {
     }
     function getOrder() {
         let api=url+"orders/customer/"+customerId+operation+order_url;
-        alert(api)
         myAjax(api,"GET",null,(orders)=>{
-            alert(JSON.stringify(orders))
             order_model=orders.list;
             renderOrder();
         })
