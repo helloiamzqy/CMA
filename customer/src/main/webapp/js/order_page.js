@@ -176,7 +176,7 @@ function format(order) {
 ///////////////////////// start ///////////////////////////////
 $(function () {
     let customerId=sessionStorage.getItem("customerId");
-    if(customerId!=null&&customerId.length==12){
+    if(customerId!=null){
         let url="/customer/";
         let operation=sessionStorage.getItem("operation");
         if(operation==null){

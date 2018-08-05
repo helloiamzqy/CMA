@@ -79,7 +79,7 @@ function itemComponent($view,url) {
 }
 $(function () {
     let customerId=sessionStorage.getItem("customerId");
-    if(customerId!=null&&customerId.length==12){
+    if(customerId!=null){
         let url="/customer/";
         itemComponent($("#itemPage"),url);
     }else{
