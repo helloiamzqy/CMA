@@ -82,11 +82,6 @@ public class BasicInfoManagerTest {
         BasicInfo basicInfo2=manager.findBasicInfoByMerchant(merchant.getId());
         Assert.assertTrue(basicInfo2.getMerchant().getId().equals(merchant.getId()));
     }
-    @Test
-     public void addBasicTen(){
-        for (int i =0 ;i <10;i++){
-            testAddBasicInfo();
-        }
-    }
+
 
 }
