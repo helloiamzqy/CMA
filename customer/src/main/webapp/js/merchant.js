@@ -1,6 +1,6 @@
 window.onload=function () {
     let currentPage = 1;
-    let pageSize = 8;
+    let pageSize = 4;
     let url="/customer/merchant/findBasicInfoByPager/";
     let method="POST";
     let headers=[{"key":"Content-Type","value":"application/json"}];
