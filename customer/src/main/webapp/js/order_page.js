@@ -175,6 +175,7 @@ function format(order) {
 $(function () {
     let url="http://10.222.29.190:8090/customer/";
     let customerId=sessionStorage.getItem("customerId");
+    alert(customerId);
     if(customerId==null){
         customerId="8a5e9d3d6507ea7b016507ea81930000";
     }

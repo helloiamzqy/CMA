@@ -4,34 +4,33 @@ function itemComponent($view,url) {
     init();
 //////////////////////////////////////////
     function init() {
-        $("#back").on("click",function () {
-            window.open("./order_page.html");
-            window.close();
-        })
-        initNav()
+        initEvent();
         renderOrder();
         getItems();
     }
 
 
 ////////////////////////// nav ////////////////////////////////
-    function initNav() {
-        alert("initNav");
+    function initEvent() {
+        $("#back").on("click",function () {
+            window.open("./order_page.html");
+            window.close();
+        })
+
         //all,finished,unreceive,doing
-        $("#allOrder").on("click",function () {
-            alert(1111);
+        $("#allOrder2").on("click",function () {
             sessionStorage.setItem("operation","/all");
             window.location.href="/customer/html/order_page.html";
         })
-        $("#finishedOrder").on("click",function () {
+        $("#finishedOrder2").on("click",function () {
             sessionStorage.setItem("operation","/finished");
             window.location.href="/customer/html/order_page.html";
         })
-        $("#unreceiveOrder").on("click",function () {
+        $("#unreceiveOrder2").on("click",function () {
             sessionStorage.setItem("operation","/unreceive");
             window.location.href="/customer/html/order_page.html";
         })
-        $("#doing").on("click",function () {
+        $("#doing2").on("click",function () {
             sessionStorage.setItem("operation","/doing");
             window.location.href="/customer/html/order_page.html";
         })
@@ -51,7 +50,7 @@ function itemComponent($view,url) {
         items.forEach((item)=>{
             $("<tr>")
                 .append($("<td>").text(item.food.foodName))
-                .append($("<td>").text(item.food.picture))
+                .append($("<td>").append($("<img>").attr("src",item.food.picture)))
                 .append($("<td>").text(item.food.price))
                 .append($("<td>").text(item.foodNum))
                 .append($("<td>").text(item.totalPrice))
