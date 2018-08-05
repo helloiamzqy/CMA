@@ -46,9 +46,11 @@ function ComplaintComponent($view,url) {
             console.log(evt);
             let data = JSON.parse(evt.data);
             if (data.className=="Complaint"){
-                let buf = model.reverse();
-                buf.splice(buf.length-1,1,data);
-                model = buf.reverse();
+                let bt = model.splice(model.length-1,1,data);
+                model = bt;
+                model.sort(function (a,b) {
+                    return b - a;
+                });
                 renderTable();
             }else if (data.className=="Advertisement") {
                 adNewCount++;

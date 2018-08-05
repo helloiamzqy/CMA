@@ -2,6 +2,12 @@ function AdvertisementComponent($view,url) {
     let model = null;
     let cur = null;
     let method="GET";
+
+    let flag = "Advertisement";
+    let wsUrl = "ws://10.222.29.192:9090/admin/sync";
+    let countUrl = "http://localhost:9090/admin/message/unReadCount/";
+    let compNewCount = 0;
+    let merNewCount = 0;
     init();
 
     function init() {
@@ -20,9 +26,38 @@ function AdvertisementComponent($view,url) {
         let path = url + "?currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
         myAjax(path,"GET",null,(ads)=>{
             model = ads.dataList;
+            myAjax(countUrl,"GET",null,(unReadCount)=>{
+                compNewCount = unReadCount.advertisementNewCount;
+                merNewCount = unReadCount.merchantInfoNewCount;
+                renderBar();
+            });
             makePage(ads);
             renderTable();
         });
+
+        let ws = new WebSocket(wsUrl);
+
+        ws.onopen = function () {
+            ws.send(flag);
+        };
+
+        ws.onmessage = function (evt) {
+            console.log(evt);
+            let data = JSON.parse(evt.data);
+            if (data.className=="Advertisement"){
+                let buf = model.reverse();
+                buf.splice(buf.length-1,1,data);
+                model = buf.reverse();
+                renderTable();
+            }else if (data.className=="Complaint") {
+                compNewCount++;
+                renderBar();
+            }else{
+                merNewCount++;
+                renderBar();
+            }
+
+        }
     }
 
     function renderTable() {
@@ -55,6 +90,20 @@ function AdvertisementComponent($view,url) {
             }
             td3.appendTo(tr);
             tr.attr("id",model[i].id).addClass("datas").appendTo($tbody);
+        }
+    }
+
+    function renderBar() {
+        if (merNewCount > 0){
+            $("#merchantInfoItem").text("待审核("+merNewCount+")");
+        } else{
+            $("#merchantInfoItem").text("待审核");
+        }
+
+        if (compNewCount > 0){
+            $("#advertisementItem").text("查看投诉("+compNewCount+")");
+        } else {
+            $("#advertisementItem").text("查看投诉");
         }
     }
 
