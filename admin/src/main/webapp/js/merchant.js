@@ -7,6 +7,7 @@ function MerchantComponent($view, url, type, tag) {
     let countUrl = "http://localhost:9090/admin/message/unReadCount/";
     let adNewCount = 0;
     let compNewCount = 0;
+    let merNewCount = 0;
     init();
 
     function init() {
@@ -30,8 +31,11 @@ function MerchantComponent($view, url, type, tag) {
     //        model = mer.dataList;
             model = mer;
             myAjax(countUrl,"GET",null,(unReadCount)=>{
+
                 adNewCount = unReadCount.advertisementNewCount;
                 compNewCount = unReadCount.complaintNewCount;
+                merNewCount = unReadCount.merchantInfoNewCount;
+
                 renderBar();
             });
             makePage(mer);
@@ -47,29 +51,41 @@ function MerchantComponent($view, url, type, tag) {
         ws.onmessage = function (evt) {
             console.log(evt);
             let data = JSON.parse(evt.data);
-            if (data.className=="MerchantInfo"){
-                if(model.length>=$("#pageSize").val()){
-                    model.push(data);
-                    // model.sort(function (a,b) {
-                    //     return b.createTime - a.createTime;
-                    // });
+            if (type == "0"){
+                if (data.className=="MerchantInfo"){
+                    if(model.length>=$("#pageSize").val()){
+                        model.push(data);
+                        // model.sort(function (a,b) {
+                        //     return b.createTime - a.createTime;
+                        // });
+                        renderTable();
+                    }else{
+                        model.push(data);
+                        // model.sort(function (a,b) {
+                        //     return b.createTime - a.createTime;
+                        // });
+                    }
+
                     renderTable();
+                }else if (data.className=="Advertisement") {
+                    adNewCount++;
+                    renderBar();
                 }else{
-                    model.push(data);
-                    // model.sort(function (a,b) {
-                    //     return b.createTime - a.createTime;
-                    // });
+                    compNewCount++;
+                    renderBar();
                 }
-
-                renderTable();
-            }else if (data.className=="Advertisement") {
-                adNewCount++;
-                renderBar();
             }else{
-                compNewCount++;
-                renderBar();
+                if (data.className=="MerchantInfo") {
+                    merNewCount++;
+                    renderBar();
+                }else if (data.className=="Advertisement") {
+                    adNewCount++;
+                    renderBar();
+                }else {
+                    compNewCount++;
+                    renderBar();
+                }
             }
-
         }
     }
 
@@ -127,6 +143,14 @@ function MerchantComponent($view, url, type, tag) {
             $("#advertisementItem").text("广告审核("+adNewCount+")");
         } else {
             $("#advertisementItem").text("广告审核");
+        }
+
+        if (type != "0"){
+            if (merNewCount > 0){
+                $("#merchantInfoItem").text("待审核("+merNewCount+")");
+            } else {
+                $("#merchantInfoItem").text("待审核");
+            }
         }
     }
 
