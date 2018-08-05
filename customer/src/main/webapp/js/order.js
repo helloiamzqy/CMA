@@ -38,7 +38,7 @@ window.onload = function () {
     }
 
     function submitOrder(orderItems) {
-        alert(orderItems)
+        alert(JSON.stringify(orderItems))
         $.ajax({
             type: "POST",
             url: "/customer/orders/addOrder/" + shopId + "/" + customerId,
@@ -52,6 +52,22 @@ window.onload = function () {
                 $("#shopName").text(data.shopName);
             }
         });
+
+    }
+
+    //渲染快递信息
+    function renderReceiveInfo(receiveInfos) {
+        alert(JSON.stringify(receiveInfos))
+        let select = $("#receiveInfoSelect")
+        select.html('')
+        if (typeof(receiveInfos) == "undefined"||receiveInfos==null) {
+            alert("快递信息为空")
+        } else {
+            receiveInfos.forEach((receiveInfo) => {
+                ($("<option value=" + receiveInfo.id +">").text("地址 ："+receiveInfo.address+"    电话 ："+receiveInfo.phone))
+                    .appendTo(select);
+            })
+        }
 
     }
 
@@ -83,17 +99,30 @@ window.onload = function () {
 
         renderDetail(foods);
     }
-
     getData(userId, shopId);
+
+    function getReceiveInfo(){
+        alert("getReceiveInfo")
+        $.ajax({
+            type: "GET",
+            url: "/customer/receiveInfo/"+customerId,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+               renderReceiveInfo(data)
+            }
+        });
+    }
+    getReceiveInfo();
     //获取商品具体信息
-    $.ajax({
-        type: "POST",
-        url: "/customer/showRestaurantDetail",
-        data: {shop_id: shopId},
-        dataType: "json",
-        success: function (data) {
-            $("#shopName").text(data.shopName);
-        }
-    });
+    // $.ajax({
+    //     type: "POST",
+    //     url: "/customer/showRestaurantDetail",
+    //     data: {shop_id: shopId},
+    //     dataType: "json",
+    //     success: function (data) {
+    //         $("#shopName").text(data.shopName);
+    //     }
+    // });
 
 }
