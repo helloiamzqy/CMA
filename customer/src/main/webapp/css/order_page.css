@@ -1,15 +1,16 @@
 #orderPage{
     width: 1000px;
     min-height: 880px;
-    margin: 10px auto;
-    background-color: #fff0d5;
+    margin: 80px auto;
+    background-color: #69847b3d;
     text-align:center
+
 }
 #itemPage{
      width: 1000px;
      min-height: 880px;
-     margin: 10px auto;
-     background-color: #fff0d5;
+     margin: 80px auto;
+     background-color: #69847b3d;
      text-align:center
  }
 .textSize{
@@ -28,4 +29,25 @@
     text-align:left;
     padding-left: 50px;
     padding-top: 50px;
+}
+body{
+    background-image: url("../image/backpic2.jpg");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+}
+#textTop{
+    height: 10px;
+    width:1000px;
+}
+#itemList{
+    font-size: 16px;
+}
+#orderList{
+    font-size: 16px;
 }
