@@ -30,7 +30,8 @@ function AdvertisementComponent($view, url) {
                 merNewCount = unReadCount.merchantInfoNewCount;
                 renderBar();
             });
-            //makePage(advertisements);
+            model = model.reverse()
+            makePage(model);
             renderTable();
         });
 
@@ -45,16 +46,17 @@ function AdvertisementComponent($view, url) {
             let data = JSON.parse(evt.data);
             if (data.className=="Advertisement"){
                 if(model.length>=$("#pageSize").val()){
+                    model = model.reverse();
                     model.push(data);
+                    model = model.reverse();
                     // model.sort(function (a,b) {
                     //     return b.createTime - a.createTime;
                     // });
                     renderTable();
                 }else{
+                    model = model.reverse();
                     model.push(data);
-                    model.sort(function (a,b) {
-                        return b.createTime - a.createTime;
-                    });
+                    model = model.reverse();
                 }
                 renderTable();
             }else if (data.className=="Complaint") {
@@ -179,8 +181,8 @@ function AdvertisementComponent($view, url) {
 
     //渲染页数
     function makePage(data){
-        let totalPage=data.totalPage;
-        let totalCount=data.totalCount;
+        let totalPage="1";
+        let totalCount=model.length;
         $(".pagination").remove();
         let page=$("#page");
         let ul=$("<ul>").addClass("pagination");
@@ -196,8 +198,8 @@ function AdvertisementComponent($view, url) {
         let li2=$("<li>").addClass("lis").appendTo(ul);
         let a2=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li2);
         $("<span>").attr("aria-hidden","true").text("尾页").appendTo(a2)
-        $("#totalPage").text(data.totalPage);
-        $("#totalCount").text(data.totalCount);
+        $("#totalPage").text("1");
+        $("#totalCount").text(model.length);
         $(".lis").on("click",function(){
             if($(this).text()=="首页"){
                 $("#currentPage").val(1);

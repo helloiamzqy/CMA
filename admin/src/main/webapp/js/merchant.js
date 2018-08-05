@@ -38,7 +38,8 @@ function MerchantComponent($view, url, type, tag) {
 
                 renderBar();
             });
-            makePage(mer);
+            model = model.reverse()
+            makePage(model);
             renderTable();
         });
 
@@ -54,13 +55,17 @@ function MerchantComponent($view, url, type, tag) {
             if (type == "0"){
                 if (data.className=="MerchantInfo"){
                     if(model.length>=$("#pageSize").val()){
+                        model = model.reverse();
                         model.push(data);
+                        model = model.reverse();
                         // model.sort(function (a,b) {
                         //     return b.createTime - a.createTime;
                         // });
                         renderTable();
                     }else{
+                        model = model.reverse();
                         model.push(data);
+                        model = model.reverse();
                         // model.sort(function (a,b) {
                         //     return b.createTime - a.createTime;
                         // });
@@ -244,8 +249,8 @@ function MerchantComponent($view, url, type, tag) {
 
     //渲染页数
     function makePage(data){
-        let totalPage=data.totalPage;
-        let totalCount=data.totalCount;
+        let totalPage="1";
+        let totalCount=model.length;
         $(".pagination").remove();
         let page=$("#page");
         let ul=$("<ul>").addClass("pagination");
@@ -261,8 +266,8 @@ function MerchantComponent($view, url, type, tag) {
         let li2=$("<li>").addClass("lis").appendTo(ul);
         let a2=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li2);
         $("<span>").attr("aria-hidden","true").text("尾页").appendTo(a2)
-        $("#totalPage").text(data.totalPage);
-        $("#totalCount").text(data.totalCount);
+        $("#totalPage").text("1");
+        $("#totalCount").text(model.length);
         $(".lis").on("click",function(){
             if($(this).text()=="首页"){
                 $("#currentPage").val(1);

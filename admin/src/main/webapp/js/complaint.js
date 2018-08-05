@@ -45,16 +45,12 @@ function ComplaintComponent($view, url) {
             let data = JSON.parse(evt.data);
             if (data.className=="Complaint"){
                 if(model.length>=$("#pageSize").val()){
-                    model.push(data);
-                    model.sort(function (a,b) {
-                        return b.createTime - a.createTime;
-                    });
+                    model.splice(model.length-1,1,data);
+                    model = sort(model);
                     renderTable();
                 }else{
                     model.push(data);
-                    model.sort(function (a,b) {
-                        return b.createTime - a.createTime;
-                    });
+                    model = sort(model);
                 }
 
                 renderTable();
@@ -208,7 +204,7 @@ function ComplaintComponent($view, url) {
     function sort(arr){
         for(let i=0;i<arr.length-1;i++){
             for(let j=0;j<arr.length-1-i;j++){
-                if(arr[j]<arr[j+1]){
+                if(arr[j].createTime<arr[j+1].createTime){
                     let temp=arr[j];
                     arr[j]=arr[j+1];
                     arr[j+1]=temp;
