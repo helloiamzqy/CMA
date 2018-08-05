@@ -8,6 +8,7 @@
     <script src="../common/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="../css/carrie_style.css">
     <script src='../js/merchant.js'></script>
+    <script src="../js/head.js"></script>
     <style>
         #ad{
             width: 1000px;
@@ -56,7 +57,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -97,8 +98,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户中心 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">修改个人信息</a></li>
-                        <li><a href="#">管理收货信息</a></li>
+                        <li><a href="/customer/html/customerInfo.html">修改个人资料</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">退出</a></li>
                     </ul>
@@ -108,16 +108,16 @@
     </div>
 </nav>
 <div class="carrie_body">
-    <br>
-    <div id="carrie_header">
-        <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a href="merchant.html">主页</a></li>
-            <li><a href="order.html">订单</a></li>
-            <li><a href="login.html">登录</a></li>
-        </ul>
-    </div>
-    <br>
-    <br>
+    <!--<br>-->
+    <!--<div id="carrie_header">-->
+        <!--<ul class="nav nav-tabs nav-justified">-->
+            <!--<li class="active"><a href="merchant.html">主页</a></li>-->
+            <!--<li><a href="order.html">订单</a></li>-->
+            <!--<li><a href="login.html">登录</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<br>-->
 
     <div id="navContent">
         <!-- start advertisement-->
@@ -159,9 +159,9 @@
 
         </div>
     </div>
-
     <!-- 4.22 14:00 carrie修改-->
     <div class="paging_nav">
+
          <div class="page">
              每页显示：
              <select id="selectSize">

@@ -1,7 +1,8 @@
 let userId = sessionStorage.getItem("user");
 let customerId = sessionStorage.getItem("customerId");
 let shopId = GetRequest().shop_id;
-let receiveInfo_model=null;
+let receiveInfo_model = null;
+
 function GetRequest() {
     var url = location.search;
     //获取url中"?"符后的字串
@@ -30,6 +31,7 @@ window.onload = function () {
     })
     $("#deleteOrder").on('click', () => {
         $1.clearUserCart(userId, shopId);
+        $1.clearCart(shopId);
         let foods = $1.queryUserCart(userId, shopId);
         renderDetail(foods);
     })
@@ -42,8 +44,9 @@ window.onload = function () {
         window.location.href = "/customer/html/login.html";
         return;
     }
+
     function addReceiveInfo() {
-        let jsonData ={'phone':$("#addReceiveInfoPhone2").val(),'address':$("#addReceiveInfoAddress2").val()}
+        let jsonData = {'phone': $("#addReceiveInfoPhone2").val(), 'address': $("#addReceiveInfoAddress2").val()}
         let api = "/customer/receiveInfo/" + customerId;
         myAjax(api, "POST", jsonData, (data) => {
             receiveInfo_model.push(data)
@@ -51,32 +54,41 @@ window.onload = function () {
             // renderReceiveInfo();
         })
     }
+
     function submitOrder(orderItems) {
+        if($("#receiveInfoSelect").val()==null){
+            alert('快递信息为空')
+            $('#addReceiveInfoModal2').modal('show');
+        }else{
         $.ajax({
             type: "POST",
-            url: "/customer/orders/addOrder/" + shopId + "/" + customerId+"/"+$("#receiveInfoSelect").val(),
+            url: "/customer/orders/addOrder/" + shopId + "/" + customerId + "/" + $("#receiveInfoSelect").val(),
             data: JSON.stringify(orderItems),
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
                 $1.clearUserCart(userId, shopId);
                 $1.clearCart(shopId);
-                window.location.href='/customer/html/order_page.html';
+                window.location.href = '/customer/html/order_page.html';
                 $("#shopName").text(data.shopName);
             }
-        });
+        });}
 
     }
 
     //渲染快递信息
     function renderReceiveInfo(receiveInfos) {
+        // if (JSON.stringify(receiveInfos) == "[]") {
+        //     alert('快递信息为空')
+        //     $('#addReceiveInfoModal2').modal('show');
+        // }
         let select = $("#receiveInfoSelect")
         select.html('')
-        if (typeof(receiveInfos) == "undefined"||receiveInfos==null) {
+        if (typeof(receiveInfos) == "undefined" || receiveInfos == null) {
             alert("快递信息为空")
         } else {
             receiveInfos.forEach((receiveInfo) => {
-                ($("<option value=" + receiveInfo.id +">").text("地址 ："+receiveInfo.address+"    电话 ："+receiveInfo.phone))
+                ($("<option value=" + receiveInfo.id + ">").text("地址 ：" + receiveInfo.address + "    电话 ：" + receiveInfo.phone))
                     .appendTo(select);
             })
         }
@@ -87,7 +99,7 @@ window.onload = function () {
     function renderDetail(foods) {
         $("#fishDishBody").html('')
         let total = 0;
-        if (typeof(foods) == "undefined"||foods==null) {
+        if (typeof(foods) == "undefined" || foods == null) {
             alert("购物车为空")
             window.history.go(-1);
         } else {
@@ -111,20 +123,22 @@ window.onload = function () {
 
         renderDetail(foods);
     }
+
     getData(userId, shopId);
 
-    function getReceiveInfo(){
+    function getReceiveInfo() {
         $.ajax({
             type: "GET",
-            url: "/customer/receiveInfo/"+customerId,
+            url: "/customer/receiveInfo/" + customerId,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
                 receiveInfo_model = data;
-               renderReceiveInfo(data)
+                renderReceiveInfo(data)
             }
         });
     }
+
     getReceiveInfo();
     //获取商品具体信息
     // $.ajax({

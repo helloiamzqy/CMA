@@ -10,6 +10,8 @@
     <script src="../js/cartUtil.js"></script>
     <script src="../js/cartService.js"></script>
      <script src="../js/order.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="../js/head.js"></script>
     <style>
         .shopName{
             font-size: 18px;
@@ -52,7 +54,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -77,10 +79,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">我的订单<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">全部订单</a></li>
-                        <li><a href="#">已完成订单</a></li>
-                        <li><a href="#">未接的订单</a></li>
-                        <li><a href="#">进行中的订单</a></li>
+                        <li><a href="#" id="allOrder">全部订单</a></li>
+                        <li><a href="#" id="finishedOrder">已完成订单</a></li>
+                        <li><a href="#" id="unreceiveOrder">未接的订单</a></li>
+                        <li><a href="#" id="doing">进行中的订单</a></li>
                     </ul>
                 </li>
             </ul>
@@ -99,8 +101,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">用户中心 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">修改个人信息</a></li>
-                        <li><a href="#">管理收货信息</a></li>
+                        <li><a href="/customer/html/customerInfo.html">管理个人资料</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">退出</a></li>
                     </ul>
@@ -112,23 +113,27 @@
 <div class="carrie_body">
 
     <br>
-    <div id="carrie_header">
-        <ul class="nav nav-tabs nav-justified">
-            <li><a href="merchant.html">主页</a></li>
-            <li class="active"><a href="order.html">订单</a></li>
-            <li><a href="login.html">登录</a></li>
-        </ul>
-    </div>
-    <br>
-    <br>
+    <!--<div id="carrie_header">-->
+        <!--<ul class="nav nav-tabs nav-justified">-->
+            <!--<li><a href="merchant.html">主页</a></li>-->
+            <!--<li class="active"><a href="order.html">订单</a></li>-->
+            <!--<li><a href="login.html">登录</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<br>-->
     <!-- order order list -->
+    <br><br><br>
+
+
     <div class="orderList">
         <div class="order">
             <div class="shopName" id="shopName"></div>
+            <center><h3>订单详情</h3></center>
             <div class="foods">
                 <table class="t table table-bordered orderTalbe" id="fishDish">
                 	<tr>
-                        <td>菜品名1</td>
+                        <td>菜品名</td>
                         <td>图片</td>
                         <td>单价</td>
                         <td>数量</td>
@@ -138,21 +143,45 @@
                 </table>
             </div>
             <div class="totalPrice">
-                <h3>总价</h3>
+                <h4>总价</h4>
                 <div class="tp" id="total">
                 </div>
+                <h5>快递信息选择</h5>
+                <select id="receiveInfoSelect">
+                </select><br>
+                <button  class="btn btn-default" id="addReceiveInfoBtn2">添加新的收件信息</button>
+                <div>
+                    <button  class="btn btn-default" id="changeOrder">返回修改</button>
+                    <!--<button id="deleteOrder">删除</button>-->
+                    <button  class="btn btn-default" id="submitOrder">确认下单</button>
+                </div>
             </div>
-            <div>
-                <button id="changeOrder">返回</button>
-                <button id="deleteOrder">删除</button>
-                <button id="submitOrder">提交</button>
-            </div>
+
         </div>
 
     </div>
 
     <!-- order order list -->
 
+</div>
+
+<div class="modal fade" id="addReceiveInfoModal2" tabindex="-1" role="dialog" aria-labelledby="successModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="successModalLabel">收货信息</h4>
+            </div>
+            <div class="modal-body">
+                <h4>请输入新的收货信息：</h4>
+                <label>电话：</label><input id="addReceiveInfoPhone2"><br>
+                <label>地址：</label><input id="addReceiveInfoAddress2"><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">返回</button>
+                <button type="button" class="btn btn-default" id="addReceiveInfo2">提交</button>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

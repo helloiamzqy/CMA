@@ -79,12 +79,11 @@
             	console.log(data);
             	let html = '<div class="shopImg"><img src="' + data.picture + '" alt="..." class="img-thumbnail" width="140" height="140"><span>' + data.shopName + "<span></div>";
             	$("#imgDiv").append(html);
-            	$("#shopTime").text(data.openTime+'-'+data.closeTime);
+            	$("#shopTime").text(getBusinessTime(data.openTime)+'-'+getBusinessTime(data.closeTime));
             	$("#deli_fee").text(data.deliFee);
             	$("#slogan").text(data.slogan);
             }
         });
-
     }
     //清空购物车
     function clearCart(){

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../css/merchantFood.css">
     <script src="../js/merchantFood.js"></script>
     <script src="../js/cartService.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="../js/head.js"></script>
     <style>
 
         #dish {
@@ -105,7 +107,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -130,10 +132,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">我的订单<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">全部订单</a></li>
-                        <li><a href="#">已完成订单</a></li>
-                        <li><a href="#">未接的订单</a></li>
-                        <li><a href="#">进行中的订单</a></li>
+                        <li><a href="#" id="allOrder">全部订单</a></li>
+                        <li><a href="#" id="finishedOrder">已完成订单</a></li>
+                        <li><a href="#" id="unreceiveOrder">未接的订单</a></li>
+                        <li><a href="#" id="doing">进行中的订单</a></li>
                     </ul>
                 </li>
             </ul>
@@ -152,8 +154,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">用户中心 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">修改个人信息</a></li>
-                        <li><a href="#">管理收货信息</a></li>
+                        <li><a href="/customer/html/customerInfo.html">管理个人资料</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">退出</a></li>
                     </ul>

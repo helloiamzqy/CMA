@@ -11,10 +11,10 @@ body{
 }
 #carrie_header{
     width: 500px;
-    background-color: #ffa23b;
-    border: 3px solid #ffa23b;
+    /*background-color: #ffa23b;*/
+    /*border: 3px solid #ffa23b;*/
     margin: 100px 15px;
-    color: #000;
+    /*color: #000;*/
     font-weight: 700;
 }
 .form_style{

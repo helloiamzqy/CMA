@@ -48,7 +48,7 @@ function OrderComponent($view,url,operation,customerId) {
                 let data=new Object();
                 data.content=$("#content").val();
                 data.rank=$("#rank").val();
-                alert(data.rank);
+                // alert(data.rank);
                 myAjax(commentUrl,"POST",data,(comment)=>{
                     $('#commentModal').modal('hide');
                     if(comment){
@@ -109,9 +109,9 @@ function OrderComponent($view,url,operation,customerId) {
     }
     function getOrder() {
         let api=url+"orders/customer/"+customerId+operation+order_url;
-        alert(api)
+        // alert(api)
         myAjax(api,"GET",null,(orders)=>{
-            alert(JSON.stringify(orders))
+            // alert(JSON.stringify(orders))
             order_model=orders.list;
             renderOrder();
         })
@@ -176,7 +176,7 @@ function format(order) {
 $(function () {
     let url="/customer/";
     let customerId=sessionStorage.getItem("customerId");
-    alert(customerId);
+    // alert(customerId);
     if(customerId==null){
         customerId="8a5e9d3d6507ea7b016507ea81930000";
     }
