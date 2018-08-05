@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pojo.MerchantInfo;
+import pojo.Page;
 import service.MerchantInfoManager;
 
 import java.util.List;
@@ -49,5 +50,25 @@ public class MerchantInfoManagerImpl implements MerchantInfoManager {
     @Transactional
     public MerchantInfo findMechantInfoByMerchantId(String merchantId) {
         return merchantInfoDao.findMechantInfoByMerchantId(merchantId);
+    }
+
+    @Override
+    public Page<MerchantInfo> getMerchantInfoByPage(String status,int currentPage, int pageSize) {
+        Page<MerchantInfo> page=new Page<MerchantInfo>();
+        page.setCurrentPage(currentPage);
+        page.setPageSize(pageSize);
+        int totalCount=merchantInfoDao.getMerchantInfoCount();
+        page.setTotalCount(totalCount);
+        int totalPage=0;
+        if (totalCount%pageSize==0){
+            totalPage=totalCount/pageSize;
+        }else {
+            totalPage=totalCount/pageSize+1;
+        }
+        page.setTotalPage(totalPage);
+        int begin= (currentPage-1)*pageSize;
+        List<MerchantInfo> list=merchantInfoDao.getMerchantInfosByPage(status,begin,pageSize);
+        page.setDataList(list);
+        return page;
     }
 }

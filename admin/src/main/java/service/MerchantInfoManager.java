@@ -1,6 +1,7 @@
 package service;
 
 import pojo.MerchantInfo;
+import pojo.Page;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ public interface MerchantInfoManager {
     public MerchantInfo updateMerchantInfo(MerchantInfo merchantInfo);
     public List<MerchantInfo> findMechantInfosByStatus(String status);
     public MerchantInfo findMechantInfoByMerchantId(String merchantId);
-
+    public Page<MerchantInfo> getMerchantInfoByPage(String status,int currentPage, int pageSize);
 }

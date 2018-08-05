@@ -61,4 +61,19 @@ public class MerchantInfoDaoImpl implements MerchantInfoDao {
         return merchantInfos;
     }
 
+    @Override
+    public List<MerchantInfo> getMerchantInfosByPage(String status,int begin, int end) {
+        String jpql = "from pojo.MerchantInfo mer where mer.status = :status";
+        return manager.createQuery(jpql)
+                .setParameter("status",status)
+                .setFirstResult(begin)
+                .setMaxResults(end)
+                .getResultList();
+    }
+
+    @Override
+    public int getMerchantInfoCount() {
+        String jpql="select count(*) from pojo.MerchantInfo";
+        return ((Number) manager.createQuery(jpql).getSingleResult()).intValue();
+    }
 }

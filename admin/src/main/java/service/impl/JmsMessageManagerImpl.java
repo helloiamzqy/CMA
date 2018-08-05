@@ -12,6 +12,7 @@ import service.AdvertisementManager;
 import service.ComplaintManager;
 import service.JmsMessageManager;
 import service.MerchantInfoManager;
+import utils.JsonParse;
 import utils.JsonParseByJackson;
 
 import java.util.Map;
@@ -33,13 +34,13 @@ public class JmsMessageManagerImpl implements JmsMessageManager {
     @Override
     public String getMessageEntity(JmsMessage jmsMessage) {
         Gson gson = new Gson();
-
+        JsonParse<Complaint> parse = new JsonParseByJackson<Complaint>();
         if (jmsMessage.getJmsEnum().equals(JmsEnum.ADVERSITMENT)){
-            return gson.toJson(adManager.addAd( gson.fromJson(gson.toJson(jmsMessage.getObject()),Advertisement.class)));
+            return parse.parseObjectToJson(adManager.addAd( gson.fromJson(gson.toJson(jmsMessage.getObject()),Advertisement.class)));
         }else if (jmsMessage.getJmsEnum().equals(JmsEnum.COMPLAIN)){
-            return gson.toJson(complaintManager.addComplaint(gson.fromJson(gson.toJson(jmsMessage.getObject()),Complaint.class)));
+            return parse.parseObjectToJson(complaintManager.addComplaint(gson.fromJson(gson.toJson(jmsMessage.getObject()),Complaint.class)));
         }else if (jmsMessage.getJmsEnum().equals(JmsEnum.APPLY)){
-            return gson.toJson(merchantInfoManager.addMerchantInfo(gson.fromJson(gson.toJson(jmsMessage.getObject()),MerchantInfo.class)));
+            return parse.parseObjectToJson(merchantInfoManager.addMerchantInfo(gson.fromJson(gson.toJson(jmsMessage.getObject()),MerchantInfo.class)));
         }
         return null;
     }

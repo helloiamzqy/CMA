@@ -10,4 +10,6 @@ public interface MerchantInfoDao {
     public MerchantInfo updateMerchantInfo(MerchantInfo merchantInfo);
     public List<MerchantInfo> findMechantInfosByStatus(String status);
     public MerchantInfo findMechantInfoByMerchantId(String merchantId);
+    public List<MerchantInfo> getMerchantInfosByPage(String status,int begin,int end);
+    public int getMerchantInfoCount();
 }

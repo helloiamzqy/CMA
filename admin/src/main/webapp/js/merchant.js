@@ -1,18 +1,79 @@
 function MerchantComponent($view, url, type, tag) {
     let model = null;
     let cur;
+    let flag = "Merchant";
 
+    let wsUrl = "ws://10.222.29.192:9090/admin/sync";
+    let countUrl = "http://localhost:9090/admin/message/unReadCount/";
+    let adNewCount = 0;
+    let compNewCount = 0;
     init();
 
     function init() {
+        //改变每页显示的数据数
+        $("#pageSize").on("blur",function () {
+            $(".datas").remove();
+       //     let path = url + "?status=0&"+"currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
+            let path = url ;
 
-        myAjax(url,"GET",null,(merchants)=>{
-            model = merchants;
-            render();
-        })
+            myAjax(path,"GET",null,(comp)=>{
+                model = comp.dataList;
+                makePage(comp);
+                renderTable();
+            });
+        });
+
+        //获取数据
+      //  let path = url + "?status=0&"+ "currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
+        let path = url ;
+        myAjax(path,"GET",null,(mer)=>{
+    //        model = mer.dataList;
+            model = mer;
+            myAjax(countUrl,"GET",null,(unReadCount)=>{
+                adNewCount = unReadCount.advertisementNewCount;
+                compNewCount = unReadCount.complaintNewCount;
+                renderBar();
+            });
+            makePage(mer);
+            renderTable();
+        });
+
+        let ws = new WebSocket(wsUrl);
+
+        ws.onopen = function () {
+            ws.send(flag);
+        };
+
+        ws.onmessage = function (evt) {
+            console.log(evt);
+            let data = JSON.parse(evt.data);
+            if (data.className=="MerchantInfo"){
+                if(model.length>=$("#pageSize").val()){
+                    model.push(data);
+                    // model.sort(function (a,b) {
+                    //     return b.createTime - a.createTime;
+                    // });
+                    renderTable();
+                }else{
+                    model.push(data);
+                    // model.sort(function (a,b) {
+                    //     return b.createTime - a.createTime;
+                    // });
+                }
+
+                renderTable();
+            }else if (data.className=="Advertisement") {
+                adNewCount++;
+                renderBar();
+            }else{
+                compNewCount++;
+                renderBar();
+            }
+
+        }
     }
 
-    function render() {
+    function renderTable() {
         let $tbody = $view.find("#merchantList tbody");
         $tbody.empty();
         model.forEach((merchant)=>{
@@ -57,6 +118,20 @@ function MerchantComponent($view, url, type, tag) {
         })
     }
 
+    function renderBar() {
+        if (compNewCount > 0){
+            $("#complaintItem").text("投诉审核("+compNewCount+")");
+        } else{
+            $("#complaintItem").text("投诉审核");
+        }
+
+        if (adNewCount > 0){
+            $("#advertisementItem").text("广告审核("+adNewCount+")");
+        } else {
+            $("#advertisementItem").text("广告审核");
+        }
+    }
+
     function updateIsRead(merchant) {
         cur = merchant;
         merchant.isRead = "true";
@@ -64,7 +139,7 @@ function MerchantComponent($view, url, type, tag) {
         myAjax(url,"PUT",merchant,(cb)=>{
             let index = model.indexOf(cur);
             model.splice(index,1,cb);
-            render();
+            renderTable();
         })
     }
 
@@ -110,7 +185,7 @@ function MerchantComponent($view, url, type, tag) {
         let merchant1 = myAjax(url,"PUT",merchant,(e)=>{
             let index = model.indexOf(cur);
             model.splice(index,1);
-            render();
+            renderTable();
         })
     }
 
@@ -135,5 +210,45 @@ function MerchantComponent($view, url, type, tag) {
         $("#optBtn")
             .append(addBtn(type,merchant));
         $("#MerchantModal").modal("show");
+    }
+
+    //渲染页数
+    function makePage(data){
+        let totalPage=data.totalPage;
+        let totalCount=data.totalCount;
+        $(".pagination").remove();
+        let page=$("#page");
+        let ul=$("<ul>").addClass("pagination");
+        ul.appendTo(page);
+        let li1=$("<li>").addClass("lis").appendTo(ul);
+        let a1=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li1);
+        $("<span>").attr("aria-hidden","true").text("首页").appendTo(a1);
+        for(let i=0;i<totalPage;i++){
+            let li=$("<li>").addClass("lis");
+            $("<a>").attr("href","#").text(i+1).appendTo(li);
+            li.appendTo(ul);
+        }
+        let li2=$("<li>").addClass("lis").appendTo(ul);
+        let a2=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li2);
+        $("<span>").attr("aria-hidden","true").text("尾页").appendTo(a2)
+        $("#totalPage").text(data.totalPage);
+        $("#totalCount").text(data.totalCount);
+        $(".lis").on("click",function(){
+            if($(this).text()=="首页"){
+                $("#currentPage").val(1);
+            }else if($(this).text()=="尾页"){
+                $("#currentPage").val(totalPage);
+            }else{
+                $("#currentPage").val($(this).text());
+            }
+            $(".datas").remove();
+        //    let path = url+ "?status=0&" + "currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
+            let path = url ;
+            myAjax(path,"GET",null,(comp)=>{
+                model = comp.dataList;
+                makePage(comp);
+                renderTable();
+            });
+        })
     }
 }

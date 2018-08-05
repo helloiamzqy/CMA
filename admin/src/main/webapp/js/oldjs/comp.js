@@ -1,7 +1,6 @@
 function ComplaintComponent($view,url) {
     let model = null;
     let cur = null;
-    let method="GET";
     let flag = "Complaint";
     let wsUrl = "ws://10.222.29.192:9090/admin/sync";
     let countUrl = "http://localhost:9090/admin/message/unReadCount/";
@@ -46,9 +45,8 @@ function ComplaintComponent($view,url) {
             console.log(evt);
             let data = JSON.parse(evt.data);
             if (data.className=="Complaint"){
-                let bt = model.splice(model.length-1,1,data);
-                model = bt;
-                model.sort(function (a,b) {
+                model.splice(model.length-1,1,data);
+                model = model.sort(function (a,b) {
                     return b - a;
                 });
                 renderTable();
@@ -61,12 +59,13 @@ function ComplaintComponent($view,url) {
             }
 
         }
-        
+
     }
 
     function renderTable() {
         console.log("重新渲染表格");
         let $tbody = $("#ads tbody").empty();
+
         for(let i=0;i<model.length;i++){
             let tr=$("<tr>");
             $("<td>").text(model[i].orderId).appendTo(tr);
@@ -171,6 +170,7 @@ function ComplaintComponent($view,url) {
             }
             $(".datas").remove();
             let path = url + "?currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
+            alert("here "+path)
             myAjax(path,"GET",null,(comp)=>{
                 model = comp.dataList;
                 makePage(comp);

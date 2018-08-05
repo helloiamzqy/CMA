@@ -50,7 +50,7 @@ public class ComplaintManagerImpl implements ComplaintManager {
         }
         page.setTotalPage(totalPage);
         int begin= (currentPage-1)*pageSize;
-        List<Complaint> list=complaintDao.getComplaintsByPage(begin,begin+pageSize);
+        List<Complaint> list=complaintDao.getComplaintsByPage(begin,pageSize);
         page.setDataList(list);
         return page;
     }
@@ -60,6 +60,7 @@ public class ComplaintManagerImpl implements ComplaintManager {
         return complaintDao.getComplaintById(id);
     }
 
+    @Transactional
     @Override
     public Complaint updateComplaint(Complaint complaint) {
         return complaintDao.updateComplaint(complaint);

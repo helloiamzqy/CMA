@@ -34,8 +34,7 @@ public class MessageController {
     public String getMerchantStatus(@PathVariable String id){
         MerchantInfo merchantInfo = merchantInfoManager.findMechantInfoByMerchantId(id);
         String status=merchantInfo.getStatus();
-        String result="{\"status\":\""+status+"\"}";
-        return result;
+        return status;
     }
 
 //    @RequestMapping(value = "advertisement",method = RequestMethod.GET)

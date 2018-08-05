@@ -1,18 +1,75 @@
 function ComplaintComponent($view, url) {
     let model = null;
     let cur;
+    let flag = "Complaint";
 
+    let wsUrl = "ws://10.222.29.192:9090/admin/sync";
+    let countUrl = "http://localhost:9090/admin/message/unReadCount/";
+    let adNewCount = 0;
+    let merNewCount = 0;
     init();
 
     function init() {
+        //改变每页显示的数据数
+        $("#pageSize").on("blur",function () {
+            $(".datas").remove();
+            let path = url + "?currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
+            myAjax(path,"GET",null,(comp)=>{
+                model = comp.dataList;
+                makePage(comp);
+                renderTable();
+            });
+        });
+
+        //获取数据
         let path = url + "?currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
-        myAjax(path,"GET",null,(complaints)=>{
-            model = complaints.dataList;
-            render();
-        })
+        myAjax(path,"GET",null,(cmop)=>{
+            model = cmop.dataList;
+            myAjax(countUrl,"GET",null,(unReadCount)=>{
+                adNewCount = unReadCount.advertisementNewCount;
+                merNewCount = unReadCount.merchantInfoNewCount;
+                renderBar();
+            });
+            makePage(cmop);
+            renderTable();
+        });
+
+        let ws = new WebSocket(wsUrl);
+
+        ws.onopen = function () {
+            ws.send(flag);
+        };
+
+        ws.onmessage = function (evt) {
+            console.log(evt);
+            let data = JSON.parse(evt.data);
+            if (data.className=="Complaint"){
+                if(model.length>=$("#pageSize").val()){
+                    model.push(data);
+                    model.sort(function (a,b) {
+                        return b.createTime - a.createTime;
+                    });
+                    renderTable();
+                }else{
+                    model.push(data);
+                    model.sort(function (a,b) {
+                        return b.createTime - a.createTime;
+                    });
+                }
+
+                renderTable();
+            }else if (data.className=="Advertisement") {
+                adNewCount++;
+                renderBar();
+            }else{
+                merNewCount++;
+                renderBar();
+            }
+
+        }
     }
 
-    function render() {
+    function renderTable() {
         let $tbody = $view.find("#ComplaintList tbody");
         $tbody.empty();
         model.forEach((complaint)=>{
@@ -29,7 +86,7 @@ function ComplaintComponent($view, url) {
                 .on("dblclick",(e)=>{
                     rendermodal(complaint);
                 })
-                .appendTo($tbody)
+                .attr("id",complaint.id).addClass("datas").appendTo($tbody)
             let td;
             if(complaint.isRead == "false"){
                 td = $("<td>")
@@ -49,6 +106,20 @@ function ComplaintComponent($view, url) {
         })
     }
 
+    function renderBar() {
+        if (merNewCount > 0){
+            $("#merchantInfoItem").text("待审核("+merNewCount+")");
+        } else{
+            $("#merchantInfoItem").text("待审核");
+        }
+
+        if (adNewCount > 0){
+            $("#advertisementItem").text("广告审核("+adNewCount+")");
+        } else {
+            $("#advertisementItem").text("广告审核");
+        }
+    }
+
     function updateIsRead(complaint) {
         cur = complaint;
         complaint.isRead = "true";
@@ -56,12 +127,11 @@ function ComplaintComponent($view, url) {
         myAjax(url,"PUT",complaint,(cb)=>{
             let index = model.indexOf(cur);
             model.splice(index,1,cb);
-            render();
+            renderTable();
         })
     }
 
     function changeStatus(complaint){
-        alert("123413")
         $("#MerchantModal").modal("hide");//隐藏模态框
         cur = complaint;
         complaint.isRead = "true";
@@ -70,7 +140,7 @@ function ComplaintComponent($view, url) {
         myAjax(url,"PUT",null,(e)=>{
             let index = model.indexOf(cur);
             model.splice(index,1);
-            render();
+            renderTable();
         })
     }
 
@@ -88,5 +158,57 @@ function ComplaintComponent($view, url) {
                 .addClass("btn btn-danger opt")
                 .on("click",(e)=>changeStatus(complaint)));
         $("#ComplaintModal").modal("show");
+    }
+
+    //渲染页数
+    function makePage(data){
+        let totalPage=data.totalPage;
+        let totalCount=data.totalCount;
+        $(".pagination").remove();
+        let page=$("#page");
+        let ul=$("<ul>").addClass("pagination");
+        ul.appendTo(page);
+        let li1=$("<li>").addClass("lis").appendTo(ul);
+        let a1=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li1);
+        $("<span>").attr("aria-hidden","true").text("首页").appendTo(a1);
+        for(let i=0;i<totalPage;i++){
+            let li=$("<li>").addClass("lis");
+            $("<a>").attr("href","#").text(i+1).appendTo(li);
+            li.appendTo(ul);
+        }
+        let li2=$("<li>").addClass("lis").appendTo(ul);
+        let a2=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li2);
+        $("<span>").attr("aria-hidden","true").text("尾页").appendTo(a2)
+        $("#totalPage").text(data.totalPage);
+        $("#totalCount").text(data.totalCount);
+        $(".lis").on("click",function(){
+            if($(this).text()=="首页"){
+                $("#currentPage").val(1);
+            }else if($(this).text()=="尾页"){
+                $("#currentPage").val(totalPage);
+            }else{
+                $("#currentPage").val($(this).text());
+            }
+            $(".datas").remove();
+            let path = url + "?currentPage="+$("#currentPage").val()+"&pageSize="+$("#pageSize").val();
+            myAjax(path,"GET",null,(comp)=>{
+                model = comp.dataList;
+                makePage(comp);
+                renderTable();
+            });
+        })
+    }
+
+    function sort(arr){
+        for(let i=0;i<arr.length-1;i++){
+            for(let j=0;j<arr.length-1-i;j++){
+                if(arr[j]<arr[j+1]){
+                    let temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        return arr;
     }
 }

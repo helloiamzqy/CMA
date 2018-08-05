@@ -3,6 +3,7 @@ package controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pojo.MerchantInfo;
+import pojo.Page;
 import service.MerchantInfoManager;
 
 import java.util.List;
@@ -21,11 +22,17 @@ public class MerchantInfoController {
     }
 
 
-    //按状态查询商家列表
+   // 按状态查询商家列表
     @GetMapping(value="/status/{status}")
     public List<MerchantInfo> findMechantInfosByStatus(@PathVariable String status){
         return manager.findMechantInfosByStatus(status);
     }
+
+//    //按状态查询商家列表
+//    @GetMapping(value="/status")
+//    public Page<MerchantInfo> findMechantInfosByStatus(@RequestParam String status,@RequestParam int currentPage, @RequestParam int pageSize ){
+//        return manager.getMerchantInfoByPage(status,currentPage,pageSize);
+//    }
 
     //按用户ID更改商家的状态为黑名单
     @PutMapping(value = "/updateStatus/{merchantId}")
@@ -35,7 +42,5 @@ public class MerchantInfoController {
         return  manager.updateMerchantInfo(merchantInfo);
 
     }
-
-
 
 }

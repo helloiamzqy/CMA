@@ -1,8 +1,6 @@
 function AdvertisementComponent($view,url) {
     let model = null;
     let cur = null;
-    let method="GET";
-
     let flag = "Advertisement";
     let wsUrl = "ws://10.222.29.192:9090/admin/sync";
     let countUrl = "http://localhost:9090/admin/message/unReadCount/";
@@ -45,9 +43,10 @@ function AdvertisementComponent($view,url) {
             console.log(evt);
             let data = JSON.parse(evt.data);
             if (data.className=="Advertisement"){
-                let buf = model.reverse();
-                buf.splice(buf.length-1,1,data);
-                model = buf.reverse();
+                model.splice(model.length-1,1,data);
+                model = model.sort(function (a,b) {
+                    return b - a;
+                });
                 renderTable();
             }else if (data.className=="Complaint") {
                 compNewCount++;
