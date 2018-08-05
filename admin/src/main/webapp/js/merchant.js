@@ -1,10 +1,11 @@
-function MerchantComponent($view, url, type) {
+function MerchantComponent($view, url, type, tag) {
     let model = null;
     let cur;
 
     init();
 
     function init() {
+
         myAjax(url,"GET",null,(merchants)=>{
             model = merchants;
             render();
@@ -15,7 +16,7 @@ function MerchantComponent($view, url, type) {
         let $tbody = $view.find("#merchantList tbody");
         $tbody.empty();
         model.forEach((merchant)=>{
-            $("<tr>")
+            let tr = $("<tr>")
                 .addClass("trCursor")
                 .append($("<td>").text(merchant.creditCode))
                 .append($("<td>").text(merchant.idCard))
@@ -35,6 +36,35 @@ function MerchantComponent($view, url, type) {
                     rendermodal(merchant,type);
                 })
                 .appendTo($tbody)
+            if(tag==1){//待审核页面
+                let td;
+                if(merchant.isRead == "false"){
+                    td = $("<td>")
+                        .attr("id","sign")
+                        .append($("<span>")
+                            .addClass("glyphicon glyphicon-envelope"))
+                        .unbind("dblclick").click((e)=>{
+                            updateIsRead(merchant);
+                        })
+                }else{
+                    td = $("<td>")
+                        .append($("<span>")
+                            .addClass("glyphicon glyphicon-check")
+                            .addClass("isRead"))
+                }
+                tr.prepend(td);
+            }
+        })
+    }
+
+    function updateIsRead(merchant) {
+        cur = merchant;
+        merchant.isRead = "true";
+        let url = "http://localhost:9090/admin/merchantInfo/update"
+        myAjax(url,"PUT",merchant,(cb)=>{
+            let index = model.indexOf(cur);
+            model.splice(index,1,cb);
+            render();
         })
     }
 
@@ -74,7 +104,9 @@ function MerchantComponent($view, url, type) {
         $("#MerchantModal").modal("hide");//隐藏模态框
         cur = merchant;
         merchant.status = status;
-        let url = "http://localhost:9090/admin/merchantInfo/updateStatus"
+        merchant.isRead = "true";
+
+        let url = "http://localhost:9090/admin/merchantInfo/update"
         let merchant1 = myAjax(url,"PUT",merchant,(e)=>{
             let index = model.indexOf(cur);
             model.splice(index,1);
@@ -105,8 +137,3 @@ function MerchantComponent($view, url, type) {
         $("#MerchantModal").modal("show");
     }
 }
-
-// $(function () {
-// let url = "http://localhost:9090/admin/merchantInfo/status/0";
-// MerchantComponent($("#app"),url,0);
-// })

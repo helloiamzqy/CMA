@@ -21,8 +21,10 @@
 .content{
     float: left;
     width: 70%;
-    height: 700px;
+    min-height: 700px;
+    max-height: 2000px;
     margin-left: 80px;
+    margin-bottom: 100px;
     background-color: rgba(255, 255, 255, 0.54);
 }
 .clear{
@@ -101,4 +103,8 @@
     margin: 50px auto;
     font-size: 35px;
     font-weight: 700;
+}
+/*已读标红*/
+.isRead{
+    color: red;
 }

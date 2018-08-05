@@ -15,7 +15,7 @@ public class MerchantInfoController {
     private MerchantInfoManager manager;
 
     //更改商家的审核状态
-    @PutMapping(value="/updateStatus")
+    @PutMapping(value="/update")
     public MerchantInfo updateMerchantInfo(@RequestBody MerchantInfo merchantInfo){
         return manager.updateMerchantInfo(merchantInfo);
     }
@@ -25,6 +25,15 @@ public class MerchantInfoController {
     @GetMapping(value="/status/{status}")
     public List<MerchantInfo> findMechantInfosByStatus(@PathVariable String status){
         return manager.findMechantInfosByStatus(status);
+    }
+
+    //按用户ID更改商家的状态为黑名单
+    @PutMapping(value = "/updateStatus/{merchantId}")
+    public MerchantInfo updateMerchantStatus(@PathVariable String merchantId){
+        MerchantInfo merchantInfo = manager.findMechantInfoByMerchantId(merchantId);
+        merchantInfo.setStatus("2");
+        return  manager.updateMerchantInfo(merchantInfo);
+
     }
 
 
