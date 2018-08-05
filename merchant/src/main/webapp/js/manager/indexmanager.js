@@ -53,7 +53,7 @@ function adComponenr($view, cpUrl,orURl,fdUrl,cmUrl,pfUrl) {
                 $("#SN").text(cp.shopName);
             },
             error:function (data) {
-                alert("请去商家界面完善您的信息，否则客户将看不到您的信息")
+                alert("请去商家界面完善您的信息，否则无法进行部分操作");
             }
         });
 

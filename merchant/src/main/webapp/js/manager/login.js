@@ -90,6 +90,9 @@ function RegistComponent($view,host) {
                          else if(data.status == 0){
                              window.location.href="admin-waiting.html";
                          }
+                         else{
+                             window.location.href="admin-registinfo.html";
+                         }
                     }
                     $("#login_name_error").text(data.nameError);
                     $("#pswError").text(data.pswError);
