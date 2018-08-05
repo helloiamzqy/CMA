@@ -61,7 +61,6 @@ function ComplaintComponent($view, url) {
     }
 
     function changeStatus(complaint){
-        alert("123413")
         $("#MerchantModal").modal("hide");//隐藏模态框
         cur = complaint;
         complaint.isRead = "true";

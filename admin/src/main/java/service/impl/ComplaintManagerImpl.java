@@ -60,6 +60,7 @@ public class ComplaintManagerImpl implements ComplaintManager {
         return complaintDao.getComplaintById(id);
     }
 
+    @Transactional
     @Override
     public Complaint updateComplaint(Complaint complaint) {
         return complaintDao.updateComplaint(complaint);

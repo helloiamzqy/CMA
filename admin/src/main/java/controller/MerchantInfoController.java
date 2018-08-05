@@ -31,6 +31,7 @@ public class MerchantInfoController {
     @PutMapping(value = "/updateStatus/{merchantId}")
     public MerchantInfo updateMerchantStatus(@PathVariable String merchantId){
         MerchantInfo merchantInfo = manager.findMechantInfoByMerchantId(merchantId);
+        System.out.print(merchantInfo.getId());
         merchantInfo.setStatus("2");
         return  manager.updateMerchantInfo(merchantInfo);
 
