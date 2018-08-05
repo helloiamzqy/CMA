@@ -15,6 +15,9 @@ function adComponenr($view, url) {
         $view.find("#applyAd").on("submit",(e)=>{
             e.preventDefault();
             let obj=$(e.target).serializeObject();
+            if(sessionStorage.getItem("basicStatus")==0){
+                alert("请完善商家信息！");
+            }
             myAjax(url,"POST",obj,()=>{
                 getData();
             });

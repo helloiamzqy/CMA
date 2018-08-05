@@ -3,7 +3,6 @@ function CustomerComponent($view,host,mId,status) {
     let cur=null;
     let mid = sessionStorage.getItem("mId");
     let getUrl="/"+mid+"/orders/";
-    // let page="?curPage=1&pageSize=10";
     init();
     function init() {
         let curPage=$("#currentPage").val();
@@ -195,7 +194,7 @@ function CustomerComponent($view,host,mId,status) {
         }
         let li2=$("<li>").addClass("lis").appendTo(ul);
         let a2=$("<a>").attr("href","#").attr("aria-label","Previous").appendTo(li2);
-        $("<span>").attr("aria-hidden","true").text("尾页").appendTo(a2)
+        $("<span>").attr("aria-hidden","true").text("尾页").appendTo(a2);
         $("#totalPage").text(data.pageTotal);
         $("#totalCount").text(data.rowsTotal);
         $(".lis").on("click",function(){
@@ -218,6 +217,6 @@ $(function () {
     $("#down").on("change",function () {
         status=$("#down").val();
     })
-    let host="http://10.222.29.188:8081/";
+    let host="http://10.222.29.188:8081";
     CustomerComponent($("#app"),host,mId,status);
 })

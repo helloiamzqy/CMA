@@ -19,6 +19,7 @@ function merchantInfoComponent($view, url) {
             }
         let obj=$(e.target).serializeObject();
         myAjax(url,"PUT",obj,()=>{
+            sessionStorage.setItem("basicStatus","1");
             getData();
             alert("更改成功");
     });

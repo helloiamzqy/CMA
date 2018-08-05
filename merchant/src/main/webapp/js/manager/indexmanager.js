@@ -53,6 +53,7 @@ function adComponenr($view, cpUrl,orURl,fdUrl,cmUrl,pfUrl) {
                 $("#SN").text(cp.shopName);
             },
             error:function (data) {
+                sessionStorage.setItem("basicStatus","0");
                 alert("请去商家界面完善您的信息，否则无法进行部分操作");
             }
         });

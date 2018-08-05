@@ -23,7 +23,6 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date finishTime;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="m_id")
     private Merchant merchant;
