@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="assets/css/admin.css">
   <script src="js/jquery.js"></script>
   <script src="js/jquery.form.js"></script>
-  <script src="js/manager/polling.js"></script>
-  <script src="js/manager/validation.js"></script>
+  <script src="manager/polling.js"></script>
+  <script src="manager/validation.js"></script>
 </head>
 <style>
   img{
@@ -68,7 +68,7 @@
       <li><a href="admin-table.html"><span class="am-icon-table"></span> 订单查询</a></li>
       <li><a href="admin-ad.html"><span class="am-icon-pencil-square-o"></span> 广告申请</a></li>
       <li><a href="admin-complain.html"><span class="am-icon-table"></span> 投诉查看</a></li>
-      <li><a href="#" id="out"><span class="am-icon-sign-out"></span> 注销</a></li>
+      <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
     </ul>
 
   </div>
@@ -91,14 +91,10 @@
         <thead>
         <tr>
           <th>广告图片</th>
-          <th>申请价格</th>
+          <th>价格</th>
         </tr>
         </thead>
         <tbody id="adtable">
-        <tr>
-
-        </tr>
-
         </tbody>
       </table>
       <hr />
@@ -134,6 +130,19 @@
      </div>
   </div>
 
+  <div class="am-panel am-panel-default admin-sidebar-panel">
+    <div class="am-panel-bd">
+      <p><span class="am-icon-tag"></span> 管理员公告</p>
+      <p>公告栏</p>
+    </div>
+  </div>
+
+  <div class="am-panel am-panel-default admin-sidebar-panel">
+    <div class="am-panel-bd">
+      <p><span class="am-icon-tag"></span> 请保持信誉良好</p>
+      <p>顾客就是上帝</p>
+    </div>
+  </div>
 </div>
 <!-- content end -->
 
@@ -147,8 +156,8 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
-<script src="js/manager/util.js"></script>
-<script src="js/manager/adManager.js"></script>
+<script src="manager/util.js"></script>
+<script src="manager/adManager.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>
