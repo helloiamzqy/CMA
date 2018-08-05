@@ -10,6 +10,7 @@
     <script src="../js/cartUtil.js"></script>
     <script src="../js/cartService.js"></script>
      <script src="../js/order.js"></script>
+    <script src="../js/util.js"></script>
     <style>
         .shopName{
             font-size: 18px;
@@ -143,6 +144,7 @@
                 </div>
             </div>
             <h3>快递信息选择</h3>
+            <button id="addReceiveInfoBtn2">添加新的收件信息</button>
             <select id="receiveInfoSelect">
             </select>
             <div>
@@ -156,6 +158,25 @@
 
     <!-- order order list -->
 
+</div>
+
+<div class="modal fade" id="addReceiveInfoModal2" tabindex="-1" role="dialog" aria-labelledby="successModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="successModalLabel">收货信息</h4>
+            </div>
+            <div class="modal-body">
+                <h4>请输入新的收货信息：</h4>
+                <label>电话：</label><input id="addReceiveInfoPhone2"><br>
+                <label>地址：</label><input id="addReceiveInfoAddress2"><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">返回</button>
+                <button type="button" class="btn btn-default" id="addReceiveInfo2">提交</button>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

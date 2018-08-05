@@ -1,7 +1,7 @@
 let userId = sessionStorage.getItem("user");
 let customerId = sessionStorage.getItem("customerId");
 let shopId = GetRequest().shop_id;
-
+let receiveInfo_model=null;
 function GetRequest() {
     var url = location.search;
     //获取url中"?"符后的字串
@@ -17,6 +17,14 @@ function GetRequest() {
 }
 
 window.onload = function () {
+    $("#addReceiveInfo2").on('click', () => {
+        alert("addReceiveInfo2")
+        $('#addReceiveInfoModal2').modal('hide');
+        addReceiveInfo();
+    })
+    $("#addReceiveInfoBtn2").on('click', () => {
+        $('#addReceiveInfoModal2').modal('show');
+    })
     $("#submitOrder").on('click', () => {
         let foods = $1.queryUserCart(userId, shopId);
         submitOrder(foods);
@@ -35,7 +43,17 @@ window.onload = function () {
         window.location.href = "/customer/html/login.html";
         return;
     }
-
+    function addReceiveInfo() {
+        alert("addReceiveInfo")
+        let jsonData ={'phone':$("#addReceiveInfoPhone2").val(),'address':$("#addReceiveInfoAddress2").val()}
+        alert(JSON.stringify(jsonData))
+        let api = "/customer/receiveInfo/" + customerId;
+        myAjax(api, "POST", jsonData, (data) => {
+            receiveInfo_model.push(data)
+            renderReceiveInfo(receiveInfo_model)
+            // renderReceiveInfo();
+        })
+    }
     function submitOrder(orderItems) {
         alert(JSON.stringify(orderItems))
         $.ajax({
@@ -101,13 +119,14 @@ window.onload = function () {
     getData(userId, shopId);
 
     function getReceiveInfo(){
-        alert("getReceiveInfo")
+        // alert("getReceiveInfo")
         $.ajax({
             type: "GET",
             url: "/customer/receiveInfo/"+customerId,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
+                receiveInfo_model = data;
                renderReceiveInfo(data)
             }
         });
