@@ -50,7 +50,7 @@ function itemComponent($view,url) {
         items.forEach((item)=>{
             $("<tr>")
                 .append($("<td>").text(item.food.foodName))
-                .append($("<td>").append($("<img>").attr("src",item.food.picture)))
+                .append($("<td>").append($("<img>").attr("src",item.food.picture).attr("width","180px").attr("height","100px")))
                 .append($("<td>").text(item.food.price))
                 .append($("<td>").text(item.foodNum))
                 .append($("<td>").text(item.totalPrice))
@@ -78,6 +78,6 @@ function itemComponent($view,url) {
 
 }
 $(function () {
-    let url="http://10.222.29.190:8090/customer/";
+    let url="/customer/";
     itemComponent($("#itemPage"),url);
 })

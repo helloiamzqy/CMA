@@ -53,14 +53,15 @@ function OrderComponent($view,url,operation,customerId) {
                     $('#commentModal').modal('hide');
                     if(comment){
                         alert("评论成功");
+                        order_temp.status="6";
                         renderOrder();
-                    }else {alert("评论失败");}
+                    }else {alert("您已经评论过啦！");}
                     $("#content").val("");
                     $("#rank").val("5");
                 })
             }else{
+                alert("您已经评论过啦！");
                 $('#commentModal').modal('hide');
-                alert("您已经评论过了！");
             }
         })
     }
@@ -173,7 +174,7 @@ function format(order) {
 
 ///////////////////////// start ///////////////////////////////
 $(function () {
-    let url="http://10.222.29.190:8090/customer/";
+    let url="/customer/";
     let customerId=sessionStorage.getItem("customerId");
     alert(customerId);
     if(customerId==null){
