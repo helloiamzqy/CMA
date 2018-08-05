@@ -76,15 +76,16 @@ public class OrderServiceImpl implements OrderService {
         List<String> statuss=new ArrayList<>();
         Customer customer=new Customer();
         customer.setId(cId);
-        if (status != null || status.equals("all")) {
+        if (status == null||status.equals("all")) {
             return orderDao.findAllOrderByCustomer(curPage,pageSize,customer);
-        } else if(status != null || status.equals("finished")){
+        } else if(status != null&&status.equals("finished")){
             statuss.add(OrderStatusEnum.CANCLE);
             statuss.add(OrderStatusEnum.COMPLETE);
             statuss.add(OrderStatusEnum.REFUSE);
-        }else if(status != null || status.equals("unreceive")){
+            statuss.add(OrderStatusEnum.COMMENT);
+        }else if(status != null&&status.equals("unreceive")){
             statuss.add(OrderStatusEnum.WATING);
-        }else if(status != null || status.equals("doing")){
+        }else if(status != null&&status.equals("doing")){
             statuss.add(OrderStatusEnum.DISPATCHING);
             statuss.add(OrderStatusEnum.RECEIVE);
         }
