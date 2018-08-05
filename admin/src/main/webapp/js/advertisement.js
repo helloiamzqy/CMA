@@ -73,16 +73,40 @@ function AdvertisementComponent($view, url) {
         $tbody.empty();
         model.forEach((advertisement)=>{
             let type = advertisement.status;
-            $("<tr>")
+            let tr = $("<tr>")
                 .addClass("trCursor")
                 .append($("<td>").text(advertisement.merchantName))
                 .append($("<td>").text(advertisement.price))
                 .append($("<td>")
                     .append(addBtn(type,advertisement)))
                 .on("dblclick",(e)=>{
+                    updateIsRead(advertisement);
                     rendermodal(advertisement,type);
                 })
                 .appendTo($tbody)
+            let td;
+            if(advertisement.isRead == "false"){
+                td = $("<td>")
+                    .attr("id","sign")
+                    .append($("<span>")
+                        .addClass("glyphicon glyphicon-envelope")
+                        .addClass("isRead"))
+            }else{
+                td = $("<td>")
+                    .append($("<span>")
+                        .addClass("glyphicon glyphicon-check"))
+            }
+            tr.prepend(td);
+        })
+    }
+
+    function updateIsRead(advertisement) {
+        cur = advertisement;
+        advertisement.isRead = "true";
+        myAjax(url,"PUT",advertisement,(cb)=>{
+            let index = model.indexOf(cur);
+            model.splice(index,1,cb);
+            renderTable();
         })
     }
 
@@ -108,6 +132,7 @@ function AdvertisementComponent($view, url) {
         $("#MerchantModal").modal("hide");//隐藏模态框
         cur = advertisement;
         advertisement.status = status;
+        advertisement.isRead = "true";
         myAjax(url,"PUT",advertisement,(cb)=>{
             let index = model.indexOf(cur);
             model.splice(index,1,cb);

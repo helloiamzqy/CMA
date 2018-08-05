@@ -84,6 +84,7 @@ function ComplaintComponent($view, url) {
                         .addClass("btn btn-danger opt")
                         .on("click",(e)=>changeStatus(complaint))))
                 .on("dblclick",(e)=>{
+                    updateIsRead(complaint)
                     rendermodal(complaint);
                 })
                 .attr("id",complaint.id).addClass("datas").appendTo($tbody)
@@ -92,15 +93,15 @@ function ComplaintComponent($view, url) {
                 td = $("<td>")
                     .attr("id","sign")
                     .append($("<span>")
-                        .addClass("glyphicon glyphicon-envelope"))
+                        .addClass("glyphicon glyphicon-envelope")
+                        .addClass("isRead"))
                     .unbind("dblclick").click((e)=>{
                         updateIsRead(complaint);
                     })
             }else{
                 td = $("<td>")
                     .append($("<span>")
-                        .addClass("glyphicon glyphicon-check")
-                        .addClass("isRead"))
+                        .addClass("glyphicon glyphicon-check"))
             }
             tr.prepend(td);
         })

@@ -94,6 +94,7 @@ function MerchantComponent($view, url, type, tag) {
                 .append($("<td>")
                     .append(addBtn(type,merchant)))
                 .on("dblclick",(e)=>{
+                    updateIsRead(merchant);
                     rendermodal(merchant,type);
                 })
                 .appendTo($tbody)
@@ -104,9 +105,6 @@ function MerchantComponent($view, url, type, tag) {
                         .attr("id","sign")
                         .append($("<span>")
                             .addClass("glyphicon glyphicon-envelope"))
-                        .unbind("dblclick").click((e)=>{
-                            updateIsRead(merchant);
-                        })
                 }else{
                     td = $("<td>")
                         .append($("<span>")
@@ -180,7 +178,6 @@ function MerchantComponent($view, url, type, tag) {
         cur = merchant;
         merchant.status = status;
         merchant.isRead = "true";
-
         let url = "http://localhost:9090/admin/merchantInfo/update"
         let merchant1 = myAjax(url,"PUT",merchant,(e)=>{
             let index = model.indexOf(cur);
