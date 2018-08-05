@@ -5,13 +5,14 @@
     <title>Order Page</title>
     <script src="../common/jquery/dist/jquery.js"></script>
     <script src="../common/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../js/head.js"></script>
     <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../common/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="../css/order_page.css">
 </head>
 <!--<body background="../image/backpic2.jpg">-->
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -36,10 +37,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">我的订单<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" id="allOrder">全部订单</a></li>
-                        <li><a href="#" id="finishedOrder">已完成订单</a></li>
-                        <li><a href="#" id="unreceiveOrder">未接的订单</a></li>
-                        <li><a href="#" id="doing">进行中的订单</a></li>
+                        <li><a href="/customer/html/order_page.html">全部订单</a></li>
+                        <li><a href="/customer/html/order_page.html">已完成订单</a></li>
+                        <li><a href="/customer/html/order_page.html">未接的订单</a></li>
+                        <li><a href="/customer/html/order_page.html">进行中的订单</a></li>
                     </ul>
                 </li>
             </ul>
@@ -58,10 +59,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">用户中心 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">修改个人信息</a></li>
-                        <li><a href="#">管理收货信息</a></li>
+                        <li><a href="/customer/html/customerInfo.html">修改个人资料</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">退出</a></li>
+                        <li><a href="#" id="logout">退出</a></li>
                     </ul>
                 </li>
             </ul>

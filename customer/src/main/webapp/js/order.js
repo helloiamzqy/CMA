@@ -18,6 +18,10 @@ function GetRequest() {
 }
 
 window.onload = function () {
+    if(sessionStorage.getItem("customerId")==""||sessionStorage.getItem("customerId")==null){
+        alert("未登录")
+        window.location.href = '/customer/html/login.html';
+    }
     $("#addReceiveInfo2").on('click', () => {
         $('#addReceiveInfoModal2').modal('hide');
         addReceiveInfo();
@@ -100,8 +104,8 @@ window.onload = function () {
         $("#fishDishBody").html('')
         let total = 0;
         if (typeof(foods) == "undefined" || foods == null) {
-            alert("购物车为空")
-            window.history.go(-1);
+            // alert("购物车为空")
+                window.location.href = '/customer/html/merchant.html';
         } else {
             for (let i = 0; i < foods.length; i++) {
                 let foodTr = '<tr><td width="50">' + foods[i].foodName + '</td>';

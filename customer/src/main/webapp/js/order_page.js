@@ -181,6 +181,6 @@ $(function () {
         OrderComponent($("#orderPage"),url,operation,customerId);
     }else{
         alert("请登录后再尝试！")
-        window.location.href="/customer/html/merchant.html";
+        window.location.href="/customer/html/login.html";
     }
 })

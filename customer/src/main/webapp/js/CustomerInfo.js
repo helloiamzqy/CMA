@@ -12,6 +12,9 @@ function OrderComponent($view, url, customerId) {
 
 //////////////////////////Modal Event//////////////////////////
     function initAllModalEvent() {
+        if(sessionStorage.getItem("customerId")==""||sessionStorage.getItem("customerId")==null){
+            window.location.href = '/customer/html/login.html';
+        }
         $("#addReceiveInfoBtn").on('click', () => {
             $('#addReceiveInfoModal').modal('show');
         })

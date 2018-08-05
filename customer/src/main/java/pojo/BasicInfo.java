@@ -1,6 +1,7 @@
 package pojo;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,12 +11,12 @@ import java.util.Date;
 public class BasicInfo {
 
     @Id
-    @GenericGenerator(strategy="uuid",name="uuid")
-    @GeneratedValue(generator="uuid")
+    @GenericGenerator(strategy = "uuid", name = "uuid")
+    @GeneratedValue(generator = "uuid")
     private String id;
 
     @OneToOne
-    @JoinColumn(name="m_id")
+    @JoinColumn(name = "m_id")
     private Merchant merchant;
 
     @Column(nullable = false)
@@ -39,7 +40,7 @@ public class BasicInfo {
     private String status;
 
     private String comments;
-
+    @Transient
     private String rank;
 
     public String getRank() {
@@ -50,7 +51,7 @@ public class BasicInfo {
         this.rank = rank;
     }
 
-    @Column(nullable = false,name = "shop_name")
+    @Column(nullable = false, name = "shop_name")
     private String shopName;
 
     public String getId() {
@@ -108,6 +109,7 @@ public class BasicInfo {
     public void setCloseTime(Date closeTime) {
         this.closeTime = closeTime;
     }
+
     @Column(columnDefinition = "varchar2(255) default 3")
     public String getDelivery() {
         return delivery;

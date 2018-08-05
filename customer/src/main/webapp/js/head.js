@@ -6,7 +6,7 @@ $(function () {
         $("#userInfo").html('')
         // let userLi = '<li></li>'
         // <li><a href="#">我的收货信息</a></li>
-        let login = '<li><a href="/customer/html/login.html">' + '请登陆' + '</a></li>';
+        let login = '<li><a href="/customer/html/login.html">' + '你还未登录,请登陆' + '</a></li>';
         let register = '<li><a href="/customer/html/regist.html">' + '注册' + '</a></li>';
         // userLi.append(login)
         $("#userInfo").append(login)
