@@ -108,16 +108,21 @@ function ComplaintComponent($view, url) {
     }
 
     function renderBar() {
+        $("#cm").hide();
         if (merNewCount > 0){
-            $("#merchantInfoItem").text("待审核("+merNewCount+")");
+            // $("#merchantInfoItem").text("待审核("+merNewCount+")");
+            $("#merchantInfoItem").text(merNewCount);
         } else{
-            $("#merchantInfoItem").text("待审核");
+            $("#m").hide();
+            // $("#merchantInfoItem").text("待审核");
         }
 
         if (adNewCount > 0){
-            $("#advertisementItem").text("广告审核("+adNewCount+")");
+            // $("#advertisementItem").text("广告审核("+adNewCount+")");
+            $("#advertisementItem").text(adNewCount);
         } else {
-            $("#advertisementItem").text("广告审核");
+            $("#ad").hide();
+            // $("#advertisementItem").text("广告审核");
         }
     }
 

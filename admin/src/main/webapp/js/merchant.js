@@ -120,12 +120,12 @@ function MerchantComponent($view, url, type, tag) {
                     td = $("<td>")
                         .attr("id","sign")
                         .append($("<span>")
-                            .addClass("glyphicon glyphicon-envelope"))
+                            .addClass("glyphicon glyphicon-envelope")
+                            .addClass("isRead"))
                 }else{
                     td = $("<td>")
                         .append($("<span>")
-                            .addClass("glyphicon glyphicon-check")
-                            .addClass("isRead"))
+                            .addClass("glyphicon glyphicon-check"))
                 }
                 tr.prepend(td);
             }
@@ -133,23 +133,32 @@ function MerchantComponent($view, url, type, tag) {
     }
 
     function renderBar() {
+        $("#m").hide();
         if (compNewCount > 0){
-            $("#complaintItem").text("投诉审核("+compNewCount+")");
-        } else{
-            $("#complaintItem").text("投诉审核");
+            // $("#complaintItem").text("投诉审核("+compNewCount+")");
+            $("#complaintItem").text(compNewCount);
+
+        } else {
+            $("#cm").hide();
+            // $("#complaintItem").text("投诉审核");
         }
 
         if (adNewCount > 0){
-            $("#advertisementItem").text("广告审核("+adNewCount+")");
+            // $("#advertisementItem").text("广告审核("+adNewCount+")");
+            $("#advertisementItem").text(adNewCount);
         } else {
-            $("#advertisementItem").text("广告审核");
+            $("#ad").hide();
+            // $("#advertisementItem").text("广告审核");
         }
 
         if (type != "0"){
+            $("#m").show();
             if (merNewCount > 0){
-                $("#merchantInfoItem").text("待审核("+merNewCount+")");
-            } else {
-                $("#merchantInfoItem").text("待审核");
+                // $("#merchantInfoItem").text("待审核("+merNewCount+")");
+                $("#merchantInfoItem").text(merNewCount);
+            } else{
+                $("#m").hide();
+                // $("#merchantInfoItem").text("待审核");
             }
         }
     }

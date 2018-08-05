@@ -9,3 +9,19 @@ body{
     -moz-background-size: cover;
     -ms-background-size: cover;
 }
+.circle{
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    background: #ff4053;
+    vertical-align: top;
+}
+.item{
+    display: block;
+    color: #FFFFFF;
+    height: 15px;
+    line-height: 15px;
+    font-size: 14px;
+    text-align: center
+}
