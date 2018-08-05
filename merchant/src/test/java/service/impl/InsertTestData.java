@@ -88,6 +88,7 @@ public class InsertTestData {
         Customer customer = new Customer();
         customer.setPassword("123123");
         customer.setName("dunnC");
+        customerManager.addCustomer(customer);
         //添加订单
         Order order = new Order();
         order.setPhone("13719512996");

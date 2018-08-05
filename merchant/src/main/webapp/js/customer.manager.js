@@ -1,7 +1,7 @@
 function CustomerComponent($view,host,mId,status) {
     let model=null;
     let cur=null;
-    let getUrl="/8a5e9d3d65037c800165037c86140001/orders/";
+    let getUrl="/8a5e9d3c6507f15e016507f166760000/orders/";
     let page="?curPage=1&pageSize=10";
     init();
     function init() {
@@ -21,7 +21,6 @@ function CustomerComponent($view,host,mId,status) {
     })
     });
         myAjax(host+getUrl+status+page,"GET",null,(orders)=>{
-            alert(host+getUrl+status+page);
         model=orders.list;
         render();
     });
@@ -36,12 +35,12 @@ function CustomerComponent($view,host,mId,status) {
         let tr=$("<tr>").attr("id",order.id)
             .append($("<td>").text(order.id))
             .append($("<td>").text(order.customer.name))
-            .append($("<td>").text(order.customer.phone))
-            .append($("<td>").text(order.customer.address))
+            .append($("<td>").text(order.phone))
+            .append($("<td>").text(order.address))
             .append($("<td>").text(order.totalPrice))
             .append($("<td>").text(createTime))
             .append($("<td>").text(finishTime))
-            .append($("<td>").append($("<button>").attr("data-am-modal","{target:'#my-popup'}").addClass("am-round").text("查看详情").on("click",(e)=>{
+            .append($("<td>").append($("<button>").attr("data-am-modal","{target:'#orderItem-popup'}").addClass("am-round").text("查看详情").on("click",(e)=>{
                 getOrderItem(order.id);
         e.preventDefault();
     })))
@@ -49,11 +48,12 @@ function CustomerComponent($view,host,mId,status) {
         if(order.status=="0"){
             tr.append($("<td>").append(($("<button>").addClass("am-round")).text("接单").on("click",(e)=>{
                 e.preventDefault();
+                $("#newOrder").text($("#newOrder").text()-1)
             changeOrder(order,1)
         })))
         .append($("<td>").append(($("<button>").addClass("am-round")).text("拒绝").on("click",(e)=>{
                 e.preventDefault();
-            changeOrder(order,0)
+            changeOrder(order,4)
         })))
         }else if(order.status=="1"){
             tr.append($("<td>").append(($("<button>").addClass("am-round")).text("配送").on("click",(e)=>{
@@ -66,13 +66,36 @@ function CustomerComponent($view,host,mId,status) {
             changeOrder(order,3)
         })))
         }else if(order.status=="3"){
-            tr.append($("<td>").text("已完成"));
+            tr.append($("<td>").append($("<button>").attr("data-am-modal","{target:'#comment-popup'}").addClass("am-round").text("查看评价").on("click",(e)=>{
+                e.preventDefault();
+                getComments(order.id);
+            })))
         }else if(order.status=="4"){
             tr.append($("<td>").text("已拒绝接单"));
         }else {
             tr.append($("<td>").text("接单已取消"));
         }
     })
+    }
+    function getComments(id) {
+        $.ajax({
+            type:'GET',
+            url:host+"/order/"+id+"/comment",
+            contentType: "application/json; charset=utf-8",
+            dataType:"json",
+            success:function (data) {
+                model=data;
+                renderComment(data);
+            }
+
+        })
+    }
+    function renderComment() {
+        let $tbody=$view.find("#Comment tbody");
+        $tbody.empty();
+            $("<tr>").append($("<td>").text(model.content))
+            .append($("<td>").text(model.rank))
+            .appendTo($tbody);
     }
     function getOrderItem(id) {
         $.ajax({
@@ -146,11 +169,11 @@ function CustomerComponent($view,host,mId,status) {
 }
 
 $(function () {
+    let mId = sessionStorage.getItem('mId');
     let status="0";
     $("#down").on("change",function () {
         status=$("#down").val();
     })
-    let mId = sessionStorage.getItem("mId");
     let host="http://10.222.29.189:8081/merchant";
     CustomerComponent($("#app"),host,mId,status);
 })

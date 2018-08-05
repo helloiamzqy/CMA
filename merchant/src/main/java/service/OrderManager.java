@@ -14,4 +14,5 @@ public interface OrderManager {
     public Pager findOrderByCustomer(String cId, String status,int curPage,int pageSize);
     public Pager findAllOrderByMerchant(String mId, int curPage, int pageSize);
     public Pager findAllOrderByCustomer(String cId,int curPage,int pageSize);
+    public int findNewOrders(String mId);
 }

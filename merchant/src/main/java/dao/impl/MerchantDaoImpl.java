@@ -33,12 +33,23 @@ public class MerchantDaoImpl implements MerchantDao {
 
     }
 
-    @Override
-    public Merchant merchantLogin(Merchant merchant) {
-        String jpql="from pojo.Merchant where name=:name";
-        Query query=manager.createQuery(jpql);
-        query.setParameter("name",merchant.getName());
-        Merchant merchant1= (Merchant) query.getSingleResult();
-        return merchant1;
+//    @Override
+//    public Merchant merchantLogin(Merchant merchant) {
+//        String jpql="from pojo.Merchant where name=:name";
+//        Query query=manager.createQuery(jpql);
+//        query.setParameter("name",merchant.getName());
+//        Merchant merchant1= (Merchant) query.getSingleResult();
+//        return merchant1;
+//    }
+@Override
+public Merchant merchantLogin(Merchant merchant) {
+    String jpql="from pojo.Merchant where name=:name";
+    Query query=manager.createQuery(jpql);
+    query.setParameter("name",merchant.getName());
+    List<Merchant> merchants=query.getResultList();
+    if (merchants.size()>0){
+        return merchants.get(0);
     }
+    return null;
+}
 }

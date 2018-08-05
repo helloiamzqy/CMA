@@ -14,4 +14,5 @@ public interface OrderDao {
     public Pager findOrderByCustomer(Customer customer,String status,int curPage,int pageSize);
     public Pager findAllOrderByCustomer(int curPage,int pageSize,Customer customer);
     public Pager findAllOrderByMerchant(int curPage, int pageSize, Merchant merchant);
+    public int findNewOrders(Merchant merchant);
 }

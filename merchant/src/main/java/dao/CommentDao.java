@@ -14,4 +14,5 @@ public interface CommentDao {
     Pager findCommentByOrder(int curPage, int pageSize,Order order);
     Pager findCommentByMerchant(int curPage, int pageSize,Merchant merchant);
     String findRemarkByMerchant(Merchant merchant);
+    Comment findCommentByOrder(Order order);
 }

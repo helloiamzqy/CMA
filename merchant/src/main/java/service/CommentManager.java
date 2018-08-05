@@ -16,4 +16,5 @@ public interface CommentManager {
     void deleteComment(String id);
     Pager findCommentByOrder(int curPage, int pageSize,String order);
     Pager findCommentByMerchant(int curPage, int pageSize, String merchant);
+    Comment findCommentByOrder(String order);
 }

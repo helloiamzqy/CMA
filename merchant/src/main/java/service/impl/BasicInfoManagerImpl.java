@@ -21,6 +21,7 @@ public class BasicInfoManagerImpl implements BasicInfoManager {
     public BasicInfo addBasicInfo(BasicInfo basicInfo,String mId) {
         Merchant merchant=new Merchant();
         merchant.setId(mId);
+        basicInfo.setMerchant(merchant);
         return basicInfoDao.addBasicInfo(basicInfo);
     }
 

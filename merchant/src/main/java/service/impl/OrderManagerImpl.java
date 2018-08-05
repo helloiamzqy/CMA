@@ -66,6 +66,12 @@ public class OrderManagerImpl implements OrderManager {
         customer.setId(cId);
         return orderDao.findAllOrderByCustomer(curPage,pageSize,customer);
     }
-
+    @Transactional
+    @Override
+    public int findNewOrders(String mId) {
+        Merchant merchant=new Merchant();
+        merchant.setId(mId);
+        return orderDao.findNewOrders(merchant);
+    }
 
 }

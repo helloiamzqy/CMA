@@ -90,4 +90,12 @@ public class CommentDaoImpl implements CommentDao {
 
         return avgRemark;
     }
+
+    @Override
+    public Comment findCommentByOrder(Order order) {
+        String jpql = "FROM pojo.Comment c WHERE c.order =:order";
+        Query query = manager.createQuery(jpql).setParameter("order", order);
+        Comment comment= (Comment) query.getSingleResult();
+        return comment;
+    }
 }

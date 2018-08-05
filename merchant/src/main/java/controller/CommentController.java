@@ -34,4 +34,8 @@ public class CommentController {
     public Pager getComment(@RequestParam int curPage, @RequestParam int pageSize,@PathVariable String oid,@PathVariable String mid){
         return commentManager.findCommentByOrder(curPage,pageSize,oid);
     }
+    @GetMapping(value = "/order/{oId}/comment")
+    public Comment findCommentByOrder(@PathVariable String oId){
+        return commentManager.findCommentByOrder(oId);
+    }
 }

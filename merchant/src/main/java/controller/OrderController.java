@@ -39,4 +39,8 @@ public class OrderController {
     public Order updateOrder(@RequestBody Order order){
         return orderManager.updateOrder(order);
     }
+    @GetMapping(value = "/{mId}/newOrders")
+    public int findNewOrders(@PathVariable(value = "mId") String mId){
+        return orderManager.findNewOrders(mId);
+    }
 }

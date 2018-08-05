@@ -17,6 +17,8 @@
   <script src="js/jquery.js"></script>
   <script src="js/customer.manager.js"></script>
   <script src="js/customer.util.js"></script>
+  <script src="js/polling.js"></script>
+
 </head>
 <body>
 <div id="app">
@@ -30,7 +32,7 @@
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
       <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-        <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 新订单 <span class="am-badge am-badge-warning">5</span></a></li>
+        <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 新订单 <span class="am-badge am-badge-warning" id="newOrder">0</span></a></li>
         <li class="am-dropdown" data-am-dropdown>
           <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
             <span class="am-icon-users"></span> 商家姓名 <span class="am-icon-caret-down"></span>
@@ -98,7 +100,7 @@
     </div>
     <!-- content end -->
   </div>
-  <div class="am-popup" id="my-popup">
+  <div class="am-popup" id="orderItem-popup">
     <div class="am-popup-inner">
       <div class="am-popup-hd">
         <h4 class="am-popup-title">订单详情</h4>
@@ -110,6 +112,28 @@
           <thead>
           <tr>
             <th class="table-id" width="100px">菜名</th><th class="table-title" width="100px">数量</th><th class="table-title" width="100px">价格</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="am-popup" id="comment-popup">
+    <div class="am-popup-inner">
+      <div class="am-popup-hd">
+        <h4 class="am-popup-title">评论</h4>
+        <span data-am-modal-close
+              class="am-close">&times;</span>
+      </div>
+      <div class="am-popup-bd">
+        <table id="Comment">
+          <thead>
+          <tr>
+            <th class="table-id" width="100px">内容</th><th class="table-title" width="100px">分数</th>
           </tr>
           </thead>
           <tbody>

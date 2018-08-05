@@ -11,6 +11,8 @@ import pojo.Comment;
 import pojo.Order;
 import pojo.Pager;
 
+import java.beans.Transient;
+
 /**
  * @author Dunn
  */
@@ -34,6 +36,7 @@ public class CommentManagerImpl implements CommentManager {
         return  commentDao.addComment(comment);
     }
 
+    @Transactional
     @Override
     public void deleteComment(String id) {
         commentDao.deleteFood(id);
@@ -53,5 +56,13 @@ public class CommentManagerImpl implements CommentManager {
         merchant.setId(merchantId);
         Pager comments = commentDao.findCommentByMerchant(curPage, pageSize,merchant);
         return comments;
+    }
+
+    @Override
+    public Comment findCommentByOrder(String oId) {
+        Order order = new Order();
+        order.setId(oId);
+        Comment comment = commentDao.findCommentByOrder(order);
+        return comment;
     }
 }

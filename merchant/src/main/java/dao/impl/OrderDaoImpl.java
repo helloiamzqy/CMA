@@ -98,4 +98,12 @@ public class OrderDaoImpl implements OrderDao {
         Pager pager = new Pager(curPage, pageSize, totalPage, totalRow, orders);
         return pager;
     }
+    @Override
+    public int findNewOrders(Merchant merchant) {
+        String jpql="from pojo.Order order where order.merchant=:merchant and order.status=0";
+        Query query=manager.createQuery(jpql);
+        query.setParameter("merchant",merchant);
+        List<Order> orders=query.getResultList();
+        return orders.size();
+    }
 }
