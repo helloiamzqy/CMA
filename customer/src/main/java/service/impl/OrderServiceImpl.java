@@ -82,7 +82,7 @@ public class OrderServiceImpl implements OrderService {
             statuss.add(OrderStatusEnum.CANCLE);
             statuss.add(OrderStatusEnum.COMPLETE);
             statuss.add(OrderStatusEnum.REFUSE);
-            statuss.add(OrderStatusEnum.COMMENT);
+//            statuss.add(OrderStatusEnum.COMMENT);
         }else if(status != null&&status.equals("unreceive")){
             statuss.add(OrderStatusEnum.WATING);
         }else if(status != null&&status.equals("doing")){
