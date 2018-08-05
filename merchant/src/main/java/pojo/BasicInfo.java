@@ -1,5 +1,6 @@
 package pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class BasicInfo {
     @GeneratedValue(generator="uuid")
     private String id;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name="m_id")
     private Merchant merchant;

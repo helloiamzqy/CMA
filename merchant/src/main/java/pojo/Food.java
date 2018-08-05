@@ -1,5 +1,6 @@
 package pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -23,7 +24,7 @@ public class Food {
 
     @Column(columnDefinition = "varchar2(1) default 1")
     private String status;
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "m_id")
     private Merchant merchant;

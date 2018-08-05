@@ -1,5 +1,6 @@
 package pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date finishTime;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="m_id")
     private Merchant merchant;
