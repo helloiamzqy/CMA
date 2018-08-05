@@ -51,11 +51,19 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public Customer addCustomer(Customer customer) {
-        try{
-            manager.persist(customer);
-            return customer;
-        }catch (Exception e){
+        String jpql = "FROM pojo.Customer c WHERE c.name =:name";
+       int num =  manager.createQuery(jpql).setParameter("name",customer.getName()).getResultList().size();
+        if(num>0){
+            System.out.println("num >0");
             return null;
+        }
+        else {
+            try {
+                manager.persist(customer);
+                return customer;
+            } catch (Exception e) {
+                return null;
+            }
         }
     }
 }

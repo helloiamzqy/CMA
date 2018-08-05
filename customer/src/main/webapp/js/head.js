@@ -1,5 +1,4 @@
 $(function () {
-
     let username = sessionStorage.getItem('user');
     let custoemrId = sessionStorage.getItem('customerId');
     if (custoemrId==null||custoemrId==""){
@@ -13,6 +12,11 @@ $(function () {
         $("#userInfo").append(login)
         $("#userInfo").append(register)
     }
-
+$("#logout").on('click',(e)=>{
+    // $1.clearUserCart(userId, shopId);
+    // $1.clearCart(shopId);
+    sessionStorage.clear();
+    window.location.href="/customer/html/login.html";
+})
 
 })

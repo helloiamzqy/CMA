@@ -34,9 +34,7 @@ public class CustomerController {
     @RequestMapping(value = "/registCustomer")
     public Customer registCustomer(@RequestBody Customer customer) {
         System.out.println(customer.getName()+"/" + customer.getPassword());
-        Customer c = customerService.addCustomer(customer);
-        System.out.println(c.getId());
-        return c;
+      return customerService.addCustomer(customer);
     }
     @ResponseBody
     @RequestMapping(value = "/customerInfo/{id}")
