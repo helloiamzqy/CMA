@@ -18,7 +18,6 @@ function GetRequest() {
 
 window.onload = function () {
     $("#addReceiveInfo2").on('click', () => {
-        alert("addReceiveInfo2")
         $('#addReceiveInfoModal2').modal('hide');
         addReceiveInfo();
     })
@@ -44,9 +43,7 @@ window.onload = function () {
         return;
     }
     function addReceiveInfo() {
-        alert("addReceiveInfo")
         let jsonData ={'phone':$("#addReceiveInfoPhone2").val(),'address':$("#addReceiveInfoAddress2").val()}
-        alert(JSON.stringify(jsonData))
         let api = "/customer/receiveInfo/" + customerId;
         myAjax(api, "POST", jsonData, (data) => {
             receiveInfo_model.push(data)
@@ -55,7 +52,6 @@ window.onload = function () {
         })
     }
     function submitOrder(orderItems) {
-        alert(JSON.stringify(orderItems))
         $.ajax({
             type: "POST",
             url: "/customer/orders/addOrder/" + shopId + "/" + customerId+"/"+$("#receiveInfoSelect").val(),
@@ -74,7 +70,6 @@ window.onload = function () {
 
     //渲染快递信息
     function renderReceiveInfo(receiveInfos) {
-        alert(JSON.stringify(receiveInfos))
         let select = $("#receiveInfoSelect")
         select.html('')
         if (typeof(receiveInfos) == "undefined"||receiveInfos==null) {
@@ -119,7 +114,6 @@ window.onload = function () {
     getData(userId, shopId);
 
     function getReceiveInfo(){
-        // alert("getReceiveInfo")
         $.ajax({
             type: "GET",
             url: "/customer/receiveInfo/"+customerId,

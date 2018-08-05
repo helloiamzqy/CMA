@@ -1,7 +1,6 @@
 let currentPage = 1;
-let pageSize = 4;
+let pageSize = 8;
 window.onload=function () {
-    alert(sessionStorage.getItem("customerId"));
     let url="/customer/merchant/findBasicInfoByPager/";
     let method="POST";
     let headers=[{"key":"Content-Type","value":"application/json"}];
@@ -93,10 +92,10 @@ window.onload=function () {
             for(let i=0;i<data.length;i++){
                 //拼接轮播图
                 if(i == 0) {
-                    $("#adver").append("<div class='item active'>" +'<a href="/typhoon_consuemer/html/merchantFood.html?shop_id='+data[i].shopId+'">'+
+                    $("#adver").append("<div class='item active'>" +'<a href="/customer/html/merchantFood.html?shop_id='+data[i].id+'">'+
                         "<img src='" + data[i].picture + "' alt=''>" + "</a></div>");
                 } else {
-                    $("#adver").append("<div class='item'>" +'<a href="/typhoon_consuemer/html/merchantFood.html?shop_id='+data[i].shopId+'">'+
+                    $("#adver").append("<div class='item'>" +'<a href="/customer/html/merchantFood.html?shop_id='+data[i].id+'">'+
                         "<img src='" + data[i].picture + "' alt=''>" + "</a></div>");
                 }
             }

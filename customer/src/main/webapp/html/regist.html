@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="../css/login.css">
     <script src="../common/jquery/dist/jquery.js"></script>
     <script src="../common/bootstrap/dist/js/bootstrap.js"></script>
-     <script src="../js/regist.js"></script>
-     <script src="../js/cartUtil.js"></script>
+    <script src="../js/regist.js"></script>
+    <script src="../js/cartUtil.js"></script>
+    <script src="../js/head.js"></script>
     <style>
         .login {
             width: 380px;
             height: 370px;
             margin: -25px 130px;
             border: 2px solid gold;
-            border-radius:25px;
+            border-radius: 25px;
             background-color: white;
         }
 
@@ -23,7 +24,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -48,10 +49,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">我的订单<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">全部订单</a></li>
-                        <li><a href="#">已完成订单</a></li>
-                        <li><a href="#">未接的订单</a></li>
-                        <li><a href="#">进行中的订单</a></li>
+                        <li><a href="#" id="allOrder">全部订单</a></li>
+                        <li><a href="#" id="finishedOrder">已完成订单</a></li>
+                        <li><a href="#" id="unreceiveOrder">未接的订单</a></li>
+                        <li><a href="#" id="doing">进行中的订单</a></li>
                     </ul>
                 </li>
             </ul>
@@ -70,8 +71,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">用户中心 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">修改个人信息</a></li>
-                        <li><a href="#">管理收货信息</a></li>
+                        <li><a href="/customer/html/customerInfo.html">管理个人资料</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">退出</a></li>
                     </ul>
@@ -103,25 +103,31 @@
                         <label for="name">用户名</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" id="name" placeholder="name" aria-describedby="basic-addon1">
-                        </div>                    </div>
-                        
+                            <input type="text" class="form-control" id="name" placeholder="name"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="password">密码</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" id="password" placeholder="Password" aria-describedby="basic-addon1">
-                        </div>                      </div>
+                            <input type="password" class="form-control" id="password" placeholder="Password"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="password1">确认密码</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" id="password1" placeholder="Password" aria-describedby="basic-addon1">
-                        </div>                      </div>
-                        <span id="error" class="error"></span>
-                        <br>
+                            <input type="password" class="form-control" id="password1" placeholder="Password"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <span id="error" class="error"></span>
+                    <br>
                     <button type="submit" class="btn btn-default">注册</button>
-                     
+
                 </form>
             </div>
 
