@@ -26,10 +26,10 @@
     <div class="menu">
         <div role="presentation" class="bar"  id="audit">
             <span class="glyphicon glyphicon-edit"></span>
-            <a href="merchant.html" class="aCss">待审核
-                <span class="circle" id="m">
-                     <span class="item" id="merchantInfoItem"></span>
-                </span>
+            <a href="merchant.html" class="aCss"id="merchantInfoItem">待审核
+                <!--<span class="circle" id="m">-->
+                     <!--<span class="item" id="merchantInfoItem"></span>-->
+                <!--</span>-->
             </a>
         </div>
         <div role="presentation" class="bar">
@@ -42,18 +42,18 @@
         </div>
         <div role="presentation" class="bar">
             <span class="glyphicon glyphicon-text-background"></span>
-            <a href="ads.html" class="aCss">广告审核
-                <span class="circle" id="ad">
-                     <span class="item" id="advertisementItem"></span>
-                </span>
+            <a href="ads.html" class="aCss"id="advertisementItem">广告审核
+                <!--<span class="circle" id="ad">-->
+                     <!--<span class="item" id="advertisementItem"></span>-->
+                <!--</span>-->
             </a>
         </div>
         <div role="presentation" class="bar">
             <span class="glyphicon glyphicon-warning-sign"></span>
-            <a href="comp.html" class="aCss">投诉审核
-                <span class="circle" id="cm">
-                     <span class="item" id="complaintItem"></span>
-                </span>
+            <a href="comp.html" class="aCss"id="complaintItem">投诉审核
+                <!--<span class="circle" id="cm">-->
+                     <!--<span class="item" id="complaintItem"></span>-->
+                <!--</span>-->
             </a>
         </div>
     </div>
@@ -116,7 +116,7 @@
 
 <script>
     window.onload = function () {
-        let url = "http://localhost:9090/admin/merchantInfo/status/2";
+        let url = "http://10.222.29.192:9090/admin/merchantInfo/status/2";
         MerchantComponent($("#app"),url,2);
     }
 </script>

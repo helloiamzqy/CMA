@@ -4,7 +4,7 @@ function ComplaintComponent($view, url) {
     let flag = "Complaint";
 
     let wsUrl = "ws://10.222.29.192:9090/admin/sync";
-    let countUrl = "http://localhost:9090/admin/message/unReadCount/";
+    let countUrl = "http://10.222.29.192:9090/admin/message/unReadCount/";
     let adNewCount = 0;
     let merNewCount = 0;
     init();
@@ -104,28 +104,28 @@ function ComplaintComponent($view, url) {
     }
 
     function renderBar() {
-        $("#cm").hide();
+       // $("#cm").hide();
         if (merNewCount > 0){
-            // $("#merchantInfoItem").text("待审核("+merNewCount+")");
-            $("#merchantInfoItem").text(merNewCount);
+             $("#merchantInfoItem").text("待审核("+merNewCount+")");
+          //  $("#merchantInfoItem").text(merNewCount);
         } else{
-            $("#m").hide();
-            // $("#merchantInfoItem").text("待审核");
+          //  $("#m").hide();
+             $("#merchantInfoItem").text("待审核");
         }
 
         if (adNewCount > 0){
-            // $("#advertisementItem").text("广告审核("+adNewCount+")");
-            $("#advertisementItem").text(adNewCount);
+             $("#advertisementItem").text("广告审核("+adNewCount+")");
+           // $("#advertisementItem").text(adNewCount);
         } else {
-            $("#ad").hide();
-            // $("#advertisementItem").text("广告审核");
+          //  $("#ad").hide();
+            $("#advertisementItem").text("广告审核");
         }
     }
 
     function updateIsRead(complaint) {
         cur = complaint;
         complaint.isRead = "true";
-        let url = "http://localhost:9090/admin/complaint"
+        let url = "http://10.222.29.192:9090/admin/complaint"
         myAjax(url,"PUT",complaint,(cb)=>{
             let index = model.indexOf(cur);
             model.splice(index,1,cb);
@@ -138,7 +138,7 @@ function ComplaintComponent($view, url) {
         cur = complaint;
         complaint.isRead = "true";
 
-        let url = "http://localhost:9090/admin/merchantInfo/updateStatus/"+complaint.merchantId;
+        let url = "http://10.222.29.192:9090/admin/merchantInfo/updateStatus/"+complaint.merchantId;
         myAjax(url,"PUT",null,(e)=>{
             let index = model.indexOf(cur);
             model.splice(index,1);

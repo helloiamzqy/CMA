@@ -30,14 +30,7 @@ public class MessageHandler extends TextWebSocketHandler{
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-
-        System.out.println("获得前端发送过来的消息 : " + message.getPayload());
         container.addSession(message.getPayload(), session);
-        System.out.println("此时储存session，container大小为 : " + container.getSize());
-        if (container.getSize() > 0) {
-            System.out.println("被存储的session为： " + container.getSession(message.getPayload()));
-        }
-
     }
 
     @Override

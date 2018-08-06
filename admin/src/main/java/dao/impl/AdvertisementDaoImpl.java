@@ -76,4 +76,6 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
         Advertisement advertisement1 = em.merge(advertisement);
         return advertisement1;
     }
+
+
 }

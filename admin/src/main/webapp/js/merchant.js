@@ -4,7 +4,7 @@ function MerchantComponent($view, url, type, tag) {
     let flag = "Merchant";
 
     let wsUrl = "ws://10.222.29.192:9090/admin/sync";
-    let countUrl = "http://localhost:9090/admin/message/unReadCount/";
+    let countUrl = "http://10.222.29.192:9090/admin/message/unReadCount/";
     let adNewCount = 0;
     let compNewCount = 0;
     let merNewCount = 0;
@@ -139,32 +139,32 @@ function MerchantComponent($view, url, type, tag) {
     }
 
     function renderBar() {
-        $("#m").hide();
+     //   $("#m").hide();
         if (compNewCount > 0){
-            // $("#complaintItem").text("投诉审核("+compNewCount+")");
-            $("#complaintItem").text(compNewCount);
+             $("#complaintItem").text("投诉审核("+compNewCount+")");
+          //  $("#complaintItem").text(compNewCount);
 
         } else {
-            $("#cm").hide();
-            // $("#complaintItem").text("投诉审核");
+          //  $("#cm").hide();
+             $("#complaintItem").text("投诉审核");
         }
 
         if (adNewCount > 0){
-            // $("#advertisementItem").text("广告审核("+adNewCount+")");
-            $("#advertisementItem").text(adNewCount);
+             $("#advertisementItem").text("广告审核("+adNewCount+")");
+          //  $("#advertisementItem").text(adNewCount);
         } else {
-            $("#ad").hide();
-            // $("#advertisementItem").text("广告审核");
+         //   $("#ad").hide();
+             $("#advertisementItem").text("广告审核");
         }
 
         if (type != "0"){
             $("#m").show();
             if (merNewCount > 0){
-                // $("#merchantInfoItem").text("待审核("+merNewCount+")");
-                $("#merchantInfoItem").text(merNewCount);
+                 $("#merchantInfoItem").text("待审核("+merNewCount+")");
+               // $("#merchantInfoItem").text(merNewCount);
             } else{
-                $("#m").hide();
-                // $("#merchantInfoItem").text("待审核");
+              //  $("#m").hide();
+                 $("#merchantInfoItem").text("待审核");
             }
         }
     }
@@ -172,7 +172,7 @@ function MerchantComponent($view, url, type, tag) {
     function updateIsRead(merchant) {
         cur = merchant;
         merchant.isRead = "true";
-        let url = "http://localhost:9090/admin/merchantInfo/update"
+        let url = "http://10.222.29.192:9090/admin/merchantInfo/update"
         myAjax(url,"PUT",merchant,(cb)=>{
             let index = model.indexOf(cur);
             model.splice(index,1,cb);
@@ -217,7 +217,7 @@ function MerchantComponent($view, url, type, tag) {
         // cur = merchant;
         merchant.status = status;
         merchant.isRead = "true";
-        let url = "http://localhost:9090/admin/merchantInfo/update"
+        let url = "http://10.222.29.192:9090/admin/merchantInfo/update"
         let merchant1 = myAjax(url,"PUT",merchant,(e)=>{
             let index = model.indexOf(cur);
             model.splice(index,1);
@@ -284,7 +284,7 @@ function MerchantComponent($view, url, type, tag) {
                 model = comp.dataList;
                 makePage(comp);
                 renderTable();
-            });
+            }); 
         })
     }
 }

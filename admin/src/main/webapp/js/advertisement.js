@@ -3,7 +3,7 @@ function AdvertisementComponent($view, url) {
     let cur;
     let flag = "Advertisement";
     let wsUrl = "ws://10.222.29.192:9090/admin/sync";
-    let countUrl = "http://localhost:9090/admin/message/unReadCount/";
+    let countUrl = "http://10.222.29.192:9090/admin/message/unReadCount/";
     let compNewCount = 0;
     let merNewCount = 0;
     init();
@@ -160,22 +160,22 @@ function AdvertisementComponent($view, url) {
     }
 
     function renderBar() {
-        $("#ad").hide();
+       // $("#ad").hide();
         if (merNewCount > 0){
-            // $("#merchantInfoItem").text("待审核("+merNewCount+")");
-            $("#merchantInfoItem").text(merNewCount);
+             $("#merchantInfoItem").text("待审核("+merNewCount+")");
+           // $("#merchantInfoItem").text(merNewCount);
         } else{
-            $("#m").hide()
-            // $("#merchantInfoItem").text("待审核");
+           // $("#m").hide()
+             $("#merchantInfoItem").text("待审核");
         }
 
         if (compNewCount > 0){
-            // $("#complaintItem").text("投诉审核("+compNewCount+")");
-            $("#complaintItem").text(compNewCount);
+             $("#complaintItem").text("投诉审核("+compNewCount+")");
+           // $("#complaintItem").text(compNewCount);
 
         } else {
-            $("#cm").hide();
-            // $("#complaintItem").text("投诉审核");
+           // $("#cm").hide();
+             $("#complaintItem").text("投诉审核");
         }
     }
 

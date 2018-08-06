@@ -1,5 +1,6 @@
 package manager;
 
+import factory.PojoFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -33,9 +34,7 @@ public class MerchantInfoManagerTest {
     public void testAddMerchantInfo(){
         MerchantInfo merchantInfo;
         MerchantInfo merchantInfo1;
-        merchantInfo = new MerchantInfo("7974465","123","123","123",
-                "http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg",
-                "123","123","123","0","123");
+        merchantInfo = PojoFactory.getMerchantInfoInstance();
         merchantInfo1 = manager.addMerchantInfo(merchantInfo);
         Assert.assertTrue(merchantInfo1.getId()!= null);
     }
@@ -44,9 +43,7 @@ public class MerchantInfoManagerTest {
     public void testUpdateMerchantInfo(){
         MerchantInfo merchantInfo;
         MerchantInfo merchantInfo1;
-        merchantInfo = new MerchantInfo("143","123","123","123",
-                "http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg",
-                "123","123","123","0","123");
+        merchantInfo = PojoFactory.getMerchantInfoInstance();
         merchantInfo1 = manager.addMerchantInfo(merchantInfo);
         merchantInfo1.setStatus("1");
         MerchantInfo merchantInfo2 = manager.updateMerchantInfo(merchantInfo1);
@@ -56,9 +53,7 @@ public class MerchantInfoManagerTest {
     @Test
     public void testfindMechantInfosByStatus(){
         MerchantInfo merchantInfo;
-        merchantInfo = new MerchantInfo("189","123","123","123",
-                "http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg",
-                "123","123","123","0","123");
+        merchantInfo = PojoFactory.getMerchantInfoInstance();
         manager.addMerchantInfo(merchantInfo);
         List<MerchantInfo> list = manager.findMechantInfosByStatus("0");
         Assert.assertTrue(list.size()>0);
@@ -67,17 +62,11 @@ public class MerchantInfoManagerTest {
     @Test
     public void testMechantInfoByMerchantId(){
         MerchantInfo merchantInfo;
-        merchantInfo = new MerchantInfo("76782768724","123","123","123",
-                "http://10.222.29.191:9091/picture/download/342876fa-a3aa-40cc-b0fc-809ec567b5b3.jpg",
-                "123","123","123","0","123");
+        merchantInfo = PojoFactory.getMerchantInfoInstance();
         manager.addMerchantInfo(merchantInfo);
         MerchantInfo merchantInfo1 = manager.findMechantInfoByMerchantId("76782768724");
-//        MerchantInfo merchantInfo2 = manager.findMechantInfoByMerchantId("76782234724");
-
 
         Assert.assertTrue(merchantInfo1 != null);
-//        Assert.assertTrue(merchantInfo2 == null);
-
 
     }
 }

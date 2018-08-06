@@ -37,20 +37,13 @@ public class MessageController {
         return status;
     }
 
-//    @RequestMapping(value = "advertisement",method = RequestMethod.GET)
-//    public String getSendAd(@RequestParam String validation){
-//        if ("request".equals(validation)){
-//            return manager.sendAds();
-//        }
-//        return "{}";
-//    }
 
     @RequestMapping(value = "advertisement",method = RequestMethod.GET)
     public List<Advertisement> getSendAd(){
         return advertiseManager.sendAds();
     }
 
-    @RequestMapping(value ="complaint/{id}",method = RequestMethod.GET)
+    @RequestMapping(value ="complaint/{id}",method = RequestMethod.GET,produces="application/json;charset=UTF-8")
     public List<Complaint> getComplaint(@PathVariable String id){
         return complaintManager.getComplaintById(id);
     }

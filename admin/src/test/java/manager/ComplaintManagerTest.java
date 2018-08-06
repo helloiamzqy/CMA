@@ -1,5 +1,6 @@
 package manager;
 
+import factory.PojoFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -9,7 +10,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.Complaint;
 import pojo.Page;
 import service.ComplaintManager;
-import service.impl.AdvertisementManagerImpl;
 import service.impl.ComplaintManagerImpl;
 
 import java.util.Date;
@@ -33,23 +33,14 @@ public class ComplaintManagerTest {
 
     @Test
     public void testAddComplaint(){
-        Complaint comp = new Complaint();
-        comp.setMerchantId("sdfs123sdf");
-        comp.setMerchantName("ttt");
-        comp.setOrderId("10001ad225");
-        comp.setCreateTime(new Date());
-        comp.setReason("很难啊吃");
+        Complaint comp = PojoFactory.getComplaintInstance();
         Complaint complaint = manager.addComplaint(comp);
         Assert.assertTrue(complaint.getId()!=null);
     }
 
     @Test
     public void testGetAllComplaint() throws Exception{
-        Complaint comp = new Complaint();
-        comp.setMerchantId("sdfs123sdf");
-        comp.setOrderId("10001ad225");
-        comp.setCreateTime(new Date());
-        comp.setReason("获取");
+        Complaint comp = PojoFactory.getComplaintInstance();
         manager.addComplaint(comp);
         int num = manager.getAllComplaints().size();
         Assert.assertTrue(num>0);
@@ -57,11 +48,7 @@ public class ComplaintManagerTest {
     @Test
     public void testDeleteComplaintById() throws Exception{
         int num = manager.getAllComplaints().size();
-        Complaint comp = new Complaint();
-        comp.setMerchantId("sdfs123sdf");
-        comp.setOrderId("10001ad225");
-        comp.setCreateTime(new Date());
-        comp.setReason("删除");
+        Complaint comp = PojoFactory.getComplaintInstance();
         Complaint complaint = manager.addComplaint(comp);
         manager.deleteComplaint(complaint.getId());
         int num2 = manager.getAllComplaints().size();
@@ -70,16 +57,8 @@ public class ComplaintManagerTest {
 
     @Test
     public void testGetComplaintByPage(){
-        Complaint comp = new Complaint();
-        comp.setMerchantId("sdfs123sdf");
-        comp.setOrderId("10001ad225");
-        comp.setCreateTime(new Date());
-        comp.setReason("page1");
-        Complaint comp2 = new Complaint();
-        comp2.setMerchantId("sdfs123sdf");
-        comp2.setOrderId("10001ad225");
-        comp2.setCreateTime(new Date());
-        comp2.setReason("page2");
+        Complaint comp = PojoFactory.getComplaintInstance();
+        Complaint comp2 = PojoFactory.getComplaintInstance();
         manager.addComplaint(comp);
         manager.addComplaint(comp2);
         Page<Complaint> page = manager.getComplaintByPage(1,2);
@@ -89,12 +68,7 @@ public class ComplaintManagerTest {
 
     @Test
     public void testGetComplaintById() throws Exception{
-        Complaint comp = new Complaint();
-        comp.setMerchantId("tttestttt");
-        comp.setMerchantName("oooo");
-        comp.setOrderId("10001ad225");
-        comp.setCreateTime(new Date());
-        comp.setReason("getById");
+        Complaint comp = PojoFactory.getComplaintInstance();
         Complaint complaint = manager.addComplaint(comp);
         List<Complaint> cps = manager.getComplaintById(complaint.getMerchantId());
         Assert.assertTrue(cps.size()>0&&cps.get(cps.size()-1).getId().equals(complaint.getId()));
